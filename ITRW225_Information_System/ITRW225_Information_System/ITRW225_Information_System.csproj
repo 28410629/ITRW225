@@ -61,11 +61,23 @@
     <Compile Include="UI_AddClientInfo.Designer.cs">
       <DependentUpon>UI_AddClientInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_AddNewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_AddNewEmployee.Designer.cs">
+      <DependentUpon>UI_AddNewEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_SearchClientList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI_SearchClientList.Designer.cs">
       <DependentUpon>UI_SearchClientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_SearchEmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_SearchEmployeeList.Designer.cs">
+      <DependentUpon>UI_SearchEmployeeList.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,8 +91,14 @@
     <EmbeddedResource Include="UI_AddClientInfo.resx">
       <DependentUpon>UI_AddClientInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI_AddNewEmployee.resx">
+      <DependentUpon>UI_AddNewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI_SearchClientList.resx">
       <DependentUpon>UI_SearchClientList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_SearchEmployeeList.resx">
+      <DependentUpon>UI_SearchEmployeeList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
