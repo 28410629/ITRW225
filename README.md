@@ -5,10 +5,10 @@ This project entails building an information system.
 ---
 
 **Team Members**
- * Coenraad Human
- * Corne Kooij (Consulting Member)
- * Pieter Brand
- * Savannah Fritze
+    *  Coenraad Human
+    *  Corne Kooij (Consulting Member)
+    *  Pieter Brand
+    *  Savannah Fritze
 
 ---
 
@@ -16,7 +16,7 @@ This project entails building an information system.
 
 1. Screen Resolution: 1366x768
 2. Memory: 2GB
-3. .Net Framework: 
+3. Dot Net Framework: 
 
 ---
 
@@ -32,8 +32,8 @@ This project entails building an information system.
 :sunglasses:
 
 *Note:*
- * Regular meetings will be held on Fridays mornings.
- * Ensure weekly cards are completed before Fridays.
+    *  Regular meetings will be held on Fridays mornings.
+    *  Ensure weekly cards are completed before Fridays.
 
 ---
 
