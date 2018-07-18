@@ -5,10 +5,10 @@ This project entails building an information system.
 ---
 
 **Team Members**
-- Coenraad Human
-- Corne Kooij (Consulting Member)
-- Pieter Brand
-- Savannah Fritze
+* Coenraad Human
+* Corne Kooij (Consulting Member)
+* Pieter Brand
+* Savannah Fritze
 
 ---
 
@@ -27,12 +27,14 @@ This project entails building an information system.
 3. When succesful, **merge** or **rebase** your branch with develop.
 4. If there are no merge conflicts, create a **pull request**.
 5. When approved by selected reviewer, check email for **build server results**.
-6. If build was unsuccessful, ensure to fix it :smile:
+6. If build was unsuccessful, ensure to fix it 
+
+:smile:
 
 *Note:*
-- Regular meetings will be held on Fridays mornings.
-- Ensure weekly cards are completed before Fridays.
+* Regular meetings will be held on Fridays mornings.
+* Ensure weekly cards are completed before Fridays.
 
 ---
 
-![University Logo](images/scheme.jpg)
+![University Logo](https://bitbucket.org/leafgreenitsolutions/mr_salad/raw/7028dbd50f2d2b055aa598ece3bbb2dc0ec875c8/Images/unnamed.jpg)
