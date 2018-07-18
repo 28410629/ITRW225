@@ -30,5 +30,6 @@ namespace ITRW225_Information_System
                 default:
                     break;
             }
+        }
     }
-    }
+}
