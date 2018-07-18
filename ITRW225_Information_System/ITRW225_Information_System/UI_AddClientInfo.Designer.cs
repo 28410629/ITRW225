@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBFirstName = new System.Windows.Forms.TextBox();
+            this.txtBLastName = new System.Windows.Forms.TextBox();
+            this.txtBClientNum = new System.Windows.Forms.TextBox();
+            this.txtBBackUp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtBClientEmail = new System.Windows.Forms.TextBox();
             this.btnUpdateClientInfo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -55,33 +55,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter client first name:";
             // 
-            // textBox1
+            // txtBFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(215, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtBFirstName.Location = new System.Drawing.Point(215, 19);
+            this.txtBFirstName.Name = "txtBFirstName";
+            this.txtBFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtBFirstName.TabIndex = 1;
             // 
-            // textBox2
+            // txtBLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(215, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtBLastName.Location = new System.Drawing.Point(215, 45);
+            this.txtBLastName.Name = "txtBLastName";
+            this.txtBLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtBLastName.TabIndex = 2;
             // 
-            // textBox3
+            // txtBClientNum
             // 
-            this.textBox3.Location = new System.Drawing.Point(212, 16);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 3;
+            this.txtBClientNum.Location = new System.Drawing.Point(212, 16);
+            this.txtBClientNum.Name = "txtBClientNum";
+            this.txtBClientNum.Size = new System.Drawing.Size(100, 20);
+            this.txtBClientNum.TabIndex = 3;
             // 
-            // textBox4
+            // txtBBackUp
             // 
-            this.textBox4.Location = new System.Drawing.Point(212, 42);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
+            this.txtBBackUp.Location = new System.Drawing.Point(212, 42);
+            this.txtBBackUp.Name = "txtBBackUp";
+            this.txtBBackUp.Size = new System.Drawing.Size(100, 20);
+            this.txtBBackUp.TabIndex = 4;
             // 
             // label2
             // 
@@ -119,12 +119,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Enter client\'s email address:";
             // 
-            // textBox5
+            // txtBClientEmail
             // 
-            this.textBox5.Location = new System.Drawing.Point(212, 68);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtBClientEmail.Location = new System.Drawing.Point(212, 68);
+            this.txtBClientEmail.Name = "txtBClientEmail";
+            this.txtBClientEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtBClientEmail.TabIndex = 9;
             // 
             // btnUpdateClientInfo
             // 
@@ -149,8 +149,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtBLastName);
+            this.groupBox1.Controls.Add(this.txtBFirstName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 6);
             this.groupBox1.Name = "groupBox1";
@@ -163,9 +163,9 @@
             // 
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.txtBClientNum);
+            this.groupBox2.Controls.Add(this.txtBBackUp);
+            this.groupBox2.Controls.Add(this.txtBClientEmail);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(6, 88);
             this.groupBox2.Name = "groupBox2";
@@ -198,15 +198,15 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBFirstName;
+        private System.Windows.Forms.TextBox txtBLastName;
+        private System.Windows.Forms.TextBox txtBClientNum;
+        private System.Windows.Forms.TextBox txtBBackUp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBClientEmail;
         private System.Windows.Forms.Button btnUpdateClientInfo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
