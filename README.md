@@ -5,10 +5,10 @@ This project entails building an information system.
 ---
 
 **Team Members**
-* Coenraad Human
-* Corne Kooij (Consulting Member)
-* Pieter Brand
-* Savannah Fritze
+ * Coenraad Human
+ * Corne Kooij (Consulting Member)
+ * Pieter Brand
+ * Savannah Fritze
 
 ---
 
@@ -29,11 +29,11 @@ This project entails building an information system.
 5. When approved by selected reviewer, check email for **build server results**.
 6. If build was unsuccessful, ensure to fix it 
 
-:smile:
+:sunglasses:
 
 *Note:*
-* Regular meetings will be held on Fridays mornings.
-* Ensure weekly cards are completed before Fridays.
+ * Regular meetings will be held on Fridays mornings.
+ * Ensure weekly cards are completed before Fridays.
 
 ---
 
