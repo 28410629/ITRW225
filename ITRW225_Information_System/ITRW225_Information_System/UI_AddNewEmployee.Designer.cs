@@ -296,7 +296,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Name);
-            this.Name = "UI_AddNewEmployee";
+            //this.Name = "UI_AddNewEmployee";
             this.Text = "UI_AddNewEmployee";
             this.Name.ResumeLayout(false);
             this.Name.PerformLayout();
