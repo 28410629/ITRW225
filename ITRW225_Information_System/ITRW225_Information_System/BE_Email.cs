@@ -34,14 +34,14 @@ namespace ITRW225_Information_System
                         MailMessage mail = new MailMessage();
                         SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                        mail.From = new MailAddress("your_email_address@gmail.com");
+                        mail.From = new MailAddress("leafgreenitsolutions.mrsalad@gmail.com");
                         mail.To.Add(email);
                         mail.Subject = "Mr Salad - Reset Password for " + email;
                         BE_GeneratePassword pass = new BE_GeneratePassword();
                         mail.Body = "Your new password is: " + pass.generate();
 
                         SmtpServer.Port = 587;
-                        SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("leafgreenitsolutions.mrsalad@gmail.com", "Google18!");
                         SmtpServer.EnableSsl = true;
 
                         SmtpServer.Send(mail);

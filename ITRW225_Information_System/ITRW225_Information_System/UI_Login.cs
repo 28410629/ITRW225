@@ -19,8 +19,10 @@ namespace ITRW225_Information_System
 
         private void labelForgot_Click(object sender, EventArgs e)
         {
+            labelStatus.Enabled = false;
             BE_Email mail = new BE_Email();
             labelStatus.Text = mail.SendResetPassword(textBoxUser.Text);
+            labelStatus.Enabled = true;
         }
 
         private void UI_Login_Load(object sender, EventArgs e)
