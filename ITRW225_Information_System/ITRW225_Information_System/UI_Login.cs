@@ -19,7 +19,8 @@ namespace ITRW225_Information_System
 
         private void labelForgot_Click(object sender, EventArgs e)
         {
-
+            BE_Email mail = new BE_Email();
+            labelStatus.Text = mail.SendResetPassword(textBoxUser.Text);
         }
 
         private void UI_Login_Load(object sender, EventArgs e)
