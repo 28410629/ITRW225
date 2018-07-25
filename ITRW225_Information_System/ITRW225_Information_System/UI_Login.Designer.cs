@@ -33,8 +33,9 @@
             this.labelForgot = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelLogin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // labelForgot
             // 
             this.labelForgot.AutoSize = true;
-            this.labelForgot.Location = new System.Drawing.Point(242, 346);
+            this.labelForgot.Location = new System.Drawing.Point(271, 351);
             this.labelForgot.Name = "labelForgot";
             this.labelForgot.Size = new System.Drawing.Size(92, 13);
             this.labelForgot.TabIndex = 2;
@@ -81,23 +82,33 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // labelEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 300);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Email:";
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(142, 300);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(35, 13);
+            this.labelEmail.TabIndex = 5;
+            this.labelEmail.Text = "Email:";
             // 
-            // label2
+            // labelPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(121, 326);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Password:";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Location = new System.Drawing.Point(121, 326);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(56, 13);
+            this.labelPassword.TabIndex = 6;
+            this.labelPassword.Text = "Password:";
+            // 
+            // labelLogin
+            // 
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Location = new System.Drawing.Point(212, 351);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(33, 13);
+            this.labelLogin.TabIndex = 7;
+            this.labelLogin.Text = "Login";
+            this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 
             // UI_Login
             // 
@@ -105,9 +116,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(572, 370);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(572, 373);
+            this.Controls.Add(this.labelLogin);
+            this.Controls.Add(this.labelPassword);
+            this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelForgot);
@@ -130,7 +142,8 @@
         private System.Windows.Forms.Label labelForgot;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelLogin;
     }
 }
