@@ -38,19 +38,7 @@ namespace ITRW225_Information_System
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
-            {
-                case DialogResult.No:
-                    break;
-                case DialogResult.Yes:
-                    loginWindow.ShowInTaskbar = true;
-                    loginWindow.Show();
-                    this.Close();
-                    break;
-                default:
-                    break;
-            }
-            
+            this.Close();
         }
     }
 }
