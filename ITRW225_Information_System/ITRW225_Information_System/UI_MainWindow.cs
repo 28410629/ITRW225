@@ -12,24 +12,45 @@ namespace ITRW225_Information_System
 {
     public partial class UI_MainWindow : Form
     {
-        public UI_MainWindow()
+        private Form loginWindow;
+
+        public UI_MainWindow(Form loginWindow)
         {
+            this.loginWindow = loginWindow;
             InitializeComponent();
         }
 
         private void UI_MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (MessageBox.Show(this, "Are you sure you want to close?", "Closing", MessageBoxButtons.YesNo))
+            switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
             {
                 case DialogResult.No:
                     e.Cancel = true;
                     break;
                 case DialogResult.Yes:
-                    Application.Exit();
+                    loginWindow.ShowInTaskbar = true;
+                    loginWindow.Show();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
+            {
+                case DialogResult.No:
+                    break;
+                case DialogResult.Yes:
+                    loginWindow.ShowInTaskbar = true;
+                    loginWindow.Show();
+                    this.Close();
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 }

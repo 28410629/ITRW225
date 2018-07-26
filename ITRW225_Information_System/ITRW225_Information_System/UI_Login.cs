@@ -21,8 +21,8 @@ namespace ITRW225_Information_System
         {
             labelStatus.Text = "";
             labelForgot.Enabled = false;
-            BE_Email mail = new BE_Email();
-            labelStatus.Text = mail.SendResetPassword(textBoxUser.Text);
+            BE_LoginProcedures login = new BE_LoginProcedures(this);
+            labelStatus.Text = login.resetPasswordProcedure(textBoxUser.Text);
             labelForgot.Enabled = true;
         }
 
@@ -34,8 +34,10 @@ namespace ITRW225_Information_System
 
         private void labelLogin_Click(object sender, EventArgs e)
         {
-            labelLogin.Enabled = false;
             labelStatus.Text = "Logging in, please wait.";
+            labelLogin.Enabled = false;
+            BE_LoginProcedures login = new BE_LoginProcedures(this);
+            labelStatus.Text = login.loginProcedure(textBoxUser.Text,textBoxPassword.Text);
             labelLogin.Enabled = true;
         }
     }
