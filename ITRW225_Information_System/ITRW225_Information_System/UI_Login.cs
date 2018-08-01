@@ -40,5 +40,13 @@ namespace ITRW225_Information_System
             labelStatus.Text = login.loginProcedure(textBoxUser.Text,textBoxPassword.Text);
             labelLogin.Enabled = true;
         }
+
+        private void UI_Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                labelLogin_Click(sender, e);
+            }
+        }
     }
 }
