@@ -40,5 +40,12 @@ namespace ITRW225_Information_System
         {
             this.Close();
         }
+
+        private void userMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UI_UserMaintenance user = new UI_UserMaintenance();
+            user.MdiParent = this;
+            user.Show();
+        }
     }
 }

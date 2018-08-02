@@ -17,7 +17,7 @@ namespace ITRW225_Information_System
             return Convert.ToBase64String(hashBytes);
         }
 
-        public int checkLogin(string user, string pass)
+        public string[] checkLogin(string user, string pass)
         {
             try
             {
@@ -28,7 +28,17 @@ namespace ITRW225_Information_System
                     DataSet dataSet = new DataSet();
                     adapter.Fill(dataSet, "list");
                     database.Close();
-                    return dataSet.Tables[0].Rows.Count;
+                    if (dataSet.Tables[0].Rows.Count == 1)
+                    {
+                        //string some
+                        string[] arr = new string[] { "1" };
+                        return arr;
+                    }
+                    else
+                    {
+                        string[] arr = new string[] { "0" };
+                        return arr;
+                    }
                 }
             }
             catch (Exception)

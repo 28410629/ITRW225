@@ -27,23 +27,22 @@ namespace ITRW225_Information_System
                 else
                 {
                     BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
-                    int userAmount = dbCommands.checkLogin(email, password);
-                    if (userAmount == 0)
+                    string[] userAmount = dbCommands.checkLogin(email, password);
+                    if (userAmount[0] == "0")
                     {
                         return "User is not registered on the system.";
                     }
-                    else if (userAmount > 1)
+                    else if (userAmount[0] == "1")
                     {
-                        return "Contact IT administration! Database might be tempered with!";
-                    }
-                    else
-                    {
-                        // hide login and enter main 
                         UI_MainWindow mdiWindow = new UI_MainWindow(loginWindow);
                         loginWindow.ShowInTaskbar = false;
                         loginWindow.Hide();
                         mdiWindow.Show();
                         return "Successful";
+                    }
+                    else
+                    {
+                        return "Contact IT administration! Database might be tempered with!";
                     }
                 }
             }
