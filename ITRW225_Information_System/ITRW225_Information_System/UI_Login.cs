@@ -12,8 +12,11 @@ namespace ITRW225_Information_System
 {
     public partial class UI_Login : Form
     {
+        BE_LoginProcedures login;
+
         public UI_Login()
         {
+            this.login = new BE_LoginProcedures(this);
             InitializeComponent();
         }
 
@@ -22,8 +25,7 @@ namespace ITRW225_Information_System
             labelStatus.Text = "Busy resetting password, please wait.";
             labelStatus.Refresh();
             labelForgot.Enabled = false;
-            BE_LoginProcedures login = new BE_LoginProcedures(this, textBoxUser.Text, textBoxPassword.Text);
-            labelStatus.Text = login.resetPasswordProcedure();
+            labelStatus.Text = login.resetPasswordProcedure(textBoxUser.Text);
             labelForgot.Enabled = true;
         }
 
@@ -38,8 +40,7 @@ namespace ITRW225_Information_System
             labelStatus.Text = "Logging in, please wait.";
             labelStatus.Refresh();
             labelLogin.Enabled = false;
-            BE_LoginProcedures login = new BE_LoginProcedures(this, textBoxUser.Text, textBoxPassword.Text);
-            labelStatus.Text = login.loginProcedure();
+            labelStatus.Text = login.loginProcedure(textBoxUser.Text, textBoxPassword.Text);
             labelLogin.Enabled = true;
         }
 

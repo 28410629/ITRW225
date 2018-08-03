@@ -9,17 +9,13 @@ namespace ITRW225_Information_System
     public class BE_LoginProcedures
     {
         private Form loginWindow;
-        private string email;
-        private string password;
 
-        public BE_LoginProcedures(Form loginWindow, string email, string password)
+        public BE_LoginProcedures(Form loginWindow)
         {
             this.loginWindow = loginWindow;
-            this.email = email;
-            this.password = password;
         }
 
-        public string loginProcedure()
+        public string loginProcedure(string email, string password)
         {
             if (String.IsNullOrWhiteSpace(email))
             {
@@ -73,7 +69,7 @@ namespace ITRW225_Information_System
             }
         }
 
-        public string resetPasswordProcedure()
+        public string resetPasswordProcedure(string email)
         {
             if (String.IsNullOrWhiteSpace(email))
             {
@@ -118,7 +114,7 @@ namespace ITRW225_Information_System
                         SmtpServer.EnableSsl = true;
                         SmtpServer.Send(mail);
 
-                        updatePassDB();
+                        updatePassDB(email, password);
 
                         return "New password sent: " + email;
                     }
@@ -132,7 +128,7 @@ namespace ITRW225_Information_System
             }
         }
 
-        private void updatePassDB()
+        private void updatePassDB(string email, string password)
         {
             BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
             using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))

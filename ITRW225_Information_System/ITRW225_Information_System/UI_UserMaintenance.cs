@@ -16,5 +16,10 @@ namespace ITRW225_Information_System
         {
             InitializeComponent();
         }
+
+        private void UI_UserMaintenance_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
