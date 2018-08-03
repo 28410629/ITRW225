@@ -26,13 +26,10 @@ namespace ITRW225_Information_System
                 path += "//" + DateTime.Now.ToLongDateString() + ".txt";
                 using (StreamWriter writer = new StreamWriter(path))
                 {
-                    if (!File.Exists(path))
-                    {
-                        writer.WriteLine(source);
-                        writer.WriteLine();
-                        writer.WriteLine(message);
-                        writer.WriteLine();
-                    }
+                    writer.WriteLine(source);
+                    writer.WriteLine();
+                    writer.WriteLine(message);
+                    writer.WriteLine();
                 }
             }
             catch (Exception ex)
