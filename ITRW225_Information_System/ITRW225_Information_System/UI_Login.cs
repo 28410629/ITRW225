@@ -19,7 +19,8 @@ namespace ITRW225_Information_System
 
         private void labelForgot_Click(object sender, EventArgs e)
         {
-            setStatus("Busy resetting password, please wait.");
+            labelStatus.Text = "Busy resetting password, please wait.";
+            labelStatus.Refresh();
             labelForgot.Enabled = false;
             BE_LoginProcedures login = new BE_LoginProcedures(this, textBoxUser.Text, textBoxPassword.Text);
             labelStatus.Text = login.resetPasswordProcedure();
@@ -34,7 +35,8 @@ namespace ITRW225_Information_System
 
         private void labelLogin_Click(object sender, EventArgs e)
         {
-            setStatus("Logging in, please wait.");
+            labelStatus.Text = "Logging in, please wait.";
+            labelStatus.Refresh();
             labelLogin.Enabled = false;
             BE_LoginProcedures login = new BE_LoginProcedures(this, textBoxUser.Text, textBoxPassword.Text);
             labelStatus.Text = login.loginProcedure();
@@ -47,11 +49,6 @@ namespace ITRW225_Information_System
             {
                 labelLogin_Click(sender, e);
             }
-        }
-
-        private void setStatus(string message)
-        {
-            labelStatus.Text = message;
         }
     }
 }
