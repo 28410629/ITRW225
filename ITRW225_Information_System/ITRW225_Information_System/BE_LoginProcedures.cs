@@ -34,7 +34,7 @@ namespace ITRW225_Information_System
                     }
                     else if (userAmount[0] == "1")
                     {
-                        UI_MainWindow mdiWindow = new UI_MainWindow(loginWindow);
+                        UI_MainWindow mdiWindow = new UI_MainWindow(loginWindow, userAmount);
                         loginWindow.ShowInTaskbar = false;
                         loginWindow.Hide();
                         mdiWindow.Show();

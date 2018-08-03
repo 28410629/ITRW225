@@ -258,6 +258,7 @@
             this.ShowIcon = false;
             this.Text = "Mr Salad - Information System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_MainWindow_FormClosing);
+            this.Load += new System.EventHandler(this.UI_MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

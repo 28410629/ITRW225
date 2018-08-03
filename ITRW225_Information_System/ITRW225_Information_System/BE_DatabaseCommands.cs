@@ -19,6 +19,7 @@ namespace ITRW225_Information_System
 
         public string[] checkLogin(string user, string pass)
         {
+            string amountUsers = "";
             try
             {
                 using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
@@ -28,22 +29,23 @@ namespace ITRW225_Information_System
                     DataSet dataSet = new DataSet();
                     adapter.Fill(dataSet, "list");
                     database.Close();
+                    amountUsers = Convert.ToString(dataSet.Tables[0].Rows.Count);
                     if (dataSet.Tables[0].Rows.Count == 1)
                     {
-                        //string some
-                        string[] arr = new string[] { "1" };
+                        string[] arr = new string[] { amountUsers, dataSet.Tables[0].Rows[0].ItemArray.GetValue(1).ToString(),  dataSet.Tables[0].Rows[0].ItemArray.GetValue(2).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(4).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(5).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(6).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(7).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(8).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(9).ToString() };
                         return arr;
                     }
                     else
                     {
-                        string[] arr = new string[] { "0" };
+                        string[] arr = new string[] { amountUsers };
                         return arr;
                     }
                 }
             }
             catch (Exception)
             {
-                return 0;
+                string[] arr = new string[] { amountUsers };
+                return arr;
             }
         }
 
