@@ -31,6 +31,7 @@ namespace ITRW225_Information_System
                 {
                     string rowCount;
                     string[] userArr;
+                    bool access = false;
                     BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
                     using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                     {
@@ -43,6 +44,7 @@ namespace ITRW225_Information_System
                         if (dataSet.Tables[0].Rows.Count == 1)
                         {
                             userArr = new string[] { rowCount, dataSet.Tables[0].Rows[0].ItemArray.GetValue(1).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(2).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(4).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(5).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(6).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(7).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(8).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(9).ToString() };
+                            access = Convert.ToBoolean(dataSet.Tables[0].Rows[0].ItemArray.GetValue(10).ToString());
                         }
                         else
                         {
@@ -55,16 +57,24 @@ namespace ITRW225_Information_System
                     }
                     else if (userArr[0] == "1")
                     {
-                        UI_MainWindow mdiWindow = new UI_MainWindow(loginWindow, userArr);
-                        loginWindow.ShowInTaskbar = false;
-                        loginWindow.Hide();
-                        mdiWindow.Show();
-                        return "Login Successful";
+                        if (access)
+                        {
+                            UI_MainWindow mdiWindow = new UI_MainWindow(loginWindow, userArr);
+                            loginWindow.ShowInTaskbar = false;
+                            loginWindow.Hide();
+                            mdiWindow.Show();
+                            return "Login Successful";
+                        }
+                        else
+                        {
+                            return "Access to system is blocked by administrator!";
+                        }
                     }
                     else
                     {
                         return "Contact IT administration! Database might be tempered with!";
                     }
+                    
                 }
             }
         }

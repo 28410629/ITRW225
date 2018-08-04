@@ -256,6 +256,7 @@
             this.MinimumSize = new System.Drawing.Size(1280, 726);
             this.Name = "UI_MainWindow";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mr Salad - Information System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.UI_MainWindow_Load);
