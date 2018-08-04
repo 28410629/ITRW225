@@ -86,6 +86,12 @@
     <Compile Include="UI_MainWindow.Designer.cs">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_PointOfSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_PointOfSale.Designer.cs">
+      <DependentUpon>UI_PointOfSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_UserMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_MainWindow.resx">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_PointOfSale.resx">
+      <DependentUpon>UI_PointOfSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_UserMaintenance.resx">
       <DependentUpon>UI_UserMaintenance.cs</DependentUpon>
