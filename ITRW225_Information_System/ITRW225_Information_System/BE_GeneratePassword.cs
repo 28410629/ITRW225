@@ -10,6 +10,7 @@ namespace ITRW225_Information_System
     {
         public string generate()
         {
+
             return "password";
         }
     }
