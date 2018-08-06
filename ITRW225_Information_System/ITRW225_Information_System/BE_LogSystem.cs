@@ -8,7 +8,7 @@ namespace ITRW225_Information_System
         private string source;
         private string message;
         private string stackTrace;
-        
+
         public BE_LogSystem(Exception ex)
         {
             message = ex.Message;
@@ -25,8 +25,8 @@ namespace ITRW225_Information_System
                 {
                     Directory.CreateDirectory(path);
                 }
-                path += "//" + DateTime.Now.ToLongDateString() + ".txt";
-                using (StreamWriter writer = new StreamWriter(path))
+                path += String.Format("//{0} {1} {2}.txt", DateTime.Now.Year, DateTime.Now.ToString("MMMM"), DateTime.Now.Day);
+                using (StreamWriter writer = new StreamWriter(path, append: true))
                 {
                     writer.WriteLine(DateTime.Now.ToString("h:mm:ss tt") + " " + source);
                     writer.WriteLine();

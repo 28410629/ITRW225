@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ITRW225_Information_System
 {
@@ -10,8 +6,14 @@ namespace ITRW225_Information_System
     {
         public string generate()
         {
-
-            return "password";
+            Random random = new Random();
+            string allowedChar = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVW12334567890!#$";
+            string password = "";
+            for (int i = 0; i < 8; i++)
+            {
+                password += allowedChar[random.Next(allowedChar.Length)];
+            }
+            return password;
         }
     }
 }

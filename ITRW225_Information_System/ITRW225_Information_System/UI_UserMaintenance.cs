@@ -101,8 +101,23 @@ namespace ITRW225_Information_System
             {
                 if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
                 {
-                    MessageBox.Show(maintenance.accessSystemDB(listL[i][8], listE[i][0]));
-                    labelStatus.Text = "User can access system.";
+                    string message = maintenance.accessSystemDB("true", listE[i][0]);
+                    MessageBox.Show(message);
+                    if (message == "Updated access permission to system!")
+                    {
+                        labelStatus.Text = "User can access system.";
+                    }
+                    else
+                    {
+                        if (Convert.ToBoolean(listL[i][8]))
+                        {
+                            labelStatus.Text = "User can access system.";
+                        }
+                        else
+                        {
+                            labelStatus.Text = "User is denied access to system.";
+                        }
+                    }
                 }
             }
         }
@@ -113,8 +128,23 @@ namespace ITRW225_Information_System
             {
                 if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
                 {
-                    MessageBox.Show(maintenance.accessSystemDB(listL[i][8], listE[i][0]));
-                    labelStatus.Text = "User is denied access to system.";
+                    string message = maintenance.accessSystemDB("false", listE[i][0]);
+                    MessageBox.Show(message);
+                    if (message == "Updated access permission to system!")
+                    {
+                        labelStatus.Text = "User is denied access to system.";
+                    }
+                    else
+                    {
+                        if (Convert.ToBoolean(listL[i][8]))
+                        {
+                            labelStatus.Text = "User can access system.";
+                        }
+                        else
+                        {
+                            labelStatus.Text = "User is denied access to system.";
+                        }
+                    }
                 }
             }
         }
