@@ -33,20 +33,23 @@
             this.labelForgot = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelLogin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxUser
             // 
             this.textBoxUser.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxUser.Location = new System.Drawing.Point(183, 289);
+            this.textBoxUser.Location = new System.Drawing.Point(53, 12);
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(206, 20);
             this.textBoxUser.TabIndex = 0;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(183, 315);
+            this.textBoxPassword.Location = new System.Drawing.Point(327, 12);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(206, 20);
@@ -55,7 +58,7 @@
             // labelForgot
             // 
             this.labelForgot.AutoSize = true;
-            this.labelForgot.Location = new System.Drawing.Point(242, 338);
+            this.labelForgot.Location = new System.Drawing.Point(441, 328);
             this.labelForgot.Name = "labelForgot";
             this.labelForgot.Size = new System.Drawing.Size(92, 13);
             this.labelForgot.TabIndex = 2;
@@ -65,7 +68,7 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(180, 260);
+            this.labelStatus.Location = new System.Drawing.Point(9, 351);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(0, 13);
             this.labelStatus.TabIndex = 3;
@@ -73,11 +76,39 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(565, 231);
+            this.pictureBox1.Size = new System.Drawing.Size(521, 287);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(12, 15);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(35, 13);
+            this.labelEmail.TabIndex = 5;
+            this.labelEmail.Text = "Email:";
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Location = new System.Drawing.Point(265, 15);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(56, 13);
+            this.labelPassword.TabIndex = 6;
+            this.labelPassword.Text = "Password:";
+            // 
+            // labelLogin
+            // 
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Location = new System.Drawing.Point(402, 328);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(33, 13);
+            this.labelLogin.TabIndex = 7;
+            this.labelLogin.Text = "Login";
+            this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 
             // UI_Login
             // 
@@ -85,15 +116,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(589, 370);
+            this.ClientSize = new System.Drawing.Size(546, 373);
+            this.Controls.Add(this.labelLogin);
+            this.Controls.Add(this.labelPassword);
+            this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelForgot);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUser);
+            this.KeyPreview = true;
             this.Name = "UI_Login";
-            this.Text = "Mr Salad - Login";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.UI_Login_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UI_Login_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,5 +144,8 @@
         private System.Windows.Forms.Label labelForgot;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelLogin;
     }
 }
