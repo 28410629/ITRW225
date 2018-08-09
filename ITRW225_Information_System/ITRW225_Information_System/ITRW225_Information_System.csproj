@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE_AddNewEmployee.cs" />
     <Compile Include="BE_DatabaseCommands.cs" />
     <Compile Include="BE_GeneratePassword.cs" />
     <Compile Include="BE_LoginProcedures.cs" />

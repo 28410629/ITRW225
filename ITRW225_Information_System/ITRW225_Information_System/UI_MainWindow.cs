@@ -67,5 +67,12 @@ namespace ITRW225_Information_System
             userMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[7]);
             preferencesToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[8]);
         }
+
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UI_AddNewEmployee employee = new UI_AddNewEmployee();
+            employee.MdiParent = this;
+            employee.Show();
+        }
     }
 }
