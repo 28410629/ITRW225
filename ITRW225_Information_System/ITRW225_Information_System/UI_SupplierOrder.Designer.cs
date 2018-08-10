@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class Supplierorder
+    partial class UI_SupplierOrder
     {
         /// <summary>
         /// Required designer variable.
