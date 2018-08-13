@@ -126,6 +126,7 @@
             this.updateEmployeeToolStripMenuItem.Name = "updateEmployeeToolStripMenuItem";
             this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateEmployeeToolStripMenuItem.Text = "Update Employee";
+            this.updateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.updateEmployeeToolStripMenuItem_Click);
             // 
             // removeEmployeeToolStripMenuItem
             // 
@@ -146,19 +147,19 @@
             // cancelOrderToolStripMenuItem
             // 
             this.cancelOrderToolStripMenuItem.Name = "cancelOrderToolStripMenuItem";
-            this.cancelOrderToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cancelOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cancelOrderToolStripMenuItem.Text = "Cancel Order";
             // 
             // placeOrderToolStripMenuItem
             // 
             this.placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
-            this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.placeOrderToolStripMenuItem.Text = "Place Order";
             // 
             // viewOrdersToolStripMenuItem
             // 
             this.viewOrdersToolStripMenuItem.Name = "viewOrdersToolStripMenuItem";
-            this.viewOrdersToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.viewOrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewOrdersToolStripMenuItem.Text = "View Orders";
             // 
             // reportsToolStripMenuItem

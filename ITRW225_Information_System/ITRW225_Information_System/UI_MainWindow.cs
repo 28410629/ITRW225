@@ -70,7 +70,14 @@ namespace ITRW225_Information_System
 
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UI_AddNewEmployee employee = new UI_AddNewEmployee();
+            UI_EmployeeMaintenance employee = new UI_EmployeeMaintenance(true);
+            employee.MdiParent = this;
+            employee.Show();
+        }
+
+        private void updateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UI_EmployeeMaintenance employee = new UI_EmployeeMaintenance(false);
             employee.MdiParent = this;
             employee.Show();
         }

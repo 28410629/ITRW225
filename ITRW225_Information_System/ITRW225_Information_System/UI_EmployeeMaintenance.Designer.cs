@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_AddNewEmployee
+    partial class UI_EmployeeMaintenance
     {
         /// <summary>
         /// Required designer variable.
@@ -39,28 +39,46 @@
             this.textBoxLN = new System.Windows.Forms.TextBox();
             this.textBoxFN = new System.Windows.Forms.TextBox();
             this.groupBoxCI = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxEA = new System.Windows.Forms.TextBox();
+            this.textBoxVAT = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxCN = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxAD = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxS = new System.Windows.Forms.TextBox();
             this.comboBoxCN = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxPC = new System.Windows.Forms.TextBox();
+            this.textBoxSN = new System.Windows.Forms.TextBox();
+            this.textBoxHN = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.errorProviderALL = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderFN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderLN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderCN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderVAT = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderEA = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderHN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderSN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderS = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPC = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxPD.SuspendLayout();
             this.groupBoxCI.SuspendLayout();
             this.groupBoxAD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderALL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVAT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPC)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFN
@@ -136,6 +154,7 @@
             this.textBoxLN.Name = "textBoxLN";
             this.textBoxLN.Size = new System.Drawing.Size(197, 20);
             this.textBoxLN.TabIndex = 9;
+            this.textBoxLN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLN_Validating);
             // 
             // textBoxFN
             // 
@@ -147,10 +166,10 @@
             // 
             // groupBoxCI
             // 
-            this.groupBoxCI.Controls.Add(this.textBox5);
-            this.groupBoxCI.Controls.Add(this.textBox4);
-            this.groupBoxCI.Controls.Add(this.textBox3);
-            this.groupBoxCI.Controls.Add(this.textBox2);
+            this.groupBoxCI.Controls.Add(this.textBoxEA);
+            this.groupBoxCI.Controls.Add(this.textBoxVAT);
+            this.groupBoxCI.Controls.Add(this.textBoxID);
+            this.groupBoxCI.Controls.Add(this.textBoxCN);
             this.groupBoxCI.Controls.Add(this.label3);
             this.groupBoxCI.Controls.Add(this.label5);
             this.groupBoxCI.Controls.Add(this.label6);
@@ -162,33 +181,37 @@
             this.groupBoxCI.TabStop = false;
             this.groupBoxCI.Text = "Contact Information";
             // 
-            // textBox5
+            // textBoxEA
             // 
-            this.textBox5.Location = new System.Drawing.Point(93, 97);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(197, 20);
-            this.textBox5.TabIndex = 13;
+            this.textBoxEA.Location = new System.Drawing.Point(93, 97);
+            this.textBoxEA.Name = "textBoxEA";
+            this.textBoxEA.Size = new System.Drawing.Size(197, 20);
+            this.textBoxEA.TabIndex = 13;
+            this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating);
             // 
-            // textBox4
+            // textBoxVAT
             // 
-            this.textBox4.Location = new System.Drawing.Point(93, 71);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(197, 20);
-            this.textBox4.TabIndex = 12;
+            this.textBoxVAT.Location = new System.Drawing.Point(93, 71);
+            this.textBoxVAT.Name = "textBoxVAT";
+            this.textBoxVAT.Size = new System.Drawing.Size(197, 20);
+            this.textBoxVAT.TabIndex = 12;
+            this.textBoxVAT.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating);
             // 
-            // textBox3
+            // textBoxID
             // 
-            this.textBox3.Location = new System.Drawing.Point(93, 45);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(197, 20);
-            this.textBox3.TabIndex = 11;
+            this.textBoxID.Location = new System.Drawing.Point(93, 45);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(197, 20);
+            this.textBoxID.TabIndex = 11;
+            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating);
             // 
-            // textBox2
+            // textBoxCN
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 10;
+            this.textBoxCN.Location = new System.Drawing.Point(93, 19);
+            this.textBoxCN.Name = "textBoxCN";
+            this.textBoxCN.Size = new System.Drawing.Size(197, 20);
+            this.textBoxCN.TabIndex = 10;
+            this.textBoxCN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN_Validating);
             // 
             // label7
             // 
@@ -202,11 +225,11 @@
             // groupBoxAD
             // 
             this.groupBoxAD.Controls.Add(this.label1);
-            this.groupBoxAD.Controls.Add(this.textBox1);
+            this.groupBoxAD.Controls.Add(this.textBoxS);
             this.groupBoxAD.Controls.Add(this.comboBoxCN);
-            this.groupBoxAD.Controls.Add(this.textBox9);
-            this.groupBoxAD.Controls.Add(this.textBox7);
-            this.groupBoxAD.Controls.Add(this.textBox6);
+            this.groupBoxAD.Controls.Add(this.textBoxPC);
+            this.groupBoxAD.Controls.Add(this.textBoxSN);
+            this.groupBoxAD.Controls.Add(this.textBoxHN);
             this.groupBoxAD.Controls.Add(this.label10);
             this.groupBoxAD.Controls.Add(this.label9);
             this.groupBoxAD.Controls.Add(this.label8);
@@ -227,12 +250,13 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Suburb :";
             // 
-            // textBox1
+            // textBoxS
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 22;
+            this.textBoxS.Location = new System.Drawing.Point(96, 69);
+            this.textBoxS.Name = "textBoxS";
+            this.textBoxS.Size = new System.Drawing.Size(197, 20);
+            this.textBoxS.TabIndex = 22;
+            this.textBoxS.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxS_Validating);
             // 
             // comboBoxCN
             // 
@@ -243,26 +267,29 @@
             this.comboBoxCN.Size = new System.Drawing.Size(197, 21);
             this.comboBoxCN.TabIndex = 21;
             // 
-            // textBox9
+            // textBoxPC
             // 
-            this.textBox9.Location = new System.Drawing.Point(96, 121);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(197, 20);
-            this.textBox9.TabIndex = 20;
+            this.textBoxPC.Location = new System.Drawing.Point(96, 121);
+            this.textBoxPC.Name = "textBoxPC";
+            this.textBoxPC.Size = new System.Drawing.Size(197, 20);
+            this.textBoxPC.TabIndex = 20;
+            this.textBoxPC.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPC_Validating);
             // 
-            // textBox7
+            // textBoxSN
             // 
-            this.textBox7.Location = new System.Drawing.Point(96, 43);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(197, 20);
-            this.textBox7.TabIndex = 18;
+            this.textBoxSN.Location = new System.Drawing.Point(96, 43);
+            this.textBoxSN.Name = "textBoxSN";
+            this.textBoxSN.Size = new System.Drawing.Size(197, 20);
+            this.textBoxSN.TabIndex = 18;
+            this.textBoxSN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSN_Validating);
             // 
-            // textBox6
+            // textBoxHN
             // 
-            this.textBox6.Location = new System.Drawing.Point(96, 17);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(197, 20);
-            this.textBox6.TabIndex = 16;
+            this.textBoxHN.Location = new System.Drawing.Point(96, 17);
+            this.textBoxHN.Name = "textBoxHN";
+            this.textBoxHN.Size = new System.Drawing.Size(197, 20);
+            this.textBoxHN.TabIndex = 16;
+            this.textBoxHN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxHN_Validating);
             // 
             // label10
             // 
@@ -310,12 +337,57 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // errorProviderALL
+            // errorProviderFN
             // 
-            this.errorProviderALL.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProviderALL.ContainerControl = this;
+            this.errorProviderFN.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderFN.ContainerControl = this;
             // 
-            // UI_AddNewEmployee
+            // errorProviderLN
+            // 
+            this.errorProviderLN.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderLN.ContainerControl = this;
+            // 
+            // errorProviderCN
+            // 
+            this.errorProviderCN.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderCN.ContainerControl = this;
+            // 
+            // errorProviderID
+            // 
+            this.errorProviderID.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderID.ContainerControl = this;
+            // 
+            // errorProviderVAT
+            // 
+            this.errorProviderVAT.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderVAT.ContainerControl = this;
+            // 
+            // errorProviderEA
+            // 
+            this.errorProviderEA.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderEA.ContainerControl = this;
+            // 
+            // errorProviderHN
+            // 
+            this.errorProviderHN.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderHN.ContainerControl = this;
+            // 
+            // errorProviderSN
+            // 
+            this.errorProviderSN.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderSN.ContainerControl = this;
+            // 
+            // errorProviderS
+            // 
+            this.errorProviderS.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderS.ContainerControl = this;
+            // 
+            // errorProviderPC
+            // 
+            this.errorProviderPC.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderPC.ContainerControl = this;
+            // 
+            // UI_EmployeeMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -326,17 +398,30 @@
             this.Controls.Add(this.groupBoxAD);
             this.Controls.Add(this.groupBoxCI);
             this.Controls.Add(this.groupBoxPD);
+            this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.MaximizeBox = false;
-            this.Name = "UI_AddNewEmployee";
+            this.MaximumSize = new System.Drawing.Size(356, 450);
+            this.MinimumSize = new System.Drawing.Size(356, 450);
+            this.Name = "UI_EmployeeMaintenance";
             this.ShowIcon = false;
-            this.Text = "Add Employee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Employee Maintenance";
             this.groupBoxPD.ResumeLayout(false);
             this.groupBoxPD.PerformLayout();
             this.groupBoxCI.ResumeLayout(false);
             this.groupBoxCI.PerformLayout();
             this.groupBoxAD.ResumeLayout(false);
             this.groupBoxAD.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderALL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVAT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,18 +443,27 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxLN;
         private System.Windows.Forms.TextBox textBoxFN;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxEA;
+        private System.Windows.Forms.TextBox textBoxVAT;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxCN;
+        private System.Windows.Forms.TextBox textBoxPC;
+        private System.Windows.Forms.TextBox textBoxSN;
+        private System.Windows.Forms.TextBox textBoxHN;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.ErrorProvider errorProviderALL;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxS;
         private System.Windows.Forms.ComboBox comboBoxCN;
+        private System.Windows.Forms.ErrorProvider errorProviderFN;
+        private System.Windows.Forms.ErrorProvider errorProviderLN;
+        private System.Windows.Forms.ErrorProvider errorProviderCN;
+        private System.Windows.Forms.ErrorProvider errorProviderID;
+        private System.Windows.Forms.ErrorProvider errorProviderVAT;
+        private System.Windows.Forms.ErrorProvider errorProviderEA;
+        private System.Windows.Forms.ErrorProvider errorProviderHN;
+        private System.Windows.Forms.ErrorProvider errorProviderSN;
+        private System.Windows.Forms.ErrorProvider errorProviderS;
+        private System.Windows.Forms.ErrorProvider errorProviderPC;
     }
 }
