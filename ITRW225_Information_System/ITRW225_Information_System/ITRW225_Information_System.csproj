@@ -75,6 +75,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI_AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_AddEmployee.Designer.cs">
+      <DependentUpon>UI_AddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_SupplierOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +123,11 @@
     <Compile Include="UI_AddClientInfo.Designer.cs">
       <DependentUpon>UI_AddClientInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_EmployeeMaintenance.cs">
+    <Compile Include="UI_EditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_EmployeeMaintenance.Designer.cs">
-      <DependentUpon>UI_EmployeeMaintenance.cs</DependentUpon>
+    <Compile Include="UI_EditEmployee.Designer.cs">
+      <DependentUpon>UI_EditEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_SearchClientList.cs">
       <SubType>Form</SubType>
@@ -145,6 +151,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI_AddEmployee.resx">
+      <DependentUpon>UI_AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI_SupplierOrder.resx">
       <DependentUpon>UI_SupplierOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,8 +175,8 @@
     <EmbeddedResource Include="UI_AddClientInfo.resx">
       <DependentUpon>UI_AddClientInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_EmployeeMaintenance.resx">
-      <DependentUpon>UI_EmployeeMaintenance.cs</DependentUpon>
+    <EmbeddedResource Include="UI_EditEmployee.resx">
+      <DependentUpon>UI_EditEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_SearchClientList.resx">
       <DependentUpon>UI_SearchClientList.cs</DependentUpon>
