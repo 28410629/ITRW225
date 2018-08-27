@@ -150,6 +150,7 @@
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Edit";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
             // 
             // buttonClose
             // 
@@ -200,6 +201,92 @@
             // 
             this.comboBoxCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCN.FormattingEnabled = true;
+            this.comboBoxCN.Items.AddRange(new object[] {
+            "Please select location.",
+            "",
+            "Eastern Cape",
+            "    Alice",
+            "    Butterworth",
+            "    East London",
+            "    Graaff-Reinet",
+            "    Grahamstown",
+            "    King William’s Town",
+            "    Mthatha",
+            "    Port Elizabeth",
+            "    Queenstown",
+            "    Uitenhage",
+            "    Zwelitsha",
+            "Free State",
+            "    Bethlehem",
+            "    Bloemfontein",
+            "    Jagersfontein",
+            "    Kroonstad",
+            "    Odendaalsrus",
+            "    Parys",
+            "    Phuthaditjhaba",
+            "    Sasolburg",
+            "    Virginia",
+            "    Welkom",
+            "Gauteng",
+            "    Benoni",
+            "    Boksburg",
+            "    Brakpan",
+            "    Carletonville",
+            "    Germiston",
+            "    Johannesburg",
+            "    Krugersdorp",
+            "    Pretoria",
+            "    Randburg",
+            "    Randfontein",
+            "    Roodepoort",
+            "    Soweto",
+            "    Springs",
+            "    Vanderbijlpark",
+            "    Vereeniging",
+            "KwaZulu-Natal",
+            "    Durban",
+            "    Empangeni",
+            "    Ladysmith",
+            "    Newcastle",
+            "    Pietermaritzburg",
+            "    Pinetown",
+            "    Ulundi",
+            "    Umlazi",
+            "Limpopo",
+            "    Giyani",
+            "    Lebowakgomo",
+            "    Musina",
+            "    Phalaborwa",
+            "    Polokwane",
+            "    Seshego",
+            "    Sibasa",
+            "    Thabazimbi",
+            "Mpumalanga",
+            "    Emalahleni",
+            "    Nelspruit",
+            "    Secunda",
+            "North West",
+            "    Klerksdorp",
+            "    Mahikeng",
+            "    Mmabatho",
+            "    Potchefstroom",
+            "    Rustenburg",
+            "Northern Cape",
+            "    Kimberley",
+            "    Kuruman",
+            "    Port Nolloth",
+            "Western Cape",
+            "    Bellville",
+            "    Cape Town",
+            "    Constantia",
+            "    George",
+            "    Hopefield",
+            "    Oudtshoorn",
+            "    Paarl",
+            "    Simon’s Town",
+            "    Stellenbosch",
+            "    Swellendam",
+            "    Worcester"});
             this.comboBoxCN.Location = new System.Drawing.Point(96, 95);
             this.comboBoxCN.Name = "comboBoxCN";
             this.comboBoxCN.Size = new System.Drawing.Size(197, 21);
@@ -425,6 +512,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Employee";
+            this.Load += new System.EventHandler(this.UI_EditEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).EndInit();

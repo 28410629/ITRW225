@@ -139,6 +139,7 @@
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Add";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
             // 
             // buttonClose
             // 
@@ -183,11 +184,98 @@
             this.textBoxS.Name = "textBoxS";
             this.textBoxS.Size = new System.Drawing.Size(197, 20);
             this.textBoxS.TabIndex = 22;
+            this.textBoxS.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxS_Validating_1);
             // 
             // comboBoxCN
             // 
             this.comboBoxCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCN.FormattingEnabled = true;
+            this.comboBoxCN.Items.AddRange(new object[] {
+            "Please select location.",
+            "",
+            "Eastern Cape",
+            "    Alice",
+            "    Butterworth",
+            "    East London",
+            "    Graaff-Reinet",
+            "    Grahamstown",
+            "    King William’s Town",
+            "    Mthatha",
+            "    Port Elizabeth",
+            "    Queenstown",
+            "    Uitenhage",
+            "    Zwelitsha",
+            "Free State",
+            "    Bethlehem",
+            "    Bloemfontein",
+            "    Jagersfontein",
+            "    Kroonstad",
+            "    Odendaalsrus",
+            "    Parys",
+            "    Phuthaditjhaba",
+            "    Sasolburg",
+            "    Virginia",
+            "    Welkom",
+            "Gauteng",
+            "    Benoni",
+            "    Boksburg",
+            "    Brakpan",
+            "    Carletonville",
+            "    Germiston",
+            "    Johannesburg",
+            "    Krugersdorp",
+            "    Pretoria",
+            "    Randburg",
+            "    Randfontein",
+            "    Roodepoort",
+            "    Soweto",
+            "    Springs",
+            "    Vanderbijlpark",
+            "    Vereeniging",
+            "KwaZulu-Natal",
+            "    Durban",
+            "    Empangeni",
+            "    Ladysmith",
+            "    Newcastle",
+            "    Pietermaritzburg",
+            "    Pinetown",
+            "    Ulundi",
+            "    Umlazi",
+            "Limpopo",
+            "    Giyani",
+            "    Lebowakgomo",
+            "    Musina",
+            "    Phalaborwa",
+            "    Polokwane",
+            "    Seshego",
+            "    Sibasa",
+            "    Thabazimbi",
+            "Mpumalanga",
+            "    Emalahleni",
+            "    Nelspruit",
+            "    Secunda",
+            "North West",
+            "    Klerksdorp",
+            "    Mahikeng",
+            "    Mmabatho",
+            "    Potchefstroom",
+            "    Rustenburg",
+            "Northern Cape",
+            "    Kimberley",
+            "    Kuruman",
+            "    Port Nolloth",
+            "Western Cape",
+            "    Bellville",
+            "    Cape Town",
+            "    Constantia",
+            "    George",
+            "    Hopefield",
+            "    Oudtshoorn",
+            "    Paarl",
+            "    Simon’s Town",
+            "    Stellenbosch",
+            "    Swellendam",
+            "    Worcester"});
             this.comboBoxCN.Location = new System.Drawing.Point(96, 95);
             this.comboBoxCN.Name = "comboBoxCN";
             this.comboBoxCN.Size = new System.Drawing.Size(197, 21);
@@ -199,6 +287,7 @@
             this.textBoxPC.Name = "textBoxPC";
             this.textBoxPC.Size = new System.Drawing.Size(197, 20);
             this.textBoxPC.TabIndex = 20;
+            this.textBoxPC.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPC_Validating_1);
             // 
             // textBoxSN
             // 
@@ -206,6 +295,7 @@
             this.textBoxSN.Name = "textBoxSN";
             this.textBoxSN.Size = new System.Drawing.Size(197, 20);
             this.textBoxSN.TabIndex = 18;
+            this.textBoxSN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSN_Validating_1);
             // 
             // textBoxHN
             // 
@@ -213,6 +303,7 @@
             this.textBoxHN.Name = "textBoxHN";
             this.textBoxHN.Size = new System.Drawing.Size(197, 20);
             this.textBoxHN.TabIndex = 16;
+            this.textBoxHN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxHN_Validating_1);
             // 
             // label10
             // 
@@ -273,6 +364,7 @@
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
             this.textBoxEA.TabIndex = 13;
+            this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating_1);
             // 
             // textBoxVAT
             // 
@@ -280,6 +372,7 @@
             this.textBoxVAT.Name = "textBoxVAT";
             this.textBoxVAT.Size = new System.Drawing.Size(197, 20);
             this.textBoxVAT.TabIndex = 12;
+            this.textBoxVAT.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating_1);
             // 
             // textBoxID
             // 
@@ -287,6 +380,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(197, 20);
             this.textBoxID.TabIndex = 11;
+            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating_1);
             // 
             // textBoxCN
             // 
@@ -294,6 +388,7 @@
             this.textBoxCN.Name = "textBoxCN";
             this.textBoxCN.Size = new System.Drawing.Size(197, 20);
             this.textBoxCN.TabIndex = 10;
+            this.textBoxCN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN_Validating_1);
             // 
             // label3
             // 
@@ -350,6 +445,7 @@
             this.textBoxLN.Name = "textBoxLN";
             this.textBoxLN.Size = new System.Drawing.Size(197, 20);
             this.textBoxLN.TabIndex = 9;
+            this.textBoxLN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLN_Validating_1);
             // 
             // textBoxFN
             // 
@@ -357,6 +453,7 @@
             this.textBoxFN.Name = "textBoxFN";
             this.textBoxFN.Size = new System.Drawing.Size(197, 20);
             this.textBoxFN.TabIndex = 8;
+            this.textBoxFN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxFN_Validating_1);
             // 
             // label2
             // 
