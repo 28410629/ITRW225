@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_SearchEmployeeList : Form
+    public partial class UI_InventoryReceiveOrder : Form
     {
-        public UI_SearchEmployeeList()
+        public UI_InventoryReceiveOrder()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

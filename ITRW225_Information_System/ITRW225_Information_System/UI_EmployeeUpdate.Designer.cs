@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_EditEmployee
+    partial class UI_EmployeeUpdate
     {
         /// <summary>
         /// Required designer variable.

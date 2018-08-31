@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_SearchClientList : Form
+    public partial class UI_ReportInventory : Form
     {
-        public UI_SearchClientList()
+        public UI_ReportInventory()
         {
             InitializeComponent();
         }

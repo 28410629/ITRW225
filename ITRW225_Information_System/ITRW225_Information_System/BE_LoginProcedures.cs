@@ -53,7 +53,7 @@ namespace ITRW225_Information_System
                     }
                     if (userArr[0] == "0")
                     {
-                        return "User is not registered on the system.";
+                        return "Email or password incorrect, are you registered on the system?";
                     }
                     else if (userArr[0] == "1")
                     {
@@ -74,7 +74,6 @@ namespace ITRW225_Information_System
                     {
                         return "Contact IT administration! Database might be tempered with!";
                     }
-                    
                 }
             }
         }

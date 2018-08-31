@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_EditEmployee : Form
+    public partial class UI_EmployeeUpdate : Form
     {
-        public UI_EditEmployee()
+        public UI_EmployeeUpdate()
         {
             InitializeComponent();
         }

@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_AddEmployee : Form
+    public partial class UI_EmployeeAdd : Form
     {
-        public UI_AddEmployee()
+        public UI_EmployeeAdd()
         {
             InitializeComponent();
         }
@@ -124,6 +124,11 @@ namespace ITRW225_Information_System
                         break;
                 }
             }
+        }
+
+        private void UI_EmployeeAdd_Load(object sender, EventArgs e)
+        {
+            buttonClose.Focus();
         }
     }
 }

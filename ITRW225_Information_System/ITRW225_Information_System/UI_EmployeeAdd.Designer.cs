@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_AddEmployee
+    partial class UI_EmployeeAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -146,7 +146,7 @@
             this.buttonClose.Location = new System.Drawing.Point(12, 380);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 20;
+            this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
             // 
@@ -473,7 +473,7 @@
             this.labelFN.TabIndex = 0;
             this.labelFN.Text = "First Name :";
             // 
-            // UI_AddEmployee
+            // UI_EmployeeAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -486,10 +486,11 @@
             this.Controls.Add(this.groupBoxCI);
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.MaximizeBox = false;
-            this.Name = "UI_AddEmployee";
+            this.Name = "UI_EmployeeAdd";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Employee";
+            this.Text = "16";
+            this.Load += new System.EventHandler(this.UI_EmployeeAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).EndInit();

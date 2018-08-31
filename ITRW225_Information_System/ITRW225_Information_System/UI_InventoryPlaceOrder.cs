@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_SupplierOrder : Form
+    public partial class UI_InventoryPlaceOrder : Form
     {
-        public UI_SupplierOrder()
+        public UI_InventoryPlaceOrder()
         {
             InitializeComponent();
         }

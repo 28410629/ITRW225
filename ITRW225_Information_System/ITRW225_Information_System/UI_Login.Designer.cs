@@ -61,7 +61,7 @@
             this.labelForgot.Location = new System.Drawing.Point(441, 328);
             this.labelForgot.Name = "labelForgot";
             this.labelForgot.Size = new System.Drawing.Size(92, 13);
-            this.labelForgot.TabIndex = 2;
+            this.labelForgot.TabIndex = 3;
             this.labelForgot.Text = "Forgot Password?";
             this.labelForgot.Click += new System.EventHandler(this.labelForgot_Click);
             // 
@@ -71,7 +71,7 @@
             this.labelStatus.Location = new System.Drawing.Point(9, 351);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(0, 13);
-            this.labelStatus.TabIndex = 3;
+            this.labelStatus.TabIndex = 6;
             // 
             // pictureBox1
             // 
@@ -88,7 +88,7 @@
             this.labelEmail.Location = new System.Drawing.Point(12, 15);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(35, 13);
-            this.labelEmail.TabIndex = 5;
+            this.labelEmail.TabIndex = 4;
             this.labelEmail.Text = "Email:";
             // 
             // labelPassword
@@ -97,7 +97,7 @@
             this.labelPassword.Location = new System.Drawing.Point(265, 15);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(56, 13);
-            this.labelPassword.TabIndex = 6;
+            this.labelPassword.TabIndex = 5;
             this.labelPassword.Text = "Password:";
             // 
             // labelLogin
@@ -106,7 +106,7 @@
             this.labelLogin.Location = new System.Drawing.Point(402, 328);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(33, 13);
-            this.labelLogin.TabIndex = 7;
+            this.labelLogin.TabIndex = 2;
             this.labelLogin.Text = "Login";
             this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 

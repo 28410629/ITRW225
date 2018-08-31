@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_AddClientInfo : Form
+    public partial class UI_POSPlaceOrder : Form
     {
-        public UI_AddClientInfo()
+        public UI_POSPlaceOrder()
         {
             InitializeComponent();
-        }
-
-        private void UI_ClientMaintenance_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
