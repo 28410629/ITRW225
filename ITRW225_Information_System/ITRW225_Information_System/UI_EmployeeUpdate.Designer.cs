@@ -148,7 +148,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(203, 483);
+            this.buttonSave.Location = new System.Drawing.Point(202, 483);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
             this.buttonSave.TabIndex = 21;
@@ -158,7 +158,7 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(13, 483);
+            this.buttonClose.Location = new System.Drawing.Point(11, 483);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
             this.buttonClose.TabIndex = 20;
@@ -502,7 +502,7 @@
             // groupBoxPosition
             // 
             this.groupBoxPosition.Controls.Add(this.comboBoxPosition);
-            this.groupBoxPosition.Location = new System.Drawing.Point(12, 431);
+            this.groupBoxPosition.Location = new System.Drawing.Point(11, 431);
             this.groupBoxPosition.Name = "groupBoxPosition";
             this.groupBoxPosition.Size = new System.Drawing.Size(318, 46);
             this.groupBoxPosition.TabIndex = 22;

@@ -43,7 +43,7 @@ namespace ITRW225_Information_System
                         rowCount = Convert.ToString(dataSet.Tables[0].Rows.Count);
                         if (dataSet.Tables[0].Rows.Count == 1)
                         {
-                            userArr = new string[] { rowCount, dataSet.Tables[0].Rows[0].ItemArray.GetValue(1).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(2).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(4).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(5).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(6).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(7).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(8).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(9).ToString() };
+                            userArr = new string[] { rowCount, dataSet.Tables[0].Rows[0].ItemArray.GetValue(1).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(2).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(3).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(4).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(5).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(6).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(7).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(8).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(9).ToString() };
                             access = Convert.ToBoolean(dataSet.Tables[0].Rows[0].ItemArray.GetValue(10).ToString());
                         }
                         else

@@ -62,6 +62,7 @@
             this.buttonSave.TabIndex = 23;
             this.buttonSave.Text = "Update";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonClose
             // 
