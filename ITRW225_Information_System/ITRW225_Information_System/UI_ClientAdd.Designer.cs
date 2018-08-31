@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_AddClientInfo
+    partial class UI_ClientAdd
     {
         /// <summary>
         /// Required designer variable.

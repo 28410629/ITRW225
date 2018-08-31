@@ -37,11 +37,19 @@ namespace ITRW225_Information_System
 
         private void labelLogin_Click(object sender, EventArgs e)
         {
+            textBoxUser.Focus();
             labelStatus.Text = "Logging in, please wait.";
             labelStatus.Refresh();
             labelLogin.Enabled = false;
             labelStatus.Text = login.loginProcedure(textBoxUser.Text, textBoxPassword.Text);
             labelLogin.Enabled = true;
+            if (labelStatus.Text == "Login Successful")
+            {
+                labelStatus.Text = "";
+                textBoxUser.Text = "";
+                textBoxPassword.Text = "";
+                labelStatus.Refresh();
+            }
         }
 
         private void UI_Login_KeyPress(object sender, KeyPressEventArgs e)

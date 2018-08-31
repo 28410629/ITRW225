@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_PointOfSale
+    partial class UI_ClientUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // UI_PointOfSale
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 364);
-            this.Name = "UI_PointOfSale";
-            this.Text = "UI_PointOfSale";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "UI_ClientUpdate";
         }
 
         #endregion

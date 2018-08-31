@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 
 namespace ITRW225_Information_System
 {
@@ -17,6 +18,12 @@ namespace ITRW225_Information_System
         }
 
         public void saveError()
+        {
+            Thread thread = new Thread(new ThreadStart(runSaveError));
+            thread.Start();
+        }
+
+        private void runSaveError()
         {
             try
             {

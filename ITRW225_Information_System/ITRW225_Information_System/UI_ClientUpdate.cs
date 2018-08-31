@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_ReceivedOrderFromSupplier : Form
+    public partial class UI_ClientUpdate : Form
     {
-        public UI_ReceivedOrderFromSupplier()
+        public UI_ClientUpdate()
         {
             InitializeComponent();
         }

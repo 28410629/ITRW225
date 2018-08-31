@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE_EmployeeMaintenance.cs" />
     <Compile Include="BE_DatabaseCommands.cs" />
     <Compile Include="BE_GeneratePassword.cs" />
     <Compile Include="BE_LoginProcedures.cs" />
@@ -74,11 +75,59 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Supplierorder.cs">
+    <Compile Include="UI_ClientUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supplierorder.Designer.cs">
-      <DependentUpon>Supplierorder.cs</DependentUpon>
+    <Compile Include="UI_ClientUpdate.Designer.cs">
+      <DependentUpon>UI_ClientUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_EmployeeAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_EmployeeAdd.Designer.cs">
+      <DependentUpon>UI_EmployeeAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_POSCancelOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_POSCancelOrder.Designer.cs">
+      <DependentUpon>UI_POSCancelOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_POSPlaceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_POSPlaceOrder.Designer.cs">
+      <DependentUpon>UI_POSPlaceOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_EmployeeRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_EmployeeRemove.Designer.cs">
+      <DependentUpon>UI_EmployeeRemove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ReportEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_ReportEmployee.Designer.cs">
+      <DependentUpon>UI_ReportEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ReportInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_ReportInventory.Designer.cs">
+      <DependentUpon>UI_ReportInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ReportSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_ReportSales.Designer.cs">
+      <DependentUpon>UI_ReportSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_InventoryPlaceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_InventoryPlaceOrder.Designer.cs">
+      <DependentUpon>UI_InventoryPlaceOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_Login.cs">
       <SubType>Form</SubType>
@@ -92,17 +141,11 @@
     <Compile Include="UI_MainWindow.Designer.cs">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_PointOfSale.cs">
+    <Compile Include="UI_InventoryReceiveOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_PointOfSale.Designer.cs">
-      <DependentUpon>UI_PointOfSale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ReceivedOrderFromSupplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_ReceivedOrderFromSupplier.Designer.cs">
-      <DependentUpon>UI_ReceivedOrderFromSupplier.cs</DependentUpon>
+    <Compile Include="UI_InventoryReceiveOrder.Designer.cs">
+      <DependentUpon>UI_InventoryReceiveOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_UserMaintenance.cs">
       <SubType>Form</SubType>
@@ -110,29 +153,23 @@
     <Compile Include="UI_UserMaintenance.Designer.cs">
       <DependentUpon>UI_UserMaintenance.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_AddClientInfo.cs">
+    <Compile Include="UI_ClientAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_AddClientInfo.Designer.cs">
-      <DependentUpon>UI_AddClientInfo.cs</DependentUpon>
+    <Compile Include="UI_ClientAdd.Designer.cs">
+      <DependentUpon>UI_ClientAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_AddNewEmployee.cs">
+    <Compile Include="UI_EmployeeUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_AddNewEmployee.Designer.cs">
-      <DependentUpon>UI_AddNewEmployee.cs</DependentUpon>
+    <Compile Include="UI_EmployeeUpdate.Designer.cs">
+      <DependentUpon>UI_EmployeeUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_SearchClientList.cs">
+    <Compile Include="UI_POSViewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_SearchClientList.Designer.cs">
-      <DependentUpon>UI_SearchClientList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_SearchEmployeeList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_SearchEmployeeList.Designer.cs">
-      <DependentUpon>UI_SearchEmployeeList.cs</DependentUpon>
+    <Compile Include="UI_POSViewOrder.Designer.cs">
+      <DependentUpon>UI_POSViewOrder.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -144,8 +181,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Supplierorder.resx">
-      <DependentUpon>Supplierorder.cs</DependentUpon>
+    <EmbeddedResource Include="UI_EmployeeAdd.resx">
+      <DependentUpon>UI_EmployeeAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_InventoryPlaceOrder.resx">
+      <DependentUpon>UI_InventoryPlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_Login.resx">
       <DependentUpon>UI_Login.cs</DependentUpon>
@@ -153,26 +193,17 @@
     <EmbeddedResource Include="UI_MainWindow.resx">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_PointOfSale.resx">
-      <DependentUpon>UI_PointOfSale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI_ReceivedOrderFromSupplier.resx">
-      <DependentUpon>UI_ReceivedOrderFromSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="UI_InventoryReceiveOrder.resx">
+      <DependentUpon>UI_InventoryReceiveOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_UserMaintenance.resx">
       <DependentUpon>UI_UserMaintenance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_AddClientInfo.resx">
-      <DependentUpon>UI_AddClientInfo.cs</DependentUpon>
+    <EmbeddedResource Include="UI_ClientAdd.resx">
+      <DependentUpon>UI_ClientAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_AddNewEmployee.resx">
-      <DependentUpon>UI_AddNewEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI_SearchClientList.resx">
-      <DependentUpon>UI_SearchClientList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI_SearchEmployeeList.resx">
-      <DependentUpon>UI_SearchEmployeeList.cs</DependentUpon>
+    <EmbeddedResource Include="UI_EmployeeUpdate.resx">
+      <DependentUpon>UI_EmployeeUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DatabaseDataSet.xsc">
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>

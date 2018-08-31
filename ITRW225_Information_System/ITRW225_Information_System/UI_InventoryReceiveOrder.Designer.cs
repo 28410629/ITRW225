@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class Supplierorder
+    partial class UI_InventoryReceiveOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -28,140 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btncancelorder = new System.Windows.Forms.Button();
-            this.btnexit = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnchanges = new System.Windows.Forms.Button();
+            this.btnreturn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblquantity = new System.Windows.Forms.Label();
             this.lblitemid = new System.Windows.Forms.Label();
             this.txtbitemid = new System.Windows.Forms.TextBox();
             this.txtbitemname = new System.Windows.Forms.TextBox();
             this.btnplaceanotherorder = new System.Windows.Forms.Button();
-            this.btnplaceorder = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblitemname = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btncancelorder
-            // 
-            this.btncancelorder.Location = new System.Drawing.Point(274, 95);
-            this.btncancelorder.Name = "btncancelorder";
-            this.btncancelorder.Size = new System.Drawing.Size(98, 23);
-            this.btncancelorder.TabIndex = 23;
-            this.btncancelorder.Text = "Cancel Order";
-            this.btncancelorder.UseVisualStyleBackColor = true;
-            // 
-            // btnexit
-            // 
-            this.btnexit.Location = new System.Drawing.Point(539, 5);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(75, 23);
-            this.btnexit.TabIndex = 22;
-            this.btnexit.Text = "exit";
-            this.btnexit.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 210);
+            this.listBox1.Location = new System.Drawing.Point(12, 200);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(612, 290);
-            this.listBox1.TabIndex = 21;
+            this.listBox1.Size = new System.Drawing.Size(480, 186);
+            this.listBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 175);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Stock Infromation :";
+            // 
+            // btnchanges
+            // 
+            this.btnchanges.Location = new System.Drawing.Point(232, 21);
+            this.btnchanges.Name = "btnchanges";
+            this.btnchanges.Size = new System.Drawing.Size(135, 23);
+            this.btnchanges.TabIndex = 2;
+            this.btnchanges.Text = "Update Order Changes";
+            this.btnchanges.UseVisualStyleBackColor = true;
+            // 
+            // btnreturn
+            // 
+            this.btnreturn.Location = new System.Drawing.Point(191, 142);
+            this.btnreturn.Name = "btnreturn";
+            this.btnreturn.Size = new System.Drawing.Size(98, 23);
+            this.btnreturn.TabIndex = 19;
+            this.btnreturn.Text = "Return Order";
+            this.btnreturn.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 95);
+            this.textBox1.Location = new System.Drawing.Point(100, 93);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 20;
+            this.textBox1.TabIndex = 18;
             // 
             // lblquantity
             // 
             this.lblquantity.AutoSize = true;
-            this.lblquantity.Location = new System.Drawing.Point(14, 95);
+            this.lblquantity.Location = new System.Drawing.Point(9, 93);
             this.lblquantity.Name = "lblquantity";
             this.lblquantity.Size = new System.Drawing.Size(52, 13);
-            this.lblquantity.TabIndex = 19;
+            this.lblquantity.TabIndex = 17;
             this.lblquantity.Text = "Quantity :";
             // 
             // lblitemid
             // 
             this.lblitemid.AutoSize = true;
-            this.lblitemid.Location = new System.Drawing.Point(14, 56);
+            this.lblitemid.Location = new System.Drawing.Point(9, 54);
             this.lblitemid.Name = "lblitemid";
             this.lblitemid.Size = new System.Drawing.Size(47, 13);
-            this.lblitemid.TabIndex = 18;
+            this.lblitemid.TabIndex = 16;
             this.lblitemid.Text = "Item ID :";
             // 
             // txtbitemid
             // 
-            this.txtbitemid.Location = new System.Drawing.Point(105, 56);
+            this.txtbitemid.Location = new System.Drawing.Point(100, 54);
             this.txtbitemid.Name = "txtbitemid";
             this.txtbitemid.Size = new System.Drawing.Size(100, 20);
-            this.txtbitemid.TabIndex = 17;
+            this.txtbitemid.TabIndex = 15;
             // 
             // txtbitemname
             // 
-            this.txtbitemname.Location = new System.Drawing.Point(105, 14);
+            this.txtbitemname.Location = new System.Drawing.Point(100, 12);
             this.txtbitemname.Name = "txtbitemname";
             this.txtbitemname.Size = new System.Drawing.Size(100, 20);
-            this.txtbitemname.TabIndex = 16;
+            this.txtbitemname.TabIndex = 14;
             // 
             // btnplaceanotherorder
             // 
-            this.btnplaceanotherorder.Location = new System.Drawing.Point(32, 144);
+            this.btnplaceanotherorder.Location = new System.Drawing.Point(27, 142);
             this.btnplaceanotherorder.Name = "btnplaceanotherorder";
             this.btnplaceanotherorder.Size = new System.Drawing.Size(137, 23);
-            this.btnplaceanotherorder.TabIndex = 15;
+            this.btnplaceanotherorder.TabIndex = 13;
             this.btnplaceanotherorder.Text = "Place Another Order";
             this.btnplaceanotherorder.UseVisualStyleBackColor = true;
-            // 
-            // btnplaceorder
-            // 
-            this.btnplaceorder.Location = new System.Drawing.Point(274, 14);
-            this.btnplaceorder.Name = "btnplaceorder";
-            this.btnplaceorder.Size = new System.Drawing.Size(104, 23);
-            this.btnplaceorder.TabIndex = 14;
-            this.btnplaceorder.Text = "Place Order";
-            this.btnplaceorder.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Information of the order and stock items :";
             // 
             // lblitemname
             // 
             this.lblitemname.AutoSize = true;
-            this.lblitemname.Location = new System.Drawing.Point(14, 14);
+            this.lblitemname.Location = new System.Drawing.Point(9, 12);
             this.lblitemname.Name = "lblitemname";
             this.lblitemname.Size = new System.Drawing.Size(64, 13);
             this.lblitemname.TabIndex = 12;
             this.lblitemname.Text = "Item Name :";
             // 
-            // Supplierorder
+            // UI_ReceivedOrderFromSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 516);
-            this.Controls.Add(this.btncancelorder);
-            this.Controls.Add(this.btnexit);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(563, 400);
+            this.Controls.Add(this.btnreturn);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblquantity);
             this.Controls.Add(this.lblitemid);
             this.Controls.Add(this.txtbitemid);
             this.Controls.Add(this.txtbitemname);
             this.Controls.Add(this.btnplaceanotherorder);
-            this.Controls.Add(this.btnplaceorder);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblitemname);
-            this.Name = "Supplierorder";
-            this.Text = "Supplierorder";
+            this.Controls.Add(this.btnchanges);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listBox1);
+            this.Name = "UI_ReceivedOrderFromSupplier";
+            this.Text = "UI_ReceivedOrderFromSupplier";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,17 +158,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btncancelorder;
-        private System.Windows.Forms.Button btnexit;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnchanges;
+        private System.Windows.Forms.Button btnreturn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblquantity;
         private System.Windows.Forms.Label lblitemid;
         private System.Windows.Forms.TextBox txtbitemid;
         private System.Windows.Forms.TextBox txtbitemname;
         private System.Windows.Forms.Button btnplaceanotherorder;
-        private System.Windows.Forms.Button btnplaceorder;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblitemname;
     }
 }
