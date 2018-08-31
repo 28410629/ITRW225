@@ -12,8 +12,11 @@ namespace ITRW225_Information_System
 {
     public partial class UI_EmployeeRemove : Form
     {
-        public UI_EmployeeRemove()
+        private string[] userArr;
+
+        public UI_EmployeeRemove(string[] userArr)
         {
+            this.userArr = userArr;
             InitializeComponent();
         }
     }

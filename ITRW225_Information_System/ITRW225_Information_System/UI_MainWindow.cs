@@ -150,7 +150,7 @@ namespace ITRW225_Information_System
                     return;
                 }
             }
-            UI_EmployeeRemove employee = new UI_EmployeeRemove();
+            UI_EmployeeRemove employee = new UI_EmployeeRemove(userArr);
             employee.MdiParent = this;
             employee.Show();
         }

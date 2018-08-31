@@ -184,6 +184,9 @@
     <EmbeddedResource Include="UI_EmployeeAdd.resx">
       <DependentUpon>UI_EmployeeAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI_EmployeeRemove.resx">
+      <DependentUpon>UI_EmployeeRemove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI_InventoryPlaceOrder.resx">
       <DependentUpon>UI_InventoryPlaceOrder.cs</DependentUpon>
     </EmbeddedResource>

@@ -68,6 +68,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelFN = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxPosition = new System.Windows.Forms.GroupBox();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).BeginInit();
@@ -82,6 +84,7 @@
             this.groupBoxCI.SuspendLayout();
             this.groupBoxPD.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBoxPosition.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorProviderFN
@@ -136,6 +139,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(6, 19);
             this.comboBox1.Name = "comboBox1";
@@ -144,22 +148,23 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(202, 431);
+            this.buttonSave.Location = new System.Drawing.Point(203, 483);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
             this.buttonSave.TabIndex = 21;
-            this.buttonSave.Text = "Edit";
+            this.buttonSave.Text = "Update";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(12, 431);
+            this.buttonClose.Location = new System.Drawing.Point(13, 483);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
             this.buttonClose.TabIndex = 20;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // groupBoxAD
             // 
@@ -494,12 +499,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Employee";
             // 
-            // UI_EditEmployee
+            // groupBoxPosition
+            // 
+            this.groupBoxPosition.Controls.Add(this.comboBoxPosition);
+            this.groupBoxPosition.Location = new System.Drawing.Point(12, 431);
+            this.groupBoxPosition.Name = "groupBoxPosition";
+            this.groupBoxPosition.Size = new System.Drawing.Size(318, 46);
+            this.groupBoxPosition.TabIndex = 22;
+            this.groupBoxPosition.TabStop = false;
+            this.groupBoxPosition.Text = "Employee Position";
+            // 
+            // comboBoxPosition
+            // 
+            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(6, 19);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(305, 21);
+            this.comboBoxPosition.TabIndex = 1;
+            // 
+            // UI_EmployeeUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(342, 459);
+            this.ClientSize = new System.Drawing.Size(342, 518);
+            this.Controls.Add(this.groupBoxPosition);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBox1);
@@ -508,10 +533,10 @@
             this.Controls.Add(this.groupBoxCI);
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.MaximizeBox = false;
-            this.Name = "UI_EditEmployee";
+            this.Name = "UI_EmployeeUpdate";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Employee";
+            this.Text = "Update Employee";
             this.Load += new System.EventHandler(this.UI_EditEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();
@@ -530,6 +555,7 @@
             this.groupBoxPD.ResumeLayout(false);
             this.groupBoxPD.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBoxPosition.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -574,5 +600,7 @@
         private System.Windows.Forms.Label labelFN;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxPosition;
+        private System.Windows.Forms.ComboBox comboBoxPosition;
     }
 }
