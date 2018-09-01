@@ -60,9 +60,9 @@ namespace ITRW225_Information_System
                         if (access)
                         {
                             UI_MainWindow mdiWindow = new UI_MainWindow(loginWindow, userArr);
+                            mdiWindow.Show();
                             loginWindow.ShowInTaskbar = false;
                             loginWindow.Hide();
-                            mdiWindow.Show();
                             return "Login Successful";
                         }
                         else

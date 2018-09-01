@@ -1,11 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
     public partial class UI_EmployeeUpdate : Form
     {
+        private List<string[]> employeeDetails;
+        private List<string[]> contactDetails;
+        private List<string[]> employeeType;
+        private string oldEmployeeID = "";
+        private string contactDetailsNumber = "";
+        private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
+
         public UI_EmployeeUpdate()
         {
             InitializeComponent();
@@ -17,6 +26,31 @@ namespace ITRW225_Information_System
             {
                 e.Cancel = true;
                 error.SetError(textBox, "Required field.");
+            }
+            else
+            {
+                e.Cancel = false;
+                error.SetError(textBox, null);
+            }
+        }
+
+        private void ValidateID(TextBox textBox, CancelEventArgs e, ErrorProvider error)
+        {
+            bool answer = false;
+            if (textBox.Text != oldEmployeeID)
+            {
+                for (int i = 0; i < employeeDetails.Count; i++)
+                {
+                    if (employeeDetails[i][0] == textBox.Text)
+                    {
+                        answer = true;
+                    }
+                }
+            }
+            if (answer)
+            {
+                e.Cancel = true;
+                error.SetError(textBox, "ID exists, choose another.");
             }
             else
             {
@@ -115,12 +149,31 @@ namespace ITRW225_Information_System
                         MessageBox.Show("Please select appropriate location.");
                         break;
                     default:
-                        BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
-                        string[] arr = new string[] { textBoxFN.Text, textBoxHN.Text, textBoxCN.Text, textBoxEA.Text,
-                                              textBoxID.Text, textBoxLN.Text, textBoxPC.Text, textBoxS.Text,
-                                              textBoxSN.Text, textBoxVAT.Text, comboBoxCN.SelectedItem.ToString() };
-                        string message = employee.saveDB(arr, true);
-                        MessageBox.Show(message);
+                        string posNumber = "";
+                        for (int l = 0; l < comboBoxP.Items.Count; l++)
+                        {
+                            if (comboBoxP.Items[l].ToString() == employeeType[l][1])
+                            {
+                                posNumber = employeeType[l][0];
+                            }
+                        }
+                        string[] arr = new string[] {   textBoxFN.Text,
+                                                        textBoxLN.Text,
+                                                        textBoxID.Text,
+                                                        textBoxHN.Text,
+                                                        textBoxSN.Text,
+                                                        textBoxPC.Text,
+                                                        textBoxCN.Text,
+                                                        textBoxCN2.Text,
+                                                        textBoxS.Text,
+                                                        textBoxEA.Text,
+                                                        comboBoxCN.SelectedItem.ToString(),
+                                                        posNumber,
+                                                        oldEmployeeID,
+                                                        contactDetailsNumber    };
+                        //string message = employee.updateDB(arr);
+
+                        MessageBox.Show(updateDB());
                         break;
                 }
             }
@@ -128,12 +181,125 @@ namespace ITRW225_Information_System
 
         private void UI_EditEmployee_Load(object sender, EventArgs e)
         {
-
+            employeeDetails = employee.loadEmployee();
+            contactDetails = employee.loadContactDetails();
+            employeeType = employee.loadType();
+            for (int i = 0; i < employeeDetails.Count; i++)
+            {
+                comboBoxSE.Items.Add((employeeDetails[i][2] + " " + employeeDetails[i][3]));
+            }
+            for (int i = 0; i < employeeType.Count; i++)
+            {
+                comboBoxP.Items.Add(employeeType[i][1]);
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBoxCN2_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateComponent((TextBox)sender, e, errorProviderCN2);
+        }
+
+        private void comboBoxSE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < employeeDetails.Count; i++)
+            {
+                if ((employeeDetails[i][2] + " " + employeeDetails[i][3]) == comboBoxSE.SelectedItem.ToString())
+                {
+                    for (int j = 0; j < contactDetails.Count; j++)
+                    {
+                        if (contactDetails[j][8] == employeeDetails[i][0])
+                        {
+                            textBoxFN.Text = employeeDetails[i][2];
+                            textBoxLN.Text = employeeDetails[i][3];
+                            textBoxID.Text = employeeDetails[i][0];
+                            oldEmployeeID = employeeDetails[i][0];
+                            textBoxHN.Text = contactDetails[j][0];
+                            textBoxSN.Text = contactDetails[j][1];
+                            textBoxPC.Text = contactDetails[j][2];
+                            textBoxCN.Text = contactDetails[j][3];
+                            textBoxCN2.Text = contactDetails[j][4];
+                            textBoxS.Text = contactDetails[j][5];
+                            textBoxEA.Text = contactDetails[j][7];
+                            for (int k = 0; k < comboBoxCN.Items.Count; k++)
+                            {
+                                if (comboBoxCN.Items[k].ToString().Contains(contactDetails[j][6]))
+                                {
+                                    comboBoxCN.SelectedIndex = k;
+                                }
+                            }
+                            for (int k = 0; k < employeeType.Count; k++)
+                            {
+                                if (employeeDetails[i][1] == employeeType[k][0])
+                                {
+                                    for (int l = 0; l < comboBoxP.Items.Count; l++)
+                                    {
+                                        if (comboBoxP.Items[l].ToString() == employeeType[k][1])
+                                        {
+                                            comboBoxP.SelectedIndex = l;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void textBoxID_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateID((TextBox)sender, e, errorProviderID);
+        }
+
+        public string updateDB()
+        {
+            try
+            {
+                /*{                                    0 textBoxFN.Text,
+                                                       1 textBoxLN.Text,
+                                                       2 textBoxID.Text,
+                                                       3 textBoxHN.Text,
+                                                       4 textBoxSN.Text,
+                                                       5 textBoxPC.Text,
+                                                       6 textBoxCN.Text,
+                                                       7 textBoxCN2.Text,
+                                                       8 textBoxS.Text,
+                                                       9 textBoxEA.Text,
+                                                       10 comboBoxCN.SelectedItem.ToString(),
+                                                       11 posNumber,
+                                                       12 oldEmployeeID,
+                                                       13 contactDetailsNumber  };*/
+                /*using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                {
+                    database.Open();
+                    OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM EMPLOYEE", database);
+                    OleDbCommand commandEmployee = new OleDbCommand(String.Format("UPDATE EMPLOYEE SET EMPLOYEE_ID, EMPLOYEE_TYPE_NUMBER, EMPLOYEE_NAME, EMPLOYEE_SURNAME) VALUES({0}, {1}, {2}, {3}) WHERE EMPLOYEE_ID = {4};", arr[2], arr[11], arr[0], arr[1], arr[12]), database);
+                    adapter.InsertCommand = commandEmployee;
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    database.Close();
+                }*/
+                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                {
+                    database.Open();
+                    OleDbDataAdapter adapterC = new OleDbDataAdapter("SELECT * FROM CONTACT_DETAILS", database);
+                    OleDbCommand commandContact = new OleDbCommand("UPDATE CONTACT_DETAILS SET [HOUSE_NUMBER] = '" + textBoxHN.Text + "', [STREET_NAME] = '" + textBoxSN.Text + "', [POSTAL_CODE] = '" + textBoxPC.Text + "', [CELL_NUMBER] = '" + textBoxCN.Text + "', [BACKUP_CELL_NUMBER] = '" + textBoxCN2.Text + "', [SUBURB] = '" + textBoxS.Text + "', [CITY] = '" + comboBoxCN.SelectedItem.ToString() + "', [EMAIL] = '" + textBoxEA.Text + "', [EMPLOYEE_ID] = '" + textBoxID.Text + "' WHERE [EMPLOYEE_ID] = '" + oldEmployeeID + "'", database);
+                    adapterC.InsertCommand = commandContact;
+                    adapterC.InsertCommand.ExecuteNonQuery();
+                    database.Close();
+                }
+                return "Succesfully saved to database!";
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return "Failed saving to database!";
+            }
         }
     }
 }

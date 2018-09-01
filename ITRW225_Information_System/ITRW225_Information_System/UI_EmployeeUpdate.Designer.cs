@@ -39,7 +39,7 @@
             this.errorProviderSN = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderS = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPC = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSE = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxAD = new System.Windows.Forms.GroupBox();
@@ -54,22 +54,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxCI = new System.Windows.Forms.GroupBox();
+            this.textBoxCN2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.textBoxEA = new System.Windows.Forms.TextBox();
-            this.textBoxVAT = new System.Windows.Forms.TextBox();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.textBoxCN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBoxPD = new System.Windows.Forms.GroupBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBoxLN = new System.Windows.Forms.TextBox();
             this.textBoxFN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelFN = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxPosition = new System.Windows.Forms.GroupBox();
-            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.comboBoxP = new System.Windows.Forms.ComboBox();
+            this.errorProviderCN2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).BeginInit();
@@ -85,6 +86,7 @@
             this.groupBoxPD.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxPosition.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN2)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProviderFN
@@ -137,18 +139,19 @@
             this.errorProviderPC.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderPC.ContainerControl = this;
             // 
-            // comboBox1
+            // comboBoxSE
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(305, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSE.FormattingEnabled = true;
+            this.comboBoxSE.Location = new System.Drawing.Point(6, 19);
+            this.comboBoxSE.Name = "comboBoxSE";
+            this.comboBoxSE.Size = new System.Drawing.Size(305, 21);
+            this.comboBoxSE.TabIndex = 0;
+            this.comboBoxSE.SelectedIndexChanged += new System.EventHandler(this.comboBoxSE_SelectedIndexChanged);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(202, 483);
+            this.buttonSave.Location = new System.Drawing.Point(202, 481);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
             this.buttonSave.TabIndex = 21;
@@ -158,7 +161,7 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(11, 483);
+            this.buttonClose.Location = new System.Drawing.Point(11, 481);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
             this.buttonClose.TabIndex = 20;
@@ -178,7 +181,7 @@
             this.groupBoxAD.Controls.Add(this.label9);
             this.groupBoxAD.Controls.Add(this.label8);
             this.groupBoxAD.Controls.Add(this.label7);
-            this.groupBoxAD.Location = new System.Drawing.Point(12, 274);
+            this.groupBoxAD.Location = new System.Drawing.Point(12, 272);
             this.groupBoxAD.Name = "groupBoxAD";
             this.groupBoxAD.Size = new System.Drawing.Size(317, 151);
             this.groupBoxAD.TabIndex = 19;
@@ -359,44 +362,43 @@
             // 
             // groupBoxCI
             // 
+            this.groupBoxCI.Controls.Add(this.textBoxCN2);
+            this.groupBoxCI.Controls.Add(this.label11);
             this.groupBoxCI.Controls.Add(this.textBoxEA);
-            this.groupBoxCI.Controls.Add(this.textBoxVAT);
-            this.groupBoxCI.Controls.Add(this.textBoxID);
             this.groupBoxCI.Controls.Add(this.textBoxCN);
             this.groupBoxCI.Controls.Add(this.label3);
-            this.groupBoxCI.Controls.Add(this.label5);
             this.groupBoxCI.Controls.Add(this.label6);
-            this.groupBoxCI.Controls.Add(this.label4);
-            this.groupBoxCI.Location = new System.Drawing.Point(12, 145);
+            this.groupBoxCI.Location = new System.Drawing.Point(12, 167);
             this.groupBoxCI.Name = "groupBoxCI";
-            this.groupBoxCI.Size = new System.Drawing.Size(317, 123);
+            this.groupBoxCI.Size = new System.Drawing.Size(317, 99);
             this.groupBoxCI.TabIndex = 18;
             this.groupBoxCI.TabStop = false;
             this.groupBoxCI.Text = "Contact Information";
             // 
+            // textBoxCN2
+            // 
+            this.textBoxCN2.Location = new System.Drawing.Point(93, 45);
+            this.textBoxCN2.Name = "textBoxCN2";
+            this.textBoxCN2.Size = new System.Drawing.Size(197, 20);
+            this.textBoxCN2.TabIndex = 15;
+            this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN2_Validating);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Cell Number 2 :";
+            // 
             // textBoxEA
             // 
-            this.textBoxEA.Location = new System.Drawing.Point(93, 97);
+            this.textBoxEA.Location = new System.Drawing.Point(93, 71);
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
             this.textBoxEA.TabIndex = 13;
             this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating_1);
-            // 
-            // textBoxVAT
-            // 
-            this.textBoxVAT.Location = new System.Drawing.Point(93, 71);
-            this.textBoxVAT.Name = "textBoxVAT";
-            this.textBoxVAT.Size = new System.Drawing.Size(197, 20);
-            this.textBoxVAT.TabIndex = 12;
-            this.textBoxVAT.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating_1);
-            // 
-            // textBoxID
-            // 
-            this.textBoxID.Location = new System.Drawing.Point(93, 45);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(197, 20);
-            this.textBoxID.TabIndex = 11;
-            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating_1);
             // 
             // textBoxCN
             // 
@@ -415,45 +417,46 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Cell Number :";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "VAT Number :";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 100);
+            this.label6.Location = new System.Drawing.Point(8, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Email Address :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "ID Number :";
-            // 
             // groupBoxPD
             // 
+            this.groupBoxPD.Controls.Add(this.textBoxID);
+            this.groupBoxPD.Controls.Add(this.label4);
             this.groupBoxPD.Controls.Add(this.textBoxLN);
             this.groupBoxPD.Controls.Add(this.textBoxFN);
             this.groupBoxPD.Controls.Add(this.label2);
             this.groupBoxPD.Controls.Add(this.labelFN);
             this.groupBoxPD.Location = new System.Drawing.Point(12, 63);
             this.groupBoxPD.Name = "groupBoxPD";
-            this.groupBoxPD.Size = new System.Drawing.Size(317, 76);
+            this.groupBoxPD.Size = new System.Drawing.Size(317, 98);
             this.groupBoxPD.TabIndex = 17;
             this.groupBoxPD.TabStop = false;
             this.groupBoxPD.Text = "Personal Details";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(93, 69);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(197, 20);
+            this.textBoxID.TabIndex = 15;
+            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "ID Number :";
             // 
             // textBoxLN
             // 
@@ -491,7 +494,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxSE);
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(317, 46);
@@ -501,29 +504,34 @@
             // 
             // groupBoxPosition
             // 
-            this.groupBoxPosition.Controls.Add(this.comboBoxPosition);
-            this.groupBoxPosition.Location = new System.Drawing.Point(11, 431);
+            this.groupBoxPosition.Controls.Add(this.comboBoxP);
+            this.groupBoxPosition.Location = new System.Drawing.Point(11, 429);
             this.groupBoxPosition.Name = "groupBoxPosition";
             this.groupBoxPosition.Size = new System.Drawing.Size(318, 46);
             this.groupBoxPosition.TabIndex = 22;
             this.groupBoxPosition.TabStop = false;
             this.groupBoxPosition.Text = "Employee Position";
             // 
-            // comboBoxPosition
+            // comboBoxP
             // 
-            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPosition.FormattingEnabled = true;
-            this.comboBoxPosition.Location = new System.Drawing.Point(6, 19);
-            this.comboBoxPosition.Name = "comboBoxPosition";
-            this.comboBoxPosition.Size = new System.Drawing.Size(305, 21);
-            this.comboBoxPosition.TabIndex = 1;
+            this.comboBoxP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxP.FormattingEnabled = true;
+            this.comboBoxP.Location = new System.Drawing.Point(6, 19);
+            this.comboBoxP.Name = "comboBoxP";
+            this.comboBoxP.Size = new System.Drawing.Size(305, 21);
+            this.comboBoxP.TabIndex = 1;
+            // 
+            // errorProviderCN2
+            // 
+            this.errorProviderCN2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderCN2.ContainerControl = this;
             // 
             // UI_EmployeeUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(342, 518);
+            this.ClientSize = new System.Drawing.Size(342, 514);
             this.Controls.Add(this.groupBoxPosition);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonClose);
@@ -556,6 +564,7 @@
             this.groupBoxPD.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBoxPosition.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -586,21 +595,22 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBoxCI;
         private System.Windows.Forms.TextBox textBoxEA;
-        private System.Windows.Forms.TextBox textBoxVAT;
-        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.TextBox textBoxCN;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBoxPD;
         private System.Windows.Forms.TextBox textBoxLN;
         private System.Windows.Forms.TextBox textBoxFN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelFN;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSE;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxPosition;
-        private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.ComboBox comboBoxP;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxCN2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ErrorProvider errorProviderCN2;
     }
 }
