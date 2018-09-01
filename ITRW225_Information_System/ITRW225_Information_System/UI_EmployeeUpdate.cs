@@ -13,6 +13,7 @@ namespace ITRW225_Information_System
         private List<string[]> employeeType;
         private string oldEmployeeID = "";
         private string contactDetailsNumber = "";
+        private string posNumber = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
 
         public UI_EmployeeUpdate()
@@ -149,7 +150,7 @@ namespace ITRW225_Information_System
                         MessageBox.Show("Please select appropriate location.");
                         break;
                     default:
-                        string posNumber = "";
+                        
                         for (int l = 0; l < comboBoxP.Items.Count; l++)
                         {
                             if (comboBoxP.Items[l].ToString() == employeeType[l][1])
@@ -260,29 +261,15 @@ namespace ITRW225_Information_System
         {
             try
             {
-                /*{                                    0 textBoxFN.Text,
-                                                       1 textBoxLN.Text,
-                                                       2 textBoxID.Text,
-                                                       3 textBoxHN.Text,
-                                                       4 textBoxSN.Text,
-                                                       5 textBoxPC.Text,
-                                                       6 textBoxCN.Text,
-                                                       7 textBoxCN2.Text,
-                                                       8 textBoxS.Text,
-                                                       9 textBoxEA.Text,
-                                                       10 comboBoxCN.SelectedItem.ToString(),
-                                                       11 posNumber,
-                                                       12 oldEmployeeID,
-                                                       13 contactDetailsNumber  };*/
-                /*using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
                     database.Open();
                     OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM EMPLOYEE", database);
-                    OleDbCommand commandEmployee = new OleDbCommand(String.Format("UPDATE EMPLOYEE SET EMPLOYEE_ID, EMPLOYEE_TYPE_NUMBER, EMPLOYEE_NAME, EMPLOYEE_SURNAME) VALUES({0}, {1}, {2}, {3}) WHERE EMPLOYEE_ID = {4};", arr[2], arr[11], arr[0], arr[1], arr[12]), database);
+                    OleDbCommand commandEmployee = new OleDbCommand(String.Format("UPDATE EMPLOYEE SET EMPLOYEE_ID = '{0}', EMPLOYEE_TYPE_NUMBER = {1}, EMPLOYEE_NAME = '{2}', EMPLOYEE_SURNAME = '{3}' WHERE EMPLOYEE_ID = '{4}'", textBoxID.Text, posNumber, textBoxFN.Text, textBoxLN.Text, oldEmployeeID), database);
                     adapter.InsertCommand = commandEmployee;
                     adapter.InsertCommand.ExecuteNonQuery();
                     database.Close();
-                }*/
+                }
                 using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
                     database.Open();

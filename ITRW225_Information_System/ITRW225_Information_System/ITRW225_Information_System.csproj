@@ -187,6 +187,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI_ClientUpdate.resx">
+      <DependentUpon>UI_ClientUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI_CredentialsAuthorise.resx">
       <DependentUpon>UI_CredentialsAuthorise.cs</DependentUpon>
     </EmbeddedResource>

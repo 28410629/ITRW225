@@ -15,6 +15,11 @@ namespace ITRW225_Information_System
         public UI_InventoryPlaceOrder()
         {
             InitializeComponent();
+            string[] item = new string[2];
+            item[0] = "Apples";
+            item[1] = "20";
+            ListViewItem viewItem = new ListViewItem(item);
+            listView1.Items.Add(viewItem);
         }
     }
 }
