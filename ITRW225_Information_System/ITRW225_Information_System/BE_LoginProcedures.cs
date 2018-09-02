@@ -129,7 +129,9 @@ namespace ITRW225_Information_System
                         SmtpServer.EnableSsl = true;
                         SmtpServer.Send(mail);
 
-                        updatePassDB(email, password);
+                        BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
+                        string query = String.Format("UPDATE LOGIN INNER JOIN CONTACT_DETAILS ON LOGIN.Person_ID = CONTACT_DETAILS.Person_ID SET LOGIN.Password = '{0}' WHERE CONTACT_DETAILS.Email_Address = '{1}'", dbCommands.hashPassword(password), email);
+                        dbCommands.updateDB(query, "LOGIN");
 
                         return "New password sent: " + email;
                     }
@@ -140,21 +142,6 @@ namespace ITRW225_Information_System
                         return "Reset password was not sent: " + email;
                     }
                 }
-            }
-        }
-
-        private void updatePassDB(string email, string password)
-        {
-            BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
-            using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-            {
-                database.Open();
-                OleDbDataAdapter adapter = new OleDbDataAdapter(@"SELECT * FROM LOGIN", database);
-                OleDbCommand command = new OleDbCommand(String.Format("UPDATE LOGIN INNER JOIN CONTACT_DETAILS ON LOGIN.Person_ID = CONTACT_DETAILS.Person_ID SET LOGIN.Password = 'hello' WHERE CONTACT_DETAILS.Email_Address = 'coen.human@gmail.com'"), database);
-                //UPDATE LOGIN SET [PASSWORD] = '{0}' WHERE [EMAIL] = '{1}'", dbCommands.hashPassword(password), email)
-                adapter.InsertCommand = command;
-                adapter.InsertCommand.ExecuteNonQuery();
-                database.Close();
             }
         }
     }
