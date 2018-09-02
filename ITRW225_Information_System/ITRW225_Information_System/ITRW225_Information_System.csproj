@@ -111,29 +111,11 @@
     <Compile Include="UI_EmployeeRemove.Designer.cs">
       <DependentUpon>UI_EmployeeRemove.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_ReportEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_ReportEmployee.Designer.cs">
-      <DependentUpon>UI_ReportEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ReportInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_ReportInventory.Designer.cs">
-      <DependentUpon>UI_ReportInventory.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI_ReportSales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI_ReportSales.Designer.cs">
       <DependentUpon>UI_ReportSales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_InventoryPlaceOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_InventoryPlaceOrder.Designer.cs">
-      <DependentUpon>UI_InventoryPlaceOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_Login.cs">
       <SubType>Form</SubType>
@@ -146,12 +128,6 @@
     </Compile>
     <Compile Include="UI_MainWindow.Designer.cs">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_InventoryReceiveOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_InventoryReceiveOrder.Designer.cs">
-      <DependentUpon>UI_InventoryReceiveOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_UserMaintenance.cs">
       <SubType>Form</SubType>
@@ -199,17 +175,11 @@
     <EmbeddedResource Include="UI_EmployeeRemove.resx">
       <DependentUpon>UI_EmployeeRemove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_InventoryPlaceOrder.resx">
-      <DependentUpon>UI_InventoryPlaceOrder.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI_Login.resx">
       <DependentUpon>UI_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_MainWindow.resx">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI_InventoryReceiveOrder.resx">
-      <DependentUpon>UI_InventoryReceiveOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_UserMaintenance.resx">
       <DependentUpon>UI_UserMaintenance.cs</DependentUpon>

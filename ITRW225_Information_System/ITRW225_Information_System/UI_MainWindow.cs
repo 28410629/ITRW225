@@ -47,21 +47,6 @@ namespace ITRW225_Information_System
             this.Close();
         }
 
-        private void userMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in MdiChildren)
-            {
-                if (item is UI_UserMaintenance)
-                {
-                    item.Focus();
-                    return;
-                }
-            }
-            UI_UserMaintenance user = new UI_UserMaintenance();
-            user.MdiParent = this;
-            user.Show();
-        }
-
         private void UI_MainWindow_Load(object sender, EventArgs e)
         {
             /* Array for user access to system:
@@ -72,12 +57,12 @@ namespace ITRW225_Information_System
              8 - user maintenance
              9 - settings
              */
-            clientMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[4]);
-            employeeMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[5]);
-            pointsOfSaleToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[6]);
-            reportsToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[7]);
-            userMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[8]);
-            preferencesToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[9]);
+            clientMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[3]);
+            employeeMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[4]);
+            pointsOfSaleToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[5]);
+            reportsToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[6]);
+            userAccessToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[7]);
+            preferencesToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[8]);
         }
 
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -200,36 +185,6 @@ namespace ITRW225_Information_System
             employee.Show();
         }
 
-        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in MdiChildren)
-            {
-                if (item is UI_ReportEmployee)
-                {
-                    item.Focus();
-                    return;
-                }
-            }
-            UI_ReportEmployee employee = new UI_ReportEmployee();
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
-        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in MdiChildren)
-            {
-                if (item is UI_ReportInventory)
-                {
-                    item.Focus();
-                    return;
-                }
-            }
-            UI_ReportInventory employee = new UI_ReportInventory();
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in MdiChildren)
@@ -245,34 +200,19 @@ namespace ITRW225_Information_System
             employee.Show();
         }
 
-        private void placeOrderAtSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        private void userAccessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in MdiChildren)
             {
-                if (item is UI_InventoryPlaceOrder)
+                if (item is UI_UserMaintenance)
                 {
                     item.Focus();
                     return;
                 }
             }
-            UI_InventoryPlaceOrder employee = new UI_InventoryPlaceOrder();
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
-        private void receiveOrderAtSupplierToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in MdiChildren)
-            {
-                if (item is UI_InventoryReceiveOrder)
-                {
-                    item.Focus();
-                    return;
-                }
-            }
-            UI_InventoryReceiveOrder employee = new UI_InventoryReceiveOrder();
-            employee.MdiParent = this;
-            employee.Show();
+            UI_UserMaintenance user = new UI_UserMaintenance();
+            user.MdiParent = this;
+            user.Show();
         }
     }
 }
