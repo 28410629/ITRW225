@@ -66,6 +66,8 @@
             this.textBoxFN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelFN = new System.Windows.Forms.Label();
+            this.groupBoxPosition = new System.Windows.Forms.GroupBox();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCN)).BeginInit();
@@ -79,6 +81,7 @@
             this.groupBoxAD.SuspendLayout();
             this.groupBoxCI.SuspendLayout();
             this.groupBoxPD.SuspendLayout();
+            this.groupBoxPosition.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorProviderFN
@@ -133,7 +136,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(202, 380);
+            this.buttonSave.Location = new System.Drawing.Point(202, 434);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
             this.buttonSave.TabIndex = 21;
@@ -143,7 +146,7 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(12, 380);
+            this.buttonClose.Location = new System.Drawing.Point(12, 434);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
             this.buttonClose.TabIndex = 0;
@@ -162,7 +165,7 @@
             this.groupBoxAD.Controls.Add(this.label9);
             this.groupBoxAD.Controls.Add(this.label8);
             this.groupBoxAD.Controls.Add(this.label7);
-            this.groupBoxAD.Location = new System.Drawing.Point(12, 223);
+            this.groupBoxAD.Location = new System.Drawing.Point(12, 225);
             this.groupBoxAD.Name = "groupBoxAD";
             this.groupBoxAD.Size = new System.Drawing.Size(317, 151);
             this.groupBoxAD.TabIndex = 19;
@@ -345,22 +348,20 @@
             // 
             this.groupBoxCI.Controls.Add(this.textBoxEA);
             this.groupBoxCI.Controls.Add(this.textBoxVAT);
-            this.groupBoxCI.Controls.Add(this.textBoxID);
             this.groupBoxCI.Controls.Add(this.textBoxCN);
             this.groupBoxCI.Controls.Add(this.label3);
             this.groupBoxCI.Controls.Add(this.label5);
             this.groupBoxCI.Controls.Add(this.label6);
-            this.groupBoxCI.Controls.Add(this.label4);
-            this.groupBoxCI.Location = new System.Drawing.Point(12, 94);
+            this.groupBoxCI.Location = new System.Drawing.Point(13, 118);
             this.groupBoxCI.Name = "groupBoxCI";
-            this.groupBoxCI.Size = new System.Drawing.Size(317, 123);
+            this.groupBoxCI.Size = new System.Drawing.Size(317, 101);
             this.groupBoxCI.TabIndex = 18;
             this.groupBoxCI.TabStop = false;
             this.groupBoxCI.Text = "Contact Information";
             // 
             // textBoxEA
             // 
-            this.textBoxEA.Location = new System.Drawing.Point(93, 97);
+            this.textBoxEA.Location = new System.Drawing.Point(93, 71);
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
             this.textBoxEA.TabIndex = 13;
@@ -368,7 +369,7 @@
             // 
             // textBoxVAT
             // 
-            this.textBoxVAT.Location = new System.Drawing.Point(93, 71);
+            this.textBoxVAT.Location = new System.Drawing.Point(93, 45);
             this.textBoxVAT.Name = "textBoxVAT";
             this.textBoxVAT.Size = new System.Drawing.Size(197, 20);
             this.textBoxVAT.TabIndex = 12;
@@ -376,7 +377,7 @@
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(93, 45);
+            this.textBoxID.Location = new System.Drawing.Point(93, 69);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(197, 20);
             this.textBoxID.TabIndex = 11;
@@ -402,16 +403,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 74);
+            this.label5.Location = new System.Drawing.Point(8, 48);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "VAT Number :";
+            this.label5.Text = "Cell Number 2 :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 100);
+            this.label6.Location = new System.Drawing.Point(8, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 5;
@@ -420,7 +421,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 48);
+            this.label4.Location = new System.Drawing.Point(23, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 3;
@@ -430,11 +431,13 @@
             // 
             this.groupBoxPD.Controls.Add(this.textBoxLN);
             this.groupBoxPD.Controls.Add(this.textBoxFN);
+            this.groupBoxPD.Controls.Add(this.textBoxID);
             this.groupBoxPD.Controls.Add(this.label2);
             this.groupBoxPD.Controls.Add(this.labelFN);
+            this.groupBoxPD.Controls.Add(this.label4);
             this.groupBoxPD.Location = new System.Drawing.Point(12, 12);
             this.groupBoxPD.Name = "groupBoxPD";
-            this.groupBoxPD.Size = new System.Drawing.Size(317, 76);
+            this.groupBoxPD.Size = new System.Drawing.Size(317, 100);
             this.groupBoxPD.TabIndex = 17;
             this.groupBoxPD.TabStop = false;
             this.groupBoxPD.Text = "Personal Details";
@@ -473,12 +476,32 @@
             this.labelFN.TabIndex = 0;
             this.labelFN.Text = "First Name :";
             // 
+            // groupBoxPosition
+            // 
+            this.groupBoxPosition.Controls.Add(this.comboBoxPosition);
+            this.groupBoxPosition.Location = new System.Drawing.Point(12, 382);
+            this.groupBoxPosition.Name = "groupBoxPosition";
+            this.groupBoxPosition.Size = new System.Drawing.Size(318, 46);
+            this.groupBoxPosition.TabIndex = 23;
+            this.groupBoxPosition.TabStop = false;
+            this.groupBoxPosition.Text = "Employee Position";
+            // 
+            // comboBoxPosition
+            // 
+            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(6, 19);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(305, 21);
+            this.comboBoxPosition.TabIndex = 1;
+            // 
             // UI_EmployeeAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(342, 414);
+            this.ClientSize = new System.Drawing.Size(342, 463);
+            this.Controls.Add(this.groupBoxPosition);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBoxPD);
@@ -489,7 +512,7 @@
             this.Name = "UI_EmployeeAdd";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "16";
+            this.Text = "Add Employee";
             this.Load += new System.EventHandler(this.UI_EmployeeAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();
@@ -507,6 +530,7 @@
             this.groupBoxCI.PerformLayout();
             this.groupBoxPD.ResumeLayout(false);
             this.groupBoxPD.PerformLayout();
+            this.groupBoxPosition.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -549,5 +573,7 @@
         private System.Windows.Forms.TextBox textBoxFN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelFN;
+        private System.Windows.Forms.GroupBox groupBoxPosition;
+        private System.Windows.Forms.ComboBox comboBoxPosition;
     }
 }

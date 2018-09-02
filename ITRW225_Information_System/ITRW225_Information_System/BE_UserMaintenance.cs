@@ -26,8 +26,8 @@ namespace ITRW225_Information_System
                  * 1 - full name
                  */
                 string[] arr = new string[] { dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(0).ToString(),
-                                              dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(3).ToString() + " " + 
-                                              dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(4).ToString() };
+                                              dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(2).ToString() + " " + 
+                                              dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(3).ToString() };
                 list.Add(arr);
             }
             dataSetEmployee.Dispose();

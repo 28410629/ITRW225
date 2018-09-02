@@ -65,19 +65,19 @@ namespace ITRW225_Information_System
         private void UI_MainWindow_Load(object sender, EventArgs e)
         {
             /* Array for user access to system:
-             3 - client maintenance
-             4 - employee maintenance
-             5 - points of sale
-             6 - reports
-             7 - user maintenance
-             8 - settings
+             4 - client maintenance
+             5 - employee maintenance
+             6 - points of sale
+             7 - reports
+             8 - user maintenance
+             9 - settings
              */
-            clientMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[3]);
-            employeeMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[4]);
-            pointsOfSaleToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[5]);
-            reportsToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[6]);
-            userMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[7]);
-            preferencesToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[8]);
+            clientMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[4]);
+            employeeMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[5]);
+            pointsOfSaleToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[6]);
+            reportsToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[7]);
+            userMaintenanceToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[8]);
+            preferencesToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[9]);
         }
 
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace ITRW225_Information_System
                     return;
                 }
             }
-            UI_EmployeeRemove employee = new UI_EmployeeRemove();
+            UI_EmployeeRemove employee = new UI_EmployeeRemove(this, userArr);
             employee.MdiParent = this;
             employee.Show();
         }
