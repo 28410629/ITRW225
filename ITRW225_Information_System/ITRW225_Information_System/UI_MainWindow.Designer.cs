@@ -42,10 +42,6 @@
             this.placeOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,9 +49,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.placeOrderAtSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receiveOrderAtSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,10 +73,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientMaintenanceToolStripMenuItem,
             this.employeeMaintenanceToolStripMenuItem,
-            this.inventoryToolStripMenuItem1,
             this.pointsOfSaleToolStripMenuItem,
-            this.reportsToolStripMenuItem,
-            this.userMaintenanceToolStripMenuItem});
+            this.reportsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -123,14 +115,14 @@
             // addEmployeeToolStripMenuItem
             // 
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
-            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addEmployeeToolStripMenuItem.Text = "Add Employee";
             this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
             // 
             // updateEmployeeToolStripMenuItem
             // 
             this.updateEmployeeToolStripMenuItem.Name = "updateEmployeeToolStripMenuItem";
-            this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateEmployeeToolStripMenuItem.Text = "Update Employee";
             this.updateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.updateEmployeeToolStripMenuItem_Click);
             // 
@@ -174,46 +166,15 @@
             // 
             // reportsToolStripMenuItem
             // 
-            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.employeesToolStripMenuItem,
-            this.inventoryToolStripMenuItem,
-            this.salesToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.reportsToolStripMenuItem.Text = "Reports";
-            // 
-            // employeesToolStripMenuItem
-            // 
-            this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.employeesToolStripMenuItem.Text = "Employees";
-            this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
-            // 
-            // inventoryToolStripMenuItem
-            // 
-            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.inventoryToolStripMenuItem.Text = "Inventory";
-            this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
-            // 
-            // salesToolStripMenuItem
-            // 
-            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salesToolStripMenuItem.Text = "Sales";
-            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
-            // 
-            // userMaintenanceToolStripMenuItem
-            // 
-            this.userMaintenanceToolStripMenuItem.Name = "userMaintenanceToolStripMenuItem";
-            this.userMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.userMaintenanceToolStripMenuItem.Text = "User Maintenance";
-            this.userMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.userMaintenanceToolStripMenuItem_Click);
+            this.reportsToolStripMenuItem.Text = "Sales Reports";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesToolStripMenuItem});
+            this.preferencesToolStripMenuItem,
+            this.userAccessToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -221,7 +182,7 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // logoutToolStripMenuItem
@@ -258,28 +219,12 @@
             this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.feedbackToolStripMenuItem.Text = "Feedback";
             // 
-            // inventoryToolStripMenuItem1
+            // userAccessToolStripMenuItem
             // 
-            this.inventoryToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.placeOrderAtSupplierToolStripMenuItem,
-            this.receiveOrderAtSupplierToolStripMenuItem});
-            this.inventoryToolStripMenuItem1.Name = "inventoryToolStripMenuItem1";
-            this.inventoryToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
-            this.inventoryToolStripMenuItem1.Text = "Inventory";
-            // 
-            // placeOrderAtSupplierToolStripMenuItem
-            // 
-            this.placeOrderAtSupplierToolStripMenuItem.Name = "placeOrderAtSupplierToolStripMenuItem";
-            this.placeOrderAtSupplierToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.placeOrderAtSupplierToolStripMenuItem.Text = "Place Order At Supplier";
-            this.placeOrderAtSupplierToolStripMenuItem.Click += new System.EventHandler(this.placeOrderAtSupplierToolStripMenuItem_Click);
-            // 
-            // receiveOrderAtSupplierToolStripMenuItem
-            // 
-            this.receiveOrderAtSupplierToolStripMenuItem.Name = "receiveOrderAtSupplierToolStripMenuItem";
-            this.receiveOrderAtSupplierToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.receiveOrderAtSupplierToolStripMenuItem.Text = "Receive Order At Supplier";
-            this.receiveOrderAtSupplierToolStripMenuItem.Click += new System.EventHandler(this.receiveOrderAtSupplierToolStripMenuItem_Click);
+            this.userAccessToolStripMenuItem.Name = "userAccessToolStripMenuItem";
+            this.userAccessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userAccessToolStripMenuItem.Text = "User Access";
+            this.userAccessToolStripMenuItem.Click += new System.EventHandler(this.userAccessToolStripMenuItem_Click);
             // 
             // UI_MainWindow
             // 
@@ -320,20 +265,14 @@
         private System.Windows.Forms.ToolStripMenuItem removeEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pointsOfSaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userMaintenanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem placeOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewOrdersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feedbackToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem placeOrderAtSupplierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem receiveOrderAtSupplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userAccessToolStripMenuItem;
     }
 }

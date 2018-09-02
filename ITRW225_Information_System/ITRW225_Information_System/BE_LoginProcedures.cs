@@ -36,15 +36,21 @@ namespace ITRW225_Information_System
                     using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                     {
                         database.Open();
-                        OleDbDataAdapter adapter = new OleDbDataAdapter(String.Format("SELECT * FROM LOGIN WHERE [EMAIL] = '{0}' AND PASSWORD = '{1}'", email, dbCommands.hashPassword(password)), database);
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(String.Format("SELECT * FROM LOGIN, CONTACT_DETAILS WHERE LOGIN.Person_ID = CONTACT_DETAILS.Person_ID AND CONTACT_DETAILS.Email_Address = '{0}' AND LOGIN.Password = '{1}'", email, dbCommands.hashPassword(password)), database);
                         DataSet dataSet = new DataSet();
                         adapter.Fill(dataSet, "list");
                         database.Close();
                         rowCount = Convert.ToString(dataSet.Tables[0].Rows.Count);
                         if (dataSet.Tables[0].Rows.Count == 1)
                         {
-                            userArr = new string[] { rowCount, dataSet.Tables[0].Rows[0].ItemArray.GetValue(1).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(2).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(3).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(4).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(5).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(6).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(7).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(8).ToString(), dataSet.Tables[0].Rows[0].ItemArray.GetValue(9).ToString() };
-                            access = Convert.ToBoolean(dataSet.Tables[0].Rows[0].ItemArray.GetValue(10).ToString());
+                            userArr = new string[10];
+                            userArr[0] = rowCount;
+                            userArr[1] = dataSet.Tables[0].Rows[0].ItemArray.GetValue(16).ToString();
+                            for (int j = 2; j < 10; j++)
+                            {
+                                userArr[j] = dataSet.Tables[0].Rows[0].ItemArray.GetValue(j-1).ToString();
+                            }
+                            access = Convert.ToBoolean(userArr[9]);
                         }
                         else
                         {
@@ -90,7 +96,7 @@ namespace ITRW225_Information_System
                 using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
                     database.Open();
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(String.Format("SELECT * FROM LOGIN WHERE [EMAIL] = '{0}'", email), database);
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(String.Format("SELECT * FROM CONTACT_DETAILS WHERE [Email_Address] = '{0}'", email), database);
                     DataSet dataSet = new DataSet();
                     adapter.Fill(dataSet, "list");
                     database.Close();
@@ -123,7 +129,9 @@ namespace ITRW225_Information_System
                         SmtpServer.EnableSsl = true;
                         SmtpServer.Send(mail);
 
-                        updatePassDB(email, password);
+                        BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
+                        string query = String.Format("UPDATE LOGIN INNER JOIN CONTACT_DETAILS ON LOGIN.Person_ID = CONTACT_DETAILS.Person_ID SET LOGIN.Password = '{0}' WHERE CONTACT_DETAILS.Email_Address = '{1}'", dbCommands.hashPassword(password), email);
+                        dbCommands.updateDB(query, "LOGIN");
 
                         return "New password sent: " + email;
                     }
@@ -134,20 +142,6 @@ namespace ITRW225_Information_System
                         return "Reset password was not sent: " + email;
                     }
                 }
-            }
-        }
-
-        private void updatePassDB(string email, string password)
-        {
-            BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
-            using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-            {
-                database.Open();
-                OleDbDataAdapter adapter = new OleDbDataAdapter(@"SELECT * FROM LOGIN", database);
-                OleDbCommand command = new OleDbCommand(String.Format("UPDATE LOGIN SET [PASSWORD] = '{0}' WHERE [EMAIL] = '{1}'", dbCommands.hashPassword(password), email), database);
-                adapter.InsertCommand = command;
-                adapter.InsertCommand.ExecuteNonQuery();
-                database.Close();
             }
         }
     }
