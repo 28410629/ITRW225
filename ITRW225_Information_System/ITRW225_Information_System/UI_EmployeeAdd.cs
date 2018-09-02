@@ -79,50 +79,58 @@ namespace ITRW225_Information_System
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                switch(comboBoxCN.SelectedItem.ToString())
+                try
                 {
-                    case "Eastern Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Free State":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Gauteng":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "KwaZulu-Natal":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Limpopo":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Mpumalanga":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "North West":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Northern Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Western Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Please select location.":
-                        MessageBox.Show("Please select appropriate location.");
-                        break;
-                    default:
-                        BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
-                        string[] arr = new string[] { textBoxFN.Text, textBoxHN.Text, textBoxCN.Text, textBoxEA.Text,
-                                                      textBoxID.Text, textBoxLN.Text, textBoxPC.Text, textBoxS.Text,
-                                                      textBoxSN.Text, textBoxVAT.Text, comboBoxCN.SelectedItem.ToString() };
-                        string message = employee.saveDB(arr, true);
-                        MessageBox.Show(message);
-                        break;
+                    switch (comboBoxCN.SelectedItem.ToString())
+                    {
+                        case "Eastern Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Free State":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Gauteng":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "KwaZulu-Natal":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Limpopo":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Mpumalanga":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "North West":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Northern Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Western Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Please select location.":
+                            MessageBox.Show("Please select appropriate location.");
+                            break;
+                        default:
+                            BE_DatabaseCommands commands = new BE_DatabaseCommands();
+                            string query = String.Format("");
+                            commands.addDB(query, "CONTACT_DETAILS");
+                            MessageBox.Show("Successfully updated database!");
+                            break;
+                    }
                 }
+                catch (Exception ex)
+                {
+                    BE_LogSystem log = new BE_LogSystem(ex);
+                    log.saveError();
+                    MessageBox.Show("Failed updating database!");
+                }
+                
             }
         }
 

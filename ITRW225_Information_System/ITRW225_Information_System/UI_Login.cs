@@ -16,7 +16,7 @@ namespace ITRW225_Information_System
 
         public UI_Login()
         {
-            this.login = new BE_LoginProcedures(this);
+            login = new BE_LoginProcedures(this);
             InitializeComponent();
         }
 
