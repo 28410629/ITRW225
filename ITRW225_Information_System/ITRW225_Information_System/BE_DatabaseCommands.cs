@@ -15,77 +15,106 @@ namespace ITRW225_Information_System
             return Convert.ToBase64String(hashBytes);
         }
 
-        public void updateDB(string query, string tableName)
+        public string updateDB(string query, string tableName)
         {
-            executeNonQuery(query, tableName);
+            return executeNonQuery(query, tableName);
         }
 
-        public void addDB(string query, string tableName)
+        public string addDB(string query, string tableName)
         {
-            executeNonQuery(query, tableName);
+            return executeNonQuery(query, tableName);
         }
 
         public List<string[]> retrieveCustomDB(string query)
         {
-            DataSet data;
-            List<string[]> list = new List<string[]>();
-            using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+            try
             {
-                database.Open();
-                OleDbDataAdapter adapterE = new OleDbDataAdapter(query, database);
-                data = new DataSet();
-                adapterE.Fill(data, "list");
-                database.Close();
-            }
-            for (int i = 0; i < data.Tables[0].Rows.Count; i++)
-            {
-                string[] arr = new string[data.Tables[0].Columns.Count];
-                for (int j = 0; j < data.Tables[0].Columns.Count; j++)
+                DataSet data;
+                List<string[]> list = new List<string[]>();
+                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
-                    arr[j] = data.Tables[0].Rows[i].ItemArray.GetValue(j).ToString();
+                    database.Open();
+                    OleDbDataAdapter adapterE = new OleDbDataAdapter(query, database);
+                    data = new DataSet();
+                    adapterE.Fill(data, "list");
+                    database.Close();
                 }
-                list.Add(arr);
+                for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+                {
+                    string[] arr = new string[data.Tables[0].Columns.Count];
+                    for (int j = 0; j < data.Tables[0].Columns.Count; j++)
+                    {
+                        arr[j] = data.Tables[0].Rows[i].ItemArray.GetValue(j).ToString();
+                    }
+                    list.Add(arr);
+                }
+                data.Dispose();
+                return list;
             }
-            data.Dispose();
-            return list;
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return null;
+            }
         }
 
         public List<string[]> retrieveDB(string tableName)
         {
-            DataSet data;
-            List<string[]> list = new List<string[]>();
-            using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+            try
             {
-                database.Open();
-                OleDbDataAdapter adapterE = new OleDbDataAdapter("SELECT * FROM [" + tableName + "]", database);
-                data = new DataSet();
-                adapterE.Fill(data, "list");
-                database.Close();
-            }
-            for (int i = 0; i < data.Tables[0].Rows.Count; i++)
-            {
-                string[] arr = new string[data.Tables[0].Columns.Count];
-                for (int j = 0; j < data.Tables[0].Columns.Count; j++)
+                DataSet data;
+                List<string[]> list = new List<string[]>();
+                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
-                    arr[j] = data.Tables[0].Rows[i].ItemArray.GetValue(j).ToString();
+                    database.Open();
+                    OleDbDataAdapter adapterE = new OleDbDataAdapter("SELECT * FROM [" + tableName + "]", database);
+                    data = new DataSet();
+                    adapterE.Fill(data, "list");
+                    database.Close();
                 }
-                list.Add(arr);
+                for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+                {
+                    string[] arr = new string[data.Tables[0].Columns.Count];
+                    for (int j = 0; j < data.Tables[0].Columns.Count; j++)
+                    {
+                        arr[j] = data.Tables[0].Rows[i].ItemArray.GetValue(j).ToString();
+                    }
+                    list.Add(arr);
+                }
+                data.Dispose();
+                return list;
             }
-            data.Dispose();
-            return list;
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return null;
+            }
         }
 
-        private void executeNonQuery(string query, string table)
+        private string executeNonQuery(string query, string table)
         {
-            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+            try
             {
-                db.Open();
-                OleDbDataAdapter adpt = new OleDbDataAdapter("SELECT * FROM " + table, db);
-                OleDbCommand cmd = new OleDbCommand(query, db);
-                adpt.InsertCommand = cmd;
-                adpt.InsertCommand.ExecuteNonQuery();
-                db.Close();
+                using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                {
+                    db.Open();
+                    OleDbDataAdapter adpt = new OleDbDataAdapter("SELECT * FROM " + table, db);
+                    OleDbCommand cmd = new OleDbCommand(query, db);
+                    adpt.InsertCommand = cmd;
+                    adpt.InsertCommand.ExecuteNonQuery();
+                    db.Close();
+                }
+                return "Successfully updated database!";
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return "Failed updating database!";
             }
         }
+
     }
 }

@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
     public partial class UI_UserMaintenance : Form
     {
-        private BE_UserMaintenance maintenance;
+        private BE_DatabaseCommands commands;
+        private string employee;
         private List<string[]> listE;
-        private List<string[]> listL;
 
         public UI_UserMaintenance()
         {
-            this.maintenance = new BE_UserMaintenance();
+            this.commands = new BE_DatabaseCommands();
             InitializeComponent();
         }
 
         private void UI_UserMaintenance_Load(object sender, EventArgs e)
         {
-            listE = maintenance.loadEmployee();
-            listL = maintenance.loadLogin();
+            listE = commands.retrieveCustomDB("SELECT * FROM PERSON, LOGIN WHERE PERSON.Person_ID = LOGIN.Person_ID AND PERSON.Person_Is_Employee = True AND PERSON.Person_Is_Removed = False");
             for (int i = 0; i < listE.Count; i++)
             {
-                comboBoxEmployee.Items.Add(listE[i][1]);
+                comboBoxEmployee.Items.Add(listE[i][1] + " " + listE[i][2]);
             }
             comboBoxEmployee.SelectedIndex = 0;
         }
@@ -31,15 +31,16 @@ namespace ITRW225_Information_System
         {
             for (int i = 0; i < listE.Count; i++)
             {
-                if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
+                if (listE[i][1] + " " + listE[i][2] == comboBoxEmployee.SelectedItem.ToString())
                 {
-                    checkBoxCM.Checked = Convert.ToBoolean(listL[i][2]);
-                    checkBoxEM.Checked = Convert.ToBoolean(listL[i][3]);
-                    checkBoxPOS.Checked = Convert.ToBoolean(listL[i][4]);
-                    checkBoxR.Checked = Convert.ToBoolean(listL[i][5]);
-                    checkBoxUM.Checked = Convert.ToBoolean(listL[i][6]);
-                    checkBoxS.Checked = Convert.ToBoolean(listL[i][7]);
-                    if (Convert.ToBoolean(listL[i][8]))
+                    employee = listE[i][0];
+                    checkBoxCM.Checked = Convert.ToBoolean(listE[i][8]);
+                    checkBoxEM.Checked = Convert.ToBoolean(listE[i][9]);
+                    checkBoxPOS.Checked = Convert.ToBoolean(listE[i][10]);
+                    checkBoxR.Checked = Convert.ToBoolean(listE[i][11]);
+                    checkBoxUM.Checked = Convert.ToBoolean(listE[i][12]);
+                    checkBoxS.Checked = Convert.ToBoolean(listE[i][13]);
+                    if (Convert.ToBoolean(listE[i][14]))
                     {
                         labelStatus.Text = "User can access system.";
                     }
@@ -53,35 +54,50 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(textBoxP1.Text))
+            buttonAllow.Enabled = false;
+            try
             {
-                if (textBoxP1.Text == textBoxP2.Text)
+                string query = null;
+                if (!String.IsNullOrWhiteSpace(textBoxP1.Text))
                 {
-                    for (int i = 0; i < listE.Count; i++)
+                    if (textBoxP1.Text == textBoxP2.Text)
                     {
-                        if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
-                        {
-                            bool[] arr = new bool[] { checkBoxCM.Checked, checkBoxEM.Checked, checkBoxPOS.Checked, checkBoxR.Checked, checkBoxUM.Checked, checkBoxS.Checked };
-                            MessageBox.Show(maintenance.updatePassCheckDB(arr, listE[i][0], textBoxP1.Text));
-                        }
+                        query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [EMPLOYEE_ID] = {1}", commands.hashPassword(textBoxP1.Text), employee);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please ensure passwords are the same, thank you.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please ensure passwords are the same, thank you.");
+                    query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5 WHERE [Person_ID] = {0}", employee);
                 }
-            }
-            else
-            {
-                for (int i = 0; i < listE.Count; i++)
+                if (!String.IsNullOrWhiteSpace(query))
                 {
-                    if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
+                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                     {
-                        bool[] arr = new bool[] { checkBoxCM.Checked, checkBoxEM.Checked, checkBoxPOS.Checked, checkBoxR.Checked, checkBoxUM.Checked, checkBoxS.Checked };
-                        MessageBox.Show(maintenance.updateCheckDB(arr, listE[i][0]));
+                        db.Open();
+                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM LOGIN", db);
+                        OleDbCommand command = new OleDbCommand();
+                        command.Parameters.Add("@0", OleDbType.Boolean).Value = checkBoxCM.Checked;
+                        command.Parameters.Add("@1", OleDbType.Boolean).Value = checkBoxEM.Checked;
+                        command.Parameters.Add("@2", OleDbType.Boolean).Value = checkBoxPOS.Checked;
+                        command.Parameters.Add("@3", OleDbType.Boolean).Value = checkBoxR.Checked;
+                        command.Parameters.Add("@4", OleDbType.Boolean).Value = checkBoxUM.Checked;
+                        command.Parameters.Add("@5", OleDbType.Boolean).Value = checkBoxS.Checked;
+                        adapter.InsertCommand = command;
+                        adapter.InsertCommand.ExecuteNonQuery();
+                        db.Close();
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,19 +107,34 @@ namespace ITRW225_Information_System
 
         private void buttonAllow_Click(object sender, EventArgs e)
         {
+            buttonAllow.Enabled = false;
+            setAccess("True");
+            buttonAllow.Enabled = true;
+        }
+
+        private void buttonDeny_Click(object sender, EventArgs e)
+        {
+            buttonAllow.Enabled = false;
+            setAccess("False");
+            buttonAllow.Enabled = true;
+        }
+
+        private void setAccess(string selection)
+        {
             for (int i = 0; i < listE.Count; i++)
             {
-                if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
+                if (listE[i][1] + " " + listE[i][2] == comboBoxEmployee.SelectedItem.ToString())
                 {
-                    string message = maintenance.accessSystemDB("true", listE[i][0]);
-                    MessageBox.Show(message);
+                    string message = accessSystemDB(selection, listE[i][0]);
                     if (message == "Updated access permission to system!")
                     {
+                        MessageBox.Show("Access updated!");
                         labelStatus.Text = "User can access system.";
                     }
                     else
                     {
-                        if (Convert.ToBoolean(listL[i][8]))
+                        MessageBox.Show("Access not updated!");
+                        if (Convert.ToBoolean(listE[i][14]))
                         {
                             labelStatus.Text = "User can access system.";
                         }
@@ -116,31 +147,38 @@ namespace ITRW225_Information_System
             }
         }
 
-        private void buttonDeny_Click(object sender, EventArgs e)
+        public string accessSystemDB(string access, string employeeID)
         {
-            for (int i = 0; i < listE.Count; i++)
+            try
             {
-                if (listE[i][1] == comboBoxEmployee.SelectedItem.ToString())
+                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
-                    string message = maintenance.accessSystemDB("false", listE[i][0]);
-                    MessageBox.Show(message);
-                    if (message == "Updated access permission to system!")
-                    {
-                        labelStatus.Text = "User is denied access to system.";
-                    }
-                    else
-                    {
-                        if (Convert.ToBoolean(listL[i][8]))
-                        {
-                            labelStatus.Text = "User can access system.";
-                        }
-                        else
-                        {
-                            labelStatus.Text = "User is denied access to system.";
-                        }
-                    }
+                    BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
+                    database.Open();
+                    OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM LOGIN", database);
+                    OleDbCommand command = new OleDbCommand(String.Format("UPDATE LOGIN SET [A_TO_SYSTEM] = @0 WHERE [Person_ID] = '{0}'", employeeID), database);
+                    command.Parameters.Add("@0", OleDbType.Boolean).Value = access;
+                    adapter.InsertCommand = command;
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    database.Close();
                 }
+                return "Updated access permission to system!";
             }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return "Failed updating access permission to system!";
+            }
+        }
+
+        private void enableButtons(bool selection)
+        {
+            buttonAllow.Enabled = selection;
+            buttonDeny.Enabled = selection;
+            buttonClose.Enabled = selection;
+            buttonSave.Enabled = selection;
+            this.Close.Enabled = selection;
         }
     }
 }
