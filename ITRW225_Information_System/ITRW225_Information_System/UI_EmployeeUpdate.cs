@@ -11,7 +11,6 @@ namespace ITRW225_Information_System
         private List<string[]> employeeDetails;
         private List<string[]> employeeType;
         private string oldEmployeeID = "";
-        private string contactDetailsNumber = "";
         private string posNumber = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
 
