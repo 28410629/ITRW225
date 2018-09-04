@@ -117,6 +117,7 @@
             this.textBoxS.Name = "textBoxS";
             this.textBoxS.Size = new System.Drawing.Size(197, 20);
             this.textBoxS.TabIndex = 22;
+            this.textBoxS.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxS_Validating);
             // 
             // comboBoxCN
             // 
@@ -219,6 +220,7 @@
             this.textBoxPC.Name = "textBoxPC";
             this.textBoxPC.Size = new System.Drawing.Size(197, 20);
             this.textBoxPC.TabIndex = 20;
+            this.textBoxPC.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPC_Validating);
             // 
             // textBoxSN
             // 
@@ -226,6 +228,7 @@
             this.textBoxSN.Name = "textBoxSN";
             this.textBoxSN.Size = new System.Drawing.Size(197, 20);
             this.textBoxSN.TabIndex = 18;
+            this.textBoxSN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSN_Validating);
             // 
             // textBoxHN
             // 
@@ -233,6 +236,7 @@
             this.textBoxHN.Name = "textBoxHN";
             this.textBoxHN.Size = new System.Drawing.Size(197, 20);
             this.textBoxHN.TabIndex = 16;
+            this.textBoxHN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxHN_Validating);
             // 
             // label10
             // 
@@ -291,6 +295,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(197, 20);
             this.textBoxID.TabIndex = 15;
+            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating);
             // 
             // label4
             // 
@@ -307,6 +312,7 @@
             this.textBoxLN.Name = "textBoxLN";
             this.textBoxLN.Size = new System.Drawing.Size(197, 20);
             this.textBoxLN.TabIndex = 9;
+            this.textBoxLN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLN_Validating);
             // 
             // textBoxFN
             // 
@@ -314,6 +320,7 @@
             this.textBoxFN.Name = "textBoxFN";
             this.textBoxFN.Size = new System.Drawing.Size(197, 20);
             this.textBoxFN.TabIndex = 8;
+            this.textBoxFN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxFN_Validating);
             // 
             // label2
             // 
@@ -354,6 +361,7 @@
             this.textBoxCN2.Name = "textBoxCN2";
             this.textBoxCN2.Size = new System.Drawing.Size(197, 20);
             this.textBoxCN2.TabIndex = 15;
+            this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN2_Validating);
             // 
             // label11
             // 
@@ -370,6 +378,7 @@
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
             this.textBoxEA.TabIndex = 13;
+            this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating);
             // 
             // textBoxCN
             // 
@@ -377,6 +386,7 @@
             this.textBoxCN.Name = "textBoxCN";
             this.textBoxCN.Size = new System.Drawing.Size(197, 20);
             this.textBoxCN.TabIndex = 10;
+            this.textBoxCN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN_Validating);
             // 
             // label3
             // 
@@ -404,6 +414,7 @@
             this.buttonSave.TabIndex = 24;
             this.buttonSave.Text = "Add";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonClose
             // 
@@ -413,6 +424,7 @@
             this.buttonClose.TabIndex = 23;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // errorProviderFN
             // 
@@ -480,8 +492,11 @@
             this.Controls.Add(this.groupBoxAD);
             this.Controls.Add(this.groupBoxPD);
             this.Controls.Add(this.groupBoxCI);
+            this.MaximizeBox = false;
             this.Name = "UI_ClientAdd";
-            this.Text = "UI_AddClientInfo";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Add Client";
             this.Load += new System.EventHandler(this.UI_ClientMaintenance_Load);
             this.groupBoxAD.ResumeLayout(false);
             this.groupBoxAD.PerformLayout();

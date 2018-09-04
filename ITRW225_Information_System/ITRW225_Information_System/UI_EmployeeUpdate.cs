@@ -9,10 +9,8 @@ namespace ITRW225_Information_System
     public partial class UI_EmployeeUpdate : Form
     {
         private List<string[]> employeeDetails;
-        private List<string[]> contactDetails;
         private List<string[]> employeeType;
         private string oldEmployeeID = "";
-        private string contactDetailsNumber = "";
         private string posNumber = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
 
@@ -151,30 +149,6 @@ namespace ITRW225_Information_System
                         break;
                     default:
                         
-                        for (int l = 0; l < comboBoxP.Items.Count; l++)
-                        {
-                            if (comboBoxP.Items[l].ToString() == employeeType[l][1])
-                            {
-                                posNumber = employeeType[l][0];
-                            }
-                        }
-                        string[] arr = new string[] {   textBoxFN.Text,
-                                                        textBoxLN.Text,
-                                                        textBoxID.Text,
-                                                        textBoxHN.Text,
-                                                        textBoxSN.Text,
-                                                        textBoxPC.Text,
-                                                        textBoxCN.Text,
-                                                        textBoxCN2.Text,
-                                                        textBoxS.Text,
-                                                        textBoxEA.Text,
-                                                        comboBoxCN.SelectedItem.ToString(),
-                                                        posNumber,
-                                                        oldEmployeeID,
-                                                        contactDetailsNumber    };
-                        //string message = employee.updateDB(arr);
-
-                        MessageBox.Show(updateDB());
                         break;
                 }
             }
@@ -182,12 +156,14 @@ namespace ITRW225_Information_System
 
         private void UI_EditEmployee_Load(object sender, EventArgs e)
         {
-            employeeDetails = employee.loadEmployee();
-            contactDetails = employee.loadContactDetails();
-            employeeType = employee.loadType();
+            BE_DatabaseCommands commands = new BE_DatabaseCommands();
+
+            employeeDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True AND PERSON.Person_Is_Removed = False");
+            employeeType = commands.retrieveDB("PERSON_TYPE");
+
             for (int i = 0; i < employeeDetails.Count; i++)
             {
-                comboBoxSE.Items.Add((employeeDetails[i][2] + " " + employeeDetails[i][3]));
+                comboBoxSE.Items.Add((employeeDetails[i][1] + " " + employeeDetails[i][2]));
             }
             for (int i = 0; i < employeeType.Count; i++)
             {
@@ -209,45 +185,27 @@ namespace ITRW225_Information_System
         {
             for (int i = 0; i < employeeDetails.Count; i++)
             {
-                if ((employeeDetails[i][2] + " " + employeeDetails[i][3]) == comboBoxSE.SelectedItem.ToString())
+                if ((employeeDetails[i][1] + " " + employeeDetails[i][2]) == comboBoxSE.SelectedItem.ToString())
                 {
-                    for (int j = 0; j < contactDetails.Count; j++)
+                    textBoxFN.Text = employeeDetails[i][1];
+                    textBoxLN.Text = employeeDetails[i][2];
+                    textBoxID.Text = employeeDetails[i][0];
+                    oldEmployeeID = employeeDetails[i][0];
+                    textBoxHN.Text = employeeDetails[i][6];
+                    textBoxSN.Text = employeeDetails[i][7];
+                    textBoxPC.Text = employeeDetails[i][8];
+                    textBoxCN.Text = employeeDetails[i][9];
+                    textBoxCN2.Text = employeeDetails[i][10];
+                    textBoxS.Text = employeeDetails[i][11];
+                    textBoxEA.Text = employeeDetails[i][13];
+                    for (int k = 0; k < comboBoxCN.Items.Count; k++)
                     {
-                        if (contactDetails[j][8] == employeeDetails[i][0])
+                        if (comboBoxCN.Items[k].ToString().Contains(employeeDetails[i][12]))
                         {
-                            textBoxFN.Text = employeeDetails[i][2];
-                            textBoxLN.Text = employeeDetails[i][3];
-                            textBoxID.Text = employeeDetails[i][0];
-                            oldEmployeeID = employeeDetails[i][0];
-                            textBoxHN.Text = contactDetails[j][0];
-                            textBoxSN.Text = contactDetails[j][1];
-                            textBoxPC.Text = contactDetails[j][2];
-                            textBoxCN.Text = contactDetails[j][3];
-                            textBoxCN2.Text = contactDetails[j][4];
-                            textBoxS.Text = contactDetails[j][5];
-                            textBoxEA.Text = contactDetails[j][7];
-                            for (int k = 0; k < comboBoxCN.Items.Count; k++)
-                            {
-                                if (comboBoxCN.Items[k].ToString().Contains(contactDetails[j][6]))
-                                {
-                                    comboBoxCN.SelectedIndex = k;
-                                }
-                            }
-                            for (int k = 0; k < employeeType.Count; k++)
-                            {
-                                if (employeeDetails[i][1] == employeeType[k][0])
-                                {
-                                    for (int l = 0; l < comboBoxP.Items.Count; l++)
-                                    {
-                                        if (comboBoxP.Items[l].ToString() == employeeType[k][1])
-                                        {
-                                            comboBoxP.SelectedIndex = l;
-                                        }
-                                    }
-                                }
-                            }
+                            comboBoxCN.SelectedIndex = k;
                         }
                     }
+                    comboBoxP.SelectedIndex = Convert.ToInt32(employeeDetails[i][5])-1;
                 }
             }
         }
