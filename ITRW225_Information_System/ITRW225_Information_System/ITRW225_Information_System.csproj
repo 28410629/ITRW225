@@ -181,6 +181,9 @@
     <EmbeddedResource Include="UI_MainWindow.resx">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI_POSPlaceOrder.resx">
+      <DependentUpon>UI_POSPlaceOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI_UserMaintenance.resx">
       <DependentUpon>UI_UserMaintenance.cs</DependentUpon>
     </EmbeddedResource>
