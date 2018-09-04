@@ -515,7 +515,7 @@
             this.Controls.Add(this.groupBoxPD);
             this.Controls.Add(this.groupBoxCI);
             this.Name = "UI_ClientUpdate";
-            this.Text = "UI_ClientUpdate";
+            this.Text = "Client Update";
             this.Load += new System.EventHandler(this.UI_ClientUpdate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBoxAD.ResumeLayout(false);
