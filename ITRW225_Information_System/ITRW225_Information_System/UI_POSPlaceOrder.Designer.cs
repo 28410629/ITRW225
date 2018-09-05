@@ -229,6 +229,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listView1);
             this.Name = "UI_POSPlaceOrder";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Point of Sales - Place Order";
             this.Load += new System.EventHandler(this.UI_POSPlaceOrder_Load);
