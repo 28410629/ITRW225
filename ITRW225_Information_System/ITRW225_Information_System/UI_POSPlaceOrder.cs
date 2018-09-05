@@ -25,38 +25,52 @@ namespace ITRW225_Information_System
 
         }
 
-        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        private void listBox1_Click(object sender, EventArgs e)
         {
-            if (checkedListBox1.GetItemCheckState(checkedListBox1.SelectedIndex) == CheckState.Unchecked)
+            string itemString = (string)listBox1.SelectedItem;
+            if (listView1.Items.Count == 0)
             {
-                bool add = true;
-                if (listView1.Items.Count > 1)
-                {
-                    for (int i = 0; i < listView1.Items.Count - 1; i++)
-                    {
-                        if (list[i].SubItems[1].ToString().Contains(checkedListBox1.SelectedItem.ToString()))
-                        {
-                            add = false;
-                        }
-                    }
-                }
-                if (add)
-                {
-                    string[] arr = new string[2];
-                    ListViewItem itm; //add items to ListView 
-                    arr[0] = "100";
-                    arr[1] = checkedListBox1.SelectedItem.ToString();
-                    itm = new ListViewItem(arr);
-                    itm.ToolTipText = "Highlight item and click once on value to change!";
-                    list.Add(itm);
-                    listView1.Items.Add(itm);
-                }
+                listViewAdd(true, itemString);
             }
             else
             {
-                MessageBox.Show("Activated Remove!");
+                bool add = true;
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    if (listView1.Items[i].SubItems[1].Text == itemString)
+                    {
+                        add = false;
+                    }
+                }
+                listViewAdd(add, itemString);
             }
-            
+        }
+
+        private void listViewAdd(bool addItem, string item)
+        {
+            listBox1.Enabled = false;
+            if (addItem)
+            {
+                string[] arr = new string[2];
+                ListViewItem itm; 
+                arr[0] = "100";
+                arr[1] = item;
+                itm = new ListViewItem(arr);
+                itm.ToolTipText = "Highlight item and click once on value to change!";
+                list.Add(itm);
+                listView1.Items.Add(itm);
+            }
+            if (listView1.Items.Count > 0 && addItem == false)
+            {
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    if (listView1.Items[i].SubItems[1].Text == item)
+                    {
+                        listView1.Items[i].Remove();
+                    }
+                }
+            }
+            listBox1.Enabled = true;
         }
     }
 }

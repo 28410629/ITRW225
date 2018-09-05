@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,21 +45,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Leaf",
-            "Something",
-            "Lol"});
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 39);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(332, 274);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             // 
             // listView1
             // 
@@ -208,11 +194,25 @@
             this.textBox4.Size = new System.Drawing.Size(92, 20);
             this.textBox4.TabIndex = 30;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "Leaf ",
+            "Something ",
+            "Lol"});
+            this.listBox1.Location = new System.Drawing.Point(12, 36);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(331, 277);
+            this.listBox1.TabIndex = 31;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            // 
             // UI_POSPlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 403);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
@@ -228,7 +228,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.checkedListBox1);
             this.Name = "UI_POSPlaceOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Point of Sales - Place Order";
@@ -239,8 +238,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnQ;
         private System.Windows.Forms.ColumnHeader columnP;
@@ -258,5 +255,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
