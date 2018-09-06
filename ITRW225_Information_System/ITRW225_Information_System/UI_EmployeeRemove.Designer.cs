@@ -81,6 +81,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "UI_EmployeeRemove";
             this.ShowIcon = false;
             this.Text = "Remove Employee";

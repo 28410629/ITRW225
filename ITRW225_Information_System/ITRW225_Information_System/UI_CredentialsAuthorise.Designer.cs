@@ -111,6 +111,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonAuthorise);
             this.Controls.Add(this.buttonClose);
+            this.MaximizeBox = false;
             this.Name = "UI_CredentialsAuthorise";
             this.ShowIcon = false;
             this.Text = "Authorise Change";
