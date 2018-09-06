@@ -247,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 421);
+            this.ClientSize = new System.Drawing.Size(301, 422);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.buttonDeny);
             this.Controls.Add(this.buttonAllow);
@@ -260,6 +260,7 @@
             this.MaximumSize = new System.Drawing.Size(317, 460);
             this.MinimumSize = new System.Drawing.Size(317, 460);
             this.Name = "UI_UserMaintenance";
+            this.ShowIcon = false;
             this.Text = "User Maintenance";
             this.Load += new System.EventHandler(this.UI_UserMaintenance_Load);
             this.groupBox1.ResumeLayout(false);
