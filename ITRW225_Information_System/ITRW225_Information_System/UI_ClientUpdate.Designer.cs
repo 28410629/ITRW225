@@ -514,6 +514,7 @@
             this.Controls.Add(this.groupBoxAD);
             this.Controls.Add(this.groupBoxPD);
             this.Controls.Add(this.groupBoxCI);
+            this.MaximizeBox = false;
             this.Name = "UI_ClientUpdate";
             this.ShowIcon = false;
             this.Text = "Client Update";
