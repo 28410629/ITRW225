@@ -63,6 +63,10 @@ namespace ITRW225_Information_System
             reportsToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[6]);
             userAccessToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[7]);
             preferencesToolStripMenuItem.Enabled = Convert.ToBoolean(userArr[8]);
+
+            UI_Dashboard dashboard = new UI_Dashboard();
+            dashboard.MdiParent = this;
+            dashboard.Show();
         }
 
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,7 +77,11 @@ namespace ITRW225_Information_System
                 {
                     item.Focus();
                     return;
-                } 
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
             }
             UI_EmployeeAdd employee = new UI_EmployeeAdd();
             employee.MdiParent = this;
@@ -88,6 +96,10 @@ namespace ITRW225_Information_System
                 {
                     item.Focus();
                     return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
                 }
             }
             UI_EmployeeUpdate employee = new UI_EmployeeUpdate();
@@ -104,6 +116,10 @@ namespace ITRW225_Information_System
                     item.Focus();
                     return;
                 }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
             }
             UI_ClientAdd employee = new UI_ClientAdd();
             employee.MdiParent = this;
@@ -118,6 +134,10 @@ namespace ITRW225_Information_System
                 {
                     item.Focus();
                     return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
                 }
             }
             UI_ClientUpdate employee = new UI_ClientUpdate();
@@ -134,6 +154,10 @@ namespace ITRW225_Information_System
                     item.Focus();
                     return;
                 }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
             }
             UI_EmployeeRemove employee = new UI_EmployeeRemove(this, userArr);
             employee.MdiParent = this;
@@ -148,6 +172,10 @@ namespace ITRW225_Information_System
                 {
                     item.Focus();
                     return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
                 }
             }
             UI_POSCancelOrder employee = new UI_POSCancelOrder();
@@ -164,6 +192,10 @@ namespace ITRW225_Information_System
                     item.Focus();
                     return;
                 }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
             }
             UI_POSPlaceOrder employee = new UI_POSPlaceOrder();
             employee.MdiParent = this;
@@ -178,6 +210,10 @@ namespace ITRW225_Information_System
                 {
                     item.Focus();
                     return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
                 }
             }
             UI_POSViewOrder employee = new UI_POSViewOrder();
@@ -194,6 +230,10 @@ namespace ITRW225_Information_System
                     item.Focus();
                     return;
                 }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
             }
             UI_ReportSales employee = new UI_ReportSales();
             employee.MdiParent = this;
@@ -208,6 +248,10 @@ namespace ITRW225_Information_System
                 {
                     item.Focus();
                     return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
                 }
             }
             UI_UserMaintenance user = new UI_UserMaintenance();
