@@ -87,6 +87,12 @@
     <Compile Include="UI_CredentialsAuthorise.Designer.cs">
       <DependentUpon>UI_CredentialsAuthorise.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_Dashboard.Designer.cs">
+      <DependentUpon>UI_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_EmployeeAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_CredentialsAuthorise.resx">
       <DependentUpon>UI_CredentialsAuthorise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_Dashboard.resx">
+      <DependentUpon>UI_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_EmployeeAdd.resx">
       <DependentUpon>UI_EmployeeAdd.cs</DependentUpon>

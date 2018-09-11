@@ -22,7 +22,7 @@ namespace ITRW225_Information_System
 
         private void UI_POSPlaceOrder_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker2.CustomFormat = "HH:mm";
         }
 
         private void listBox1_Click(object sender, EventArgs e)
