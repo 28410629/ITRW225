@@ -248,6 +248,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listView1);
+            this.MaximizeBox = false;
             this.Name = "UI_POSPlaceOrder";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
