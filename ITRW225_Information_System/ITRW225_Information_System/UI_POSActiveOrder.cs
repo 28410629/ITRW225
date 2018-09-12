@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_POSCancelOrder : Form
+    public partial class UI_POSActiveOrder : Form
     {
-        public UI_POSCancelOrder()
+        public UI_POSActiveOrder()
         {
             InitializeComponent();
         }

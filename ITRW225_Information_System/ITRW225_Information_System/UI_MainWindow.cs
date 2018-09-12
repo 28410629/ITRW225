@@ -168,7 +168,7 @@ namespace ITRW225_Information_System
         {
             foreach (var item in MdiChildren)
             {
-                if (item is UI_POSCancelOrder)
+                if (item is UI_POSActiveOrder)
                 {
                     item.Focus();
                     return;
@@ -178,7 +178,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSCancelOrder employee = new UI_POSCancelOrder();
+            UI_POSActiveOrder employee = new UI_POSActiveOrder();
             employee.MdiParent = this;
             employee.Show();
         }
@@ -206,7 +206,7 @@ namespace ITRW225_Information_System
         {
             foreach (var item in MdiChildren)
             {
-                if (item is UI_POSViewOrder)
+                if (item is UI_POSViewPastOrder)
                 {
                     item.Focus();
                     return;
@@ -216,7 +216,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSViewOrder employee = new UI_POSViewOrder();
+            UI_POSViewPastOrder employee = new UI_POSViewPastOrder();
             employee.MdiParent = this;
             employee.Show();
         }
@@ -255,6 +255,25 @@ namespace ITRW225_Information_System
                 }
             }
             UI_UserMaintenance user = new UI_UserMaintenance();
+            user.MdiParent = this;
+            user.Show();
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_ReportSales)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_ReportSales user = new UI_ReportSales();
             user.MdiParent = this;
             user.Show();
         }

@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_POSViewOrder
+    partial class UI_POSViewPastOrder
     {
         /// <summary>
         /// Required designer variable.
