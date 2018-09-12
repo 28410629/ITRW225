@@ -16,5 +16,21 @@ namespace ITRW225_Information_System
         {
             InitializeComponent();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                if (listView1.Items[i].Checked)
+                {
+                    listView1.Items[i].Remove();
+                }
+            }
+        }
     }
 }
