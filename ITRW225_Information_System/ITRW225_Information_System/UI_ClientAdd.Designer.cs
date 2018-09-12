@@ -495,7 +495,7 @@
             this.MaximizeBox = false;
             this.Name = "UI_ClientAdd";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Client";
             this.Load += new System.EventHandler(this.UI_ClientMaintenance_Load);
             this.groupBoxAD.ResumeLayout(false);

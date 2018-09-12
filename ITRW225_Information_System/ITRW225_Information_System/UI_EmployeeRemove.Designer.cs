@@ -84,6 +84,7 @@
             this.MaximizeBox = false;
             this.Name = "UI_EmployeeRemove";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remove Employee";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
