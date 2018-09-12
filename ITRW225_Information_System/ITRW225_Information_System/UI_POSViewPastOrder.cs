@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
-    public partial class UI_POSViewOrder : Form
+    public partial class UI_POSViewPastOrder : Form
     {
-        public UI_POSViewOrder()
+        public UI_POSViewPastOrder()
         {
             InitializeComponent();
         }

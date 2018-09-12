@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_POSCancelOrder
+    partial class UI_POSActiveOrder
     {
         /// <summary>
         /// Required designer variable.
