@@ -110,6 +110,60 @@ namespace ITRW225_Information_System
             textBoxPayment.AppendText("\n");
             textBoxPayment.AppendText("R\n");
             textBoxPayment.AppendText("" + countPayment);
+
+
+            /*chart1.ChartAreas[0].AxisY.ScaleView.Zoom(-15, 15); // -15<= y <=15
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(-15, 2); // -15 <= x <= 2
+            chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
+            chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;*/
+            
+
+            for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month); i++)
+            {
+                double sales = 0;
+                string year = "";
+                string month = "";
+                string day = "";
+                string compareDay = "";
+                for (int j = 0; j < payments.Count; j++)
+                {
+                    year = payments[j][5].Remove(4);
+                    month = payments[j][5].Substring(5);
+                    month = month.Remove(2);
+                    day = payments[j][5].Substring(8);
+                    day = day.Remove(2);
+                    compareDay = Convert.ToString(i);
+                    if (compareDay.Length == 1)
+                    {
+                        compareDay = "0" + Convert.ToString(i);
+                    }
+                    if (year.Contains(DateTime.Today.Year + ""))
+                    {
+                        if (month.Contains(DateTime.Today.Month + ""))
+                        {
+                            if (day.Contains(compareDay))
+                            {
+                                sales += Convert.ToDouble(payments[j][3]);
+                            }
+                        }
+                    }
+                }
+                chart1.Series["Sales"].Points.AddXY(i, sales);
+                chart1.ChartAreas[0].AxisX.Title = "Day Of Month";
+                chart1.ChartAreas[0].AxisY.Title = "R";
+                chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                pictureBox1.Focus();
+            }
+
+            textBoxOrdersDone.Enabled = false;
+            textBoxCancelledOrder.Enabled = false;
+            textBoxActiveOrders.Enabled = false;
+            textBoxOrdersToday.Enabled = false;
+            textBoxClient.Enabled = false;
+            textBoxEmployee.Enabled = false;
+            textBoxClientToday.Enabled = false;
+            textBoxPayment.Enabled = false;
         }
     }
 }

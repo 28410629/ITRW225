@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxClient = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -79,7 +78,10 @@
             // 
             // textBoxClient
             // 
+            this.textBoxClient.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxClient.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxClient.Location = new System.Drawing.Point(6, 19);
             this.textBoxClient.Multiline = true;
             this.textBoxClient.Name = "textBoxClient";
@@ -100,7 +102,10 @@
             // 
             // textBoxEmployee
             // 
+            this.textBoxEmployee.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmployee.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxEmployee.Location = new System.Drawing.Point(6, 19);
             this.textBoxEmployee.Multiline = true;
             this.textBoxEmployee.Name = "textBoxEmployee";
@@ -121,7 +126,10 @@
             // 
             // textBoxActiveOrders
             // 
+            this.textBoxActiveOrders.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxActiveOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxActiveOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxActiveOrders.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxActiveOrders.Location = new System.Drawing.Point(6, 19);
             this.textBoxActiveOrders.Multiline = true;
             this.textBoxActiveOrders.Name = "textBoxActiveOrders";
@@ -155,7 +163,10 @@
             // 
             // textBoxPayment
             // 
+            this.textBoxPayment.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPayment.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxPayment.Location = new System.Drawing.Point(6, 19);
             this.textBoxPayment.Multiline = true;
             this.textBoxPayment.Name = "textBoxPayment";
@@ -176,7 +187,10 @@
             // 
             // textBoxClientToday
             // 
+            this.textBoxClientToday.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxClientToday.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxClientToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxClientToday.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxClientToday.Location = new System.Drawing.Point(6, 19);
             this.textBoxClientToday.Multiline = true;
             this.textBoxClientToday.Name = "textBoxClientToday";
@@ -201,6 +215,7 @@
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.textBoxOrdersToday);
+            this.groupBox8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox8.Location = new System.Drawing.Point(6, 20);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(132, 132);
@@ -210,7 +225,10 @@
             // 
             // textBoxOrdersToday
             // 
+            this.textBoxOrdersToday.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxOrdersToday.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxOrdersToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOrdersToday.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxOrdersToday.Location = new System.Drawing.Point(6, 19);
             this.textBoxOrdersToday.Multiline = true;
             this.textBoxOrdersToday.Name = "textBoxOrdersToday";
@@ -231,7 +249,10 @@
             // 
             // textBoxOrdersDone
             // 
+            this.textBoxOrdersDone.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxOrdersDone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxOrdersDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOrdersDone.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxOrdersDone.Location = new System.Drawing.Point(6, 19);
             this.textBoxOrdersDone.Multiline = true;
             this.textBoxOrdersDone.Name = "textBoxOrdersDone";
@@ -252,7 +273,10 @@
             // 
             // textBoxCancelledOrder
             // 
+            this.textBoxCancelledOrder.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxCancelledOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCancelledOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCancelledOrder.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxCancelledOrder.Location = new System.Drawing.Point(6, 19);
             this.textBoxCancelledOrder.Multiline = true;
             this.textBoxCancelledOrder.Name = "textBoxCancelledOrder";
@@ -271,16 +295,23 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            this.chart1.BackColor = System.Drawing.Color.DarkKhaki;
+            chartArea4.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea4.AxisX2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea4.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea4.AxisY2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea4.BackColor = System.Drawing.Color.DarkKhaki;
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Location = new System.Drawing.Point(6, 19);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Yellow};
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Name = "Sales";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(461, 297);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -299,6 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(1061, 523);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.pictureBox1);
