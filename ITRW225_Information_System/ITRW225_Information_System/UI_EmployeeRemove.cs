@@ -28,12 +28,22 @@ namespace ITRW225_Information_System
                 case DialogResult.No:
                     break;
                 case DialogResult.Yes:
-                    UI_CredentialsAuthorise authorise = new UI_CredentialsAuthorise(userArr);
+                    UI_CredentialsAuthorise authorise = new UI_CredentialsAuthorise(userArr, MainParent);
                     authorise.MdiParent = MainParent;
                     authorise.Show();
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void UI_EmployeeRemove_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((MainParent.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = MainParent;
+                dashboard.Show();
             }
         }
     }

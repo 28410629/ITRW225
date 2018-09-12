@@ -83,7 +83,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_EmployeeAdd employee = new UI_EmployeeAdd();
+            UI_EmployeeAdd employee = new UI_EmployeeAdd(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -102,7 +102,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_EmployeeUpdate employee = new UI_EmployeeUpdate();
+            UI_EmployeeUpdate employee = new UI_EmployeeUpdate(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -121,7 +121,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_ClientAdd employee = new UI_ClientAdd();
+            UI_ClientAdd employee = new UI_ClientAdd(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -140,7 +140,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_ClientUpdate employee = new UI_ClientUpdate();
+            UI_ClientUpdate employee = new UI_ClientUpdate(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -178,7 +178,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSActiveOrder employee = new UI_POSActiveOrder();
+            UI_POSActiveOrder employee = new UI_POSActiveOrder(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -197,7 +197,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSPlaceOrder employee = new UI_POSPlaceOrder();
+            UI_POSPlaceOrder employee = new UI_POSPlaceOrder(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -216,7 +216,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_ReportSales employee = new UI_ReportSales();
+            UI_ReportSales employee = new UI_ReportSales(this);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -235,7 +235,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_UserMaintenance user = new UI_UserMaintenance();
+            UI_UserMaintenance user = new UI_UserMaintenance(this);
             user.MdiParent = this;
             user.Show();
         }
@@ -254,7 +254,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_ReportSales user = new UI_ReportSales();
+            UI_ReportSales user = new UI_ReportSales(this);
             user.MdiParent = this;
             user.Show();
         }
@@ -273,7 +273,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSViewPastOrder employee = new UI_POSViewPastOrder();
+            UI_POSViewPastOrder employee = new UI_POSViewPastOrder(this);
             employee.MdiParent = this;
             employee.Show();
         }

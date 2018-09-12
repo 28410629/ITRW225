@@ -14,9 +14,11 @@ namespace ITRW225_Information_System
     {
         List<ListViewItem> list = new List<ListViewItem>();
 
-        public UI_POSPlaceOrder()
+        Form mainForm;
+        public UI_POSPlaceOrder(Form mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
             comboBox1.SelectedIndex = 0;
         }
 
@@ -95,6 +97,16 @@ namespace ITRW225_Information_System
                 count += Convert.ToInt32(listView1.Items[i].SubItems[0].Text);
             }
             textBox1.Text = count.ToString();
+        }
+
+        private void UI_POSPlaceOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
         }
     }
 }

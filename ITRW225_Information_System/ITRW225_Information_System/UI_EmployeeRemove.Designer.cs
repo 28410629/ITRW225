@@ -86,6 +86,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remove Employee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_EmployeeRemove_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

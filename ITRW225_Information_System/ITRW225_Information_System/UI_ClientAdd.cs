@@ -13,10 +13,12 @@ namespace ITRW225_Information_System
 {
     public partial class UI_ClientAdd : Form
     {
-        public UI_ClientAdd()
+        Form mainForm;
+        public UI_ClientAdd(Form mainForm)
         {
             InitializeComponent();
             comboBoxCN.SelectedIndex = 0;
+            this.mainForm = mainForm;
         }
 
         private void UI_ClientMaintenance_Load(object sender, EventArgs e)
@@ -119,6 +121,16 @@ namespace ITRW225_Information_System
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+            }
+        }
+
+        private void UI_ClientAdd_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
             }
         }
     }

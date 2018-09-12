@@ -124,6 +124,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS - Active Orders";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_POSActiveOrder_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

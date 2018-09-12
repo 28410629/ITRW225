@@ -13,10 +13,12 @@ namespace ITRW225_Information_System
     public partial class UI_ReportSales : Form
     {
         List<string[]> payments;
+        Form mainForm;
 
-        public UI_ReportSales()
+        public UI_ReportSales(Form mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void UI_ReportSales_Load(object sender, EventArgs e)
@@ -111,6 +113,16 @@ namespace ITRW225_Information_System
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UI_ReportSales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
         }
     }
 }

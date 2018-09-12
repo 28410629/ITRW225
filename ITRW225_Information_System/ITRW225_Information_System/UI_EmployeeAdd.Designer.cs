@@ -55,11 +55,11 @@
             this.groupBoxCI = new System.Windows.Forms.GroupBox();
             this.textBoxEA = new System.Windows.Forms.TextBox();
             this.textBoxVAT = new System.Windows.Forms.TextBox();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.textBoxCN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxPD = new System.Windows.Forms.GroupBox();
             this.textBoxLN = new System.Windows.Forms.TextBox();
@@ -375,14 +375,6 @@
             this.textBoxVAT.TabIndex = 12;
             this.textBoxVAT.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating_1);
             // 
-            // textBoxID
-            // 
-            this.textBoxID.Location = new System.Drawing.Point(93, 69);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(197, 20);
-            this.textBoxID.TabIndex = 11;
-            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating_1);
-            // 
             // textBoxCN
             // 
             this.textBoxCN.Location = new System.Drawing.Point(93, 19);
@@ -417,6 +409,14 @@
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Email Address :";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(93, 69);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(197, 20);
+            this.textBoxID.TabIndex = 11;
+            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating_1);
             // 
             // label4
             // 
@@ -513,6 +513,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Employee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_EmployeeAdd_FormClosing);
             this.Load += new System.EventHandler(this.UI_EmployeeAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();

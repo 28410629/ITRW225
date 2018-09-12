@@ -12,9 +12,21 @@ namespace ITRW225_Information_System
 {
     public partial class UI_POSViewPastOrder : Form
     {
-        public UI_POSViewPastOrder()
+        Form mainForm;
+        public UI_POSViewPastOrder(Form mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
+        }
+
+        private void UI_POSViewPastOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
         }
     }
 }
