@@ -39,6 +39,7 @@
             this.removeEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointsOfSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pastOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,21 +115,21 @@
             // addEmployeeToolStripMenuItem
             // 
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
-            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addEmployeeToolStripMenuItem.Text = "Add Employee";
             this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
             // 
             // updateEmployeeToolStripMenuItem
             // 
             this.updateEmployeeToolStripMenuItem.Name = "updateEmployeeToolStripMenuItem";
-            this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.updateEmployeeToolStripMenuItem.Text = "Update Employee";
             this.updateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.updateEmployeeToolStripMenuItem_Click);
             // 
             // removeEmployeeToolStripMenuItem
             // 
             this.removeEmployeeToolStripMenuItem.Name = "removeEmployeeToolStripMenuItem";
-            this.removeEmployeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.removeEmployeeToolStripMenuItem.Text = "Remove Employee";
             this.removeEmployeeToolStripMenuItem.Click += new System.EventHandler(this.removeEmployeeToolStripMenuItem_Click);
             // 
@@ -149,6 +149,13 @@
             this.cancelOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cancelOrderToolStripMenuItem.Text = "Active Orders";
             this.cancelOrderToolStripMenuItem.Click += new System.EventHandler(this.cancelOrderToolStripMenuItem_Click);
+            // 
+            // pastOrdersToolStripMenuItem
+            // 
+            this.pastOrdersToolStripMenuItem.Name = "pastOrdersToolStripMenuItem";
+            this.pastOrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastOrdersToolStripMenuItem.Text = "Past Orders";
+            this.pastOrdersToolStripMenuItem.Click += new System.EventHandler(this.pastOrdersToolStripMenuItem_Click);
             // 
             // placeOrderToolStripMenuItem
             // 
@@ -176,8 +183,9 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // userAccessToolStripMenuItem
             // 
@@ -219,12 +227,6 @@
             this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
             this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.feedbackToolStripMenuItem.Text = "Feedback";
-            // 
-            // pastOrdersToolStripMenuItem
-            // 
-            this.pastOrdersToolStripMenuItem.Name = "pastOrdersToolStripMenuItem";
-            this.pastOrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pastOrdersToolStripMenuItem.Text = "Past Orders";
             // 
             // UI_MainWindow
             // 

@@ -202,25 +202,6 @@ namespace ITRW225_Information_System
             employee.Show();
         }
 
-        private void viewOrdersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in MdiChildren)
-            {
-                if (item is UI_POSViewPastOrder)
-                {
-                    item.Focus();
-                    return;
-                }
-                if (item is UI_Dashboard)
-                {
-                    item.Close();
-                }
-            }
-            UI_POSViewPastOrder employee = new UI_POSViewPastOrder();
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in MdiChildren)
@@ -276,6 +257,30 @@ namespace ITRW225_Information_System
             UI_ReportSales user = new UI_ReportSales();
             user.MdiParent = this;
             user.Show();
+        }
+
+        private void pastOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_POSViewPastOrder)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_POSViewPastOrder employee = new UI_POSViewPastOrder();
+            employee.MdiParent = this;
+            employee.Show();
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
