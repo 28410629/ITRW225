@@ -10,11 +10,13 @@ namespace ITRW225_Information_System
         private BE_DatabaseCommands commands;
         private string employee;
         private List<string[]> listE;
+        Form mainForm;
 
-        public UI_UserMaintenance()
+        public UI_UserMaintenance(Form mainForm)
         {
             this.commands = new BE_DatabaseCommands();
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void UI_UserMaintenance_Load(object sender, EventArgs e)
@@ -31,16 +33,22 @@ namespace ITRW225_Information_System
         {
             for (int i = 0; i < listE.Count; i++)
             {
+                string some = "";
+                for (int j = 0; j < listE[0].Length; j++)
+                {
+                    some += j + ": " + listE[i][j] + "\n";
+                }
+                MessageBox.Show(some);
                 if (listE[i][1] + " " + listE[i][2] == comboBoxEmployee.SelectedItem.ToString())
                 {
                     employee = listE[i][0];
-                    checkBoxCM.Checked = Convert.ToBoolean(listE[i][8]);
-                    checkBoxEM.Checked = Convert.ToBoolean(listE[i][9]);
-                    checkBoxPOS.Checked = Convert.ToBoolean(listE[i][10]);
-                    checkBoxR.Checked = Convert.ToBoolean(listE[i][11]);
-                    checkBoxUM.Checked = Convert.ToBoolean(listE[i][12]);
-                    checkBoxS.Checked = Convert.ToBoolean(listE[i][13]);
-                    if (Convert.ToBoolean(listE[i][14]))
+                    checkBoxCM.Checked = Convert.ToBoolean(listE[i][9]);
+                    checkBoxEM.Checked = Convert.ToBoolean(listE[i][10]);
+                    checkBoxPOS.Checked = Convert.ToBoolean(listE[i][11]);
+                    checkBoxR.Checked = Convert.ToBoolean(listE[i][12]);
+                    checkBoxUM.Checked = Convert.ToBoolean(listE[i][13]);
+                    checkBoxS.Checked = Convert.ToBoolean(listE[i][14]);
+                    if (Convert.ToBoolean(listE[i][15]))
                     {
                         labelStatus.Text = "User can access system.";
                     }
@@ -62,7 +70,7 @@ namespace ITRW225_Information_System
                 {
                     if (textBoxP1.Text == textBoxP2.Text)
                     {
-                        query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [EMPLOYEE_ID] = {1}", commands.hashPassword(textBoxP1.Text), employee);
+                        query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [EMPLOYEE_ID] = '{1}'", commands.hashPassword(textBoxP1.Text), employee);
                     }
                     else
                     {
@@ -71,7 +79,7 @@ namespace ITRW225_Information_System
                 }
                 else
                 {
-                    query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5 WHERE [Person_ID] = {0}", employee);
+                    query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5 WHERE [Person_ID] = '{0}'", employee);
                 }
                 if (!String.IsNullOrWhiteSpace(query))
                 {
@@ -79,7 +87,7 @@ namespace ITRW225_Information_System
                     {
                         db.Open();
                         OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM LOGIN", db);
-                        OleDbCommand command = new OleDbCommand();
+                        OleDbCommand command = new OleDbCommand(query, db);
                         command.Parameters.Add("@0", OleDbType.Boolean).Value = checkBoxCM.Checked;
                         command.Parameters.Add("@1", OleDbType.Boolean).Value = checkBoxEM.Checked;
                         command.Parameters.Add("@2", OleDbType.Boolean).Value = checkBoxPOS.Checked;
@@ -97,7 +105,7 @@ namespace ITRW225_Information_System
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
             }
-            
+            buttonAllow.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -178,6 +186,16 @@ namespace ITRW225_Information_System
             buttonDeny.Enabled = selection;
             buttonClose.Enabled = selection;
             buttonSave.Enabled = selection;
+        }
+
+        private void UI_UserMaintenance_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
         }
     }
 }

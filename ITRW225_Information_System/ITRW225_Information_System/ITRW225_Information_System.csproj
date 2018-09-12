@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -100,11 +103,11 @@
     <Compile Include="UI_EmployeeAdd.Designer.cs">
       <DependentUpon>UI_EmployeeAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_POSCancelOrder.cs">
+    <Compile Include="UI_POSActiveOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_POSCancelOrder.Designer.cs">
-      <DependentUpon>UI_POSCancelOrder.cs</DependentUpon>
+    <Compile Include="UI_POSActiveOrder.Designer.cs">
+      <DependentUpon>UI_POSActiveOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_POSPlaceOrder.cs">
       <SubType>Form</SubType>
@@ -154,11 +157,11 @@
     <Compile Include="UI_EmployeeUpdate.Designer.cs">
       <DependentUpon>UI_EmployeeUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_POSViewOrder.cs">
+    <Compile Include="UI_POSViewPastOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_POSViewOrder.Designer.cs">
-      <DependentUpon>UI_POSViewOrder.cs</DependentUpon>
+    <Compile Include="UI_POSViewPastOrder.Designer.cs">
+      <DependentUpon>UI_POSViewPastOrder.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -191,14 +194,14 @@
     <EmbeddedResource Include="UI_MainWindow.resx">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_POSCancelOrder.resx">
-      <DependentUpon>UI_POSCancelOrder.cs</DependentUpon>
+    <EmbeddedResource Include="UI_POSActiveOrder.resx">
+      <DependentUpon>UI_POSActiveOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_POSPlaceOrder.resx">
       <DependentUpon>UI_POSPlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_POSViewOrder.resx">
-      <DependentUpon>UI_POSViewOrder.cs</DependentUpon>
+    <EmbeddedResource Include="UI_POSViewPastOrder.resx">
+      <DependentUpon>UI_POSViewPastOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_ReportSales.resx">
       <DependentUpon>UI_ReportSales.cs</DependentUpon>
@@ -223,6 +226,7 @@
     <None Include="DatabaseDataSet.xss">
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

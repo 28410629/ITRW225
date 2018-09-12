@@ -517,7 +517,9 @@
             this.MaximizeBox = false;
             this.Name = "UI_ClientUpdate";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client Update";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_ClientUpdate_FormClosing);
             this.Load += new System.EventHandler(this.UI_ClientUpdate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBoxAD.ResumeLayout(false);

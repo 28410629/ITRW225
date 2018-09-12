@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_POSCancelOrder
+    partial class UI_POSActiveOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "",
             "fsdfs",
             "sdfjl",
             "gds",
             "lsfdjl"}, -1);
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.columnC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +56,9 @@
             this.columnP});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewItem2.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(6, 19);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(616, 294);
@@ -66,6 +66,11 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnC
+            // 
+            this.columnC.Text = "Cancel Order";
+            this.columnC.Width = 80;
             // 
             // columnN
             // 
@@ -97,11 +102,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Active Orders";
             // 
-            // columnC
-            // 
-            this.columnC.Text = "Cancel Order";
-            this.columnC.Width = 80;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(12, 337);
@@ -112,7 +112,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // UI_POSCancelOrder
+            // UI_POSActiveOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,9 +120,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.Name = "UI_POSCancelOrder";
+            this.Name = "UI_POSActiveOrder";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS - Active Orders";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_POSActiveOrder_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

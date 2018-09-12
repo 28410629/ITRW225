@@ -293,6 +293,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Point of Sales - Place Order";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_POSPlaceOrder_FormClosing);
             this.Load += new System.EventHandler(this.UI_POSPlaceOrder_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

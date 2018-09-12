@@ -6,9 +6,11 @@ namespace ITRW225_Information_System
 {
     public partial class UI_EmployeeAdd : Form
     {
-        public UI_EmployeeAdd()
+        Form mainForm;
+        public UI_EmployeeAdd(Form mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
@@ -137,6 +139,16 @@ namespace ITRW225_Information_System
         private void UI_EmployeeAdd_Load(object sender, EventArgs e)
         {
             buttonClose.Focus();
+        }
+
+        private void UI_EmployeeAdd_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
         }
     }
 }

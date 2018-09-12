@@ -39,8 +39,8 @@
             this.removeEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointsOfSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,8 +137,8 @@
             // 
             this.pointsOfSaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cancelOrderToolStripMenuItem,
-            this.placeOrderToolStripMenuItem,
-            this.viewOrdersToolStripMenuItem});
+            this.pastOrdersToolStripMenuItem,
+            this.placeOrderToolStripMenuItem});
             this.pointsOfSaleToolStripMenuItem.Name = "pointsOfSaleToolStripMenuItem";
             this.pointsOfSaleToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.pointsOfSaleToolStripMenuItem.Text = "Points of Sale";
@@ -146,29 +146,30 @@
             // cancelOrderToolStripMenuItem
             // 
             this.cancelOrderToolStripMenuItem.Name = "cancelOrderToolStripMenuItem";
-            this.cancelOrderToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.cancelOrderToolStripMenuItem.Text = "Cancel Order";
+            this.cancelOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cancelOrderToolStripMenuItem.Text = "Active Orders";
             this.cancelOrderToolStripMenuItem.Click += new System.EventHandler(this.cancelOrderToolStripMenuItem_Click);
+            // 
+            // pastOrdersToolStripMenuItem
+            // 
+            this.pastOrdersToolStripMenuItem.Name = "pastOrdersToolStripMenuItem";
+            this.pastOrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastOrdersToolStripMenuItem.Text = "Past Orders";
+            this.pastOrdersToolStripMenuItem.Click += new System.EventHandler(this.pastOrdersToolStripMenuItem_Click);
             // 
             // placeOrderToolStripMenuItem
             // 
             this.placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
-            this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.placeOrderToolStripMenuItem.Text = "Place Order";
             this.placeOrderToolStripMenuItem.Click += new System.EventHandler(this.placeOrderToolStripMenuItem_Click);
-            // 
-            // viewOrdersToolStripMenuItem
-            // 
-            this.viewOrdersToolStripMenuItem.Name = "viewOrdersToolStripMenuItem";
-            this.viewOrdersToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.viewOrdersToolStripMenuItem.Text = "View Orders";
-            this.viewOrdersToolStripMenuItem.Click += new System.EventHandler(this.viewOrdersToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.reportsToolStripMenuItem.Text = "Sales Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -182,8 +183,9 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // userAccessToolStripMenuItem
             // 
@@ -267,12 +269,12 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem placeOrderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewOrdersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feedbackToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userAccessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pastOrdersToolStripMenuItem;
     }
 }

@@ -16,10 +16,12 @@ namespace ITRW225_Information_System
         private List<string[]> clientDetails;
         private string oldClientID = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
+        Form mainForm;
 
-        public UI_ClientUpdate()
+        public UI_ClientUpdate(Form mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
@@ -217,6 +219,16 @@ namespace ITRW225_Information_System
                         }
                     }
                 }
+            }
+        }
+
+        private void UI_ClientUpdate_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
             }
         }
     }

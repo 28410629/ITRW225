@@ -1,6 +1,6 @@
 ﻿namespace ITRW225_Information_System
 {
-    partial class UI_POSViewOrder
+    partial class UI_POSViewPastOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // UI_POSViewOrder
+            // UI_POSViewPastOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.MaximizeBox = false;
-            this.Name = "UI_POSViewOrder";
+            this.Name = "UI_POSViewPastOrder";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UI_ViewOrderPOS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_POSViewPastOrder_FormClosing);
             this.ResumeLayout(false);
 
         }

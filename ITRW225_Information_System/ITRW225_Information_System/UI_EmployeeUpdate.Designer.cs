@@ -545,6 +545,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Employee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_EmployeeUpdate_FormClosing);
             this.Load += new System.EventHandler(this.UI_EditEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLN)).EndInit();

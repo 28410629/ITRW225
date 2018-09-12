@@ -114,7 +114,9 @@
             this.MaximizeBox = false;
             this.Name = "UI_CredentialsAuthorise";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Authorise Change";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_CredentialsAuthorise_FormClosing);
             this.Load += new System.EventHandler(this.UI_CredentialsAuthorise_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

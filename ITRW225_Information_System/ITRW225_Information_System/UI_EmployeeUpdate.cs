@@ -13,10 +13,12 @@ namespace ITRW225_Information_System
         private string oldEmployeeID = "";
         private string posNumber = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
+        Form mainForm;
 
-        public UI_EmployeeUpdate()
+        public UI_EmployeeUpdate(Form mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
@@ -244,6 +246,16 @@ namespace ITRW225_Information_System
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
                 return "Failed saving to database!";
+            }
+        }
+
+        private void UI_EmployeeUpdate_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
             }
         }
     }
