@@ -41,6 +41,10 @@ namespace ITRW225_Information_System
                 {
                     countClient++;
                 }
+                if (people[i][6].Contains(DateTime.Today.ToShortDateString()))
+                {
+                    countNewEmployee++;
+                }
                 string some = "";
                 for (int j = 0; j < people[0].Length; j++)
                 {
@@ -50,6 +54,7 @@ namespace ITRW225_Information_System
             }
             labelClients.Text = "" + countClient;
             labelEmployees.Text = "" + countEmployee;
+            labelNewClient.Text = "" + countNewEmployee;
         }
     }
 }

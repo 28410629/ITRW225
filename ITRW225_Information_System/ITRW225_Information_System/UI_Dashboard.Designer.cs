@@ -41,7 +41,7 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelNewClient = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -162,7 +162,7 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.label5);
+            this.groupBox9.Controls.Add(this.labelNewClient);
             this.groupBox9.Location = new System.Drawing.Point(282, 19);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(132, 132);
@@ -170,15 +170,15 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "New Clients Today";
             // 
-            // label5
+            // labelNewClient
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(45, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 42);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "0";
+            this.labelNewClient.AutoSize = true;
+            this.labelNewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewClient.Location = new System.Drawing.Point(45, 50);
+            this.labelNewClient.Name = "labelNewClient";
+            this.labelNewClient.Size = new System.Drawing.Size(39, 42);
+            this.labelNewClient.TabIndex = 4;
+            this.labelNewClient.Text = "0";
             // 
             // groupBox5
             // 
@@ -345,7 +345,7 @@
         private System.Windows.Forms.Label labelClients;
         private System.Windows.Forms.Label labelEmployees;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelNewClient;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
