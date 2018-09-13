@@ -63,7 +63,6 @@ namespace ITRW225_Information_System
                 mail.To.Add("savannahtfritze@gmail.com");
                 mail.To.Add("pbrand61@gmail.com");
                 mail.To.Add("heino1369@gmail.com");
-                mail.To.Add("cornekooij@gmail.com");
                 mail.Subject = "Mr Salad - System Error Log:  " + DateTime.Today.ToLongDateString();
 
                 mail.Body = "See attached text file.";
@@ -78,7 +77,7 @@ namespace ITRW225_Information_System
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Log Error: " + ex.Message);
+                Console.WriteLine("Log Mail Error: " + ex.Message);
             }
         }
     }
