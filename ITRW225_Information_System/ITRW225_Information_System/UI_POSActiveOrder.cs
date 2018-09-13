@@ -114,7 +114,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            int selected;
+            int selected = 0;
             for (int i = 0; i < order.Count; i++)
             {
                 if (order[i][0] == listView1.SelectedItems[0].SubItems[0].Text.ToString())
