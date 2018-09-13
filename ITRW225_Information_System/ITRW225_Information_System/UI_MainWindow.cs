@@ -282,5 +282,10 @@ namespace ITRW225_Information_System
         {
 
         }
+
+        private void processPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

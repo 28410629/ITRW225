@@ -50,6 +50,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,7 +139,8 @@
             this.pointsOfSaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cancelOrderToolStripMenuItem,
             this.pastOrdersToolStripMenuItem,
-            this.placeOrderToolStripMenuItem});
+            this.placeOrderToolStripMenuItem,
+            this.processPaymentToolStripMenuItem});
             this.pointsOfSaleToolStripMenuItem.Name = "pointsOfSaleToolStripMenuItem";
             this.pointsOfSaleToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.pointsOfSaleToolStripMenuItem.Text = "Points of Sale";
@@ -183,7 +185,7 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -227,6 +229,13 @@
             this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
             this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.feedbackToolStripMenuItem.Text = "Feedback";
+            // 
+            // processPaymentToolStripMenuItem
+            // 
+            this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.processPaymentToolStripMenuItem.Text = "Process Payment";
+            this.processPaymentToolStripMenuItem.Click += new System.EventHandler(this.processPaymentToolStripMenuItem_Click);
             // 
             // UI_MainWindow
             // 
@@ -276,5 +285,6 @@
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userAccessToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastOrdersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem processPaymentToolStripMenuItem;
     }
 }
