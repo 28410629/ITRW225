@@ -13,6 +13,10 @@ namespace ITRW225_Information_System
     public partial class UI_POSActiveOrder : Form
     {
         Form mainForm;
+        List<string[]> order;
+        List<string> cancel = new List<string>();
+        BE_DatabaseCommands commands = new BE_DatabaseCommands();
+
         public UI_POSActiveOrder(Form mainForm)
         {
             InitializeComponent();
@@ -26,12 +30,31 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < listView1.Items.Count; i++)
+            try
             {
-                if (listView1.Items[i].Checked)
+                if (listView1.SelectedItems.Count == 1)
                 {
-                    listView1.Items[i].Remove();
+                    string query = "UPDATE CLIENT_ORDER SET Order_Cancelled = True WHERE Client_Order_Code = ";
+                    while (listView1.SelectedItems.Count > 0)
+                    {
+                        query += listView1.SelectedItems[0].SubItems[0].Text.ToString();
+                        listView1.Items.Remove(listView1.SelectedItems[0]);
+                    }                    
+                    commands.updateDB(query, "CLIENT_ORDER");
                 }
+                else if (listView1.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Please select an order to cancel.");
+                }
+                else
+                {
+                    MessageBox.Show("Multiple cancelations are not allowed!");
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
 
@@ -42,6 +65,43 @@ namespace ITRW225_Information_System
                 UI_Dashboard dashboard = new UI_Dashboard();
                 dashboard.MdiParent = mainForm;
                 dashboard.Show();
+            }
+        }
+
+        private void UI_POSActiveOrder_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                order = commands.retrieveCustomDB("SELECT * FROM CLIENT_ORDER, CONTACT_DETAILS, PERSON WHERE CLIENT_ORDER.Client_ID = CONTACT_DETAILS.Person_ID AND CLIENT_ORDER.Client_ID = PERSON.Person_ID AND CLIENT_ORDER.Payment_Processed = False AND CLIENT_ORDER.Order_Cancelled = False ORDER BY CLIENT_ORDER.Date_Created ASC");
+                for (int i = 0; i < order.Count; i++)
+                {
+                    string name = "";
+                    for (int j = 0; j < order[i].Length; j++)
+                    {
+                        name += "\n" + j + ": " + order[i][j];
+                    }
+                    MessageBox.Show(name);
+                }
+
+                for (int i = 0; i < order.Count; i++)
+                {
+                    string[] arr = new string[6];
+                    ListViewItem itm;
+                    arr[0] = order[i][0]; // order code
+                    arr[1] = order[i][19] + " " + order[i][20]; // name
+                    arr[2] = order[i][2]; // id
+                    arr[3] = order[i][5].Remove(10); ; // date created
+                    arr[4] = order[i][8].Remove(10); ; // date due
+                    arr[5] = order[i][3]; // price
+                    itm = new ListViewItem(arr);
+                    itm.ToolTipText = "Use checkbox and cancel button to cancel an active order, otherwise double-click for details!";
+                    listView1.Items.Add(itm);
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
     }
