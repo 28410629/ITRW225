@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -103,6 +97,35 @@ namespace ITRW225_Information_System
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (var item in mainForm.MdiChildren)
+            {
+                if (item is UI_POSProcessPayment)
+                {
+                    item.Focus();
+                    MessageBox.Show("Please finish payment process before doing another, thank you!");
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            int selected;
+            for (int i = 0; i < order.Count; i++)
+            {
+                if (order[i][0] == listView1.SelectedItems[0].SubItems[0].Text.ToString())
+                {
+                    selected = i;
+                }
+            }
+            UI_POSProcessPayment user = new UI_POSProcessPayment(this, order[selected]);
+            user.MdiParent = this;
+            user.Show();
+            Close();
         }
     }
 }
