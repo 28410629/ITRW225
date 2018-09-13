@@ -114,8 +114,8 @@ namespace ITRW225_Information_System
                                             count++;
                                             string[] arr = new string[4];
                                             ListViewItem itm;
-                                            arr[0] = order[o][17] + " " + order[o][18]; // name
-                                            arr[1] = order[o][16]; // id
+                                            arr[0] = order[o][19] + " " + order[o][20]; // name
+                                            arr[1] = order[o][18]; // id
                                             arr[2] = y + "-" + m + "-" + d; // date
                                             arr[3] = order[o][3];
                                             itm = new ListViewItem(arr);

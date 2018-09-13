@@ -28,49 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "fsdfs",
-            "sdfjl",
-            "gds",
-            "lsfdjl"}, -1);
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.columnCID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnOC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
             // 
-            this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnC,
+            this.columnOC,
             this.columnN,
+            this.columnCID,
             this.columnDC,
             this.columnDD,
             this.columnP});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewItem1.StateImageIndex = 0;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(6, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(616, 294);
+            this.listView1.Size = new System.Drawing.Size(751, 294);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // columnC
-            // 
-            this.columnC.Text = "Cancel Order";
-            this.columnC.Width = 80;
             // 
             // columnN
             // 
@@ -89,35 +76,45 @@
             // 
             // columnP
             // 
-            this.columnP.Text = "Price";
+            this.columnP.Text = "Price (R)";
             this.columnP.Width = 100;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(628, 319);
+            this.groupBox1.Size = new System.Drawing.Size(763, 349);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Active Orders";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 337);
+            this.button1.Location = new System.Drawing.Point(6, 319);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(280, 23);
+            this.button1.Size = new System.Drawing.Size(751, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Cancel Selected Active Orders";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // columnCID
+            // 
+            this.columnCID.Text = "Client ID";
+            this.columnCID.Width = 149;
+            // 
+            // columnOC
+            // 
+            this.columnOC.Text = "Order Code";
+            this.columnOC.Width = 79;
+            // 
             // UI_POSActiveOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(788, 372);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "UI_POSActiveOrder";
@@ -125,6 +122,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS - Active Orders";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_POSActiveOrder_FormClosing);
+            this.Load += new System.EventHandler(this.UI_POSActiveOrder_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -138,7 +136,8 @@
         private System.Windows.Forms.ColumnHeader columnDD;
         private System.Windows.Forms.ColumnHeader columnP;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ColumnHeader columnC;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader columnCID;
+        private System.Windows.Forms.ColumnHeader columnOC;
     }
 }
