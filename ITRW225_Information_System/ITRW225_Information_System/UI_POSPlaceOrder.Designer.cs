@@ -89,7 +89,7 @@
             // 
             // columnC
             // 
-            this.columnC.Text = "Price";
+            this.columnC.Text = "Price (R)";
             this.columnC.Width = 90;
             // 
             // comboBox1

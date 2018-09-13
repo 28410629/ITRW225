@@ -109,15 +109,7 @@ namespace ITRW225_Information_System
 
             textBoxPayment.AppendText("\n");
             textBoxPayment.AppendText("R\n");
-            textBoxPayment.AppendText("" + countPayment);
-
-
-            /*chart1.ChartAreas[0].AxisY.ScaleView.Zoom(-15, 15); // -15<= y <=15
-            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(-15, 2); // -15 <= x <= 2
-            chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
-            chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
-            chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;*/
-            
+            textBoxPayment.AppendText("" + countPayment);            
 
             for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month); i++)
             {
@@ -152,6 +144,7 @@ namespace ITRW225_Information_System
                 chart1.Series["Sales"].Points.AddXY(i, sales);
                 chart1.ChartAreas[0].AxisX.Title = "Day Of Month";
                 chart1.ChartAreas[0].AxisY.Title = "R";
+                chart1.Series["Sales"].BorderWidth = 3;
                 chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 pictureBox1.Focus();
             }
