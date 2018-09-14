@@ -121,12 +121,6 @@
     <Compile Include="UI_POSPlaceOrder.Designer.cs">
       <DependentUpon>UI_POSPlaceOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_EmployeeRemove.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI_EmployeeRemove.Designer.cs">
-      <DependentUpon>UI_EmployeeRemove.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI_POSProcessPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_EmployeeAdd.resx">
       <DependentUpon>UI_EmployeeAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI_EmployeeRemove.resx">
-      <DependentUpon>UI_EmployeeRemove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_Feedback.resx">
       <DependentUpon>UI_Feedback.cs</DependentUpon>

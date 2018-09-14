@@ -101,31 +101,50 @@ namespace ITRW225_Information_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (var item in mainForm.MdiChildren)
+            try
             {
-                if (item is UI_POSProcessPayment)
+                if (listView1.SelectedItems.Count == 1)
                 {
-                    item.Focus();
-                    MessageBox.Show("Please finish payment process before doing another, thank you!");
-                    return;
+                    foreach (var item in mainForm.MdiChildren)
+                    {
+                        if (item is UI_POSProcessPayment)
+                        {
+                            item.Focus();
+                            MessageBox.Show("Please finish payment process before doing another, thank you!");
+                            return;
+                        }
+                        if (item is UI_Dashboard)
+                        {
+                            item.Close();
+                        }
+                    }
+                    int selected = 0;
+                    for (int i = 0; i < order.Count; i++)
+                    {
+                        if (order[i][0] == listView1.SelectedItems[0].SubItems[0].Text.ToString())
+                        {
+                            selected = i;
+                        }
+                    }
+                    UI_POSProcessPayment user = new UI_POSProcessPayment(this, order[selected]);
+                    user.MdiParent = mainForm;
+                    user.Show();
+                    Close();
                 }
-                if (item is UI_Dashboard)
+                else if (listView1.SelectedItems.Count == 0)
                 {
-                    item.Close();
+                    MessageBox.Show("Please select an order to process.");
+                }
+                else
+                {
+                    MessageBox.Show("Multiple cancelations are not allowed!");
                 }
             }
-            int selected = 0;
-            for (int i = 0; i < order.Count; i++)
+            catch (Exception ex)
             {
-                if (order[i][0] == listView1.SelectedItems[0].SubItems[0].Text.ToString())
-                {
-                    selected = i;
-                }
-            }
-            UI_POSProcessPayment user = new UI_POSProcessPayment(this, order[selected]);
-            user.MdiParent = this;
-            user.Show();
-            Close();
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }            
         }
     }
 }

@@ -34,6 +34,7 @@ namespace ITRW225_Information_System
         {
             try
             {
+                button1.Enabled = false;
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
@@ -53,11 +54,13 @@ namespace ITRW225_Information_System
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
                 MessageBox.Show("Email was sent!");
+                button1.Enabled = true;
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+                button1.Enabled = true;
                 MessageBox.Show("Email was NOT sent!");
             }
         }
