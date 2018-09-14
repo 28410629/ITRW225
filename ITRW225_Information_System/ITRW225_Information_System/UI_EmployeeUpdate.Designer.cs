@@ -154,7 +154,7 @@
             this.buttonSave.Location = new System.Drawing.Point(202, 481);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
-            this.buttonSave.TabIndex = 21;
+            this.buttonSave.TabIndex = 6;
             this.buttonSave.Text = "Update";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
@@ -164,7 +164,7 @@
             this.buttonClose.Location = new System.Drawing.Point(11, 481);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 20;
+            this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -184,7 +184,7 @@
             this.groupBoxAD.Location = new System.Drawing.Point(12, 272);
             this.groupBoxAD.Name = "groupBoxAD";
             this.groupBoxAD.Size = new System.Drawing.Size(317, 151);
-            this.groupBoxAD.TabIndex = 19;
+            this.groupBoxAD.TabIndex = 4;
             this.groupBoxAD.TabStop = false;
             this.groupBoxAD.Text = "Address Details";
             // 
@@ -194,7 +194,7 @@
             this.label1.Location = new System.Drawing.Point(43, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 23;
+            this.label1.TabIndex = 7;
             this.label1.Text = "Suburb :";
             // 
             // textBoxS
@@ -202,7 +202,7 @@
             this.textBoxS.Location = new System.Drawing.Point(96, 69);
             this.textBoxS.Name = "textBoxS";
             this.textBoxS.Size = new System.Drawing.Size(197, 20);
-            this.textBoxS.TabIndex = 22;
+            this.textBoxS.TabIndex = 2;
             this.textBoxS.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxS_Validating_1);
             // 
             // comboBoxCN
@@ -298,14 +298,14 @@
             this.comboBoxCN.Location = new System.Drawing.Point(96, 95);
             this.comboBoxCN.Name = "comboBoxCN";
             this.comboBoxCN.Size = new System.Drawing.Size(197, 21);
-            this.comboBoxCN.TabIndex = 21;
+            this.comboBoxCN.TabIndex = 3;
             // 
             // textBoxPC
             // 
             this.textBoxPC.Location = new System.Drawing.Point(96, 121);
             this.textBoxPC.Name = "textBoxPC";
             this.textBoxPC.Size = new System.Drawing.Size(197, 20);
-            this.textBoxPC.TabIndex = 20;
+            this.textBoxPC.TabIndex = 4;
             this.textBoxPC.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPC_Validating_1);
             // 
             // textBoxSN
@@ -313,7 +313,7 @@
             this.textBoxSN.Location = new System.Drawing.Point(96, 43);
             this.textBoxSN.Name = "textBoxSN";
             this.textBoxSN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxSN.TabIndex = 18;
+            this.textBoxSN.TabIndex = 1;
             this.textBoxSN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSN_Validating_1);
             // 
             // textBoxHN
@@ -321,7 +321,7 @@
             this.textBoxHN.Location = new System.Drawing.Point(96, 17);
             this.textBoxHN.Name = "textBoxHN";
             this.textBoxHN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxHN.TabIndex = 16;
+            this.textBoxHN.TabIndex = 0;
             this.textBoxHN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxHN_Validating_1);
             // 
             // label10
@@ -330,7 +330,7 @@
             this.label10.Location = new System.Drawing.Point(6, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 13);
-            this.label10.TabIndex = 17;
+            this.label10.TabIndex = 5;
             this.label10.Text = "House Number :";
             // 
             // label9
@@ -339,7 +339,7 @@
             this.label9.Location = new System.Drawing.Point(20, 124);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 13);
-            this.label9.TabIndex = 13;
+            this.label9.TabIndex = 9;
             this.label9.Text = "Postal Code :";
             // 
             // label8
@@ -348,7 +348,7 @@
             this.label8.Location = new System.Drawing.Point(29, 98);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 12;
+            this.label8.TabIndex = 8;
             this.label8.Text = "City Name :";
             // 
             // label7
@@ -357,7 +357,7 @@
             this.label7.Location = new System.Drawing.Point(18, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 13);
-            this.label7.TabIndex = 11;
+            this.label7.TabIndex = 6;
             this.label7.Text = "Street Name :";
             // 
             // groupBoxCI
@@ -371,7 +371,7 @@
             this.groupBoxCI.Location = new System.Drawing.Point(12, 167);
             this.groupBoxCI.Name = "groupBoxCI";
             this.groupBoxCI.Size = new System.Drawing.Size(317, 99);
-            this.groupBoxCI.TabIndex = 18;
+            this.groupBoxCI.TabIndex = 3;
             this.groupBoxCI.TabStop = false;
             this.groupBoxCI.Text = "Contact Information";
             // 
@@ -380,7 +380,7 @@
             this.textBoxCN2.Location = new System.Drawing.Point(93, 45);
             this.textBoxCN2.Name = "textBoxCN2";
             this.textBoxCN2.Size = new System.Drawing.Size(197, 20);
-            this.textBoxCN2.TabIndex = 15;
+            this.textBoxCN2.TabIndex = 1;
             this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN2_Validating);
             // 
             // label11
@@ -389,7 +389,7 @@
             this.label11.Location = new System.Drawing.Point(8, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 13);
-            this.label11.TabIndex = 14;
+            this.label11.TabIndex = 4;
             this.label11.Text = "Cell Number 2 :";
             // 
             // textBoxEA
@@ -397,7 +397,7 @@
             this.textBoxEA.Location = new System.Drawing.Point(93, 71);
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
-            this.textBoxEA.TabIndex = 13;
+            this.textBoxEA.TabIndex = 2;
             this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating_1);
             // 
             // textBoxCN
@@ -405,7 +405,7 @@
             this.textBoxCN.Location = new System.Drawing.Point(93, 19);
             this.textBoxCN.Name = "textBoxCN";
             this.textBoxCN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxCN.TabIndex = 10;
+            this.textBoxCN.TabIndex = 0;
             this.textBoxCN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN_Validating_1);
             // 
             // label3
@@ -414,7 +414,7 @@
             this.label3.Location = new System.Drawing.Point(17, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 3;
             this.label3.Text = "Cell Number :";
             // 
             // label6
@@ -437,7 +437,7 @@
             this.groupBoxPD.Location = new System.Drawing.Point(12, 63);
             this.groupBoxPD.Name = "groupBoxPD";
             this.groupBoxPD.Size = new System.Drawing.Size(317, 98);
-            this.groupBoxPD.TabIndex = 17;
+            this.groupBoxPD.TabIndex = 2;
             this.groupBoxPD.TabStop = false;
             this.groupBoxPD.Text = "Personal Details";
             // 
@@ -446,7 +446,7 @@
             this.textBoxID.Location = new System.Drawing.Point(93, 69);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(197, 20);
-            this.textBoxID.TabIndex = 15;
+            this.textBoxID.TabIndex = 2;
             this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating);
             // 
             // label4
@@ -455,7 +455,7 @@
             this.label4.Location = new System.Drawing.Point(23, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 13;
+            this.label4.TabIndex = 5;
             this.label4.Text = "ID Number :";
             // 
             // textBoxLN
@@ -463,7 +463,7 @@
             this.textBoxLN.Location = new System.Drawing.Point(93, 43);
             this.textBoxLN.Name = "textBoxLN";
             this.textBoxLN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxLN.TabIndex = 9;
+            this.textBoxLN.TabIndex = 1;
             this.textBoxLN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLN_Validating_1);
             // 
             // textBoxFN
@@ -471,7 +471,7 @@
             this.textBoxFN.Location = new System.Drawing.Point(94, 17);
             this.textBoxFN.Name = "textBoxFN";
             this.textBoxFN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxFN.TabIndex = 8;
+            this.textBoxFN.TabIndex = 0;
             this.textBoxFN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxFN_Validating_1);
             // 
             // label2
@@ -480,7 +480,7 @@
             this.label2.Location = new System.Drawing.Point(23, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Last Name :";
             // 
             // labelFN
@@ -489,7 +489,7 @@
             this.labelFN.Location = new System.Drawing.Point(25, 20);
             this.labelFN.Name = "labelFN";
             this.labelFN.Size = new System.Drawing.Size(63, 13);
-            this.labelFN.TabIndex = 0;
+            this.labelFN.TabIndex = 3;
             this.labelFN.Text = "First Name :";
             // 
             // groupBox1
@@ -498,7 +498,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(317, 46);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Employee";
             // 
@@ -508,7 +508,7 @@
             this.groupBoxPosition.Location = new System.Drawing.Point(11, 429);
             this.groupBoxPosition.Name = "groupBoxPosition";
             this.groupBoxPosition.Size = new System.Drawing.Size(318, 46);
-            this.groupBoxPosition.TabIndex = 22;
+            this.groupBoxPosition.TabIndex = 5;
             this.groupBoxPosition.TabStop = false;
             this.groupBoxPosition.Text = "Employee Position";
             // 

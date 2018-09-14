@@ -145,25 +145,6 @@ namespace ITRW225_Information_System
             employee.Show();
         }
 
-        private void removeEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in MdiChildren)
-            {
-                if (item is UI_EmployeeRemove)
-                {
-                    item.Focus();
-                    return;
-                }
-                if (item is UI_Dashboard)
-                {
-                    item.Close();
-                }
-            }
-            UI_EmployeeRemove employee = new UI_EmployeeRemove(this, userArr);
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
         private void cancelOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in MdiChildren)
@@ -286,6 +267,25 @@ namespace ITRW225_Information_System
         private void processPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_Feedback)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_Feedback employee = new UI_Feedback(this);
+            employee.MdiParent = this;
+            employee.Show();
         }
     }
 }
