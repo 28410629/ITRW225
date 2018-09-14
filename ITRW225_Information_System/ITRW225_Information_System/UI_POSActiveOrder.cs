@@ -67,15 +67,6 @@ namespace ITRW225_Information_System
             try
             {
                 order = commands.retrieveCustomDB("SELECT * FROM CLIENT_ORDER, CONTACT_DETAILS, PERSON WHERE CLIENT_ORDER.Client_ID = CONTACT_DETAILS.Person_ID AND CLIENT_ORDER.Client_ID = PERSON.Person_ID AND CLIENT_ORDER.Payment_Processed = False AND CLIENT_ORDER.Order_Cancelled = False ORDER BY CLIENT_ORDER.Date_Created ASC");
-                for (int i = 0; i < order.Count; i++)
-                {
-                    string name = "";
-                    for (int j = 0; j < order[i].Length; j++)
-                    {
-                        name += "\n" + j + ": " + order[i][j];
-                    }
-                    MessageBox.Show(name);
-                }
 
                 for (int i = 0; i < order.Count; i++)
                 {
