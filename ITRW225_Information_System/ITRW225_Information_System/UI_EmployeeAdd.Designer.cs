@@ -54,7 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxCI = new System.Windows.Forms.GroupBox();
             this.textBoxEA = new System.Windows.Forms.TextBox();
-            this.textBoxVAT = new System.Windows.Forms.TextBox();
+            this.textBoxCN2 = new System.Windows.Forms.TextBox();
             this.textBoxCN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -347,7 +347,7 @@
             // groupBoxCI
             // 
             this.groupBoxCI.Controls.Add(this.textBoxEA);
-            this.groupBoxCI.Controls.Add(this.textBoxVAT);
+            this.groupBoxCI.Controls.Add(this.textBoxCN2);
             this.groupBoxCI.Controls.Add(this.textBoxCN);
             this.groupBoxCI.Controls.Add(this.label3);
             this.groupBoxCI.Controls.Add(this.label5);
@@ -367,13 +367,13 @@
             this.textBoxEA.TabIndex = 13;
             this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating_1);
             // 
-            // textBoxVAT
+            // textBoxCN2
             // 
-            this.textBoxVAT.Location = new System.Drawing.Point(93, 45);
-            this.textBoxVAT.Name = "textBoxVAT";
-            this.textBoxVAT.Size = new System.Drawing.Size(197, 20);
-            this.textBoxVAT.TabIndex = 12;
-            this.textBoxVAT.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating_1);
+            this.textBoxCN2.Location = new System.Drawing.Point(93, 45);
+            this.textBoxCN2.Name = "textBoxCN2";
+            this.textBoxCN2.Size = new System.Drawing.Size(197, 20);
+            this.textBoxCN2.TabIndex = 12;
+            this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating_1);
             // 
             // textBoxCN
             // 
@@ -562,7 +562,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBoxCI;
         private System.Windows.Forms.TextBox textBoxEA;
-        private System.Windows.Forms.TextBox textBoxVAT;
+        private System.Windows.Forms.TextBox textBoxCN2;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.TextBox textBoxCN;
         private System.Windows.Forms.Label label3;

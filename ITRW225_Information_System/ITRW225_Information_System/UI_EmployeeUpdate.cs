@@ -9,6 +9,7 @@ namespace ITRW225_Information_System
     public partial class UI_EmployeeUpdate : Form
     {
         private List<string[]> employeeDetails;
+        private List<string[]> idDetails;
         private List<string[]> employeeType;
         private string oldEmployeeID = "";
         private string posNumber = "";
@@ -35,29 +36,83 @@ namespace ITRW225_Information_System
             }
         }
 
-        private void ValidateID(TextBox textBox, CancelEventArgs e, ErrorProvider error)
+        private void ValidateNumber(TextBox textBox, CancelEventArgs e, ErrorProvider error, string type)
         {
-            bool answer = false;
-            if (textBox.Text != oldEmployeeID)
+            int length = 0;
+            string msg = "";
+            switch (type)
             {
-                for (int i = 0; i < employeeDetails.Count; i++)
-                {
-                    if (employeeDetails[i][0] == textBox.Text)
-                    {
-                        answer = true;
-                    }
-                }
+                case "ID":
+                    length = 13;
+                    msg = "Must be 13 digit ID.";
+                    break;
+                case "Cell":
+                    length = 10;
+                    msg = "Must be 10 digit cellphone number.";
+                    break;
+                case "Postal":
+                    length = 4;
+                    msg = "Must be 4 digit postal code.";
+                    break;
+                default:
+                    break;
             }
-            if (answer)
+            if (String.IsNullOrWhiteSpace(textBox.Text))
             {
                 e.Cancel = true;
-                error.SetError(textBox, "ID exists, choose another.");
+                error.SetError(textBox, "Required field.");
             }
             else
             {
-                e.Cancel = false;
-                error.SetError(textBox, null);
+                bool result = long.TryParse(textBox.Text, out long resultL);
+                if (result)
+                {
+                    if (textBox.Text.Length != length)
+                    {
+                        e.Cancel = true;
+                        error.SetError(textBox, msg);
+                    }
+                    else
+                    {
+                        if (type == "ID")
+                        {
+                            if (checkID(textBox.Text))
+                            {
+                                e.Cancel = true;
+                                error.SetError(textBox, "ID already exists!");
+                            }
+                            else
+                            {
+                                e.Cancel = false;
+                                error.SetError(textBox, null);
+                            }
+                        }
+                        else
+                        {
+                            e.Cancel = false;
+                            error.SetError(textBox, null);
+                        }
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                    error.SetError(textBox, "Must be a number!");
+                }
             }
+        }
+
+        private bool checkID(string id)
+        {
+            bool exists = false;
+            for (int i = 0; i < idDetails.Count; i++)
+            {
+                if (idDetails[i][0] == id)
+                {
+                    exists = true;
+                }
+            }
+            return exists;
         }
 
         private void textBoxFN_Validating_1(object sender, CancelEventArgs e)
@@ -162,6 +217,7 @@ namespace ITRW225_Information_System
 
             employeeDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True AND PERSON.Person_Is_Removed = False");
             employeeType = commands.retrieveDB("PERSON_TYPE");
+            idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
 
             for (int i = 0; i < employeeDetails.Count; i++)
             {
@@ -171,6 +227,7 @@ namespace ITRW225_Information_System
             {
                 comboBoxP.Items.Add(employeeType[i][1]);
             }
+            comboBoxSE.SelectedIndex = 0;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -214,7 +271,7 @@ namespace ITRW225_Information_System
 
         private void textBoxID_Validating(object sender, CancelEventArgs e)
         {
-            ValidateID((TextBox)sender, e, errorProviderID);
+            ValidateNumber((TextBox)sender, e, errorProviderID, "ID");
         }
 
         public string updateDB()

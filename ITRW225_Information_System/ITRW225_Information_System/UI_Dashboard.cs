@@ -62,7 +62,7 @@ namespace ITRW225_Information_System
 
             for (int i = 0; i < orders.Count; i++)
             {
-                if (orders[i][5].Contains(DateTime.Today.ToShortDateString()) && orders[i][4] == "0")
+                if (orders[i][7] == "False")
                 {
                     countActiveOrders++;
                 }
@@ -74,7 +74,7 @@ namespace ITRW225_Information_System
                 {
                     countOrdersToday++;
                 }
-                if (orders[i][6] == "True")
+                if (orders[i][5].Contains(DateTime.Today.ToShortDateString()) && orders[i][6] == "True")
                 {
                     countCancelledOrder++;
                 }

@@ -98,7 +98,7 @@
             this.groupBoxAD.Location = new System.Drawing.Point(12, 221);
             this.groupBoxAD.Name = "groupBoxAD";
             this.groupBoxAD.Size = new System.Drawing.Size(317, 151);
-            this.groupBoxAD.TabIndex = 22;
+            this.groupBoxAD.TabIndex = 3;
             this.groupBoxAD.TabStop = false;
             this.groupBoxAD.Text = "Address Details";
             // 
@@ -116,7 +116,7 @@
             this.textBoxS.Location = new System.Drawing.Point(96, 69);
             this.textBoxS.Name = "textBoxS";
             this.textBoxS.Size = new System.Drawing.Size(197, 20);
-            this.textBoxS.TabIndex = 22;
+            this.textBoxS.TabIndex = 2;
             this.textBoxS.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxS_Validating);
             // 
             // comboBoxCN
@@ -212,14 +212,14 @@
             this.comboBoxCN.Location = new System.Drawing.Point(96, 95);
             this.comboBoxCN.Name = "comboBoxCN";
             this.comboBoxCN.Size = new System.Drawing.Size(197, 21);
-            this.comboBoxCN.TabIndex = 21;
+            this.comboBoxCN.TabIndex = 3;
             // 
             // textBoxPC
             // 
             this.textBoxPC.Location = new System.Drawing.Point(96, 121);
             this.textBoxPC.Name = "textBoxPC";
             this.textBoxPC.Size = new System.Drawing.Size(197, 20);
-            this.textBoxPC.TabIndex = 20;
+            this.textBoxPC.TabIndex = 4;
             this.textBoxPC.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPC_Validating);
             // 
             // textBoxSN
@@ -227,7 +227,7 @@
             this.textBoxSN.Location = new System.Drawing.Point(96, 43);
             this.textBoxSN.Name = "textBoxSN";
             this.textBoxSN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxSN.TabIndex = 18;
+            this.textBoxSN.TabIndex = 1;
             this.textBoxSN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSN_Validating);
             // 
             // textBoxHN
@@ -235,7 +235,7 @@
             this.textBoxHN.Location = new System.Drawing.Point(96, 17);
             this.textBoxHN.Name = "textBoxHN";
             this.textBoxHN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxHN.TabIndex = 16;
+            this.textBoxHN.TabIndex = 0;
             this.textBoxHN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxHN_Validating);
             // 
             // label10
@@ -285,7 +285,7 @@
             this.groupBoxPD.Location = new System.Drawing.Point(12, 12);
             this.groupBoxPD.Name = "groupBoxPD";
             this.groupBoxPD.Size = new System.Drawing.Size(317, 98);
-            this.groupBoxPD.TabIndex = 20;
+            this.groupBoxPD.TabIndex = 1;
             this.groupBoxPD.TabStop = false;
             this.groupBoxPD.Text = "Personal Details";
             // 
@@ -294,7 +294,7 @@
             this.textBoxID.Location = new System.Drawing.Point(93, 69);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(197, 20);
-            this.textBoxID.TabIndex = 15;
+            this.textBoxID.TabIndex = 2;
             this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating);
             // 
             // label4
@@ -303,7 +303,7 @@
             this.label4.Location = new System.Drawing.Point(23, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 13;
+            this.label4.TabIndex = 52;
             this.label4.Text = "ID Number :";
             // 
             // textBoxLN
@@ -311,7 +311,7 @@
             this.textBoxLN.Location = new System.Drawing.Point(93, 43);
             this.textBoxLN.Name = "textBoxLN";
             this.textBoxLN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxLN.TabIndex = 9;
+            this.textBoxLN.TabIndex = 1;
             this.textBoxLN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLN_Validating);
             // 
             // textBoxFN
@@ -319,7 +319,7 @@
             this.textBoxFN.Location = new System.Drawing.Point(94, 17);
             this.textBoxFN.Name = "textBoxFN";
             this.textBoxFN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxFN.TabIndex = 8;
+            this.textBoxFN.TabIndex = 0;
             this.textBoxFN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxFN_Validating);
             // 
             // label2
@@ -328,7 +328,7 @@
             this.label2.Location = new System.Drawing.Point(23, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 51;
             this.label2.Text = "Last Name :";
             // 
             // labelFN
@@ -337,7 +337,7 @@
             this.labelFN.Location = new System.Drawing.Point(25, 20);
             this.labelFN.Name = "labelFN";
             this.labelFN.Size = new System.Drawing.Size(63, 13);
-            this.labelFN.TabIndex = 0;
+            this.labelFN.TabIndex = 50;
             this.labelFN.Text = "First Name :";
             // 
             // groupBoxCI
@@ -351,7 +351,7 @@
             this.groupBoxCI.Location = new System.Drawing.Point(12, 116);
             this.groupBoxCI.Name = "groupBoxCI";
             this.groupBoxCI.Size = new System.Drawing.Size(317, 99);
-            this.groupBoxCI.TabIndex = 21;
+            this.groupBoxCI.TabIndex = 2;
             this.groupBoxCI.TabStop = false;
             this.groupBoxCI.Text = "Contact Information";
             // 
@@ -360,7 +360,7 @@
             this.textBoxCN2.Location = new System.Drawing.Point(93, 45);
             this.textBoxCN2.Name = "textBoxCN2";
             this.textBoxCN2.Size = new System.Drawing.Size(197, 20);
-            this.textBoxCN2.TabIndex = 15;
+            this.textBoxCN2.TabIndex = 1;
             this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN2_Validating);
             // 
             // label11
@@ -377,7 +377,7 @@
             this.textBoxEA.Location = new System.Drawing.Point(93, 71);
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
-            this.textBoxEA.TabIndex = 13;
+            this.textBoxEA.TabIndex = 2;
             this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating);
             // 
             // textBoxCN
@@ -385,7 +385,7 @@
             this.textBoxCN.Location = new System.Drawing.Point(93, 19);
             this.textBoxCN.Name = "textBoxCN";
             this.textBoxCN.Size = new System.Drawing.Size(197, 20);
-            this.textBoxCN.TabIndex = 10;
+            this.textBoxCN.TabIndex = 0;
             this.textBoxCN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN_Validating);
             // 
             // label3
@@ -411,7 +411,7 @@
             this.buttonSave.Location = new System.Drawing.Point(202, 378);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
-            this.buttonSave.TabIndex = 24;
+            this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Add";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -421,7 +421,7 @@
             this.buttonClose.Location = new System.Drawing.Point(12, 378);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 23;
+            this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
