@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -6,6 +7,7 @@ namespace ITRW225_Information_System
 {
     public partial class UI_EmployeeAdd : Form
     {
+        private List<string[]> idDetails;
         Form mainForm;
         public UI_EmployeeAdd(Form mainForm)
         {
@@ -25,6 +27,85 @@ namespace ITRW225_Information_System
                 e.Cancel = false;
                 error.SetError(textBox, null);
             }
+        }
+
+        private void ValidateNumber(TextBox textBox, CancelEventArgs e, ErrorProvider error, string type)
+        {
+            int length = 0;
+            string msg = "";
+            switch (type)
+            {
+                case "ID":
+                    length = 13;
+                    msg = "Must be 13 digit ID.";
+                    break;
+                case "Cell":
+                    length = 10;
+                    msg = "Must be 10 digit cellphone number.";
+                    break;
+                case "Postal":
+                    length = 4;
+                    msg = "Must be 4 digit postal code.";
+                    break;
+                default:
+                    break;
+            }
+            if (String.IsNullOrWhiteSpace(textBox.Text))
+            {
+                e.Cancel = true;
+                error.SetError(textBox, "Required field.");
+            }
+            else
+            {
+                bool result = long.TryParse(textBox.Text, out long resultL);
+                if (result)
+                {
+                    if (textBox.Text.Length != length)
+                    {
+                        e.Cancel = true;
+                        error.SetError(textBox, msg);
+                    }
+                    else
+                    {
+                        if (type == "ID")
+                        {
+                            if (checkID(textBox.Text))
+                            {
+                                e.Cancel = true;
+                                error.SetError(textBox, "ID already exists!");
+                            }
+                            else
+                            {
+                                e.Cancel = false;
+                                error.SetError(textBox, null);
+                            }
+                        }
+                        else
+                        {
+                            e.Cancel = false;
+                            error.SetError(textBox, null);
+                        }
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                    error.SetError(textBox, "Must be a number!");
+                }
+            }
+        }
+
+        private bool checkID(string id)
+        {
+            bool exists = false;
+            for (int i = 0; i < idDetails.Count; i++)
+            {
+                if (idDetails[i][0] == id)
+                {
+                    exists = true;
+                }
+            }
+            return exists;
         }
 
         private void textBoxFN_Validating_1(object sender, CancelEventArgs e)
@@ -138,6 +219,8 @@ namespace ITRW225_Information_System
         private void UI_EmployeeAdd_Load(object sender, EventArgs e)
         {
             buttonClose.Focus();
+            BE_DatabaseCommands commands = new BE_DatabaseCommands();
+            idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
         }
 
         private void UI_EmployeeAdd_FormClosing(object sender, FormClosingEventArgs e)

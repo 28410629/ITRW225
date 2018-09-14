@@ -14,6 +14,7 @@ namespace ITRW225_Information_System
     public partial class UI_ClientUpdate : Form
     {
         private List<string[]> clientDetails;
+        private List<string[]> idDetails;
         private string oldClientID = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
         Form mainForm;
@@ -76,8 +77,24 @@ namespace ITRW225_Information_System
                     }
                     else
                     {
-                        e.Cancel = false;
-                        error.SetError(textBox, null);
+                        if (type == "ID")
+                        {
+                            if (checkID(textBox.Text))
+                            {
+                                e.Cancel = true;
+                                error.SetError(textBox, "ID already exists!");
+                            }
+                            else
+                            {
+                                e.Cancel = false;
+                                error.SetError(textBox, null);
+                            }
+                        }
+                        else
+                        {
+                            e.Cancel = false;
+                            error.SetError(textBox, null);
+                        }
                     }
                 }
                 else
@@ -86,6 +103,19 @@ namespace ITRW225_Information_System
                     error.SetError(textBox, "Must be a number!");
                 }
             }
+        }
+
+        private bool checkID(string id)
+        {
+            bool exists = false;
+            for (int i = 0; i < idDetails.Count; i++)
+            {
+                if (idDetails[i][0] == id)
+                {
+                    exists = true;
+                }
+            }
+            return exists;
         }
 
         private void textBoxFN_Validating(object sender, CancelEventArgs e)
@@ -212,6 +242,7 @@ namespace ITRW225_Information_System
             BE_DatabaseCommands commands = new BE_DatabaseCommands();
 
             clientDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = False AND PERSON.Person_Is_Removed = False");
+            idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
 
             for (int i = 0; i < clientDetails.Count; i++)
             {
@@ -256,6 +287,11 @@ namespace ITRW225_Information_System
                 dashboard.MdiParent = mainForm;
                 dashboard.Show();
             }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

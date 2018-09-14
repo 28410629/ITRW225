@@ -104,6 +104,7 @@
             this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // groupBox1
             // 

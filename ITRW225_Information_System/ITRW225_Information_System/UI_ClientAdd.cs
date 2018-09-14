@@ -13,6 +13,7 @@ namespace ITRW225_Information_System
 {
     public partial class UI_ClientAdd : Form
     {
+        private List<string[]> idDetails;
         Form mainForm;
         public UI_ClientAdd(Form mainForm)
         {
@@ -23,7 +24,8 @@ namespace ITRW225_Information_System
 
         private void UI_ClientMaintenance_Load(object sender, EventArgs e)
         {
-
+            BE_DatabaseCommands commands = new BE_DatabaseCommands();
+            idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
         }
 
         private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
@@ -78,8 +80,24 @@ namespace ITRW225_Information_System
                     }
                     else
                     {
-                        e.Cancel = false;
-                        error.SetError(textBox, null);
+                        if (type == "ID")
+                        {
+                            if (checkID(textBox.Text))
+                            {
+                                e.Cancel = true;
+                                error.SetError(textBox, "ID already exists!");
+                            }
+                            else
+                            {
+                                e.Cancel = false;
+                                error.SetError(textBox, null);
+                            }
+                        }
+                        else
+                        {
+                            e.Cancel = false;
+                            error.SetError(textBox, null);
+                        }
                     }
                 }
                 else
@@ -88,6 +106,19 @@ namespace ITRW225_Information_System
                     error.SetError(textBox, "Must be a number!");
                 }
             }
+        }
+
+        private bool checkID(string id)
+        {
+            bool exists = false;
+            for (int i = 0; i < idDetails.Count; i++)
+            {
+                if (idDetails[i][0] == id)
+                {
+                    exists = true;
+                }
+            }
+            return exists;
         }
 
         private void textBoxFN_Validating(object sender, CancelEventArgs e)
