@@ -132,7 +132,6 @@ namespace ITRW225_Information_System
                     log.saveError();
                     MessageBox.Show("Failed updating database!");
                 }
-                
             }
         }
 

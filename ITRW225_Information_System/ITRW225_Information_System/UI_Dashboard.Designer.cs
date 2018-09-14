@@ -122,7 +122,7 @@
             this.groupBox3.Size = new System.Drawing.Size(132, 132);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Active Orders";
+            this.groupBox3.Text = "All Active Orders";
             // 
             // textBoxActiveOrders
             // 
@@ -210,7 +210,7 @@
             this.groupBox5.Size = new System.Drawing.Size(558, 158);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Point Of Sales - Today";
+            this.groupBox5.Text = "Point Of Sales - Orders";
             // 
             // groupBox8
             // 
@@ -245,7 +245,7 @@
             this.groupBox7.Size = new System.Drawing.Size(132, 132);
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Completed Orders";
+            this.groupBox7.Text = "Completed Today";
             // 
             // textBoxOrdersDone
             // 
@@ -269,7 +269,7 @@
             this.groupBox6.Size = new System.Drawing.Size(132, 132);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Canceled Orders";
+            this.groupBox6.Text = "Canceled Today";
             // 
             // textBoxCancelledOrder
             // 
