@@ -152,79 +152,82 @@ namespace ITRW225_Information_System
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            try
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                switch (comboBoxCN.SelectedItem.ToString())
+                try
                 {
-                    case "Eastern Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Free State":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Gauteng":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "KwaZulu-Natal":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Limpopo":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Mpumalanga":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "North West":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Northern Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Western Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Please select location.":
-                        MessageBox.Show("Please select appropriate location.");
-                        break;
-                    default:
-                        buttonSave.Enabled = false;
-                        // this adds person
-                        using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                        {
-                            string query = String.Format("INSERT INTO PERSON (Person_ID,Person_Name,Person_Surname,Person_Is_Removed,Person_Is_Employee,Person_Type, Person_Added) VALUES('{0}', '{1}', '{2}', False, False, 5, @1)", textBoxID.Text, textBoxFN.Text, textBoxLN.Text);
-                            db.Open();
-                            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
-                            OleDbCommand command = new OleDbCommand(query, db);
-                            command.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
-                            adapter.InsertCommand = command;
-                            adapter.InsertCommand.ExecuteNonQuery();
-                            db.Close();
-                        }
-                        // this add contact details
-                        using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                        {
-                            string query = String.Format("INSERT INTO CONTACT_DETAILS (Person_ID, House_Number, Street_Name, Postal_Code, Cell_Number_1, Cell_Number_2, Suburb, City, Email_Address) VALUES('{0}', '{1}', '{2}', {3}, {4}, {5}, '{6}', '{7}', '{8}')", textBoxID.Text, textBoxHN.Text, textBoxSN.Text, textBoxPC.Text, textBoxCN.Text, textBoxCN2.Text, textBoxS.Text, comboBoxCN.SelectedItem.ToString(), textBoxEA.Text);
-                            db.Open();
-                            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
-                            OleDbCommand command = new OleDbCommand(query, db);
-                            adapter.InsertCommand = command;
-                            adapter.InsertCommand.ExecuteNonQuery();
-                            db.Close();
-                        }
-                        MessageBox.Show("Successfully updated database!");
-                        buttonSave.Enabled = true;
-                        break;
+                    switch (comboBoxCN.SelectedItem.ToString())
+                    {
+                        case "Eastern Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Free State":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Gauteng":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "KwaZulu-Natal":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Limpopo":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Mpumalanga":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "North West":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Northern Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Western Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Please select location.":
+                            MessageBox.Show("Please select appropriate location.");
+                            break;
+                        default:
+                            buttonSave.Enabled = false;
+                            // this adds person
+                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                            {
+                                string query = String.Format("INSERT INTO PERSON (Person_ID,Person_Name,Person_Surname,Person_Is_Removed,Person_Is_Employee,Person_Type, Person_Added) VALUES('{0}', '{1}', '{2}', False, False, 5, @1)", textBoxID.Text, textBoxFN.Text, textBoxLN.Text);
+                                db.Open();
+                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
+                                OleDbCommand command = new OleDbCommand(query, db);
+                                command.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
+                                adapter.InsertCommand = command;
+                                adapter.InsertCommand.ExecuteNonQuery();
+                                db.Close();
+                            }
+                            // this add contact details
+                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                            {
+                                string query = String.Format("INSERT INTO CONTACT_DETAILS (Person_ID, House_Number, Street_Name, Postal_Code, Cell_Number_1, Cell_Number_2, Suburb, City, Email_Address) VALUES('{0}', '{1}', '{2}', {3}, {4}, {5}, '{6}', '{7}', '{8}')", textBoxID.Text, textBoxHN.Text, textBoxSN.Text, textBoxPC.Text, textBoxCN.Text, textBoxCN2.Text, textBoxS.Text, comboBoxCN.SelectedItem.ToString(), textBoxEA.Text);
+                                db.Open();
+                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
+                                OleDbCommand command = new OleDbCommand(query, db);
+                                adapter.InsertCommand = command;
+                                adapter.InsertCommand.ExecuteNonQuery();
+                                db.Close();
+                            }
+                            MessageBox.Show("Successfully updated database!");
+                            buttonSave.Enabled = true;
+                            break;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                BE_LogSystem log = new BE_LogSystem(ex);
-                log.saveError();
-                MessageBox.Show("Failed updating database!");
-                buttonSave.Enabled = true;
+                catch (Exception ex)
+                {
+                    BE_LogSystem log = new BE_LogSystem(ex);
+                    log.saveError();
+                    MessageBox.Show("Failed updating database!");
+                    buttonSave.Enabled = true;
+                }
             }
         }
 

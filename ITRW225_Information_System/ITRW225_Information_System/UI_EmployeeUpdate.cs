@@ -171,6 +171,7 @@ namespace ITRW225_Information_System
             {
                 comboBoxP.Items.Add(employeeType[i][1]);
             }
+            comboBoxSE.SelectedIndex = 0;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
