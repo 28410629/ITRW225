@@ -127,17 +127,17 @@ namespace ITRW225_Information_System
 
         private void textBoxCN_Validating_1(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderCN);
+            ValidateNumber((TextBox)sender, e, errorProviderCN, "Cell");
         }
 
         private void textBoxID_Validating_1(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderID);
+            ValidateNumber((TextBox)sender, e, errorProviderID, "ID");
         }
 
         private void textBoxVAT_Validating_1(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderVAT);
+            ValidateNumber((TextBox)sender, e, errorProviderVAT, "Cell");
         }
 
         private void textBoxEA_Validating_1(object sender, CancelEventArgs e)
@@ -162,51 +162,74 @@ namespace ITRW225_Information_System
 
         private void textBoxPC_Validating_1(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderPC);
+            ValidateNumber((TextBox)sender, e, errorProviderPC, "Postal");
         }
 
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                switch (comboBoxCN.SelectedItem.ToString())
+                try
                 {
-                    case "Eastern Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Free State":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Gauteng":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "KwaZulu-Natal":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Limpopo":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Mpumalanga":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "North West":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Northern Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Western Cape":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "":
-                        MessageBox.Show("Inappropriate location selection.");
-                        break;
-                    case "Please select location.":
-                        MessageBox.Show("Please select appropriate location.");
-                        break;
-                    default:
-                        
-                        break;
+                    switch (comboBoxCN.SelectedItem.ToString())
+                    {
+                        case "Eastern Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Free State":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Gauteng":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "KwaZulu-Natal":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Limpopo":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Mpumalanga":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "North West":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Northern Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Western Cape":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "":
+                            MessageBox.Show("Inappropriate location selection.");
+                            break;
+                        case "Please select location.":
+                            MessageBox.Show("Please select appropriate location.");
+                            break;
+                        default:
+                            buttonSave.Enabled = false;
+                            // this adds person
+                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                            {
+                                string query = String.Format("UPDATE PERSON INNER JOIN CONTACT_DETAILS ON PERSON.Person_ID = CONTACT_DETAILS.Person_ID SET PERSON.Person_ID = '" + textBoxID.Text + "', CONTACT_DETAILS.Person_ID = '" + textBoxID.Text + "', PERSON.Person_Name = '" + textBoxFN.Text + "', PERSON.Person_Surname = '" + textBoxLN.Text + "', CONTACT_DETAILS.House_Number = '" + textBoxHN.Text + "', CONTACT_DETAILS.Street_Name = '" + textBoxSN.Text + "', CONTACT_DETAILS.Postal_Code = '" + textBoxPC.Text + "', CONTACT_DETAILS.Cell_Number_1 = '" + textBoxCN.Text + "', CONTACT_DETAILS.Cell_Number_2 = '" + textBoxCN2.Text + "', CONTACT_DETAILS.Suburb = '" + textBoxS.Text + "', CONTACT_DETAILS.City = '" + comboBoxCN.SelectedItem.ToString() + "', CONTACT_DETAILS.Email_Address = '" + textBoxEA.Text + "',PERSON.Person_Type = " + (comboBoxP.SelectedIndex + 1) + "   WHERE PERSON.Person_ID = '" + oldEmployeeID + "'");
+                                db.Open();
+                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
+                                OleDbCommand command = new OleDbCommand(query, db);
+                                adapter.InsertCommand = command;
+                                adapter.InsertCommand.ExecuteNonQuery();
+                                db.Close();
+                            }
+                            MessageBox.Show("Successfully updated database!");
+                            buttonSave.Enabled = true;
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    BE_LogSystem log = new BE_LogSystem(ex);
+                    log.saveError();
+                    MessageBox.Show("Failed updating database!");
+                    buttonSave.Enabled = true;
                 }
             }
         }
@@ -244,22 +267,28 @@ namespace ITRW225_Information_System
         {
             for (int i = 0; i < employeeDetails.Count; i++)
             {
+                string msg = "";
+                for (int j = 0; j < employeeDetails[0].Length; j++)
+                {
+                    msg += "\n" + j + ": " + employeeDetails[i][j];
+                }
+                MessageBox.Show(msg);
                 if ((employeeDetails[i][1] + " " + employeeDetails[i][2]) == comboBoxSE.SelectedItem.ToString())
                 {
                     textBoxFN.Text = employeeDetails[i][1];
                     textBoxLN.Text = employeeDetails[i][2];
                     textBoxID.Text = employeeDetails[i][0];
                     oldEmployeeID = employeeDetails[i][0];
-                    textBoxHN.Text = employeeDetails[i][6];
-                    textBoxSN.Text = employeeDetails[i][7];
-                    textBoxPC.Text = employeeDetails[i][8];
-                    textBoxCN.Text = employeeDetails[i][9];
-                    textBoxCN2.Text = employeeDetails[i][10];
-                    textBoxS.Text = employeeDetails[i][11];
-                    textBoxEA.Text = employeeDetails[i][13];
+                    textBoxHN.Text = employeeDetails[i][7];
+                    textBoxSN.Text = employeeDetails[i][8];
+                    textBoxPC.Text = employeeDetails[i][9];
+                    textBoxCN.Text = employeeDetails[i][10];
+                    textBoxCN2.Text = employeeDetails[i][11];
+                    textBoxS.Text = employeeDetails[i][12];
+                    textBoxEA.Text = employeeDetails[i][14];
                     for (int k = 0; k < comboBoxCN.Items.Count; k++)
                     {
-                        if (comboBoxCN.Items[k].ToString().Contains(employeeDetails[i][12]))
+                        if (comboBoxCN.Items[k].ToString().Contains(employeeDetails[i][13]))
                         {
                             comboBoxCN.SelectedIndex = k;
                         }
@@ -272,38 +301,6 @@ namespace ITRW225_Information_System
         private void textBoxID_Validating(object sender, CancelEventArgs e)
         {
             ValidateNumber((TextBox)sender, e, errorProviderID, "ID");
-        }
-
-        public string updateDB()
-        {
-            try
-            {
-                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                {
-                    database.Open();
-                    OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM EMPLOYEE", database);
-                    OleDbCommand commandEmployee = new OleDbCommand(String.Format("UPDATE EMPLOYEE SET EMPLOYEE_ID = '{0}', EMPLOYEE_TYPE_NUMBER = {1}, EMPLOYEE_NAME = '{2}', EMPLOYEE_SURNAME = '{3}' WHERE EMPLOYEE_ID = '{4}'", textBoxID.Text, posNumber, textBoxFN.Text, textBoxLN.Text, oldEmployeeID), database);
-                    adapter.InsertCommand = commandEmployee;
-                    adapter.InsertCommand.ExecuteNonQuery();
-                    database.Close();
-                }
-                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                {
-                    database.Open();
-                    OleDbDataAdapter adapterC = new OleDbDataAdapter("SELECT * FROM CONTACT_DETAILS", database);
-                    OleDbCommand commandContact = new OleDbCommand("UPDATE CONTACT_DETAILS SET [HOUSE_NUMBER] = '" + textBoxHN.Text + "', [STREET_NAME] = '" + textBoxSN.Text + "', [POSTAL_CODE] = '" + textBoxPC.Text + "', [CELL_NUMBER] = '" + textBoxCN.Text + "', [BACKUP_CELL_NUMBER] = '" + textBoxCN2.Text + "', [SUBURB] = '" + textBoxS.Text + "', [CITY] = '" + comboBoxCN.SelectedItem.ToString() + "', [EMAIL] = '" + textBoxEA.Text + "', [EMPLOYEE_ID] = '" + textBoxID.Text + "' WHERE [EMPLOYEE_ID] = '" + oldEmployeeID + "'", database);
-                    adapterC.InsertCommand = commandContact;
-                    adapterC.InsertCommand.ExecuteNonQuery();
-                    database.Close();
-                }
-                return "Succesfully saved to database!";
-            }
-            catch (Exception ex)
-            {
-                BE_LogSystem log = new BE_LogSystem(ex);
-                log.saveError();
-                return "Failed saving to database!";
-            }
         }
 
         private void UI_EmployeeUpdate_FormClosing(object sender, FormClosingEventArgs e)
