@@ -267,12 +267,6 @@ namespace ITRW225_Information_System
         {
             for (int i = 0; i < employeeDetails.Count; i++)
             {
-                string msg = "";
-                for (int j = 0; j < employeeDetails[0].Length; j++)
-                {
-                    msg += "\n" + j + ": " + employeeDetails[i][j];
-                }
-                MessageBox.Show(msg);
                 if ((employeeDetails[i][1] + " " + employeeDetails[i][2]) == comboBoxSE.SelectedItem.ToString())
                 {
                     textBoxFN.Text = employeeDetails[i][1];

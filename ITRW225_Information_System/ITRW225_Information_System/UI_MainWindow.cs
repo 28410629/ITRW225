@@ -287,5 +287,24 @@ namespace ITRW225_Information_System
         {
 
         }
+
+        private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_Feedback)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Feedback)
+                {
+                    item.Close();
+                }
+            }
+            UI_Feedback employee = new UI_Feedback(this);
+            employee.MdiParent = this;
+            employee.Show();
+        }
     }
 }
