@@ -160,7 +160,7 @@ namespace ITRW225_Information_System
                         
                     }
                     DateTime dueDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Today.Hour, DateTime.Today.Minute, 0);
-                    string query = String.Format("INSERT INTO PAYMENT_ORDER (Client_Order_Code, Employee_ID, Payment_Amount, Payment Type, Date_Created) VALUES({0}, '{1}', {2}, {3}, @1)", arr[0], eID, arr[3], msg);
+                    string query = String.Format("INSERT INTO PAYMENT_ORDER (Client_Order_Code, Employee_ID, Payment_Amount, Payment_Type, Date_Created) VALUES({0}, '{1}', {2}, '{3}', @1)", arr[0], eID, arr[3], msg);
                     using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                     {
                         db.Open();
