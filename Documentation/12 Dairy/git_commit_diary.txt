@@ -1,0 +1,189 @@
+Sun, 16 Sep 2018 00:26:26 +0200,f7f8c83b74cea24078e3d66f47141c5ccdc74901,Merged UI_Backend-POS into develop
+Sun, 16 Sep 2018 00:26:00 +0200,4df542b2e078a0cd2a384af7f8025860946316fd,More invalid character validation
+Sun, 16 Sep 2018 00:22:49 +0200,285dcd6d391a87f0456447cf9576ca8b7a350ab0,Added Invalid Characters Validation
+Sun, 16 Sep 2018 00:12:29 +0200,c4f9b5d2d41c2e23822ae4c46d93d41508c543e1,Merged UI_Backend-POS into develop
+Sun, 16 Sep 2018 00:12:07 +0200,48ad0e0d77b834f99d0772bc501bc82e65ca6dd9,Final Implementation for View Orders
+Sun, 16 Sep 2018 00:09:20 +0200,3e60eec16c412e5556906cc30450836f809955e3,Added View Order
+Sat, 15 Sep 2018 21:48:04 +0200,b59798a5d7dfff25e506ef061d0df79b85a7a941,Fixed Issues with Dashboard, Updated Visuals
+Sat, 15 Sep 2018 19:33:34 +0200,1ee29f3a224bf2c74073271a6c378d432aafaf34,Merged UI_Backend-POS into develop
+Sat, 15 Sep 2018 19:07:18 +0200,d71566feb34cce8c45b6acf209f6b48af27b3a22,Settings Fully Implemented
+Sat, 15 Sep 2018 18:47:58 +0200,c6bcd3f9760b9051f853e556c4a4ed9108f2960a,Added Settings and Fixed Dashboard
+Sat, 15 Sep 2018 15:57:15 +0000,f6a63c5f7c2612acfa924c104506cd982c2226d4,Merged in document/database_schema (pull request #33)
+Sat, 15 Sep 2018 17:52:36 +0200,8c8508ef60d47f079743c1669894a138f46aebed,finished database schema
+Sat, 15 Sep 2018 14:56:40 +0000,81bb289adb00401b1e75b2117cf67b0417ac1d25,Merged in document/Physical_Data_Model (pull request #32)
+Sat, 15 Sep 2018 16:53:40 +0200,ef945325cab0514ea982d7a277f30793f05a14b5,Merged develop into document/Physical_Data_Model
+Sat, 15 Sep 2018 16:51:22 +0200,5a8bd4c06e875802c08deded71e2155d2deecb20,PDM3
+Sat, 15 Sep 2018 16:28:14 +0200,0c7d03623f8306a01e4b9ca8896398119ad3062f,Merged UI_Backend-POS into develop
+Sat, 15 Sep 2018 16:27:40 +0200,632a3e6b2cff26357d546c467eed58a20dc35bab,Process Payment Works!
+Sat, 15 Sep 2018 16:22:40 +0200,3d8dcc972e2fe54d84e66191c6925da96c0246ff,Merged UI_Backend-POS into develop
+Sat, 15 Sep 2018 16:22:07 +0200,f0215494974735d6eeb538762ee9fa0127e4bffe,Updates to Payment Order
+Sat, 15 Sep 2018 15:55:53 +0200,50d0e9f35d33686c82d89aa4a9403939e6ac2ec1,PDM2
+Sat, 15 Sep 2018 15:44:39 +0200,2ce6fe3386423f368c5f26eaa8b636304a7bf48a,Bug Fix - Email Duplication
+Sat, 15 Sep 2018 15:38:08 +0200,27232e56ff3685520e1b059b88c4099aae829d3f,Fixed Employee and Client Maintenance Email Duplication Issue
+Sat, 15 Sep 2018 15:27:46 +0200,db016f577fd2f83843d16a7126ddce6c071dc53f,Physical Data Model Commit1
+Sat, 15 Sep 2018 15:15:55 +0200,7357ac820afd90e756dc446afeed2490c9e02146,Merged UI_Backend-POS into develop
+Sat, 15 Sep 2018 15:14:55 +0200,aa087ad4318708d48b890edffb89fb9d3f933b4f,Icon Fixed
+Sat, 15 Sep 2018 14:58:27 +0200,1f76b331b11322c50a3050608a9c9f6e3dbc80cc,Fixed User Maintenance
+Sat, 15 Sep 2018 14:20:38 +0200,53de9b00ba35a71e0e308e041cecb101e8d1d58f,Merged UI_Backend-POS into develop
+Sat, 15 Sep 2018 14:17:36 +0200,8ed16e4351567925c5455cd58269350db6f20a91,Payment Process Payment
+Sat, 15 Sep 2018 13:26:37 +0200,254ae0df3f7aa319aa504bcbdf167b79ad5bfe32,Merged UI_Backend-POS into develop
+Sat, 15 Sep 2018 13:25:45 +0200,8683f227757e256ee652447ff61dd70f22ccdb6e,Place Order Works!
+Sat, 15 Sep 2018 09:38:05 +0000,a9c603a304d967574dfc1f961233b764ede2b4bb,Merged in document/physical_process_model (pull request #31)
+Sat, 15 Sep 2018 11:05:49 +0200,01d8a0ddb5f03142779ecf2093b9016852e68e7e,finished physical process model
+Sat, 15 Sep 2018 10:45:33 +0200,c67b7d472cdf50631e973a020d554e6146f4c383,Merged develop into UI_Backend-POS
+Sat, 15 Sep 2018 08:34:23 +0000,29e78ebd46e5c8ff574ba99d72c6e27252adeb2b,Merged in database/Product_list (pull request #30)
+Sat, 15 Sep 2018 09:48:15 +0200,09f17e5120d7e330cea5eebf7e1311ccfb659781,DB Products added
+Fri, 14 Sep 2018 16:38:23 +0000,21464c470bf74392ada436755a4ac615d42e5f9e,Merged in document/matrix_cost_benefit_analysis (pull request #29)
+Fri, 14 Sep 2018 16:55:24 +0200,0cf60a1fefd41f883d4ae2d297d000112296488d,finished feasibility matrix and cost benefit analysis
+Fri, 14 Sep 2018 14:54:16 +0200,2c937a26ea0cef264793763668f049e2d4edfd66,Merged UI_Backend-POS into develop
+Fri, 14 Sep 2018 14:53:24 +0200,7e88fff8539926832ff2858edec46c5b4afd3b37,Updated payment process
+Fri, 14 Sep 2018 14:30:40 +0200,4163edb152caff1cba7c8a7aec764f79bffa7f73,Removed option to delete employee and improved active orders
+Fri, 14 Sep 2018 14:19:26 +0200,5b96e77b7516eeda758324f9897a2b9c6c2f7844,Feedback Added
+Fri, 14 Sep 2018 11:21:39 +0200,5a80b7d70daec2f2dacb32763e129e6949505255,Employee Update Works
+Fri, 14 Sep 2018 10:55:17 +0200,2cfd90046fefe5c2c0a970c40d4babad43a550b3,Merged UI_Backend-POS into develop
+Fri, 14 Sep 2018 10:54:45 +0200,fa4f2725ec9a3a63febc024665d61cc00b12f7ad,DB fix
+Fri, 14 Sep 2018 10:53:58 +0200,db45ddd86ceb19a993413319682bfb7087d7bb62,Merged UI_Backend-POS into develop
+Fri, 14 Sep 2018 10:53:31 +0200,98951a42404b60648051779957e82d330db35ff7,Employee Add Works
+Fri, 14 Sep 2018 10:43:28 +0200,e9a403b1eff77d482311da4aadfc64cec93a34ee,Client Maintenance Finished
+Fri, 14 Sep 2018 10:13:31 +0200,8034d80545c63325863dd4fff012a34fdd846ca1,Update Client Works
+Fri, 14 Sep 2018 09:34:26 +0200,7927001b8216573ada52d08004ca3769d275d91c,Add Client Works & Finished!
+Thu, 13 Sep 2018 23:25:36 +0200,c97cbd1a91d95ab23c39af44b0969fe3e0164024,Merged UI_Backend-POS into develop
+Thu, 13 Sep 2018 23:24:39 +0200,66b1dd2d21bdb496841060204aeaf995012cac04,Fixed Build Error
+Thu, 13 Sep 2018 23:20:23 +0200,b1d5d26821552891f152877f356981988e86e848,Merged UI_Backend-POS into develop
+Thu, 13 Sep 2018 23:19:48 +0200,3d9f8d343b2a4179f55ad310f229cc5fe74993e8,Fixed Log System
+Thu, 13 Sep 2018 23:17:37 +0200,74d0af911be964d3432e83dc239d1091167deba3,Made Sure All Documentation is Available For Edit
+Thu, 13 Sep 2018 23:09:55 +0200,8a137c3830c157eb965afafd40877419730825c8,Added Documentation Files That Need To Be Completed
+Thu, 13 Sep 2018 22:50:16 +0200,f489b863931fb2a8277e5f2a8168a8d3be2acaf3,Payment Process GUI Finalised
+Thu, 13 Sep 2018 22:20:26 +0200,b8c6a049f12dc643b98986002c74bacd4c543c83,Added Process Payment
+Thu, 13 Sep 2018 22:05:38 +0200,456710f41d94e6d5b6aa1738375ca915d0a35668,Merged UI_Backend-POS into develop
+Thu, 13 Sep 2018 22:03:11 +0200,f7b32469cf2491e19393daf55676003f56564026,Active Orders Work
+Thu, 13 Sep 2018 20:15:35 +0200,d93bb5037e5a57eff57726ad843bea1f9d27dd51,Past Orders Nearly Done
+Thu, 13 Sep 2018 12:44:17 +0200,afcd81901bceea2dc014b2689631bc8c983771eb,Past Orders Update
+Wed, 12 Sep 2018 21:33:27 +0200,9e2f11af343026142a17c5cfd1b8ba8f6f8d20a5,Merged sales into develop
+Wed, 12 Sep 2018 21:32:44 +0200,922652a54d82ac41d11ee4c3d541f8cf3d763b20,Improved Log System
+Wed, 12 Sep 2018 21:09:57 +0200,aa35422fe6658f33de442d6bd7b30b8503f5d475,Massive Update
+Wed, 12 Sep 2018 20:29:43 +0200,3f16aaedbeeef3d0c472303b398b74473c804249,iText nuget package added
+Wed, 12 Sep 2018 19:23:30 +0200,4a49d4f75d48df4f280c023d0f32fdbf85f570b8,All Windows Center Screen
+Wed, 12 Sep 2018 18:08:38 +0200,a698cbcd0d444e7c8b749073b63a4c5d4ba0b0aa,Merge branch 'front_back-end-employee_pos_client_reports' into sales
+Wed, 12 Sep 2018 18:07:23 +0200,7bf6798494db215f054a767a2770059f68e2fd86,Added Sales Report
+Wed, 12 Sep 2018 17:22:54 +0200,b10f6dc12644380138bdef9115555fbaae9905ed,Merged front_back-end-employee_pos_client_reports into develop
+Wed, 12 Sep 2018 17:09:05 +0200,b0f05112feec84dc0c2c0b1240ddafbede0ec33c,Dashboard Finished for now
+Wed, 12 Sep 2018 15:42:03 +0200,ed2409b8ef3607c29c9f5763687b43badad33899,Updated Dashboard!
+Wed, 12 Sep 2018 14:11:01 +0200,c139e3e22679a082ec029de09c38c08ef445a592,Dashboard and DB Update
+Wed, 12 Sep 2018 14:03:28 +0200,425dd76443461bbb8ac471d43a35a1df294aad62,Dashboard Updated
+Tue, 11 Sep 2018 12:47:39 +0200,2507f0039c9fad1f39a53df7809f66de3539cd68,Merged front_back-end-employee_pos_client_reports into develop
+Tue, 11 Sep 2018 12:44:58 +0200,956a5bd3f7336b5b600681c077214151e887f467,Dashboard Added
+Tue, 11 Sep 2018 08:35:10 +0200,dd5f5c36d4e15453d4dd56562bac70b347483fa3,Updates To POS Place
+Tue, 11 Sep 2018 07:45:19 +0200,8fc785d9f1911dcf7bb42b88051294522a610f2c,Merged develop into front_back-end-employee_pos_client_reports
+Tue, 11 Sep 2018 05:38:22 +0000,2af15c123758af00ce305315fdb0fd4046c8f016,Merged in back_end/Turn_of_form_max_buttons (pull request #28)
+Thu, 6 Sep 2018 15:35:45 +0200,63b539afd222950f0a34ed00a259b2a24bb5f32b,max buttons set to false
+Thu, 6 Sep 2018 09:03:51 +0200,deda1aee2371232d1ded8fb4b4e457b72f426cdb,POS updates!
+Thu, 6 Sep 2018 08:15:35 +0200,6b6a80d96e2628e0e86d7472d6027d8643b0e366,Merged develop into front_back-end-employee_pos_client_reports
+Thu, 6 Sep 2018 06:13:49 +0000,832dc6c2af992c6e3734fbb6535b7127a7a0c155,Merged in back_end/remove_icons_from_borders (pull request #27)
+Wed, 5 Sep 2018 18:52:48 +0200,b035313087bc4101acd4d7a1539d1da2109ece63,removed icons
+Wed, 5 Sep 2018 18:34:53 +0200,ac3d82aec4b5a4cbf370b51c06f8a3718ed4839a,Merged front_back-end-employee_pos_client_reports into develop
+Wed, 5 Sep 2018 18:33:39 +0200,69691ef4b1a5401b42fd98b8840ccf743dd0fa79,Merge branch 'back-end/dummy_data' into front_back-end-employee_pos_client_reports
+Wed, 5 Sep 2018 18:28:00 +0200,431bb45a8dc95078d702d9f818a7ecb63c90b8a5,Added necessary change to dummy data
+Wed, 5 Sep 2018 17:09:59 +0200,db9320c21b0172071da22f6bef5ef2991a131b31,added dummy data
+Wed, 5 Sep 2018 18:29:06 +0200,4e34d5238a0d62392c05f630f4862bbf4526058c,Merged back-end/dummy_data into develop
+Wed, 5 Sep 2018 18:28:00 +0200,5a152a5c802da8c0c8ab782848e6c804198d804c,Added necessary change to dummy data
+Wed, 5 Sep 2018 18:24:07 +0200,5cebe64c0cd06a4f7c868ffcbfec74ae7f6ec64f,90% Place order
+Wed, 5 Sep 2018 17:09:59 +0200,80b47af43414acda1206ec7615a43eb24e3f303d,added dummy data
+Tue, 4 Sep 2018 20:18:13 +0200,8ca8fb101ed65eb83e71654804ae332f04bdfef8,Merged front_back-end-employee_pos_client_reports into develop
+Tue, 4 Sep 2018 20:16:22 +0200,63ab330223100a5529868dc16b59bad11599148b,minor improvement pos place
+Tue, 4 Sep 2018 20:04:34 +0200,aba37ee5be40d51a380d5f3b48daa01a4dd24c2d,Merged front_back-end-employee_pos_client_reports into develop
+Tue, 4 Sep 2018 20:03:53 +0200,a76b9d78f59c0836bf63d484183f00ef59a0ae47,Place order nearly done in terms of GUI
+Tue, 4 Sep 2018 19:37:37 +0200,08bedc057ea5ab6894bceac60e31c7f5eb6d67da,Merged front_back-end-employee_pos_client_reports into develop
+Tue, 4 Sep 2018 19:36:55 +0200,be163b1960a194a517ae6390c19828d929b4b8ad,Place Order GUI in Progress
+Tue, 4 Sep 2018 18:41:18 +0200,bb6bc9b5f1d4eebf18f69d73df1adfc9572098a8,Merged front_back-end-employee_pos_client_reports into develop
+Tue, 4 Sep 2018 18:40:41 +0200,a0ccd79b3cf36e47b3d79c3462ea6655269ef352,Client Update Basic Functionality
+Tue, 4 Sep 2018 18:22:18 +0200,b7a1fddfc062b2c74f78a93d503949e6a13a18c7,Merged front_back-end-employee_pos_client_reports into develop
+Tue, 4 Sep 2018 18:21:36 +0200,919b21cfd426fb47c120ae073087b9017172c250,Client Add Updated
+Mon, 3 Sep 2018 15:53:58 +0200,a36217b83d5433f05926892306843b853b49d21c,User maintenance 70%
+Sun, 2 Sep 2018 16:53:18 +0200,2c290df81a555f2fbda9ad36c9bba066d549f9bf,Update Working again!
+Sun, 2 Sep 2018 15:54:15 +0200,6841f4d391b2e369cdb9301215262c3a2660bd74,Merged front_back-end-employee_pos_client_reports into develop
+Sun, 2 Sep 2018 15:53:49 +0200,47e960acdc8cbc99ef1706a7eee709383336ad18,Login Works Again!
+Sun, 2 Sep 2018 11:47:40 +0200,1278f4522495af86896951327cd3a6142e53a26a,Database and Feature Revamp
+Sun, 2 Sep 2018 08:00:53 +0200,7677ae9bd4a56d02835c253242caf49f33061d7d,Merged front-end/employee_maintenance into develop
+Sun, 2 Sep 2018 07:58:50 +0200,d97393b49e09a732d2b802509b8b5d3e94bdb34d,Generic Database methods added
+Sun, 2 Sep 2018 01:07:19 +0200,aeeaf096e5a906d69f8ac6d355e466a0c7cb7498,More work
+Sat, 1 Sep 2018 23:22:38 +0200,80fc3c2717acf9f8c5e2c6e803c0631ff9e322be,Update Employee Works!!!
+Fri, 31 Aug 2018 08:47:02 +0200,1d91ea4484e736610bcda400b38755b37ac6d655,DB Update
+Fri, 31 Aug 2018 08:44:15 +0200,be10b2e19715a1daf138f4d0234bcac44b26f98f,Added Credentials Authorise Feature Necessary for Employee Maintenance
+Fri, 31 Aug 2018 08:04:06 +0200,c166c8ceadce45099e814221555a0666bf06bcae,Updated Employee Maintenance UI & DB for it
+Fri, 31 Aug 2018 07:43:16 +0200,89e84d21299cdab239dbc499de9086d2904c9fe1,Merged ui/unify_gui into develop
+Fri, 31 Aug 2018 07:40:58 +0200,a88921932de18dc4a46ef225b1b3632c62b321a0,Major Update - Read Description
+Mon, 27 Aug 2018 21:10:22 +0200,db6551302929d74aa5cdcb8ad13e1ebfe9e202de,Employee Maintenance nearly done
+Fri, 24 Aug 2018 17:27:00 +0200,fc654dea7c9f22ff15fe7a0e660b34df9ce1e786,Further improvements on employee maintenance
+Mon, 13 Aug 2018 13:47:02 +0200,b9d0e007f88fe5f8b8f69a8cc4ebe836ac8e0fd0,Futher improvements on employee
+Fri, 10 Aug 2018 23:32:13 +0200,f1221afad4295c0f946c0aa3524b5be2d46fd96a,Name change of class
+Fri, 10 Aug 2018 22:51:21 +0200,968fbc0298a16bbdf8d960d7ba0e323912b50b8d,Merge remote-tracking branch 'origin/develop' into ui/unify_gui
+Fri, 10 Aug 2018 20:50:10 +0000,0236726510a0077ee03c946120339e428ceb2abc,Merged in ui/pieter (pull request #24)
+Fri, 10 Aug 2018 20:48:13 +0000,bdc465570fd4421c8b37b50924e68297565b5556,Merged in ui/gui_for_received_order_from_supplier (pull request #23)
+Thu, 9 Aug 2018 15:05:44 +0200,ff6bc048da11f816efe9468e40f83ea32b4ca57f,Merged develop into ui/pieter
+Thu, 9 Aug 2018 15:04:20 +0200,e6c3f6b7926a80b5b157b6577364fdf20dc14a88,Merged develop into ui/unify_gui
+Thu, 9 Aug 2018 10:39:12 +0000,a6ab9d478eb09d08ad071714d63860a09fe358ba,Merged in HN (pull request #21)
+Thu, 9 Aug 2018 12:33:59 +0200,5eecc30d0ca1cf90c475026d0775eb84cc2f9b69,Add New Employee Validation Tests
+Mon, 6 Aug 2018 11:08:41 +0000,12d5ef10230eee4522a5e6fc0e9abc658f108222,Merged in back-end/random_password_test (pull request #20)
+Mon, 6 Aug 2018 12:53:32 +0200,f67470f152723a0b6eea91d6a99e35c2e4fd0e64,Added Random Password Generation + Fixed User Maintenance Bug + Improved Log System
+Sat, 4 Aug 2018 16:00:23 +0000,8ba49b3db2776d1f0157941fdc830c76bf5e47d1,Merged in video/repository (pull request #18)
+Sat, 4 Aug 2018 17:05:31 +0200,8c193adcdebd7844e227b62a9dd001a0d12329ed,UI Form Added
+Sat, 4 Aug 2018 17:00:33 +0200,d9f8fc3d57227c9ff82ff32546d7c8d0570680c1,Backup Database Added
+Sat, 4 Aug 2018 13:43:20 +0000,8d4aa44ed3be53d50a2d2e1b3e37a484e0f6ab8e,Merged in back-end/coenraad (pull request #17)
+Sat, 4 Aug 2018 13:55:13 +0200,5773ca7c488dc9951daa46d526fcaf26b0f5017a,User Maintenance work 100%
+Fri, 3 Aug 2018 17:25:43 +0200,0574168bc5bf4b62526f106a703751393263c712,Finalised Login
+Fri, 3 Aug 2018 16:52:28 +0200,0d476fe25ac45e1eac4a0e18d0c8a363d7e3d4d7,Fixed login label
+Fri, 3 Aug 2018 16:48:36 +0200,099e8dc88ca33de9df87b0ab6dc1422f9e8b54cb,Fixed login to use less classes
+Fri, 3 Aug 2018 13:58:35 +0200,ce841c0440285f2007d98e60c9a7e4600c7c6d78,Implement Specific User Access
+Thu, 2 Aug 2018 11:35:05 +0200,d0aea8fcf6e4313434942c1c9fd019060fc9cc0b,Started integrating user maintenance and access
+Wed, 1 Aug 2018 13:03:18 +0000,8a4f2d37dbbb1be08c184bc1eaca109dce184924,Merged in coenraad/login (pull request #16)
+Wed, 1 Aug 2018 14:32:24 +0200,c5cbc1d2dc914de10e44b2534442c595b7c2de87,UI Changes to Login
+Sun, 29 Jul 2018 22:06:38 +0200,7b7dd6b0e4ce84430437f9eab5f3c6d44dc3cb1e,UI received order from supplier
+Sun, 29 Jul 2018 21:19:05 +0200,f292a45de7847282289d6ab50c4a47f1c6ebfc90,add GUI
+Sat, 28 Jul 2018 12:29:14 +0200,a2e754bfacba3ed39e5ac44af46c460e69b8cddf,Other changes...
+Thu, 26 Jul 2018 10:23:47 +0200,7792e3587b0c76cd96ecf4b6cd2634d3b0d986c7,Member logins added!
+Thu, 26 Jul 2018 08:37:39 +0200,8653056278d966144d58106cecf25a4498b78d52,Added admin, login system works!
+Thu, 26 Jul 2018 07:27:49 +0200,ec949691816a66f576c5e0739da287cdf8236f3c,Database added to project
+Thu, 26 Jul 2018 07:25:59 +0200,a462b8652ef6a3fe1164c57f47276a8950bdb01d,Merge remote-tracking branch 'origin/develop' into coenraad/login
+Wed, 25 Jul 2018 20:51:12 +0200,c552ea6b88c513fda9dc6aba08afd0c74886bfd3,Improvements on Forgot label
+Wed, 25 Jul 2018 18:37:45 +0000,1b039a42fb0b887f2d41f962765db99be77a23b2,Merged in database/pieter (pull request #15)
+Wed, 25 Jul 2018 20:35:40 +0200,01aea47c72eae9b5159fc8373d196aa2b4ddd1f7,System can sent emails!
+Wed, 25 Jul 2018 20:28:59 +0200,0adf3e45f0610e0975313417e3ae4b53435c09be,DataBases_Pieter
+Wed, 25 Jul 2018 20:07:07 +0200,b844a422de2b5ca0dd67d7919c55c6d388410907,Started Adding Login Code
+Wed, 25 Jul 2018 18:50:19 +0200,bb09bcdc943aa7786147c199b0e4fc27d54dbe2a,Test
+Wed, 25 Jul 2018 18:47:47 +0200,0ebe49f8073cf03fb256894df17a9ced3882ce5d,Merged develop into ui/pieter
+Wed, 25 Jul 2018 15:45:04 +0000,bf8b6417cf5fe19e0cddd2d57f6732ae0e4fc11a,Merged in HN (pull request #13)
+Wed, 25 Jul 2018 17:37:06 +0200,09e7c823b9f7cb36f2d34ec742fd61dcd2f06d69,Fixed Naming Conventions
+Wed, 25 Jul 2018 15:48:46 +0200,00e3926707322058edd206a0414ed3b38452744a,tables is in Database.mdb
+Sun, 22 Jul 2018 16:10:15 +0000,ff2143a48a0ca515e829d46927f91ee52b9cf2fb,Merged in database/savannah (pull request #11)
+Sun, 22 Jul 2018 17:49:03 +0200,6865bcecc20af163ea8758b4017c03499102a9f6,DB Savannah
+Sun, 22 Jul 2018 15:06:19 +0200,373b1c28be8bb2d541be2dcc98f8e9e998a815a7,Merged develop into database/savannah
+Sun, 22 Jul 2018 13:04:48 +0000,ee654f0a72aa54e876ae96f7d8da9386a097dc4d,Merged in database/coenraad (pull request #10)
+Sun, 22 Jul 2018 15:01:54 +0200,cf0c3781e5f009d766b18d952c374826d207aa21,Database Updated
+Sun, 22 Jul 2018 14:29:25 +0200,882025b7552839d42c720c68ea44e1597b9f8a06,Merge remote-tracking branch 'origin/develop' into database/coenraad
+Sun, 22 Jul 2018 11:02:50 +0000,882af64d3fc4656e48dba6d5a3826b75f982eaaa,Merged in ui/coenraad (pull request #9)
+Wed, 18 Jul 2018 21:20:55 +0200,6ae86e66e15be606778435331d993533879647c2,README.md
+Wed, 18 Jul 2018 21:15:21 +0200,20328a8441aea1896be0320561db7fb900eef981,README.md
+Wed, 18 Jul 2018 21:12:41 +0200,2b22801ef923bc6746b740010ad2a09dac8c191a,README.md
+Wed, 18 Jul 2018 21:09:40 +0200,764f44b0e96cbde7f28d7414de0f919be5852754,README.md
+Wed, 18 Jul 2018 21:04:46 +0200,7028dbd50f2d2b055aa598ece3bbb2dc0ec875c8,Updated README.md
+Wed, 18 Jul 2018 17:56:29 +0000,94afdff51703ca1b6231e76bf73016fc7e2da821,UI_AddNewEmployee.Designer.cs edited online with Bitbucket
+Wed, 18 Jul 2018 19:45:52 +0200,6a2e8f5593ea58273fa5187ce5ca889679889d05,Merged ui/savannah into develop
+Wed, 18 Jul 2018 17:44:04 +0000,75697beed449c7c501da6284caa6fee313cb1975,UI_MainWindow.cs edited online with Bitbucket
+Wed, 18 Jul 2018 17:31:53 +0000,86482e752f4aad0907f5c18ce4f1ca55440c6871,UI_MainWindow.cs edited online with Bitbucket
+Wed, 18 Jul 2018 18:44:30 +0200,6704de88cf920457c0b7ceb111f10d06da01be9a,Reset gitattributes
+Wed, 18 Jul 2018 18:36:53 +0200,4f2643ec17ee1bf99bfc80817d3c9d21191badb9,Merge remote-tracking branch 'origin/ui/coenraad' into ui/savannah
+Wed, 18 Jul 2018 18:36:38 +0200,b48abf4151c8f6c142497388c08812bb6f491a1c,Merge remote-tracking branch 'origin/develop' into ui/savannah
+Wed, 18 Jul 2018 15:21:00 +0200,0cf42a673e06bbdca262391ee50f03291a2fec62,Added the csproj resolve
+Wed, 18 Jul 2018 15:14:37 +0200,07fa3aea6fc8ddf8e040fe6ecfd8d307d95421eb,Resolves Git Merge Error on Savannah Branch
+Wed, 18 Jul 2018 14:54:08 +0200,b348b85eb6f41494213d2f43b157a09759df77f0,EmployeeMaintenance
+Wed, 18 Jul 2018 14:53:27 +0200,66fbb80a1bf0f4b5b8dc156734f465b93b7a48af,User Maintenance UI and Documentation
+Wed, 18 Jul 2018 12:14:13 +0000,6b0a0a8d4d6f5cd5594e125f3e94fa554f2ebbd8,Merged in ui/coenraad (pull request #2)
+Wed, 18 Jul 2018 12:47:52 +0200,80718546f756e5cf90472977fbcce531ab95bea7,Added Login UI and Parent UI
+Wed, 18 Jul 2018 12:45:44 +0200,035132aef0299caccf6f0d735b9b1c77440fb564,SearchClientInfo
+Wed, 18 Jul 2018 12:31:37 +0200,1d134ed3cfa299987277d629d99289bee39bd761,AddClientToDb
+Wed, 18 Jul 2018 11:50:39 +0200,1a27e31598b9b9ee770ee4cb1a458a6065c07020,Merge remote-tracking branch 'origin/develop' into ui/savannah
+Wed, 18 Jul 2018 09:41:45 +0000,16ab0faba5d620fba9feb405fcd93afbff7210d7,Merged in ui/coenraad (pull request #1)
+Wed, 18 Jul 2018 11:33:06 +0200,6b17be40183b48da483207cc1b5f8b43976c11f9,DB Added
+Wed, 18 Jul 2018 11:16:22 +0200,d13f7d395a26fe60314fc6f6141c7e34e05a68eb,Initial C# Project Commit
+Wed, 11 Jul 2018 11:32:16 +0000,8615501a54822ac08d1b1c6f216010a3412c33b1,Initial commit
