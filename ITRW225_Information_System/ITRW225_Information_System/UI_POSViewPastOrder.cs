@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -32,7 +26,18 @@ namespace ITRW225_Information_System
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("It works");
+            int selected = 0;
+            for (int i = 0; i < order.Count; i++)
+            {
+                if (order[i][0] == listView1.SelectedItems[0].SubItems[0].Text.ToString())
+                {
+                    selected = i;
+                }
+            }
+            UI_POSViewOrder user = new UI_POSViewOrder(mainForm, order[selected][0]);
+            user.MdiParent = mainForm;
+            user.Show();
+            Close();
         }
 
         private void UI_POSViewPastOrder_Load(object sender, EventArgs e)
