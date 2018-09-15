@@ -21,6 +21,41 @@ namespace ITRW225_Information_System
             this.mainForm = mainForm;
         }
 
+        private void ValidateEmail(TextBox textBox, CancelEventArgs e, ErrorProvider error)
+        {
+            if (String.IsNullOrWhiteSpace(textBox.Text))
+            {
+                e.Cancel = true;
+                error.SetError(textBox, "Required field.");
+            }
+            else
+            {
+                if (checkEmail(textBox.Text))
+                {
+                    e.Cancel = true;
+                    error.SetError(textBox, "Email already exists!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    error.SetError(textBox, null);
+                }
+            }
+        }
+
+        private bool checkEmail(string email)
+        {
+            bool exists = false;
+            for (int i = 0; i < idDetails.Count; i++)
+            {
+                if (idDetails[i][14] == email)
+                {
+                    exists = true;
+                }
+            }
+            return exists;
+        }
+
         private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
         {
             if (String.IsNullOrWhiteSpace(textBox.Text))
@@ -141,7 +176,7 @@ namespace ITRW225_Information_System
 
         private void textBoxEA_Validating_1(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderEA);
+            ValidateEmail((TextBox)sender, e, errorProviderEA);
         }
 
         private void textBoxHN_Validating_1(object sender, CancelEventArgs e)
