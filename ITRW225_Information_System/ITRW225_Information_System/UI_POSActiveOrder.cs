@@ -10,9 +10,11 @@ namespace ITRW225_Information_System
         List<string[]> order;
         List<string> cancel = new List<string>();
         BE_DatabaseCommands commands = new BE_DatabaseCommands();
+        private string[] userArr;
 
-        public UI_POSActiveOrder(Form mainForm)
+        public UI_POSActiveOrder(Form mainForm, string[] userArr)
         {
+            this.userArr = userArr;
             InitializeComponent();
             this.mainForm = mainForm;
         }
@@ -117,7 +119,7 @@ namespace ITRW225_Information_System
                             selected = i;
                         }
                     }
-                    UI_POSProcessPayment user = new UI_POSProcessPayment(this, order[selected]);
+                    UI_POSProcessPayment user = new UI_POSProcessPayment(this, order[selected], userArr);
                     user.MdiParent = mainForm;
                     user.Show();
                     Close();
