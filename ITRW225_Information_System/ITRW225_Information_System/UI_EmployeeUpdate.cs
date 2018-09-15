@@ -37,7 +37,7 @@ namespace ITRW225_Information_System
                 }
                 else
                 {
-                    if (textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
+                    if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
                     {
                         e.Cancel = true;
                         error.SetError(textBox, "Invalid Character!");
@@ -74,7 +74,7 @@ namespace ITRW225_Information_System
             else
             {
                 // ||, -, *, /, <>, <, >, ,(comma), =, <=, >=, ~=, !=, ^=, (, )
-                if (textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
+                if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
                 {
                     e.Cancel = true;
                     error.SetError(textBox, "Invalid Character!");
