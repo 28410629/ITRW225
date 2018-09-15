@@ -154,6 +154,12 @@
     <Compile Include="UI_MainWindow.Designer.cs">
       <DependentUpon>UI_MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_Settings.Designer.cs">
+      <DependentUpon>UI_Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_UserMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_ReportSales.resx">
       <DependentUpon>UI_ReportSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_Settings.resx">
+      <DependentUpon>UI_Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_UserMaintenance.resx">
       <DependentUpon>UI_UserMaintenance.cs</DependentUpon>

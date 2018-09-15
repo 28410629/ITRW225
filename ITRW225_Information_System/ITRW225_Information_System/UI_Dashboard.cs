@@ -62,11 +62,11 @@ namespace ITRW225_Information_System
 
             for (int i = 0; i < orders.Count; i++)
             {
-                if (orders[i][7] == "False")
+                if (orders[i][7] == "False" && orders[i][6] == "False")
                 {
                     countActiveOrders++;
                 }
-                if (orders[i][5].Contains(DateTime.Today.ToShortDateString()) && orders[i][4] != "0")
+                if (orders[i][5].Contains(DateTime.Today.ToShortDateString()) && orders[i][7] == "True")
                 {
                     countCompletedOrder++;
                 }

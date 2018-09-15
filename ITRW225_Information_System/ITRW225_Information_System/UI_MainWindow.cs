@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,8 +48,51 @@ namespace ITRW225_Information_System
             this.Close();
         }
 
+        private enum DirectoryType
+        {
+            EMAIL,
+            REPORT,
+            INVOICE,
+            DATABASE
+        }
+
+        private void settingsDirectory(DirectoryType type)
+        {
+            switch (type)
+            {
+                case DirectoryType.EMAIL:
+                    Properties.Settings.Default.EmailSavePath = path + "\\Email";
+                    break;
+                case DirectoryType.INVOICE:
+                    Properties.Settings.Default.InvoiceSavePath = path + "\\Invoices";
+                    break;
+                case DirectoryType.REPORT:
+                    Properties.Settings.Default.ReportsSavePath = path + "\\Reports";
+                    break;
+                case DirectoryType.DATABASE:
+                    Properties.Settings.Default.DatabaseBackupPath = path + "\\Database";
+                    break;
+            }
+        }
+
         private void UI_MainWindow_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.InvoiceSavePath == "")
+            {
+                settingsDirectory(DirectoryType.INVOICE);
+            }
+            if (Properties.Settings.Default.EmailSavePath == "")
+            {
+                settingsDirectory(DirectoryType.EMAIL);
+            }
+            if (Properties.Settings.Default.ReportsSavePath == "")
+            {
+                settingsDirectory(DirectoryType.REPORT);
+            }
+            if (Properties.Settings.Default.DatabaseBackupPath == "")
+            {
+                settingsDirectory(DirectoryType.DATABASE);
+            }
             /* Array for user access to system:
              4 - client maintenance
              5 - employee maintenance
@@ -261,12 +305,21 @@ namespace ITRW225_Information_System
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void processPaymentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_Settings)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_Settings employee = new UI_Settings(this);
+            employee.MdiParent = this;
+            employee.Show();
         }
 
         private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -30,13 +31,22 @@ namespace ITRW225_Information_System
             {
                 if (listView1.SelectedItems.Count == 1)
                 {
-                    string query = "UPDATE CLIENT_ORDER SET Order_Cancelled = True WHERE Client_Order_Code = ";
+                    string query = "UPDATE CLIENT_ORDER SET Order_Cancelled = True, Date_Created = @1 WHERE Client_Order_Code = ";
                     while (listView1.SelectedItems.Count > 0)
                     {
                         query += listView1.SelectedItems[0].SubItems[0].Text.ToString();
                         listView1.Items.Remove(listView1.SelectedItems[0]);
-                    }                    
-                    commands.updateDB(query, "CLIENT_ORDER");
+                    }
+                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                    {
+                        db.Open();
+                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM CLIENT_ORDER", db);
+                        OleDbCommand command = new OleDbCommand(query, db);
+                        command.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
+                        adapter.InsertCommand = command;
+                        adapter.InsertCommand.ExecuteNonQuery();
+                        db.Close();
+                    }
                 }
                 else if (listView1.SelectedItems.Count == 0)
                 {
@@ -119,7 +129,7 @@ namespace ITRW225_Information_System
                             selected = i;
                         }
                     }
-                    UI_POSProcessPayment user = new UI_POSProcessPayment(this, order[selected], userArr);
+                    UI_POSProcessPayment user = new UI_POSProcessPayment(mainForm, order[selected], userArr);
                     user.MdiParent = mainForm;
                     user.Show();
                     Close();
