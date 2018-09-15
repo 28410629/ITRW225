@@ -163,6 +163,8 @@ namespace ITRW225_Information_System
                     }
                     DateTime dueDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Today.Hour, DateTime.Today.Minute, 0);
                     string query = String.Format("INSERT INTO PAYMENT_ORDER (Client_Order_Code, Employee_ID, Payment_Amount, Payment_Type, Date_Created) VALUES({0}, '{1}', {2}, '{3}', @1)", arr[0], eID, arr[3], msg);
+                    string query2 = "Select @@Identity";
+                    int ID;
                     using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                     {
                         db.Open();
@@ -171,8 +173,11 @@ namespace ITRW225_Information_System
                         cmd.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
                         adpt.InsertCommand = cmd;
                         adpt.InsertCommand.ExecuteNonQuery();
+                        cmd.CommandText = query2;
+                        ID = (int)cmd.ExecuteScalar();
                         db.Close();
                     }
+                    commands.updateDB("UPDATE CLIENT_ORDER SET Payment_Processed = True, Payment_Order_Code = " + ID +" WHERE Client_Order_Code = " + clientOrderCode, "CLIENT_ORDER");
                     MessageBox.Show("Successfully processed payment!");
                 }
                 catch (Exception ex)

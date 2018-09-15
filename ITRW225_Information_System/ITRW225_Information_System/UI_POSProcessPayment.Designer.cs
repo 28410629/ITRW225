@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,6 +86,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Payment Option";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 154);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(284, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Delete Selected Payment";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox6
             // 
@@ -426,16 +436,6 @@
             this.button2.Text = "Finish Process Payment";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 154);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(284, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Delete Selected Payment";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // UI_POSProcessPayment
             // 
