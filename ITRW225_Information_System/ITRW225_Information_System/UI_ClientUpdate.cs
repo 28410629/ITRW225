@@ -34,8 +34,17 @@ namespace ITRW225_Information_System
             }
             else
             {
-                e.Cancel = false;
-                error.SetError(textBox, null);
+
+                if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
+                {
+                    e.Cancel = true;
+                    error.SetError(textBox, "Invalid Character!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    error.SetError(textBox, null);
+                }
             }
         }
 
@@ -55,8 +64,16 @@ namespace ITRW225_Information_System
                 }
                 else
                 {
-                    e.Cancel = false;
-                    error.SetError(textBox, null);
+                    if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
+                    {
+                        e.Cancel = true;
+                        error.SetError(textBox, "Invalid Character!");
+                    }
+                    else
+                    {
+                        e.Cancel = false;
+                        error.SetError(textBox, null);
+                    }
                 }
             }
         }
