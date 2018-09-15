@@ -159,7 +159,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSActiveOrder employee = new UI_POSActiveOrder(this);
+            UI_POSActiveOrder employee = new UI_POSActiveOrder(this, userArr);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -178,7 +178,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSPlaceOrder employee = new UI_POSPlaceOrder(this);
+            UI_POSPlaceOrder employee = new UI_POSPlaceOrder(this, userArr);
             employee.MdiParent = this;
             employee.Show();
         }

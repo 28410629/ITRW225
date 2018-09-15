@@ -132,7 +132,6 @@
             this.MaximumSize = new System.Drawing.Size(562, 412);
             this.MinimumSize = new System.Drawing.Size(562, 412);
             this.Name = "UI_Login";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.UI_Login_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UI_Login_KeyPress);
