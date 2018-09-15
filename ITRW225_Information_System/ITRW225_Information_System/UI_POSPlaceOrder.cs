@@ -179,7 +179,7 @@ namespace ITRW225_Information_System
                 }
                 try
                 {
-                    DateTime dueDate = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day, dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, dateTimePicker2.Value.Millisecond);
+                    DateTime dueDate = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day, dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, 0);
                     string query = String.Format("INSERT INTO CLIENT_ORDER (Employee_ID, Client_ID, Payment_Required, Payment_Order_Code, Date_Created, Order_Cancelled, Payment_Processed, Due_Date, Products) VALUES('" + eID + "', '" + listClient[comboBox2.SelectedIndex][0] + "', " + textBox3.Text + ", 0, @1, False, False, @2, " + textBox1.Text + ")");
                     string query2 = "Select @@Identity";
                     int ID;
