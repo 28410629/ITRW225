@@ -261,12 +261,21 @@ namespace ITRW225_Information_System
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void processPaymentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_Settings)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_Settings employee = new UI_Settings(this);
+            employee.MdiParent = this;
+            employee.Show();
         }
 
         private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)

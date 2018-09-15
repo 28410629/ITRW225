@@ -32,6 +32,7 @@ namespace ITRW225_Information_System
 
         private void UI_POSProcessPayment_Load(object sender, EventArgs e)
         {
+            Text += " " + arr[0];
             listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
             textBoxID.Text = arr[19];
             textBoxN.Text = arr[20] + " " + arr[21];
@@ -43,6 +44,7 @@ namespace ITRW225_Information_System
                 if (string.IsNullOrWhiteSpace(arr[9]) || arr[9] == "0")
                 {
                     MessageBox.Show("No products on this order!");
+                    textBoxTotal.Text = "0";
                 }
                 else
                 {
@@ -193,6 +195,25 @@ namespace ITRW225_Information_System
 
         private void listView1_AfterLabelEdit(object sender, LabelEditEventArgs e)
         {
+            calculateMoneyGiven();
+        }
+
+        private void UI_POSProcessPayment_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            while (listView1.SelectedItems.Count > 0)
+            {
+                listView1.Items.Remove(listView1.SelectedItems[0]);
+            }
             calculateMoneyGiven();
         }
     }
