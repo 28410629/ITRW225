@@ -51,7 +51,7 @@ namespace ITRW225_Information_System
             }
             else
             {
-                if (checkID(textBox.Text))
+                if (checkEmail(textBox.Text))
                 {
                     e.Cancel = true;
                     error.SetError(textBox, "Email already exists!");
