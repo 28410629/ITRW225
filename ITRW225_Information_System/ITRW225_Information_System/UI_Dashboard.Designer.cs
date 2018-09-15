@@ -78,7 +78,7 @@
             // 
             // textBoxClient
             // 
-            this.textBoxClient.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxClient.BackColor = System.Drawing.Color.LightGray;
             this.textBoxClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxClient.ForeColor = System.Drawing.Color.Yellow;
@@ -102,7 +102,7 @@
             // 
             // textBoxEmployee
             // 
-            this.textBoxEmployee.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxEmployee.BackColor = System.Drawing.Color.LightGray;
             this.textBoxEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmployee.ForeColor = System.Drawing.Color.Yellow;
@@ -126,7 +126,7 @@
             // 
             // textBoxActiveOrders
             // 
-            this.textBoxActiveOrders.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxActiveOrders.BackColor = System.Drawing.Color.LightGray;
             this.textBoxActiveOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxActiveOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxActiveOrders.ForeColor = System.Drawing.Color.Yellow;
@@ -163,7 +163,7 @@
             // 
             // textBoxPayment
             // 
-            this.textBoxPayment.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxPayment.BackColor = System.Drawing.Color.LightGray;
             this.textBoxPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPayment.ForeColor = System.Drawing.Color.Yellow;
@@ -187,7 +187,7 @@
             // 
             // textBoxClientToday
             // 
-            this.textBoxClientToday.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxClientToday.BackColor = System.Drawing.Color.LightGray;
             this.textBoxClientToday.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxClientToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxClientToday.ForeColor = System.Drawing.Color.Yellow;
@@ -225,7 +225,7 @@
             // 
             // textBoxOrdersToday
             // 
-            this.textBoxOrdersToday.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxOrdersToday.BackColor = System.Drawing.Color.LightGray;
             this.textBoxOrdersToday.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxOrdersToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxOrdersToday.ForeColor = System.Drawing.Color.Yellow;
@@ -249,7 +249,7 @@
             // 
             // textBoxOrdersDone
             // 
-            this.textBoxOrdersDone.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxOrdersDone.BackColor = System.Drawing.Color.LightGray;
             this.textBoxOrdersDone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxOrdersDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxOrdersDone.ForeColor = System.Drawing.Color.Yellow;
@@ -273,7 +273,7 @@
             // 
             // textBoxCancelledOrder
             // 
-            this.textBoxCancelledOrder.BackColor = System.Drawing.Color.DarkKhaki;
+            this.textBoxCancelledOrder.BackColor = System.Drawing.Color.LightGray;
             this.textBoxCancelledOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCancelledOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCancelledOrder.ForeColor = System.Drawing.Color.Yellow;
@@ -295,19 +295,19 @@
             // 
             // chart1
             // 
-            this.chart1.BackColor = System.Drawing.Color.DarkKhaki;
+            this.chart1.BackColor = System.Drawing.Color.DarkSeaGreen;
             chartArea1.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
             chartArea1.AxisX2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
             chartArea1.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
             chartArea1.AxisY2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
-            chartArea1.BackColor = System.Drawing.Color.DarkKhaki;
+            chartArea1.BackColor = System.Drawing.Color.Gainsboro;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(6, 19);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Yellow};
+        System.Drawing.Color.Salmon};
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Name = "Sales";
@@ -330,7 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkKhaki;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(1061, 523);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.pictureBox1);

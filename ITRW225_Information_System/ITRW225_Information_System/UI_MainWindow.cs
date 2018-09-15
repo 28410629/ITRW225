@@ -15,6 +15,7 @@ namespace ITRW225_Information_System
     {
         private Form loginWindow;
         private string[] userArr;
+        string path = Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents\\Mr_Salad");
 
         public UI_MainWindow(Form loginWindow, string[] userArr)
         {
@@ -77,6 +78,10 @@ namespace ITRW225_Information_System
 
         private void UI_MainWindow_Load(object sender, EventArgs e)
         {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
             if (Properties.Settings.Default.InvoiceSavePath == "")
             {
                 settingsDirectory(DirectoryType.INVOICE);

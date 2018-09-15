@@ -66,7 +66,7 @@ namespace ITRW225_Information_System
                 {
                     countActiveOrders++;
                 }
-                if (orders[i][5].Contains(DateTime.Today.ToShortDateString()) && orders[i][7] == "True")
+                if (orders[i][8].Contains(DateTime.Today.ToShortDateString()) && orders[i][7] == "True")
                 {
                     countCompletedOrder++;
                 }
