@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -63,25 +56,50 @@ namespace ITRW225_Information_System
             {
                 case DirectoryType.EMAIL:
                     Properties.Settings.Default.EmailSavePath = path + "\\Email";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path + "\\Email");
+                    }
                     break;
                 case DirectoryType.INVOICE:
                     Properties.Settings.Default.InvoiceSavePath = path + "\\Invoices";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path + "\\Invoices");
+                    }
                     break;
                 case DirectoryType.REPORT:
                     Properties.Settings.Default.ReportsSavePath = path + "\\Reports";
+                    if (!Directory.Exists(path + "\\Reports"))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
                     break;
                 case DirectoryType.DATABASE:
                     Properties.Settings.Default.DatabaseBackupPath = path + "\\Database";
+                    if (!Directory.Exists(path + "\\Database"))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
                     break;
             }
         }
 
         private void UI_MainWindow_Load(object sender, EventArgs e)
         {
-            if (!Directory.Exists(path))
+            try
             {
-                Directory.CreateDirectory(path);
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
             }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
+            
             if (Properties.Settings.Default.InvoiceSavePath == "")
             {
                 settingsDirectory(DirectoryType.INVOICE);
@@ -310,21 +328,28 @@ namespace ITRW225_Information_System
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var item in MdiChildren)
+            if (MdiChildren.Length > 0)
             {
-                if (item is UI_Settings)
-                {
-                    item.Focus();
-                    return;
-                }
-                if (item is UI_Dashboard)
-                {
-                    item.Close();
-                }
+                MessageBox.Show("Please close all windows before changing settings, thank you.");
             }
-            UI_Settings employee = new UI_Settings(this);
-            employee.MdiParent = this;
-            employee.Show();
+            else
+            {
+                foreach (var item in MdiChildren)
+                {
+                    if (item is UI_Settings)
+                    {
+                        item.Focus();
+                        return;
+                    }
+                    if (item is UI_Dashboard)
+                    {
+                        item.Close();
+                    }
+                }
+                UI_Settings employee = new UI_Settings(this);
+                employee.MdiParent = this;
+                employee.Show();
+            }
         }
 
         private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)

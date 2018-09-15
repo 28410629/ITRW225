@@ -224,6 +224,9 @@
     <EmbeddedResource Include="UI_POSProcessPayment.resx">
       <DependentUpon>UI_POSProcessPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI_POSViewOrder.resx">
+      <DependentUpon>UI_POSViewOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI_POSViewPastOrder.resx">
       <DependentUpon>UI_POSViewPastOrder.cs</DependentUpon>
     </EmbeddedResource>

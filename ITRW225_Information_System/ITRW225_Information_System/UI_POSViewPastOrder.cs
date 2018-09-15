@@ -46,16 +46,6 @@ namespace ITRW225_Information_System
                 chart1.ChartAreas[0].AxisY.Title = "Orders Quantity";
                 chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-                /*for (int i = 0; i < order.Count; i++)
-                {
-                    string name = "";
-                    for (int j = 0; j < order[i].Length; j++)
-                    {
-                        name += "\n" + j + ": " + order[i][j];
-                    }
-                    MessageBox.Show(name);
-                }*/
-
                 int startYear = Convert.ToInt32(order[0][5].Remove(4));
                 int endYear = Convert.ToInt32(order[order.Count - 1][5].Remove(4));
 
@@ -104,7 +94,6 @@ namespace ITRW225_Information_System
                                 month = month.Remove(2);
                                 day = order[o][5].Substring(8);
                                 day = day.Remove(2);
-                                //MessageBox.Show("date: " + y + m + d + "\ncompare:" + year + month + day + "\ncount:" + count);
                                 if (Convert.ToInt32(year) == y)
                                 {
                                     if (Convert.ToInt32(month) == m)
@@ -112,12 +101,13 @@ namespace ITRW225_Information_System
                                         if (Convert.ToInt32(day) == d)
                                         {
                                             count++;
-                                            string[] arr = new string[4];
+                                            string[] arr = new string[5];
                                             ListViewItem itm;
-                                            arr[0] = order[o][19] + " " + order[o][20]; // name
-                                            arr[1] = order[o][18]; // id
-                                            arr[2] = y + "-" + m + "-" + d; // date
-                                            arr[3] = order[o][3];
+                                            arr[0] = order[o][0];
+                                            arr[1] = order[o][20] + " " + order[o][21]; // name
+                                            arr[2] = order[o][18]; // id
+                                            arr[3] = y + "-" + m + "-" + d; // date
+                                            arr[4] = order[o][3];
                                             itm = new ListViewItem(arr);
                                             itm.ToolTipText = "Double click an item to see the details!";
                                             listView1.Items.Add(itm);
@@ -126,7 +116,6 @@ namespace ITRW225_Information_System
                                 }
                             }
                             chart1.Series["Sales"].Points.AddXY(y + "-" + m + "-" + d, count);
-                            //MessageBox.Show("date: " + y + m + d + "\ncount:" + count);
                         }
                     }
                 }

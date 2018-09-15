@@ -55,6 +55,7 @@ namespace ITRW225_Information_System
                 if (payments[i][5].Contains(DateTime.Today.ToShortDateString()))
                 {
                     countPayment += Convert.ToDouble(payments[i][3]);
+                    countCompletedOrder++;
                 }
             }
 
@@ -65,10 +66,6 @@ namespace ITRW225_Information_System
                 if (orders[i][7] == "False" && orders[i][6] == "False")
                 {
                     countActiveOrders++;
-                }
-                if (orders[i][8].Contains(DateTime.Today.ToShortDateString()) && orders[i][7] == "True")
-                {
-                    countCompletedOrder++;
                 }
                 if (orders[i][5].Contains(DateTime.Today.ToShortDateString()))
                 {

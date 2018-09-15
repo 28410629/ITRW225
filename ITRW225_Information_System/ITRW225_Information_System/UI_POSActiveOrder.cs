@@ -85,7 +85,7 @@ namespace ITRW225_Information_System
                     string[] arr = new string[6];
                     ListViewItem itm;
                     arr[0] = order[i][0]; // order code
-                    arr[1] = order[i][19] + " " + order[i][20]; // name
+                    arr[1] = order[i][20] + " " + order[i][21]; // name
                     arr[2] = order[i][2]; // id
                     arr[3] = order[i][5].Remove(10); ; // date created
                     arr[4] = order[i][8].Remove(10); ; // date due
@@ -148,6 +148,22 @@ namespace ITRW225_Information_System
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
             }            
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            int selected = 0;
+            for (int i = 0; i < order.Count; i++)
+            {
+                if (order[i][0] == listView1.SelectedItems[0].SubItems[0].Text.ToString())
+                {
+                    selected = i;
+                }
+            }
+            UI_POSViewOrder user = new UI_POSViewOrder(mainForm, order[selected][0]);
+            user.MdiParent = mainForm;
+            user.Show();
+            Close();
         }
     }
 }
