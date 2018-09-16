@@ -58,23 +58,28 @@ namespace ITRW225_Information_System
                     doc.Add(png);
 
                     // mr salad details
-
-                    Paragraph salad = new Paragraph(@"    Cell Number: ");
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    Paragraph salad = new Paragraph("    Address : C/O Harrington and");
                     salad.Alignment = Element.ALIGN_LEFT;
                     doc.Add(salad);
 
-                    salad = new Paragraph(@"    Cell Number: ");
+                    salad = new Paragraph("    St Monica Road, Hartebeespoort");
                     salad.Alignment = Element.ALIGN_LEFT;
                     doc.Add(salad);
 
-                    salad = new Paragraph(@"    ");
+                    salad = new Paragraph("    Contact Number: 012 253 1100");
+                    salad.Alignment = Element.ALIGN_LEFT;
+                    doc.Add(salad);
+
+                    salad = new Paragraph("    Email Address : mrsaladharties@gmail.com");
                     salad.Alignment = Element.ALIGN_LEFT;
 
                     doc.Add(salad);
 
                     doc.Add(new Chunk("\n"));
                     doc.Add(new Chunk("\n"));
-                    doc.Add(new Chunk("\n"));
+                    //doc.Add(new Chunk("\n"));
                     //doc.Add(new Chunk("\n"));
 
                     // client details
