@@ -13,11 +13,12 @@ namespace ITRW225_Information_System
     {
         public void createPDF()
         {
-            string appRootDir = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string clientOrderCode = "";
+            string appRootDir = Properties.Settings.Default.InvoiceSavePath;
             try
             {
                 // Step 1: Creating System.IO.FileStream object
-                using (FileStream fs = new FileStream(appRootDir + "/PDFs/" + "Chapter1_Example1.pdf", FileMode.Create, FileAccess.Write, FileShare.None))
+                using (FileStream fs = new FileStream(appRootDir + "\\Invoice - Order " + clientOrderCode + ".pdf", FileMode.Create, FileAccess.Write, FileShare.None))
                 // Step 2: Creating iTextSharp.text.Document object
                 using (Document doc = new Document())
                 // Step 3: Creating iTextSharp.text.pdf.PdfWriter object

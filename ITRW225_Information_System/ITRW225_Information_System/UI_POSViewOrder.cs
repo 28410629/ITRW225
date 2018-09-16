@@ -36,7 +36,7 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            BE_PDF_OrderInvoice invoice = new BE_PDF_OrderInvoice();
         }
 
         private void UI_POSViewOrder_Load(object sender, EventArgs e)
