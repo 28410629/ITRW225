@@ -169,7 +169,7 @@ ClientBin/
 *~
 *.dbmdl
 *.dbproj.schemaview
-*.pfx
+# Added this to see if security bug is fixed on build server *.pfx
 *.publishsettings
 node_modules/
 orleans.codegen.cs
