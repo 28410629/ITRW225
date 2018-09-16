@@ -328,11 +328,32 @@ namespace ITRW225_Information_System
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MdiChildren.Length > 0)
+            if (MdiChildren.Length == 1)
+            {
+                foreach (var item in MdiChildren)
+                {
+                    if (item is UI_Dashboard)
+                    {
+                        openSettings(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please close all windows before changing settings, thank you.");
+                    }
+                }
+            }
+            else if (MdiChildren.Length > 1)
             {
                 MessageBox.Show("Please close all windows before changing settings, thank you.");
             }
             else
+            {
+                openSettings(true);
+            }
+        }
+        private void openSettings(bool open)
+        {
+            if (open)
             {
                 foreach (var item in MdiChildren)
                 {
