@@ -76,9 +76,9 @@ namespace ITRW225_Information_System
                 SmtpServer.Credentials = new System.Net.NetworkCredential("leafgreenitsolutions.mrsalad@gmail.com", "Google18!");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
-                MessageBox.Show("Email sent: " + subject);
+                MessageBox.Show("Email sent : " + subject);
 
-                //log email
+                // log email
                 string path = Properties.Settings.Default.EmailSavePath;
                 if (!Directory.Exists(path))
                 {
@@ -88,18 +88,20 @@ namespace ITRW225_Information_System
                 using (StreamWriter writer = new StreamWriter(path, append: true))
                 {
                     writer.WriteLine(DateTime.Now.ToString("h:mm:ss tt"));
-                    writer.WriteLine("Subject :" + subject);
+                    writer.WriteLine("Subject : " + subject);
                     for (int i = 0; i < emailTo.Length; i++)
                     {
-                        writer.WriteLine("Emailed To:" + emailTo[i]);
+                        writer.WriteLine("Emailed To : " + emailTo[i]);
                     }
-                    writer.WriteLine("Status: Successfully Sent");
+                    writer.WriteLine("Status : Successfully Sent");
+                    writer.WriteLine("------------------------------------------ - FIN------------------------------------------ - ");
                 }
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+                // log email 
                 string path = Properties.Settings.Default.EmailSavePath;
                 if (!Directory.Exists(path))
                 {
@@ -109,14 +111,16 @@ namespace ITRW225_Information_System
                 using (StreamWriter writer = new StreamWriter(path, append: true))
                 {
                     writer.WriteLine(DateTime.Now.ToString("h:mm:ss tt"));
-                    writer.WriteLine("Subject :" + subject);
+                    writer.WriteLine("Subject : " + subject);
                     for (int i = 0; i < emailTo.Length; i++)
                     {
-                        writer.WriteLine("Emailed To:" + emailTo[i]);
+                        writer.WriteLine("Emailed To : " + emailTo[i]);
                     }
-                    writer.WriteLine("Status: Sending Failed");
+                    writer.WriteLine("Status : Sending Failed");
+                    writer.WriteLine("------------------------------------------ - FIN------------------------------------------ - ");
                 }
-                MessageBox.Show("Unsuccesfully sent email: " + subject);
+                // notify
+                MessageBox.Show("Unsuccesfully sent email : " + subject);
             }
         }
 
@@ -155,18 +159,20 @@ namespace ITRW225_Information_System
                 using (StreamWriter writer = new StreamWriter(path, append: true))
                 {
                     writer.WriteLine(DateTime.Now.ToString("h:mm:ss tt"));
-                    writer.WriteLine("Subject :" + subject);
+                    writer.WriteLine("Subject : " + subject);
                     for (int i = 0; i < emailTo.Length; i++)
                     {
-                        writer.WriteLine("Emailed To:" + emailTo[i]);
+                        writer.WriteLine("Emailed To : " + emailTo[i]);
                     }
-                    writer.WriteLine("Status: Successfully Sent");
+                    writer.WriteLine("Status : Successfully Sent");
+                    writer.WriteLine("------------------------------------------ - FIN------------------------------------------ - ");
                 }
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+                // log email
                 string path = Properties.Settings.Default.EmailSavePath;
                 if (!Directory.Exists(path))
                 {
@@ -176,15 +182,16 @@ namespace ITRW225_Information_System
                 using (StreamWriter writer = new StreamWriter(path, append: true))
                 {
                     writer.WriteLine(DateTime.Now.ToString("h:mm:ss tt"));
-                    writer.WriteLine("Subject :" + subject);
+                    writer.WriteLine("Subject : " + subject);
                     for (int i = 0; i < emailTo.Length; i++)
                     {
-                        writer.WriteLine("Emailed To:" + emailTo[i]);
+                        writer.WriteLine("Emailed To : " + emailTo[i]);
                     }
-                    writer.WriteLine("Status: Sending Failed");
+                    writer.WriteLine("Status : Sending Failed");
+                    writer.WriteLine("------------------------------------------ - FIN------------------------------------------ - ");
                 }
-                MessageBox.Show("Unsuccesfully sent email: " + subject);
-                MessageBox.Show("Unsuccesfully sent email: " + subject);
+                // notify
+                MessageBox.Show("Unsuccesfully sent email : " + subject);
             }
         }
     }
