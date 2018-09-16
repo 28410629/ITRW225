@@ -131,6 +131,8 @@
             this.ClientSize = new System.Drawing.Size(788, 372);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(804, 411);
+            this.MinimumSize = new System.Drawing.Size(804, 411);
             this.Name = "UI_POSActiveOrder";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

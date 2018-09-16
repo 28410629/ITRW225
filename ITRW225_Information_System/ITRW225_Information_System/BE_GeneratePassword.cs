@@ -6,14 +6,24 @@ namespace ITRW225_Information_System
     {
         public string generate()
         {
-            Random random = new Random();
-            string allowedChar = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVW12334567890!#$";
-            string password = "";
-            for (int i = 0; i < 8; i++)
+            try
             {
-                password += allowedChar[random.Next(allowedChar.Length)];
+                Random random = new Random();
+                string allowedChar = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVW12334567890!#$";
+                string password = "";
+                for (int i = 0; i < 8; i++)
+                {
+                    password += allowedChar[random.Next(allowedChar.Length)];
+                }
+                return password;
+
             }
-            return password;
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return "";
+            }
         }
     }
 }

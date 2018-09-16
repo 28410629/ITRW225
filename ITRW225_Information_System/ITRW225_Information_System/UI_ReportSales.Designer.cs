@@ -113,6 +113,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(987, 653);
+            this.MinimumSize = new System.Drawing.Size(987, 653);
             this.Name = "UI_ReportSales";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

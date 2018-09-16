@@ -60,28 +60,37 @@ namespace ITRW225_Information_System
 
         public List<string[]> loadType()
         {
-            DataSet dataSetEmployee;
-            List<string[]> list = new List<string[]>();
-            using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+            try
             {
-                database.Open();
-                OleDbDataAdapter adapterE = new OleDbDataAdapter("SELECT * FROM EMPLOYEE_TYPE ORDER BY EMPLOYEE_POSITION ASC", database);
-                dataSetEmployee = new DataSet();
-                adapterE.Fill(dataSetEmployee, "listE");
-                database.Close();
-            }
-            for (int i = 0; i < dataSetEmployee.Tables[0].Rows.Count; i++)
-            {
-                /* arr
-                 * 0 - type number
-                 * 1 - description
-                 */
-                string[] arr = new string[] { dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(0).ToString(),
+                DataSet dataSetEmployee;
+                List<string[]> list = new List<string[]>();
+                using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                {
+                    database.Open();
+                    OleDbDataAdapter adapterE = new OleDbDataAdapter("SELECT * FROM EMPLOYEE_TYPE ORDER BY EMPLOYEE_POSITION ASC", database);
+                    dataSetEmployee = new DataSet();
+                    adapterE.Fill(dataSetEmployee, "listE");
+                    database.Close();
+                }
+                for (int i = 0; i < dataSetEmployee.Tables[0].Rows.Count; i++)
+                {
+                    /* arr
+                     * 0 - type number
+                     * 1 - description
+                     */
+                    string[] arr = new string[] { dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(0).ToString(),
                                               dataSetEmployee.Tables[0].Rows[i].ItemArray.GetValue(1).ToString() };
-                list.Add(arr);
+                    list.Add(arr);
+                }
+                dataSetEmployee.Dispose();
+                return list;
             }
-            dataSetEmployee.Dispose();
-            return list;
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return null;
+            }
         }
     }
 }
