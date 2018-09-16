@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -32,15 +26,16 @@ namespace ITRW225_Information_System
 
         private void UI_POSProcessPayment_Load(object sender, EventArgs e)
         {
-            Text += " " + arr[0];
-            listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
-            textBoxID.Text = arr[19];
-            textBoxN.Text = arr[20] + " " + arr[21];
-            textBoxCN1.Text = arr[13];
-            textBoxEA.Text = arr[17];
-            clientOrderCode = arr[0];
             try
             {
+                Text += " " + arr[0];
+                listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
+                textBoxID.Text = arr[19];
+                textBoxN.Text = arr[20] + " " + arr[21];
+                textBoxCN1.Text = arr[13];
+                textBoxEA.Text = arr[17];
+                clientOrderCode = arr[0];
+
                 if (string.IsNullOrWhiteSpace(arr[9]) || arr[9] == "0")
                 {
                     MessageBox.Show("No products on this order!");

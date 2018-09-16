@@ -14,7 +14,7 @@ namespace ITRW225_Information_System
 
         public UI_UserMaintenance(Form mainForm)
         {
-            this.commands = new BE_DatabaseCommands();
+            commands = new BE_DatabaseCommands();
             InitializeComponent();
             this.mainForm = mainForm;
         }
