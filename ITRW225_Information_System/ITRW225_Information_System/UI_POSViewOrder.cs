@@ -36,8 +36,23 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BE_PDF_OrderInvoice invoice = new BE_PDF_OrderInvoice();
-            string attachmentPath = invoice.createPDF();
+            if (string.IsNullOrWhiteSpace(textBoxEmpProcessName.Text) || string.IsNullOrWhiteSpace(textBoxEmpProcessID.Text) || string.IsNullOrWhiteSpace(textBoxProcessedDate.Text))
+            {
+                MessageBox.Show("Order must be processed before sending invoice!");
+            }
+            else
+            {
+                BE_PDF_OrderInvoice invoice = new BE_PDF_OrderInvoice();
+                List<List<string>> list = new List<List<string>>();
+                for (int i = 0; i < listView2.Items.Count; i++)
+                {
+                    for (int j = 0; j < listView2.Items[0].SubItems.Count; j++)
+                    {
+                        list[i].Add(listView2.Items[0].SubItems[j].Text);
+                    }
+                }
+                string attachmentPath = invoice.createPDF(textBoxFN.Text, textBoxLN.Text, textBoxID.Text, textBoxCN.Text, textBoxCN2.Text, textBoxEA.Text, textBoxHN.Text, textBoxSN.Text, textBoxS.Text, textBoxCity.Text, textBoxPC.Text, textBoxEmpCreatedName.Text, textBoxOrderCreatedDate.Text, textBoxEmpProcessName.Text, textBoxProcessedDate.Text, textBoxProductsQ.Text, textBoxVAT.Text, textBoxTotal.Text, list);
+            }
         }
 
         private void UI_POSViewOrder_Load(object sender, EventArgs e)
@@ -59,20 +74,20 @@ namespace ITRW225_Information_System
                     if (clientOrder[0][6] == "True")
                     {
                         groupBox7.Text = "Order Was Cancelled";
-                        textBox7.Text = "Canceled";
-                        textBox6.Text = "Canceled"; // name
-                        textBox4.Text = "Canceled";
+                        textBoxProcessedDate.Text = "Canceled";
+                        textBoxEmpProcessName.Text = "Canceled"; // name
+                        textBoxEmpProcessID.Text = "Canceled";
                     }
-                    textBox5.Text = clientOrder[0][5].Remove(10);
+                    textBoxOrderCreatedDate.Text = clientOrder[0][5].Remove(10);
                     textBoxProductsQ.Text = clientOrder[0][9];
-                    textBox1.Text = clientOrder[0][1];
+                    textBoxEmpCreatedID.Text = clientOrder[0][1];
                 }
 
                 // payment order information
                 try
                 {
-                    textBox4.Text = paymentOrder[0][2];
-                    textBox7.Text = paymentOrder[0][5].Remove(10);
+                    textBoxEmpProcessID.Text = paymentOrder[0][2];
+                    textBoxProcessedDate.Text = paymentOrder[0][5].Remove(10);
                 }
                 catch (Exception)
                 {
@@ -104,13 +119,13 @@ namespace ITRW225_Information_System
                 {
                     for (int i = 0; i < persons.Count; i++)
                     {
-                        if (textBox1.Text == persons[i][0])
+                        if (textBoxEmpCreatedID.Text == persons[i][0])
                         {
-                            textBox3.Text = persons[i][1] + " " + persons[i][2];
+                            textBoxEmpCreatedName.Text = persons[i][1] + " " + persons[i][2];
                         }
-                        if (textBox4.Text == persons[i][0])
+                        if (textBoxEmpProcessID.Text == persons[i][0])
                         {
-                            textBox6.Text = persons[i][1] + " " + persons[i][2];
+                            textBoxEmpProcessName.Text = persons[i][1] + " " + persons[i][2];
                         }
                         if (clientOrder[0][2] == persons[i][0])
                         {
@@ -134,7 +149,7 @@ namespace ITRW225_Information_System
                             textBoxCN.Text = contactDetails[i][3];
                             textBoxCN2.Text = contactDetails[i][4];
                             textBoxS.Text = contactDetails[i][5];
-                            textBox2.Text = contactDetails[i][6].Trim(); // city
+                            textBoxCity.Text = contactDetails[i][6].Trim(); // city
                             textBoxEA.Text = contactDetails[i][7];
                         }
                     }

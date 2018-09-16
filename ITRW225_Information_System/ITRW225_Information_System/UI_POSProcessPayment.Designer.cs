@@ -85,7 +85,7 @@
             this.groupBox1.Size = new System.Drawing.Size(525, 184);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add Payment Option";
+            this.groupBox1.Text = "Add Payment Option - Edit Amount After Adding Option";
             // 
             // button3
             // 
@@ -201,6 +201,7 @@
             this.listView1.Location = new System.Drawing.Point(6, 19);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
+            this.listView1.ShowItemToolTips = true;
             this.listView1.Size = new System.Drawing.Size(284, 129);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 1;
@@ -446,6 +447,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(565, 615);
+            this.MinimumSize = new System.Drawing.Size(565, 615);
             this.Name = "UI_POSProcessPayment";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -33,13 +33,13 @@
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnOID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnCID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.columnOID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -72,6 +72,11 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
+            // 
+            // columnOID
+            // 
+            this.columnOID.Text = "Order";
+            this.columnOID.Width = 56;
             // 
             // columnN
             // 
@@ -131,11 +136,6 @@
             title1.Name = "Title1";
             this.chart1.Titles.Add(title1);
             // 
-            // columnOID
-            // 
-            this.columnOID.Text = "Order";
-            this.columnOID.Width = 56;
-            // 
             // UI_POSViewPastOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +144,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1141, 489);
+            this.MinimumSize = new System.Drawing.Size(1141, 489);
             this.Name = "UI_POSViewPastOrder";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

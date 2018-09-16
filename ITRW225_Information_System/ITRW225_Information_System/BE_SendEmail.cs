@@ -13,23 +13,39 @@ namespace ITRW225_Information_System
 
         public void sendMailAttachment(string[] emailTo, string body, string subject, string attachmentPath)
         {
-            Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
-            thread.Start();
+            try
+            {
+                Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
+                thread.Start();
 
-            this.emailTo = emailTo;
-            this.body = body;
-            this.subject = subject;
-            this.attachmentPath = attachmentPath;
+                this.emailTo = emailTo;
+                this.body = body;
+                this.subject = subject;
+                this.attachmentPath = attachmentPath;
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
         }
 
         public void sendMail(string[] emailTo, string body, string subject)
         {
-            Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
-            thread.Start();
+            try
+            {
+                Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
+                thread.Start();
 
-            this.emailTo = emailTo;
-            this.body = body;
-            this.subject = subject;
+                this.emailTo = emailTo;
+                this.body = body;
+                this.subject = subject;
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
         }
 
         private void runSendMailAttachment()

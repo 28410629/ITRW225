@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -22,41 +15,74 @@ namespace ITRW225_Information_System
 
         private void labelForgot_Click(object sender, EventArgs e)
         {
-            labelStatus.Text = "Busy resetting password, please wait.";
-            labelStatus.Refresh();
-            labelForgot.Enabled = false;
-            labelStatus.Text = login.resetPasswordProcedure(textBoxUser.Text);
-            labelForgot.Enabled = true;
+            try
+            {
+                labelStatus.Text = "Busy resetting password, please wait.";
+                labelStatus.Refresh();
+                labelForgot.Enabled = false;
+                labelStatus.Text = login.resetPasswordProcedure(textBoxUser.Text);
+                labelForgot.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
         }
 
         private void UI_Login_Load(object sender, EventArgs e)
         {
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.Image = Properties.Resources.logo_465x320__1_;
+            try
+            {
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.Image = Properties.Resources.logo_465x320__1_;
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
+           
         }
 
         private void labelLogin_Click(object sender, EventArgs e)
         {
-            textBoxUser.Focus();
-            labelStatus.Text = "Logging in, please wait.";
-            labelStatus.Refresh();
-            labelLogin.Enabled = false;
-            labelStatus.Text = login.loginProcedure(textBoxUser.Text, textBoxPassword.Text);
-            labelLogin.Enabled = true;
-            if (labelStatus.Text == "Login Successful")
+            try
             {
-                labelStatus.Text = "";
-                textBoxUser.Text = "";
-                textBoxPassword.Text = "";
+                textBoxUser.Focus();
+                labelStatus.Text = "Logging in, please wait.";
                 labelStatus.Refresh();
+                labelLogin.Enabled = false;
+                labelStatus.Text = login.loginProcedure(textBoxUser.Text, textBoxPassword.Text);
+                labelLogin.Enabled = true;
+                if (labelStatus.Text == "Login Successful")
+                {
+                    labelStatus.Text = "";
+                    textBoxUser.Text = "";
+                    textBoxPassword.Text = "";
+                    labelStatus.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
 
         private void UI_Login_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Return)
+            try
             {
-                labelLogin_Click(sender, e);
+                if (e.KeyChar == (char)Keys.Return)
+                {
+                    labelLogin_Click(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
     }

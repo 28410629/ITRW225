@@ -278,6 +278,9 @@ namespace ITRW225_Information_System
                                 db.Close();
                             }
                             MessageBox.Show("Successfully updated database!");
+                            ClearTextBoxes();
+                            comboBoxCN.SelectedIndex = 0;
+                            comboBoxPosition.SelectedIndex = 0;
                             buttonSave.Enabled = true;
                             break;
                     }
@@ -290,6 +293,22 @@ namespace ITRW225_Information_System
                     buttonSave.Enabled = true;
                 }
             }
+        }
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
 
         private void UI_EmployeeAdd_Load(object sender, EventArgs e)
