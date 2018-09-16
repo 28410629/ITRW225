@@ -40,12 +40,18 @@ namespace ITRW225_Information_System
                 List<List<string>> list = new List<List<string>>();
                 for (int i = 0; i < listView2.Items.Count; i++)
                 {
+                    List<string> item = new List<string>();
                     for (int j = 0; j < listView2.Items[0].SubItems.Count; j++)
                     {
-                        list[i].Add(listView2.Items[0].SubItems[j].Text);
+                        item.Add(listView2.Items[i].SubItems[j].Text);
                     }
+                    list.Add(item);
                 }
-                string attachmentPath = invoice.createPDF(textBoxFN.Text, textBoxLN.Text, textBoxID.Text, textBoxCN.Text, textBoxCN2.Text, textBoxEA.Text, textBoxHN.Text, textBoxSN.Text, textBoxS.Text, textBoxCity.Text, textBoxPC.Text, textBoxEmpCreatedName.Text, textBoxOrderCreatedDate.Text, textBoxEmpProcessName.Text, textBoxProcessedDate.Text, textBoxProductsQ.Text, textBoxVAT.Text, textBoxTotal.Text, list);
+                string attachmentPath = invoice.createPDF(clientOrder[0][0], textBoxFN.Text, textBoxLN.Text, textBoxID.Text, textBoxCN.Text, textBoxCN2.Text, textBoxEA.Text, textBoxHN.Text, textBoxSN.Text, textBoxS.Text, textBoxCity.Text, textBoxPC.Text, textBoxEmpCreatedName.Text, textBoxOrderCreatedDate.Text, textBoxEmpProcessName.Text, textBoxProcessedDate.Text, textBoxProductsQ.Text, textBoxVAT.Text, textBoxTotal.Text, list);
+                BE_SendEmail mail = new BE_SendEmail();
+                string[] arr = new string[] { textBoxEA.Text };
+                string body = "Good day " + textBoxFN.Text + "\n\nPlease see your attached your invoice for order " + clientOrder[0][0] + ".\n\nKind regards,\nMr Salad";
+                mail.sendMailAttachment(arr, body, "Invoice, Order " + clientOrder[0][0], attachmentPath);
             }
         }
 

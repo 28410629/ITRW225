@@ -134,6 +134,7 @@ namespace ITRW225_Information_System
                             }
                         }
                     }
+                    chart1.ChartAreas[0].AxisX.Interval = 3;
                     chart1.Series["Sales"].Points.AddXY(i, sales);
                     chart1.ChartAreas[0].AxisX.Title = "Day Of Month";
                     chart1.ChartAreas[0].AxisY.Title = "R";
