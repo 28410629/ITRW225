@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ITRW225_Information_System.exe" version="1.0.0.0" publicKeyToken="3bf0d76a6febb51e" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="saladbowl-blog-default.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ITRW225_Information_System" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ITRW225_Information_System.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="itextsharp.dll" size="4071424">
+      <assemblyIdentity name="itextsharp" version="5.5.13.0" publicKeyToken="8354AE6D2174DDCA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>KTggC3wDAMMapFiGC59PaE9PP1iTqw8dZ8nXlxaMrRc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ITRW225_Information_System.exe" size="920528">
+      <assemblyIdentity name="ITRW225_Information_System" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>w8llK3I0OqW/w89En3JDoYTCaroXu+Q+/B6C2fOkzh8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Database.mdb" size="1540096" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wk8OMinClWeKwdEYuoGy/t7WTG4BPRPAu3b/EnsrP/M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ITRW225_Information_System.exe.config" size="1625">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JrdwWRP1I0I5fLDNnCAqsj4N7RPGvy234IH7EDi+UtQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="saladbowl-blog-default.ico" size="165662">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>szM7rqChOQT/73+4cF8Xq+RsIwycJ4B1+ZwaW4uCygk=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=CHDESKTOP\Coenraad" issuerKeyHash="a718b75f8fb54dc9370720f7f71a3e23d44afb59" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>2Z6FvAIlWMBh2TbIo5TQXPjXTrECF1eqlRajAm1rrP8=</DigestValue></Reference></SignedInfo><SignatureValue>C4/yZKLYl5+4yx3dUx0VzavzQfzimKbd65qvh3wfnPDRK/OYFDnDC5JJhCBMOjWETcOpX84cpkPNyx3TdaHZxDQ7Oo1BvqeiPAYF19yvO7ncueazHe0mqXvW9RDEmQAuGmS4GYeacrrNNf2bbNiNh9ndBZAWi2DrlMM2OZ16SCM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zBsVgWepj52pihq6bTt0yw6aj8C08wp0Snc378cGWVInyBkskGGYf0HTSxQhXAcJm5BzXjEQ9z8sEuwJXB4OJm0u/5hbBiHq66tsHDmkAs40v0SH+0jgQPq1teJsZXE0iehFTzPkselfcqPrLOtvAaQLct/MR7CgsLMBUavdUCE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ffac6b6d02a31695aa571702b14ed7f85cd094a3c836d961c0582502bc859ed9" Description="" Url=""><as:assemblyIdentity name="ITRW225_Information_System.exe" version="1.0.0.0" publicKeyToken="3bf0d76a6febb51e" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=CHDESKTOP\Coenraad</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>k7aPd5Q5ieCDRE7wWqeFvf152Cuy5xC+gB2nGSVCj2A=</DigestValue></Reference></SignedInfo><SignatureValue>g1B2LKs+CrfJkZ5+VKOc2CWJ5zOFLUnb6Njy8XviTdh0b+YgYN55ak61XdI2HdYDAtg3UpyKn5gX8LyC5SBsGXM4C7QHI/OAD2UeyV7DypxT7oszI2nE1ZNQZ1y6cw7xsVYOjYvyLMnkrJm5zjWs1Ov0fL6uQhY+MvIHI2uWJUk=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zBsVgWepj52pihq6bTt0yw6aj8C08wp0Snc378cGWVInyBkskGGYf0HTSxQhXAcJm5BzXjEQ9z8sEuwJXB4OJm0u/5hbBiHq66tsHDmkAs40v0SH+0jgQPq1teJsZXE0iehFTzPkselfcqPrLOtvAaQLct/MR7CgsLMBUavdUCE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB4TCCAUqgAwIBAgIQR5CEDLUJ7IZOaAGOvHys+zANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDHiQAQwBIAEQARQBTAEsAVABPAFAAXABDAG8AZQBuAHIAYQBhAGQwHhcNMTgwOTE1MjI0MjA1WhcNMTkwOTE2MDQ0MjA1WjAvMS0wKwYDVQQDHiQAQwBIAEQARQBTAEsAVABPAFAAXABDAG8AZQBuAHIAYQBhAGQwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMwbFYFnqY+dqYoaum07dMsOmo/AtPMKdEp3N+/HBllSJ8gZLJBhmH9B00sUIVwHCZuQc14xEPc/LBLsCVweDiZtLv+YWwYh6uurbBw5pALONL9Eh/tI4ED6tbXibGVxNInoRU8z5LHpX3Kj6yzrbwGkC3LfzEewoLCzAVGr3VAhAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAbIGiezVJwbHtfrc6POqQn99y0b7Y/jW/VH3NfgONr9KBg6F9OAnQ1yv8RbFbyAs3R3wYIbvOixBcAaR8awXpH1oeuRo7TbKNwyViG09t203PsyXb5rRdgrAHvNr+MuX1LLgWwaM7cMXjiwYN9x/iM5zjDIdptIA+5bWqovrgZmU=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
