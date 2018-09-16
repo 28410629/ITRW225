@@ -34,11 +34,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.columnCID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnOID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -57,6 +58,7 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnOID,
             this.columnN,
             this.columnCID,
             this.columnDC,
@@ -74,7 +76,12 @@
             // columnN
             // 
             this.columnN.Text = "Client";
-            this.columnN.Width = 213;
+            this.columnN.Width = 207;
+            // 
+            // columnCID
+            // 
+            this.columnCID.Text = "Client ID";
+            this.columnCID.Width = 142;
             // 
             // columnDC
             // 
@@ -84,7 +91,7 @@
             // columnP
             // 
             this.columnP.Text = "Price (R)";
-            this.columnP.Width = 116;
+            this.columnP.Width = 86;
             // 
             // groupBox2
             // 
@@ -124,10 +131,10 @@
             title1.Name = "Title1";
             this.chart1.Titles.Add(title1);
             // 
-            // columnCID
+            // columnOID
             // 
-            this.columnCID.Text = "Client ID";
-            this.columnCID.Width = 159;
+            this.columnOID.Text = "Order";
+            this.columnOID.Width = 56;
             // 
             // UI_POSViewPastOrder
             // 
@@ -160,5 +167,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ColumnHeader columnCID;
+        private System.Windows.Forms.ColumnHeader columnOID;
     }
 }

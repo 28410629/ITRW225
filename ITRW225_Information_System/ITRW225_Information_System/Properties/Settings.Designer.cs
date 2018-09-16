@@ -32,5 +32,53 @@ namespace ITRW225_Information_System.Properties {
                 return ((string)(this["DatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DatabaseBackupPath {
+            get {
+                return ((string)(this["DatabaseBackupPath"]));
+            }
+            set {
+                this["DatabaseBackupPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string InvoiceSavePath {
+            get {
+                return ((string)(this["InvoiceSavePath"]));
+            }
+            set {
+                this["InvoiceSavePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReportsSavePath {
+            get {
+                return ((string)(this["ReportsSavePath"]));
+            }
+            set {
+                this["ReportsSavePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailSavePath {
+            get {
+                return ((string)(this["EmailSavePath"]));
+            }
+            set {
+                this["EmailSavePath"] = value;
+            }
+        }
     }
 }

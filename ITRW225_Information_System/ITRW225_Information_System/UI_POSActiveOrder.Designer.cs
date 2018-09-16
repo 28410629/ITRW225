@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnOC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.columnCID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnOC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +60,22 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
+            // columnOC
+            // 
+            this.columnOC.Text = "Order Code";
+            this.columnOC.Width = 79;
             // 
             // columnN
             // 
             this.columnN.Text = "Client";
             this.columnN.Width = 200;
+            // 
+            // columnCID
+            // 
+            this.columnCID.Text = "Client ID";
+            this.columnCID.Width = 149;
             // 
             // columnDC
             // 
@@ -83,35 +94,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(763, 349);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Active Orders";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 319);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(339, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cancel Selected Active Order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // columnCID
-            // 
-            this.columnCID.Text = "Client ID";
-            this.columnCID.Width = 149;
-            // 
-            // columnOC
-            // 
-            this.columnOC.Text = "Order Code";
-            this.columnOC.Width = 79;
             // 
             // button2
             // 
@@ -122,6 +113,16 @@
             this.button2.Text = "Process Payment For Selected Order";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 319);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(339, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Cancel Selected Active Order";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UI_POSActiveOrder
             // 

@@ -33,12 +33,6 @@ namespace ITRW225_Information_System
         {
             for (int i = 0; i < listE.Count; i++)
             {
-                string some = "";
-                for (int j = 0; j < listE[0].Length; j++)
-                {
-                    some += j + ": " + listE[i][j] + "\n";
-                }
-                MessageBox.Show(some);
                 if (listE[i][1] + " " + listE[i][2] == comboBoxEmployee.SelectedItem.ToString())
                 {
                     employee = listE[i][0];
@@ -62,7 +56,7 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            buttonAllow.Enabled = false;
+            enableButtons(false);
             try
             {
                 string query = null;
@@ -70,7 +64,7 @@ namespace ITRW225_Information_System
                 {
                     if (textBoxP1.Text == textBoxP2.Text)
                     {
-                        query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [EMPLOYEE_ID] = '{1}'", commands.hashPassword(textBoxP1.Text), employee);
+                        query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [Person_ID] = '{1}'", commands.hashPassword(textBoxP1.Text), employee);
                     }
                     else
                     {
@@ -98,33 +92,35 @@ namespace ITRW225_Information_System
                         adapter.InsertCommand.ExecuteNonQuery();
                         db.Close();
                     }
+                    MessageBox.Show("Updated Permission!");
                 }
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+                MessageBox.Show("Failes updating Permission!");
             }
-            buttonAllow.Enabled = true;
+            enableButtons(true);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void buttonAllow_Click(object sender, EventArgs e)
         {
-            buttonAllow.Enabled = false;
+            enableButtons(false);
             setAccess("True");
-            buttonAllow.Enabled = true;
+            enableButtons(true);
         }
 
         private void buttonDeny_Click(object sender, EventArgs e)
         {
-            buttonAllow.Enabled = false;
+            enableButtons(false);
             setAccess("False");
-            buttonAllow.Enabled = true;
+            enableButtons(true);
         }
 
         private void setAccess(string selection)
