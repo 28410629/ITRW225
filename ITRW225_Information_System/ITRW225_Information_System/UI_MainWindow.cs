@@ -52,36 +52,44 @@ namespace ITRW225_Information_System
 
         private void settingsDirectory(DirectoryType type)
         {
-            switch (type)
+            try
             {
-                case DirectoryType.EMAIL:
-                    Properties.Settings.Default.EmailSavePath = path + "\\Email";
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path + "\\Email");
-                    }
-                    break;
-                case DirectoryType.INVOICE:
-                    Properties.Settings.Default.InvoiceSavePath = path + "\\Invoices";
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path + "\\Invoices");
-                    }
-                    break;
-                case DirectoryType.REPORT:
-                    Properties.Settings.Default.ReportsSavePath = path + "\\Reports";
-                    if (!Directory.Exists(path + "\\Reports"))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    break;
-                case DirectoryType.DATABASE:
-                    Properties.Settings.Default.DatabaseBackupPath = path + "\\Database";
-                    if (!Directory.Exists(path + "\\Database"))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    break;
+                switch (type)
+                {
+                    case DirectoryType.EMAIL:
+                        Properties.Settings.Default.EmailSavePath = path + "\\Email";
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path + "\\Email");
+                        }
+                        break;
+                    case DirectoryType.INVOICE:
+                        Properties.Settings.Default.InvoiceSavePath = path + "\\Invoices";
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path + "\\Invoices");
+                        }
+                        break;
+                    case DirectoryType.REPORT:
+                        Properties.Settings.Default.ReportsSavePath = path + "\\Reports";
+                        if (!Directory.Exists(path + "\\Reports"))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        break;
+                    case DirectoryType.DATABASE:
+                        Properties.Settings.Default.DatabaseBackupPath = path + "\\Database";
+                        if (!Directory.Exists(path + "\\Database"))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
 
