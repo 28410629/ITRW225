@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace ITRW225_Information_System
 {
@@ -74,11 +75,13 @@ namespace ITRW225_Information_System
                 SmtpServer.Credentials = new System.Net.NetworkCredential("leafgreenitsolutions.mrsalad@gmail.com", "Google18!");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
+                MessageBox.Show("Email sent: " + subject);
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+                MessageBox.Show("Unsuccesfully sent email: " + subject);
             }
         }
 
@@ -105,11 +108,13 @@ namespace ITRW225_Information_System
                 SmtpServer.Credentials = new System.Net.NetworkCredential("leafgreenitsolutions.mrsalad@gmail.com", "Google18!");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
+                MessageBox.Show("Email sent: " + subject);
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
+                MessageBox.Show("Unsuccesfully sent email: " + subject);
             }
         }
     }

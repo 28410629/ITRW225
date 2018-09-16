@@ -4,23 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ITRW225_Information_System
 {
     public class BE_PDF_OrderInvoice
     {
-        public string createPDF(string clientFN, string clientLN, string clientID, string clientCN1, string clientCN2, string clientEA,
+        public string createPDF(string clientOrderCode, string clientFN, string clientLN, string clientID, string clientCN1, string clientCN2, string clientEA,
                                 string clientHN, string clientSN, string clientS, string clientC, string clientPC, string cEmpName,
                                 string cEmpDate, string pEmpName, string pEmpDate, string productsAmount, string vat, string total, List<List<string>> productlist)
         {
             try
             {
-                // variables for invoice
-                string clientOrderCode = "dcs";
-
                 // define page Size
                 Rectangle rec = new Rectangle(PageSize.A4);
 
@@ -57,73 +51,164 @@ namespace ITRW225_Information_System
 
                     // add image
                     Image png = Image.GetInstance(Properties.Resources.logo_465x320__1_, ImageFormat.Png);
-                    png.ScaleToFit(250f, 250f);
-                    png.Alignment = Image.ALIGN_MIDDLE;
+                    png.ScaleToFit(150f, 150f);
+                    png.Alignment = Image.TEXTWRAP | Image.ALIGN_LEFT;
                     png.IndentationLeft = 9f;
                     png.SpacingAfter = 9f;
                     doc.Add(png);
 
                     // mr salad details
-                    Paragraph salad = new Paragraph(@"Mr Salad Details:");
-                    salad.Alignment = Element.ALIGN_RIGHT;
+
+                    Paragraph salad = new Paragraph(@"    Cell Number: ");
+                    salad.Alignment = Element.ALIGN_LEFT;
                     doc.Add(salad);
 
-                    salad = new Paragraph(@"Cell Number2: ");
-                    salad.Alignment = Element.ALIGN_RIGHT;
+                    salad = new Paragraph(@"    Cell Number: ");
+                    salad.Alignment = Element.ALIGN_LEFT;
                     doc.Add(salad);
 
-                    salad = new Paragraph(@"Cell Number3: ");
-                    salad.Alignment = Element.ALIGN_RIGHT;
+                    salad = new Paragraph(@"    ");
+                    salad.Alignment = Element.ALIGN_LEFT;
+
                     doc.Add(salad);
 
-                    salad = new Paragraph(@"");
-                    salad.Alignment = Element.ALIGN_RIGHT;
-                    doc.Add(salad);
                     doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    //doc.Add(new Chunk("\n"));
 
                     // client details
                     Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
                     doc.Add(p);
 
-                    Paragraph client = new Paragraph(@"Client Details:");
+                    Paragraph client = new Paragraph(@"CLIENT");
+                    client.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(client);
+
+                    doc.Add(p);
+
+                    doc.Add(new Chunk("\n"));
+
+                    client = new Paragraph(clientFN + " " + clientLN);
                     client.Alignment = Element.ALIGN_LEFT;
                     doc.Add(client);
 
-                    client = new Paragraph(@"Cell Number2: ");
+                    client = new Paragraph(@"Cell Number 1: " + clientCN1);
                     client.Alignment = Element.ALIGN_LEFT;
                     doc.Add(client);
 
-                    client = new Paragraph(@"Cell Number3: ");
+                    client = new Paragraph(@"Cell Number 2: " + clientCN2);
                     client.Alignment = Element.ALIGN_LEFT;
                     doc.Add(client);
                     
-                    client = new Paragraph(@"");
+                    client = new Paragraph(@"Email Address: " + clientEA);
                     client.Alignment = Element.ALIGN_LEFT;
                     doc.Add(client);
                     doc.Add(new Chunk("\n"));
 
                     // invoice details
-                    PdfPTable table = new PdfPTable(4);
+                    doc.Add(p);
 
-                    table.AddCell("Quantity");
-                    table.AddCell("Product");
-                    table.AddCell("Unit Price (R)");
-                    table.AddCell("Total Price (R)");
+                    Paragraph invoice = new Paragraph(@"INVOICE " + clientOrderCode);
+                    invoice.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(invoice);
 
+                    doc.Add(p);
+
+                    doc.Add(new Chunk("\n"));
+
+                    float[] widths = new float[] { 2f, 6f, 3f, 3f };
+                    PdfPTable table = new PdfPTable(widths);
+                    
+                    PdfPCell cell;
                     double price;
+                    double count = 0;
+                    double priceTotal = 0;
+
+                    cell = new PdfPCell(new Phrase("Quantity"));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
+
+                    cell = new PdfPCell(new Phrase("Product"));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
+
+                    cell = new PdfPCell(new Phrase("Unit Price"));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
+
+                    cell = new PdfPCell(new Phrase("Total Price"));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);                    
+                    
                     for (int i = 0; i < productlist.Count; i++)
                     {
-                        table.AddCell(productlist[i][0]);
-                        table.AddCell(productlist[i][1]);
-                        table.AddCell(productlist[i][2]);
+                        count += Convert.ToUInt32(productlist[i][0]);
+                        cell = new PdfPCell(new Phrase(productlist[i][0]));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+
+                        cell = new PdfPCell(new Phrase(productlist[i][1]));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+
+                        cell = new PdfPCell(new Phrase("R " + productlist[i][2]));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+
                         price = Convert.ToDouble(productlist[i][2]) * Convert.ToDouble(productlist[i][0]);
-                        table.AddCell(Convert.ToString(price));
+                        priceTotal += price;
+                        cell = new PdfPCell(new Phrase("R " + Convert.ToString(price)));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
                     }
-                        doc.Add(table);
+
+                    cell = new PdfPCell(new Phrase(Convert.ToString(count)));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
+
+                    cell = new PdfPCell(new Phrase("VAT"));
+                    cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
+
+                    cell = new PdfPCell(new Phrase("R " + Convert.ToString(priceTotal * 0.15)));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
+
+                    cell = new PdfPCell(new Phrase("R " + Convert.ToString(priceTotal)));
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
+
+                    doc.Add(table);
+
+                    doc.Add(new Chunk("\n"));
 
                     // employee details
                     doc.Add(p);
 
+                    Paragraph emp = new Paragraph(@"EMPLOYEES");
+                    emp.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(emp);
+
+                    doc.Add(p);
+
+                    doc.Add(new Chunk("\n"));
+
+                    emp = new Paragraph(@"Order was created by " + cEmpName + " on " + cEmpDate);
+                    emp.Alignment = Element.ALIGN_MIDDLE;
+                    doc.Add(emp);
+
+                    emp = new Paragraph(@"Payment was processed by " + pEmpName + " on " + pEmpDate);
+                    emp.Alignment = Element.ALIGN_MIDDLE;
+                    doc.Add(emp);
 
                     // Closing the Document
                     doc.Close();
