@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITRW225_Information_System
 {
-    class BE_PDF_SalesMonthly
+    public class BE_PDF_SalesMonthly
     {
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBoxInvoice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxInvoice = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxReports = new System.Windows.Forms.TextBox();
@@ -41,10 +41,10 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxDatabase = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -63,15 +63,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Save Location For Invoices";
             // 
-            // button2
+            // label1
             // 
-            this.button2.Location = new System.Drawing.Point(67, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(469, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Select Directory";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Directory :";
             // 
             // textBoxInvoice
             // 
@@ -82,14 +81,15 @@
             this.textBoxInvoice.Size = new System.Drawing.Size(469, 20);
             this.textBoxInvoice.TabIndex = 2;
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Directory :";
+            this.button2.Location = new System.Drawing.Point(67, 47);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(469, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Select Directory";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
@@ -184,6 +184,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Select Location And Backup Database";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(67, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(469, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Backup";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -212,16 +222,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(67, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(469, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Backup";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // UI_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +232,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(582, 422);
+            this.MinimumSize = new System.Drawing.Size(582, 422);
             this.Name = "UI_Settings";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

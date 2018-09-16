@@ -127,15 +127,23 @@ namespace ITRW225_Information_System
                     {
                         if (type == "ID")
                         {
-                            if (checkID(textBox.Text))
-                            {
-                                e.Cancel = true;
-                                error.SetError(textBox, "ID already exists!");
-                            }
-                            else
+                            if (oldEmployeeID == textBox.Text)
                             {
                                 e.Cancel = false;
                                 error.SetError(textBox, null);
+                            }
+                            else
+                            {
+                                if (checkID(textBox.Text))
+                                {
+                                    e.Cancel = true;
+                                    error.SetError(textBox, "ID already exists!");
+                                }
+                                else
+                                {
+                                    e.Cancel = false;
+                                    error.SetError(textBox, null);
+                                }
                             }
                         }
                         else

@@ -43,7 +43,7 @@
             this.columnC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBoxAD = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxCity = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxS = new System.Windows.Forms.TextBox();
             this.textBoxPC = new System.Windows.Forms.TextBox();
@@ -69,21 +69,21 @@
             this.labelFN = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxProcessedDate = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxEmpProcessID = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxEmpProcessName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxOrderCreatedDate = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxEmpCreatedID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxEmpCreatedName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -233,7 +233,7 @@
             // 
             // groupBoxAD
             // 
-            this.groupBoxAD.Controls.Add(this.textBox2);
+            this.groupBoxAD.Controls.Add(this.textBoxCity);
             this.groupBoxAD.Controls.Add(this.label8);
             this.groupBoxAD.Controls.Add(this.textBoxS);
             this.groupBoxAD.Controls.Add(this.textBoxPC);
@@ -250,14 +250,14 @@
             this.groupBoxAD.TabStop = false;
             this.groupBoxAD.Text = "Address Details";
             // 
-            // textBox2
+            // textBoxCity
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(397, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 10;
+            this.textBoxCity.Enabled = false;
+            this.textBoxCity.Location = new System.Drawing.Point(397, 17);
+            this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.ReadOnly = true;
+            this.textBoxCity.Size = new System.Drawing.Size(197, 20);
+            this.textBoxCity.TabIndex = 10;
             // 
             // label8
             // 
@@ -491,11 +491,11 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.textBox7);
+            this.groupBox7.Controls.Add(this.textBoxProcessedDate);
             this.groupBox7.Controls.Add(this.label19);
-            this.groupBox7.Controls.Add(this.textBox4);
+            this.groupBox7.Controls.Add(this.textBoxEmpProcessID);
             this.groupBox7.Controls.Add(this.label17);
-            this.groupBox7.Controls.Add(this.textBox6);
+            this.groupBox7.Controls.Add(this.textBoxEmpProcessName);
             this.groupBox7.Controls.Add(this.label18);
             this.groupBox7.Location = new System.Drawing.Point(310, 19);
             this.groupBox7.Name = "groupBox7";
@@ -504,14 +504,32 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Employee That Processed Payment For Order";
             // 
-            // textBox4
+            // textBoxProcessedDate
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(93, 45);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(197, 20);
-            this.textBox4.TabIndex = 1;
+            this.textBoxProcessedDate.Enabled = false;
+            this.textBoxProcessedDate.Location = new System.Drawing.Point(93, 71);
+            this.textBoxProcessedDate.Name = "textBoxProcessedDate";
+            this.textBoxProcessedDate.ReadOnly = true;
+            this.textBoxProcessedDate.Size = new System.Drawing.Size(197, 20);
+            this.textBoxProcessedDate.TabIndex = 5;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 74);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(80, 13);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "Processed On :";
+            // 
+            // textBoxEmpProcessID
+            // 
+            this.textBoxEmpProcessID.Enabled = false;
+            this.textBoxEmpProcessID.Location = new System.Drawing.Point(93, 45);
+            this.textBoxEmpProcessID.Name = "textBoxEmpProcessID";
+            this.textBoxEmpProcessID.ReadOnly = true;
+            this.textBoxEmpProcessID.Size = new System.Drawing.Size(197, 20);
+            this.textBoxEmpProcessID.TabIndex = 1;
             // 
             // label17
             // 
@@ -522,14 +540,14 @@
             this.label17.TabIndex = 4;
             this.label17.Text = "ID :";
             // 
-            // textBox6
+            // textBoxEmpProcessName
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(93, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(197, 20);
-            this.textBox6.TabIndex = 0;
+            this.textBoxEmpProcessName.Enabled = false;
+            this.textBoxEmpProcessName.Location = new System.Drawing.Point(93, 19);
+            this.textBoxEmpProcessName.Name = "textBoxEmpProcessName";
+            this.textBoxEmpProcessName.ReadOnly = true;
+            this.textBoxEmpProcessName.Size = new System.Drawing.Size(197, 20);
+            this.textBoxEmpProcessName.TabIndex = 0;
             // 
             // label18
             // 
@@ -542,11 +560,11 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBox5);
+            this.groupBox6.Controls.Add(this.textBoxOrderCreatedDate);
             this.groupBox6.Controls.Add(this.label16);
-            this.groupBox6.Controls.Add(this.textBox1);
+            this.groupBox6.Controls.Add(this.textBoxEmpCreatedID);
             this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.textBoxEmpCreatedName);
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Location = new System.Drawing.Point(6, 19);
             this.groupBox6.Name = "groupBox6";
@@ -555,14 +573,32 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Employee That Created Order";
             // 
-            // textBox1
+            // textBoxOrderCreatedDate
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(93, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxOrderCreatedDate.Enabled = false;
+            this.textBoxOrderCreatedDate.Location = new System.Drawing.Point(93, 71);
+            this.textBoxOrderCreatedDate.Name = "textBoxOrderCreatedDate";
+            this.textBoxOrderCreatedDate.ReadOnly = true;
+            this.textBoxOrderCreatedDate.Size = new System.Drawing.Size(197, 20);
+            this.textBoxOrderCreatedDate.TabIndex = 5;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(20, 74);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(67, 13);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Created On :";
+            // 
+            // textBoxEmpCreatedID
+            // 
+            this.textBoxEmpCreatedID.Enabled = false;
+            this.textBoxEmpCreatedID.Location = new System.Drawing.Point(93, 45);
+            this.textBoxEmpCreatedID.Name = "textBoxEmpCreatedID";
+            this.textBoxEmpCreatedID.ReadOnly = true;
+            this.textBoxEmpCreatedID.Size = new System.Drawing.Size(197, 20);
+            this.textBoxEmpCreatedID.TabIndex = 1;
             // 
             // label14
             // 
@@ -573,14 +609,14 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "ID :";
             // 
-            // textBox3
+            // textBoxEmpCreatedName
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(93, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(197, 20);
-            this.textBox3.TabIndex = 0;
+            this.textBoxEmpCreatedName.Enabled = false;
+            this.textBoxEmpCreatedName.Location = new System.Drawing.Point(93, 19);
+            this.textBoxEmpCreatedName.Name = "textBoxEmpCreatedName";
+            this.textBoxEmpCreatedName.ReadOnly = true;
+            this.textBoxEmpCreatedName.Size = new System.Drawing.Size(197, 20);
+            this.textBoxEmpCreatedName.TabIndex = 0;
             // 
             // label15
             // 
@@ -611,42 +647,6 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(93, 71);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(197, 20);
-            this.textBox5.TabIndex = 5;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(20, 74);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 13);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Created On :";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(93, 71);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(197, 20);
-            this.textBox7.TabIndex = 5;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 74);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(80, 13);
-            this.label19.TabIndex = 6;
-            this.label19.Text = "Processed On :";
             // 
             // UI_POSViewOrder
             // 
@@ -727,21 +727,21 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxEmpProcessID;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxEmpProcessName;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxEmpCreatedID;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxEmpCreatedName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxCity;
+        private System.Windows.Forms.TextBox textBoxProcessedDate;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxOrderCreatedDate;
         private System.Windows.Forms.Label label16;
     }
 }
