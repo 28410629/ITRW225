@@ -93,6 +93,9 @@
     <Compile Include="BE_GeneratePassword.cs" />
     <Compile Include="BE_LoginProcedures.cs" />
     <Compile Include="BE_LogSystem.cs" />
+    <Compile Include="BE_PDF_OrderInvoice.cs" />
+    <Compile Include="BE_PDF_SalesDay.cs" />
+    <Compile Include="BE_PDF_SalesMonthly.cs" />
     <Compile Include="BE_UserMaintenance.cs" />
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
