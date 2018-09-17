@@ -52,36 +52,44 @@ namespace ITRW225_Information_System
 
         private void settingsDirectory(DirectoryType type)
         {
-            switch (type)
+            try
             {
-                case DirectoryType.EMAIL:
-                    Properties.Settings.Default.EmailSavePath = path + "\\Email";
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path + "\\Email");
-                    }
-                    break;
-                case DirectoryType.INVOICE:
-                    Properties.Settings.Default.InvoiceSavePath = path + "\\Invoices";
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path + "\\Invoices");
-                    }
-                    break;
-                case DirectoryType.REPORT:
-                    Properties.Settings.Default.ReportsSavePath = path + "\\Reports";
-                    if (!Directory.Exists(path + "\\Reports"))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    break;
-                case DirectoryType.DATABASE:
-                    Properties.Settings.Default.DatabaseBackupPath = path + "\\Database";
-                    if (!Directory.Exists(path + "\\Database"))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    break;
+                switch (type)
+                {
+                    case DirectoryType.EMAIL:
+                        Properties.Settings.Default.EmailSavePath = path + "\\Email";
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path + "\\Email");
+                        }
+                        break;
+                    case DirectoryType.INVOICE:
+                        Properties.Settings.Default.InvoiceSavePath = path + "\\Invoices";
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path + "\\Invoices");
+                        }
+                        break;
+                    case DirectoryType.REPORT:
+                        Properties.Settings.Default.ReportsSavePath = path + "\\Reports";
+                        if (!Directory.Exists(path + "\\Reports"))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        break;
+                    case DirectoryType.DATABASE:
+                        Properties.Settings.Default.DatabaseBackupPath = path + "\\Database";
+                        if (!Directory.Exists(path + "\\Database"))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
 
@@ -328,11 +336,32 @@ namespace ITRW225_Information_System
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MdiChildren.Length > 0)
+            if (MdiChildren.Length == 1)
+            {
+                foreach (var item in MdiChildren)
+                {
+                    if (item is UI_Dashboard)
+                    {
+                        openSettings(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please close all windows before changing settings, thank you.");
+                    }
+                }
+            }
+            else if (MdiChildren.Length > 1)
             {
                 MessageBox.Show("Please close all windows before changing settings, thank you.");
             }
             else
+            {
+                openSettings(true);
+            }
+        }
+        private void openSettings(bool open)
+        {
+            if (open)
             {
                 foreach (var item in MdiChildren)
                 {

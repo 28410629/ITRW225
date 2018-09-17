@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxPersonEmail = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBoxBody = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxSubject = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBoxBody = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxPersonEmail = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -55,22 +55,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Send Email To Developers With Your Issue";
             // 
-            // groupBox2
+            // button1
             // 
-            this.groupBox2.Controls.Add(this.textBoxPersonEmail);
-            this.groupBox2.Location = new System.Drawing.Point(6, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(622, 44);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Your Email";
+            this.button1.Location = new System.Drawing.Point(6, 355);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(622, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Send Your Feedback";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBoxPersonEmail
+            // groupBox4
             // 
-            this.textBoxPersonEmail.Location = new System.Drawing.Point(6, 19);
-            this.textBoxPersonEmail.Name = "textBoxPersonEmail";
-            this.textBoxPersonEmail.Size = new System.Drawing.Size(610, 20);
-            this.textBoxPersonEmail.TabIndex = 0;
+            this.groupBox4.Controls.Add(this.textBoxBody);
+            this.groupBox4.Location = new System.Drawing.Point(6, 119);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(622, 233);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Body";
+            // 
+            // textBoxBody
+            // 
+            this.textBoxBody.Location = new System.Drawing.Point(6, 19);
+            this.textBoxBody.Multiline = true;
+            this.textBoxBody.Name = "textBoxBody";
+            this.textBoxBody.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxBody.Size = new System.Drawing.Size(610, 208);
+            this.textBoxBody.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -89,34 +101,22 @@
             this.textBoxSubject.Size = new System.Drawing.Size(610, 20);
             this.textBoxSubject.TabIndex = 0;
             // 
-            // groupBox4
+            // groupBox2
             // 
-            this.groupBox4.Controls.Add(this.textBoxBody);
-            this.groupBox4.Location = new System.Drawing.Point(6, 119);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(622, 233);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Body";
+            this.groupBox2.Controls.Add(this.textBoxPersonEmail);
+            this.groupBox2.Location = new System.Drawing.Point(6, 19);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(622, 44);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Your Email";
             // 
-            // button1
+            // textBoxPersonEmail
             // 
-            this.button1.Location = new System.Drawing.Point(6, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(622, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Send Your Feedback";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBoxBody
-            // 
-            this.textBoxBody.Location = new System.Drawing.Point(6, 19);
-            this.textBoxBody.Multiline = true;
-            this.textBoxBody.Name = "textBoxBody";
-            this.textBoxBody.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxBody.Size = new System.Drawing.Size(610, 208);
-            this.textBoxBody.TabIndex = 0;
+            this.textBoxPersonEmail.Location = new System.Drawing.Point(6, 19);
+            this.textBoxPersonEmail.Name = "textBoxPersonEmail";
+            this.textBoxPersonEmail.Size = new System.Drawing.Size(610, 20);
+            this.textBoxPersonEmail.TabIndex = 0;
             // 
             // UI_Feedback
             // 
@@ -125,18 +125,20 @@
             this.ClientSize = new System.Drawing.Size(660, 410);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(676, 449);
+            this.MinimumSize = new System.Drawing.Size(676, 449);
             this.Name = "UI_Feedback";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feedback";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_Feedback_FormClosing);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -9,20 +9,20 @@ namespace ITRW225_Information_System
     {
         public string updateCheckDB(bool[] arr, string employeeID)
         {
-            List<string> list = new List<string>();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i])
-                {
-                    list.Add("true");
-                }
-                else
-                {
-                    list.Add("false");
-                }
-            }
             try
             {
+                List<string> list = new List<string>();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i])
+                    {
+                        list.Add("true");
+                    }
+                    else
+                    {
+                        list.Add("false");
+                    }
+                }
                 using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
                     database.Open();
@@ -46,25 +46,25 @@ namespace ITRW225_Information_System
                 log.saveError();
                 return "Failed updating permission!";
             }
-            
         }
 
         public string updatePassCheckDB(bool[] arr, string employeeID, string password)
         {
-            List<string> list = new List<string>();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i])
-                {
-                    list.Add("true");
-                }
-                else
-                {
-                    list.Add("false");
-                }
-            }
             try
             {
+                List<string> list = new List<string>();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i])
+                    {
+                        list.Add("true");
+                    }
+                    else
+                    {
+                        list.Add("false");
+                    }
+                }
+
                 using (OleDbConnection database = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
                 {
                     BE_DatabaseCommands dbCommands = new BE_DatabaseCommands();
@@ -90,7 +90,5 @@ namespace ITRW225_Information_System
                 return "Failed updating permission and password!";
             }
         }
-
-        
     }
 }

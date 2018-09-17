@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -37,7 +32,11 @@ namespace ITRW225_Information_System
             }
             else
             {
-                if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
+                if ( textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || 
+                     textBox.Text.Contains("*") || textBox.Text.Contains("/")  || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || 
+                     textBox.Text.Contains(">") || textBox.Text.Contains(",")  || textBox.Text.Contains("=")  || textBox.Text.Contains("<=") || 
+                    textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || 
+                     textBox.Text.Contains("(") || textBox.Text.Contains(")"))
                 {
                     e.Cancel = true;
                     error.SetError(textBox, "Invalid Character!");
@@ -66,7 +65,11 @@ namespace ITRW225_Information_System
                 }
                 else
                 {
-                    if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") || textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || textBox.Text.Contains("(") || textBox.Text.Contains(")"))
+                    if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") ||
+                        textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") ||
+                        textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") ||
+                       textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") ||
+                       textBox.Text.Contains("(") || textBox.Text.Contains(")"))
                     {
                         e.Cancel = true;
                         error.SetError(textBox, "Invalid Character!");
@@ -299,6 +302,8 @@ namespace ITRW225_Information_System
                                 db.Close();
                             }
                             MessageBox.Show("Successfully updated database!");
+                            ClearTextBoxes();
+                            comboBoxCN.SelectedIndex = 0;
                             buttonSave.Enabled = true;
                             break;
                     }
@@ -313,6 +318,21 @@ namespace ITRW225_Information_System
             }
         }
 
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+        }
 
         private void UI_ClientAdd_FormClosing(object sender, FormClosingEventArgs e)
         {

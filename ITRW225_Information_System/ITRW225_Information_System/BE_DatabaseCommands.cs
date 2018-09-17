@@ -10,9 +10,18 @@ namespace ITRW225_Information_System
     {
         public string hashPassword(string password)
         {
-            var bytes = new UTF8Encoding().GetBytes(password);
-            var hashBytes = System.Security.Cryptography.MD5.Create().ComputeHash(bytes);
-            return Convert.ToBase64String(hashBytes);
+            try
+            {
+                var bytes = new UTF8Encoding().GetBytes(password);
+                var hashBytes = System.Security.Cryptography.MD5.Create().ComputeHash(bytes);
+                return Convert.ToBase64String(hashBytes);
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+                return "";
+            }
         }
 
         public string updateDB(string query, string tableName)
