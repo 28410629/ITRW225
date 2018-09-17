@@ -46,28 +46,36 @@ namespace ITRW225_Information_System
 
         private void dialogBrowse(DirectoryType type)
         {
-            using (var fbd = new FolderBrowserDialog())
+            try
             {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                using (var fbd = new FolderBrowserDialog())
                 {
-                    switch (type)
+                    DialogResult result = fbd.ShowDialog();
+
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                     {
-                        case DirectoryType.EMAIL:
-                            textBoxEmail.Text = fbd.SelectedPath;
-                            Properties.Settings.Default.EmailSavePath = fbd.SelectedPath;
-                            break;
-                        case DirectoryType.INVOICE:
-                            textBoxInvoice.Text = fbd.SelectedPath;
-                            Properties.Settings.Default.InvoiceSavePath = fbd.SelectedPath;
-                            break;
-                        case DirectoryType.REPORT:
-                            textBoxReports.Text = fbd.SelectedPath;
-                            Properties.Settings.Default.ReportsSavePath = fbd.SelectedPath;
-                            break;
-                    }   
+                        switch (type)
+                        {
+                            case DirectoryType.EMAIL:
+                                textBoxEmail.Text = fbd.SelectedPath;
+                                Properties.Settings.Default.EmailSavePath = fbd.SelectedPath;
+                                break;
+                            case DirectoryType.INVOICE:
+                                textBoxInvoice.Text = fbd.SelectedPath;
+                                Properties.Settings.Default.InvoiceSavePath = fbd.SelectedPath;
+                                break;
+                            case DirectoryType.REPORT:
+                                textBoxReports.Text = fbd.SelectedPath;
+                                Properties.Settings.Default.ReportsSavePath = fbd.SelectedPath;
+                                break;
+                        }
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
 
@@ -88,15 +96,23 @@ namespace ITRW225_Information_System
 
         private void button5_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            try
             {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                using (var fbd = new FolderBrowserDialog())
                 {
-                    textBoxDatabase.Text = fbd.SelectedPath;
-                    Properties.Settings.Default.DatabaseBackupPath = fbd.SelectedPath;
+                    DialogResult result = fbd.ShowDialog();
+
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    {
+                        textBoxDatabase.Text = fbd.SelectedPath;
+                        Properties.Settings.Default.DatabaseBackupPath = fbd.SelectedPath;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
 

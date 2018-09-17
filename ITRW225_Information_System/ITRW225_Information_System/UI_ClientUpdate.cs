@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -131,15 +126,23 @@ namespace ITRW225_Information_System
                     {
                         if (type == "ID")
                         {
-                            if (checkID(textBox.Text))
-                            {
-                                e.Cancel = true;
-                                error.SetError(textBox, "ID already exists!");
-                            }
-                            else
+                            if (oldClientID == textBox.Text)
                             {
                                 e.Cancel = false;
                                 error.SetError(textBox, null);
+                            }
+                            else
+                            {
+                                if (checkID(textBox.Text))
+                                {
+                                    e.Cancel = true;
+                                    error.SetError(textBox, "ID already exists!");
+                                }
+                                else
+                                {
+                                    e.Cancel = false;
+                                    error.SetError(textBox, null);
+                                }
                             }
                         }
                         else

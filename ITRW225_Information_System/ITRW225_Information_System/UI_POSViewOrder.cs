@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -36,7 +30,29 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (string.IsNullOrWhiteSpace(textBoxEmpProcessName.Text) || string.IsNullOrWhiteSpace(textBoxEmpProcessID.Text) || string.IsNullOrWhiteSpace(textBoxProcessedDate.Text))
+            {
+                MessageBox.Show("Order must be processed before sending invoice!");
+            }
+            else
+            {
+                BE_PDF_OrderInvoice invoice = new BE_PDF_OrderInvoice();
+                List<List<string>> list = new List<List<string>>();
+                for (int i = 0; i < listView2.Items.Count; i++)
+                {
+                    List<string> item = new List<string>();
+                    for (int j = 0; j < listView2.Items[0].SubItems.Count; j++)
+                    {
+                        item.Add(listView2.Items[i].SubItems[j].Text);
+                    }
+                    list.Add(item);
+                }
+                string attachmentPath = invoice.createPDF(clientOrder[0][0], textBoxFN.Text, textBoxLN.Text, textBoxID.Text, textBoxCN.Text, textBoxCN2.Text, textBoxEA.Text, textBoxHN.Text, textBoxSN.Text, textBoxS.Text, textBoxCity.Text, textBoxPC.Text, textBoxEmpCreatedName.Text, textBoxOrderCreatedDate.Text, textBoxEmpProcessName.Text, textBoxProcessedDate.Text, textBoxProductsQ.Text, textBoxVAT.Text, textBoxTotal.Text, list);
+                BE_SendEmail mail = new BE_SendEmail();
+                string[] arr = new string[] { textBoxEA.Text };
+                string body = "Good day " + textBoxFN.Text + "\n\nPlease see your attached your invoice for order " + clientOrder[0][0] + ".\n\nKind regards,\nMr Salad";
+                mail.sendMailAttachment(arr, body, "Invoice, Order " + clientOrder[0][0], attachmentPath);
+            }
         }
 
         private void UI_POSViewOrder_Load(object sender, EventArgs e)
@@ -58,20 +74,20 @@ namespace ITRW225_Information_System
                     if (clientOrder[0][6] == "True")
                     {
                         groupBox7.Text = "Order Was Cancelled";
-                        textBox7.Text = "Canceled";
-                        textBox6.Text = "Canceled"; // name
-                        textBox4.Text = "Canceled";
+                        textBoxProcessedDate.Text = "Canceled";
+                        textBoxEmpProcessName.Text = "Canceled"; // name
+                        textBoxEmpProcessID.Text = "Canceled";
                     }
-                    textBox5.Text = clientOrder[0][5].Remove(10);
+                    textBoxOrderCreatedDate.Text = clientOrder[0][5].Remove(10);
                     textBoxProductsQ.Text = clientOrder[0][9];
-                    textBox1.Text = clientOrder[0][1];
+                    textBoxEmpCreatedID.Text = clientOrder[0][1];
                 }
 
                 // payment order information
                 try
                 {
-                    textBox4.Text = paymentOrder[0][2];
-                    textBox7.Text = paymentOrder[0][5].Remove(10);
+                    textBoxEmpProcessID.Text = paymentOrder[0][2];
+                    textBoxProcessedDate.Text = paymentOrder[0][5].Remove(10);
                 }
                 catch (Exception)
                 {
@@ -103,13 +119,13 @@ namespace ITRW225_Information_System
                 {
                     for (int i = 0; i < persons.Count; i++)
                     {
-                        if (textBox1.Text == persons[i][0])
+                        if (textBoxEmpCreatedID.Text == persons[i][0])
                         {
-                            textBox3.Text = persons[i][1] + " " + persons[i][2];
+                            textBoxEmpCreatedName.Text = persons[i][1] + " " + persons[i][2];
                         }
-                        if (textBox4.Text == persons[i][0])
+                        if (textBoxEmpProcessID.Text == persons[i][0])
                         {
-                            textBox6.Text = persons[i][1] + " " + persons[i][2];
+                            textBoxEmpProcessName.Text = persons[i][1] + " " + persons[i][2];
                         }
                         if (clientOrder[0][2] == persons[i][0])
                         {
@@ -133,7 +149,7 @@ namespace ITRW225_Information_System
                             textBoxCN.Text = contactDetails[i][3];
                             textBoxCN2.Text = contactDetails[i][4];
                             textBoxS.Text = contactDetails[i][5];
-                            textBox2.Text = contactDetails[i][6].Trim(); // city
+                            textBoxCity.Text = contactDetails[i][6].Trim(); // city
                             textBoxEA.Text = contactDetails[i][7];
                         }
                     }

@@ -516,6 +516,8 @@
             this.Controls.Add(this.groupBoxPD);
             this.Controls.Add(this.groupBoxCI);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(358, 503);
+            this.MinimumSize = new System.Drawing.Size(358, 503);
             this.Name = "UI_ClientUpdate";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

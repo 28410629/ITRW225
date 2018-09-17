@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -32,15 +26,16 @@ namespace ITRW225_Information_System
 
         private void UI_POSProcessPayment_Load(object sender, EventArgs e)
         {
-            Text += " " + arr[0];
-            listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
-            textBoxID.Text = arr[19];
-            textBoxN.Text = arr[20] + " " + arr[21];
-            textBoxCN1.Text = arr[13];
-            textBoxEA.Text = arr[17];
-            clientOrderCode = arr[0];
             try
             {
+                Text += " " + arr[0];
+                listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
+                textBoxID.Text = arr[19];
+                textBoxN.Text = arr[20] + " " + arr[21];
+                textBoxCN1.Text = arr[13];
+                textBoxEA.Text = arr[17];
+                clientOrderCode = arr[0];
+
                 if (string.IsNullOrWhiteSpace(arr[9]) || arr[9] == "0")
                 {
                     MessageBox.Show("No products on this order!");
@@ -115,7 +110,7 @@ namespace ITRW225_Information_System
                     }
                 }
             }
-            textBox1.Text = Convert.ToString(price);
+            textBoxGiven.Text = Convert.ToString(price);
             if (fix)
             {
                 MessageBox.Show("Please enter only numbers in amount field!");
@@ -135,61 +130,77 @@ namespace ITRW225_Information_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == textBoxTotal.Text)
+            if (Double.TryParse(textBoxGiven.Text, out double result))
             {
-                try
+                if (Convert.ToDouble(textBoxGiven.Text) >= Convert.ToDouble(textBoxTotal.Text))
                 {
-                    string eID = "";
-                    for (int i = 0; i < listEmployee.Count; i++)
+                    try
                     {
-                        if (userArr[1] == listEmployee[i][14])
+                        string eID = "";
+                        for (int i = 0; i < listEmployee.Count; i++)
                         {
-                            eID = listEmployee[i][0];
+                            if (userArr[1] == listEmployee[i][14])
+                            {
+                                eID = listEmployee[i][0];
+                            }
                         }
-                    }
-                    string msg = "";
-                    listView1.Sort();
-                    for (int i = 0; i < listView1.Items.Count; i++)
-                    {
-                        if (i == 0)
+                        string msg = "";
+                        listView1.Sort();
+                        for (int i = 0; i < listView1.Items.Count; i++)
                         {
-                            msg += listView1.Items[i].SubItems[1].Text;
+                            if (i == 0)
+                            {
+                                msg += listView1.Items[i].SubItems[1].Text;
+                            }
+                            else
+                            {
+                                msg += ", " + listView1.Items[i].SubItems[1].Text;
+                            }
+
+                        }
+                        DateTime dueDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Today.Hour, DateTime.Today.Minute, 0);
+                        string query = String.Format("INSERT INTO PAYMENT_ORDER (Client_Order_Code, Employee_ID, Payment_Amount, Payment_Type, Date_Created) VALUES({0}, '{1}', {2}, '{3}', @1)", arr[0], eID, arr[3], msg);
+                        string query2 = "Select @@Identity";
+                        int ID;
+                        using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                        {
+                            db.Open();
+                            OleDbDataAdapter adpt = new OleDbDataAdapter("SELECT * FROM PAYMENT_ORDER", db);
+                            OleDbCommand cmd = new OleDbCommand(query, db);
+                            cmd.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
+                            adpt.InsertCommand = cmd;
+                            adpt.InsertCommand.ExecuteNonQuery();
+                            cmd.CommandText = query2;
+                            ID = (int)cmd.ExecuteScalar();
+                            db.Close();
+                        }
+                        commands.updateDB("UPDATE CLIENT_ORDER SET Payment_Processed = True, Payment_Order_Code = " + ID + " WHERE Client_Order_Code = " + clientOrderCode, "CLIENT_ORDER");
+                        if (Convert.ToDouble(textBoxGiven.Text) > Convert.ToDouble(textBoxTotal.Text))
+                        {
+                            MessageBox.Show("Successfully processed payment!\n\nChange For Order " + arr[0] + " is :\n\n R" + (Convert.ToDouble(textBoxGiven.Text) - Convert.ToDouble(textBoxTotal.Text)));
                         }
                         else
                         {
-                            msg += ", " + listView1.Items[i].SubItems[1].Text;
+                            MessageBox.Show("Successfully processed payment!");
                         }
                         
+                        Close();
                     }
-                    DateTime dueDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Today.Hour, DateTime.Today.Minute, 0);
-                    string query = String.Format("INSERT INTO PAYMENT_ORDER (Client_Order_Code, Employee_ID, Payment_Amount, Payment_Type, Date_Created) VALUES({0}, '{1}', {2}, '{3}', @1)", arr[0], eID, arr[3], msg);
-                    string query2 = "Select @@Identity";
-                    int ID;
-                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                    catch (Exception ex)
                     {
-                        db.Open();
-                        OleDbDataAdapter adpt = new OleDbDataAdapter("SELECT * FROM PAYMENT_ORDER", db);
-                        OleDbCommand cmd = new OleDbCommand(query, db);
-                        cmd.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
-                        adpt.InsertCommand = cmd;
-                        adpt.InsertCommand.ExecuteNonQuery();
-                        cmd.CommandText = query2;
-                        ID = (int)cmd.ExecuteScalar();
-                        db.Close();
+                        BE_LogSystem log = new BE_LogSystem(ex);
+                        log.saveError();
+                        MessageBox.Show("Failed processing payment!");
                     }
-                    commands.updateDB("UPDATE CLIENT_ORDER SET Payment_Processed = True, Payment_Order_Code = " + ID +" WHERE Client_Order_Code = " + clientOrderCode, "CLIENT_ORDER");
-                    MessageBox.Show("Successfully processed payment!");
                 }
-                catch (Exception ex)
+                else
                 {
-                    BE_LogSystem log = new BE_LogSystem(ex);
-                    log.saveError();
-                    MessageBox.Show("Failed processing payment!");
+                    MessageBox.Show("Not sufficient given money to cover order!");
                 }
             }
             else
             {
-                MessageBox.Show("Not sufficient given money to cover order!");
+                MessageBox.Show("Please enter valid amount!");
             }
         }
 

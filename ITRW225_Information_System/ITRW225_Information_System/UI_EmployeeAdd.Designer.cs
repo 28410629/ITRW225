@@ -509,6 +509,8 @@
             this.Controls.Add(this.groupBoxCI);
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(358, 502);
+            this.MinimumSize = new System.Drawing.Size(358, 502);
             this.Name = "UI_EmployeeAdd";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

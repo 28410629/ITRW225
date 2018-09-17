@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -29,23 +23,32 @@ namespace ITRW225_Information_System
 
         private void UI_POSPlaceOrder_Load(object sender, EventArgs e)
         {
-            dateTimePicker2.CustomFormat = "HH:mm";
-            dateTimePicker2.Value = dateTimePicker2.Value.AddHours(1);
-            
-            listProducts = commands.retrieveCustomDB("SELECT * FROM PRODUCT ORDER BY Product_Name ASC");
-            listClient = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = False ORDER BY Person_Name ASC");
-            listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
-
-            for (int i = 0; i < listProducts.Count; i++)
+            try
             {
-                listBox1.Items.Add(listProducts[i][1] + " (R" + listProducts[i][2] + ")");
-            }
+                dateTimePicker2.CustomFormat = "HH:mm";
+                dateTimePicker2.Value = dateTimePicker2.Value.AddHours(1);
 
-            for (int i = 0; i < listClient.Count; i++)
-            {
-                comboBox2.Items.Add(listClient[i][1] + " " + listClient[i][2]);
+                listProducts = commands.retrieveCustomDB("SELECT * FROM PRODUCT ORDER BY Product_Name ASC");
+                listClient = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = False ORDER BY Person_Name ASC");
+                listEmployee = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID AND PERSON.Person_Is_Employee = True ORDER BY Person_Name ASC");
+
+                for (int i = 0; i < listProducts.Count; i++)
+                {
+                    listBox1.Items.Add(listProducts[i][1] + " (R" + listProducts[i][2] + ")");
+                }
+
+                for (int i = 0; i < listClient.Count; i++)
+                {
+                    comboBox2.Items.Add(listClient[i][1] + " " + listClient[i][2]);
+                }
+                comboBox2.SelectedIndex = 0;
+
             }
-            comboBox2.SelectedIndex = 0;
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
+            }
         }
 
         private void listBox1_Click(object sender, EventArgs e)
