@@ -399,5 +399,10 @@ namespace ITRW225_Information_System
             employee.MdiParent = this;
             employee.Show();
         }
+
+        private void productMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

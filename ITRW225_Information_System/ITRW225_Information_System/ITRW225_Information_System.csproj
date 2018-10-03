@@ -153,6 +153,18 @@
     <Compile Include="UI_POSViewOrder.Designer.cs">
       <DependentUpon>UI_POSViewOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_ProductAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_ProductAdd.Designer.cs">
+      <DependentUpon>UI_ProductAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ProductEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_ProductEdit.Designer.cs">
+      <DependentUpon>UI_ProductEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_ReportSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_POSViewPastOrder.resx">
       <DependentUpon>UI_POSViewPastOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_ProductAdd.resx">
+      <DependentUpon>UI_ProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_ProductEdit.resx">
+      <DependentUpon>UI_ProductEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_ReportSales.resx">
       <DependentUpon>UI_ReportSales.cs</DependentUpon>
