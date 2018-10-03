@@ -149,6 +149,7 @@
             this.Name = "UI_ProductEdit";
             this.ShowIcon = false;
             this.Text = "Product Update";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_ProductEdit_FormClosing);
             this.groupBoxPD.ResumeLayout(false);
             this.groupBoxPD.PerformLayout();
             this.groupBox1.ResumeLayout(false);

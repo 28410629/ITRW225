@@ -134,6 +134,7 @@
             this.Name = "UI_ProductAdd";
             this.ShowIcon = false;
             this.Text = "Add New Product";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_ProductAdd_FormClosing);
             this.groupBoxPD.ResumeLayout(false);
             this.groupBoxPD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPN)).EndInit();

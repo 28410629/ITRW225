@@ -12,8 +12,11 @@ namespace ITRW225_Information_System
 {
     public partial class UI_ProductAdd : Form
     {
-        public UI_ProductAdd()
+        private Form mainForm;
+
+        public UI_ProductAdd(Form form)
         {
+            mainForm = form;
             InitializeComponent();
         }
 
@@ -83,6 +86,16 @@ namespace ITRW225_Information_System
         private void textBoxPN_Validating(object sender, CancelEventArgs e)
         {
             ValidateComponent(textBoxPN, e, errorProviderPN);
+        }
+
+        private void UI_ProductAdd_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((mainForm.MdiChildren.Length - 1) == 0)
+            {
+                UI_Dashboard dashboard = new UI_Dashboard();
+                dashboard.MdiParent = mainForm;
+                dashboard.Show();
+            }
         }
     }
 }

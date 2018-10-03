@@ -400,9 +400,42 @@ namespace ITRW225_Information_System
             employee.Show();
         }
 
-        private void productMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_ProductEdit)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_ProductEdit employee = new UI_ProductEdit(this);
+            employee.MdiParent = this;
+            employee.Show();
+        }
 
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_ProductAdd)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_ProductAdd employee = new UI_ProductAdd(this);
+            employee.MdiParent = this;
+            employee.Show();
         }
     }
 }
