@@ -29,6 +29,12 @@ namespace ITRW225_Information_System
             comboBoxEmployee.SelectedIndex = 0;
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void comboBoxEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
             for (int i = 0; i < listE.Count; i++)

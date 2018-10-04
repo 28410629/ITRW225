@@ -24,6 +24,12 @@ namespace ITRW225_Information_System
             this.arr = arr; // this array must be a selected * from the following table order! CLIENT_ORDER, CONTACT_DETAILS, PERSON 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void UI_POSProcessPayment_Load(object sender, EventArgs e)
         {
             try

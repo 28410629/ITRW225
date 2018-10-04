@@ -30,6 +30,12 @@ namespace ITRW225_Information_System
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             loadGraph();
@@ -38,7 +44,8 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            chart1.SaveImage(Properties.Settings.Default.ReportsSavePath, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+            string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Month - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
+            chart1.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
         }
 
         private void button2_Click(object sender, EventArgs e)

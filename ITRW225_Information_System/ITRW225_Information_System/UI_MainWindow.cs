@@ -37,6 +37,12 @@ namespace ITRW225_Information_System
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -396,6 +402,44 @@ namespace ITRW225_Information_System
                 }
             }
             UI_Feedback employee = new UI_Feedback(this);
+            employee.MdiParent = this;
+            employee.Show();
+        }
+
+        private void updateProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_ProductEdit)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_ProductEdit employee = new UI_ProductEdit(this);
+            employee.MdiParent = this;
+            employee.Show();
+        }
+
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in MdiChildren)
+            {
+                if (item is UI_ProductAdd)
+                {
+                    item.Focus();
+                    return;
+                }
+                if (item is UI_Dashboard)
+                {
+                    item.Close();
+                }
+            }
+            UI_ProductAdd employee = new UI_ProductAdd(this);
             employee.MdiParent = this;
             employee.Show();
         }

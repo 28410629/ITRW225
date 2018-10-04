@@ -21,6 +21,12 @@ namespace ITRW225_Information_System
             this.employeeArr = employeeArr;
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void UI_POSPlaceOrder_Load(object sender, EventArgs e)
         {
             try
