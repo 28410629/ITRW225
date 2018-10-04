@@ -28,6 +28,12 @@ namespace ITRW225_Information_System
             Close();
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxEmpProcessName.Text) || string.IsNullOrWhiteSpace(textBoxEmpProcessID.Text) || string.IsNullOrWhiteSpace(textBoxProcessedDate.Text))

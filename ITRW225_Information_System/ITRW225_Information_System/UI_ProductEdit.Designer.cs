@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxPD = new System.Windows.Forms.GroupBox();
@@ -38,8 +39,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxSE = new System.Windows.Forms.ComboBox();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.errorProviderP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPN = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxPD.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPN)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -47,18 +52,20 @@
             this.buttonSave.Location = new System.Drawing.Point(202, 174);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(127, 23);
-            this.buttonSave.TabIndex = 5;
+            this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Update";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonClose
             // 
             this.buttonClose.Location = new System.Drawing.Point(12, 174);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 3;
+            this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "Cancel";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // groupBoxPD
             // 
@@ -69,7 +76,7 @@
             this.groupBoxPD.Location = new System.Drawing.Point(12, 64);
             this.groupBoxPD.Name = "groupBoxPD";
             this.groupBoxPD.Size = new System.Drawing.Size(317, 75);
-            this.groupBoxPD.TabIndex = 4;
+            this.groupBoxPD.TabIndex = 2;
             this.groupBoxPD.TabStop = false;
             this.groupBoxPD.Text = "Product Details";
             // 
@@ -79,6 +86,7 @@
             this.textBoxP.Name = "textBoxP";
             this.textBoxP.Size = new System.Drawing.Size(197, 20);
             this.textBoxP.TabIndex = 1;
+            this.textBoxP.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxP_Validating);
             // 
             // textBoxPN
             // 
@@ -86,6 +94,7 @@
             this.textBoxPN.Name = "textBoxPN";
             this.textBoxPN.Size = new System.Drawing.Size(197, 20);
             this.textBoxPN.TabIndex = 0;
+            this.textBoxPN.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPN_Validating);
             // 
             // label2
             // 
@@ -111,7 +120,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(317, 46);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Product";
             // 
@@ -129,9 +138,20 @@
             this.buttonDelete.Location = new System.Drawing.Point(12, 145);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(317, 23);
-            this.buttonDelete.TabIndex = 7;
+            this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // errorProviderP
+            // 
+            this.errorProviderP.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderP.ContainerControl = this;
+            // 
+            // errorProviderPN
+            // 
+            this.errorProviderPN.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderPN.ContainerControl = this;
             // 
             // UI_ProductEdit
             // 
@@ -150,9 +170,12 @@
             this.ShowIcon = false;
             this.Text = "Product Update";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UI_ProductEdit_FormClosing);
+            this.Load += new System.EventHandler(this.UI_ProductEdit_Load);
             this.groupBoxPD.ResumeLayout(false);
             this.groupBoxPD.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -169,5 +192,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxSE;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.ErrorProvider errorProviderP;
+        private System.Windows.Forms.ErrorProvider errorProviderPN;
     }
 }

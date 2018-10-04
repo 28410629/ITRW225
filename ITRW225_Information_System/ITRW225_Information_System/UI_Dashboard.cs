@@ -23,6 +23,12 @@ namespace ITRW225_Information_System
             InitializeComponent();
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void UI_Dashboard_Load(object sender, EventArgs e)
         {
             try

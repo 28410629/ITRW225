@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,13 @@ namespace ITRW225_Information_System
     public partial class UI_ProductAdd : Form
     {
         private Form mainForm;
+        private double amount;
 
         public UI_ProductAdd(Form form)
         {
             mainForm = form;
             InitializeComponent();
+            
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -27,8 +30,34 @@ namespace ITRW225_Information_System
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                try
+                {
+                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                    {
+                        string query = String.Format("INSERT INTO PRODUCT (Product_Name, Product_Price) VALUES('{0}', @1)", textBoxPN.Text);
+                        db.Open();
+                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PRODUCT", db);
+                        OleDbCommand command = new OleDbCommand(query, db);
+                        command.Parameters.Add("@1", OleDbType.Double).Value = amount;
+                        adapter.InsertCommand = command;
+                        adapter.InsertCommand.ExecuteNonQuery();
+                        db.Close();
+                    }
+                    MessageBox.Show("Successfully updated database!");
+                    ClearTextBoxes();
+                }
+                catch (Exception ex)
+                {
+                    BE_LogSystem log = new BE_LogSystem(ex);
+                    log.saveError();
+                    MessageBox.Show("Failed updating database!");
+                    buttonSave.Enabled = true;
+                }
+            }
         }
+
         private void ValidateNumber(TextBox textBox, CancelEventArgs e, ErrorProvider error)
         {
             if (String.IsNullOrWhiteSpace(textBox.Text))
@@ -38,7 +67,7 @@ namespace ITRW225_Information_System
             }
             else
             {
-                bool result = Double.TryParse(textBox.Text, out double resultL);
+                bool result = Double.TryParse(textBox.Text, out amount);
                 if (result)
                 {
                     e.Cancel = false;
@@ -47,7 +76,7 @@ namespace ITRW225_Information_System
                 else
                 {
                     e.Cancel = true;
-                    error.SetError(textBox, "Must be a number!");
+                    error.SetError(textBox, "Must be a number! Refer to locale, to determine separator (',' or '.') used with cents.");
                 }
             }
         }
@@ -64,7 +93,7 @@ namespace ITRW225_Information_System
                 if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") ||
                      textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") ||
                      textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") ||
-                    textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") ||
+                     textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") ||
                      textBox.Text.Contains("(") || textBox.Text.Contains(")"))
                 {
                     e.Cancel = true;
@@ -96,6 +125,28 @@ namespace ITRW225_Information_System
                 dashboard.MdiParent = mainForm;
                 dashboard.Show();
             }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
     }
 }

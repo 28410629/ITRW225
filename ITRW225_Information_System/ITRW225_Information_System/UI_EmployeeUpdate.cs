@@ -21,6 +21,12 @@ namespace ITRW225_Information_System
             this.mainForm = mainForm;
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void ValidateEmail(TextBox textBox, CancelEventArgs e, ErrorProvider error)
         {
             if (String.IsNullOrWhiteSpace(textBox.Text))

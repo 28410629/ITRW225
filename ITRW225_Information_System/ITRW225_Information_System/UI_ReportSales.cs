@@ -30,6 +30,12 @@ namespace ITRW225_Information_System
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             loadGraph();

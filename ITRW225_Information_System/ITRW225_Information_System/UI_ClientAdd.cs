@@ -23,6 +23,12 @@ namespace ITRW225_Information_System
             idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
+        }
+
         private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
         {
             if (String.IsNullOrWhiteSpace(textBox.Text))
