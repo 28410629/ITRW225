@@ -17,13 +17,13 @@ namespace ITRW225_Information_System
         {
             try
             {
-                Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
-                thread.Start();
-
                 this.emailTo = emailTo;
                 this.body = body;
                 this.subject = subject;
                 this.attachmentPath = attachmentPath;
+
+                Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
+                thread.Start();
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace ITRW225_Information_System
         {
             try
             {
-                Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
-                thread.Start();
-
                 this.emailTo = emailTo;
                 this.body = body;
                 this.subject = subject;
+
+                Thread thread = new Thread(new ThreadStart(runSendMailAttachment));
+                thread.Start();
             }
             catch (Exception ex)
             {
