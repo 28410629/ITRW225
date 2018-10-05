@@ -15,12 +15,14 @@ namespace ITRW225_Information_System
         private List<string[]> persons;
         private List<string[]> contactDetails;
         private List<string[]> products;
+        private bool sendInvoice;
 
-        public UI_POSViewOrder(Form mainForm, string Client_Order_Code)
+        public UI_POSViewOrder(Form mainForm, string Client_Order_Code, bool sendInvoice)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.Client_Order_Code = Client_Order_Code;
+            this.sendInvoice = sendInvoice;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -162,6 +164,10 @@ namespace ITRW225_Information_System
                 }
 
                 textBoxVAT.Text = (0.15 * Convert.ToDouble(textBoxTotal.Text)) + "";
+                if(sendInvoice)
+                {
+                    button1_Click(sender, e);
+                }
             }
             catch (Exception ex)
             {

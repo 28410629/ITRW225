@@ -224,6 +224,7 @@ namespace ITRW225_Information_System
                         }
                     }
                     MessageBox.Show("Successfully added order!");
+                    Close();
                 }
                 catch (Exception ex)
                 {

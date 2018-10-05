@@ -189,13 +189,15 @@ namespace ITRW225_Information_System
                         {
                             MessageBox.Show("Successfully processed payment!");
                         }
-                        
+                        UI_POSViewOrder user = new UI_POSViewOrder(mainForm, arr[0], true);
+                        user.MdiParent = mainForm;
+                        user.Show();
                         Close();
                     }
                     catch (Exception ex)
                     {
                         BE_LogSystem log = new BE_LogSystem(ex);
-                        log.saveError();
+                        log.saveError(); 
                         MessageBox.Show("Failed processing payment!");
                     }
                 }

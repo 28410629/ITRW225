@@ -21,6 +21,10 @@ namespace ITRW225_Information_System
                 rec.BackgroundColor = new BaseColor(System.Drawing.Color.WhiteSmoke);
 
                 string appRootDir = Properties.Settings.Default.ReportsSavePath;
+                if (!Directory.Exists(appRootDir))
+                {
+                    Directory.CreateDirectory(appRootDir);
+                }
 
                 // Step 1: Creating System.IO.FileStream object
                 string day = DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm");

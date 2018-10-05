@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -44,12 +45,20 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!Directory.Exists(Properties.Settings.Default.ReportsSavePath))
+            {
+                Directory.CreateDirectory(Properties.Settings.Default.ReportsSavePath);
+            }
             string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Month - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
             chart1.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!Directory.Exists(Properties.Settings.Default.ReportsSavePath))
+            {
+                Directory.CreateDirectory(Properties.Settings.Default.ReportsSavePath);
+            }
             string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Day - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
             chart2.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
             BE_PDF_SalesDay saled = new BE_PDF_SalesDay();
