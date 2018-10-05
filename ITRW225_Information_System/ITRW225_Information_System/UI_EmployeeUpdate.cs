@@ -53,11 +53,6 @@ namespace ITRW225_Information_System
             validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0);
         }
 
-        private void textBoxEA_Validating_1(object sender, CancelEventArgs e)
-        {
-            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14);
-        }
-
         private void textBoxHN_Validating_1(object sender, CancelEventArgs e)
         {
             validation.ValidateComponent((TextBox)sender, e, errorProviderHN);
@@ -208,6 +203,11 @@ namespace ITRW225_Information_System
                 dashboard.MdiParent = mainForm;
                 dashboard.Show();
             }
+        }
+
+        private void textBoxEA_Validating(object sender, CancelEventArgs e)
+        {
+            validation.ValidateComponent((TextBox)sender, e, errorProviderEA);
         }
     }
 }
