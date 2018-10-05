@@ -398,7 +398,7 @@
             this.textBoxEA.Name = "textBoxEA";
             this.textBoxEA.Size = new System.Drawing.Size(197, 20);
             this.textBoxEA.TabIndex = 2;
-            this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating_1);
+            this.textBoxEA.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEA_Validating);
             // 
             // textBoxCN
             // 

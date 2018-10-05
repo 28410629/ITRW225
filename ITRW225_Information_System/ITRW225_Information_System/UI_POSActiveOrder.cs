@@ -166,7 +166,7 @@ namespace ITRW225_Information_System
                     selected = i;
                 }
             }
-            UI_POSViewOrder user = new UI_POSViewOrder(mainForm, order[selected][0]);
+            UI_POSViewOrder user = new UI_POSViewOrder(mainForm, order[selected][0], false);
             user.MdiParent = mainForm;
             user.Show();
             Close();

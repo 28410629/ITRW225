@@ -54,7 +54,7 @@ namespace ITRW225_Information_System
 
         private void textBoxEA_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderEA);
         }
 
         private void textBoxHN_Validating(object sender, CancelEventArgs e)

@@ -13,14 +13,6 @@ namespace ITRW225_Information_System
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.InvoiceSavePath = "";
-            Properties.Settings.Default.DatabaseBackupPath = "";
-            Properties.Settings.Default.ReportsSavePath = "";
-            Properties.Settings.Default.EmailSavePath = "";
-            Properties.Settings.Default.Save();
-        }
 
         private void UI_Settings_Load(object sender, EventArgs e)
         {
@@ -129,6 +121,10 @@ namespace ITRW225_Information_System
         {
             try
             {
+                if(!Directory.Exists(Properties.Settings.Default.DatabaseBackupPath))
+                {
+                    Directory.CreateDirectory(Properties.Settings.Default.DatabaseBackupPath);
+                }
                 File.Copy(Application.StartupPath + "\\Database.mdb", Properties.Settings.Default.DatabaseBackupPath + "\\Database.mdb", true);
                 MessageBox.Show("Successfully backed up database!");
             }

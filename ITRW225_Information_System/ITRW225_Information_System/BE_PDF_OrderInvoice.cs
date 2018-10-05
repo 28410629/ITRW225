@@ -22,6 +22,10 @@ namespace ITRW225_Information_System
                 rec.BackgroundColor = new BaseColor(System.Drawing.Color.WhiteSmoke);
 
                 string appRootDir = Properties.Settings.Default.InvoiceSavePath;
+                if (!Directory.Exists(appRootDir))
+                {
+                    Directory.CreateDirectory(appRootDir);
+                }
 
                 // Step 1: Creating System.IO.FileStream object
                 using (FileStream fs = new FileStream(appRootDir + "\\Invoice - Order " + clientOrderCode + ".pdf", FileMode.Create, FileAccess.Write, FileShare.None))
