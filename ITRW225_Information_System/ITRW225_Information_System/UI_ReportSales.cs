@@ -10,6 +10,7 @@ namespace ITRW225_Information_System
         List<string[]> payments;
         Form mainForm;
         List<string[]> daySales = new List<string[]>();
+        List<string[]> nonthSales = new List<string[]>();
 
         public UI_ReportSales(Form mainForm)
         {
@@ -52,6 +53,13 @@ namespace ITRW225_Information_System
             }
             string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Month - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
             chart1.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+            BE_PDF_SalesMonthly saled = new BE_PDF_SalesMonthly();
+            if (nonthSales.Count == 0)
+            {
+                string[] date = new string[] { dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + "0000000", "", "" };
+                nonthSales.Add(date);
+            }
+            saled.createPDF(path, nonthSales);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -63,7 +71,12 @@ namespace ITRW225_Information_System
             string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Day - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
             chart2.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
             BE_PDF_SalesDay saled = new BE_PDF_SalesDay();
-            saled.createPDF(path,daySales);
+            if(daySales.Count == 0)
+            {
+                string[] date = new string[] { "", "", "", "", "", dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + "0000000"};
+                daySales.Add(date);
+            }
+            saled.createPDF(path, daySales);
         }
 
         private void UI_ReportSales_FormClosing(object sender, FormClosingEventArgs e)
@@ -155,11 +168,13 @@ namespace ITRW225_Information_System
                             {
                                 if (day.Contains(compareDay))
                                 {
+                                    
                                     sales += Convert.ToDouble(payments[j][3]);
                                 }
                             }
                         }
                     }
+                    nonthSales.Add(new string[] { year + "-" + month + "-" + i, (sales * 0.15) + "", sales.ToString() });
                     chart1.Series["Sales"].Points.AddXY(i, sales);
                     chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                     chart1.Series["Sales"].BorderWidth = 5;
