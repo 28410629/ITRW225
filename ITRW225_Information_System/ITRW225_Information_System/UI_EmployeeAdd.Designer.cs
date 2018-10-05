@@ -373,7 +373,7 @@
             this.textBoxCN2.Name = "textBoxCN2";
             this.textBoxCN2.Size = new System.Drawing.Size(197, 20);
             this.textBoxCN2.TabIndex = 12;
-            this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVAT_Validating_1);
+            this.textBoxCN2.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCN2_Validating_1);
             // 
             // textBoxCN
             // 

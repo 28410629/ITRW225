@@ -10,6 +10,8 @@ namespace ITRW225_Information_System
     {
         private List<string[]> idDetails;
         Form mainForm;
+        BE_TextboxValidation validation = new BE_TextboxValidation();
+
         public UI_ClientAdd(Form mainForm)
         {
             InitializeComponent();
@@ -29,211 +31,59 @@ namespace ITRW225_Information_System
             e.Cancel = false;
         }
 
-        private void ValidateComponent(TextBox textBox, CancelEventArgs e, ErrorProvider error)
-        {
-            if (String.IsNullOrWhiteSpace(textBox.Text))
-            {
-                e.Cancel = true;
-                error.SetError(textBox, "Required field.");
-            }
-            else
-            {
-                if ( textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") || 
-                     textBox.Text.Contains("*") || textBox.Text.Contains("/")  || textBox.Text.Contains("<>") || textBox.Text.Contains("<") || 
-                     textBox.Text.Contains(">") || textBox.Text.Contains(",")  || textBox.Text.Contains("=")  || textBox.Text.Contains("<=") || 
-                    textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") || 
-                     textBox.Text.Contains("(") || textBox.Text.Contains(")"))
-                {
-                    e.Cancel = true;
-                    error.SetError(textBox, "Invalid Character!");
-                }
-                else
-                {
-                    e.Cancel = false;
-                    error.SetError(textBox, null);
-                }
-            }
-        }
-
-        private void ValidateEmail(TextBox textBox, CancelEventArgs e, ErrorProvider error)
-        {
-            if (String.IsNullOrWhiteSpace(textBox.Text))
-            {
-                e.Cancel = true;
-                error.SetError(textBox, "Required field.");
-            }
-            else
-            {
-                if (checkEmail(textBox.Text))
-                {
-                    e.Cancel = true;
-                    error.SetError(textBox, "Email already exists!");
-                }
-                else
-                {
-                    if (textBox.Text.Contains("'") || textBox.Text.Contains("\"") || textBox.Text.Contains("||") || textBox.Text.Contains("-") ||
-                        textBox.Text.Contains("*") || textBox.Text.Contains("/") || textBox.Text.Contains("<>") || textBox.Text.Contains("<") ||
-                        textBox.Text.Contains(">") || textBox.Text.Contains(",") || textBox.Text.Contains("=") || textBox.Text.Contains("<=") ||
-                       textBox.Text.Contains(">=") || textBox.Text.Contains("~=") || textBox.Text.Contains("!=") || textBox.Text.Contains("^=") ||
-                       textBox.Text.Contains("(") || textBox.Text.Contains(")"))
-                    {
-                        e.Cancel = true;
-                        error.SetError(textBox, "Invalid Character!");
-                    }
-                    else
-                    {
-                        e.Cancel = false;
-                        error.SetError(textBox, null);
-                    }
-                }
-            }
-        }
-
-        private bool checkEmail(string email)
-        {
-            bool exists = false;
-            for (int i = 0; i < idDetails.Count; i++)
-            {
-                if (idDetails[i][14] == email)
-                {
-                    exists = true;
-                }
-            }
-            return exists;
-        }
-
-        private void ValidateNumber(TextBox textBox, CancelEventArgs e, ErrorProvider error, string type)
-        {
-            int length = 0;
-            string msg = "";
-            switch (type)
-            {
-                case "ID":
-                    length = 13;
-                    msg = "Must be 13 digit ID.";
-                    break;
-                case "Cell":
-                    length = 10;
-                    msg = "Must be 10 digit cellphone number.";
-                    break;
-                case "Postal":
-                    length = 4;
-                    msg = "Must be 4 digit postal code.";
-                    break;
-                default:
-                    break;
-            }
-            if (String.IsNullOrWhiteSpace(textBox.Text))
-            {
-                e.Cancel = true;
-                error.SetError(textBox, "Required field.");
-            }
-            else
-            {
-                bool result = long.TryParse(textBox.Text, out long resultL);
-                if (result)
-                {
-                    if (textBox.Text.Length != length)
-                    {
-                        e.Cancel = true;
-                        error.SetError(textBox, msg);
-                    }
-                    else
-                    {
-                        if (type == "ID")
-                        {
-                            if (checkID(textBox.Text))
-                            {
-                                e.Cancel = true;
-                                error.SetError(textBox, "ID already exists!");
-                            }
-                            else
-                            {
-                                e.Cancel = false;
-                                error.SetError(textBox, null);
-                            }
-                        }
-                        else
-                        {
-                            e.Cancel = false;
-                            error.SetError(textBox, null);
-                        }
-                    }
-                }
-                else
-                {
-                    e.Cancel = true;
-                    error.SetError(textBox, "Must be a number!");
-                }
-            }
-        }
-
-        private bool checkID(string id)
-        {
-            bool exists = false;
-            for (int i = 0; i < idDetails.Count; i++)
-            {
-                if (idDetails[i][0] == id)
-                {
-                    exists = true;
-                }
-            }
-            return exists;
-        }
-
         private void textBoxFN_Validating(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderFN);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderFN);
         }
 
         private void textBoxLN_Validating(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderLN);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderLN);
         }
 
         private void textBoxCN_Validating(object sender, CancelEventArgs e)
         {
-            ValidateNumber((TextBox)sender, e, errorProviderCN, "Cell");
+            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1);
         }
 
         private void textBoxID_Validating(object sender, CancelEventArgs e)
         {
-            ValidateNumber((TextBox)sender, e, errorProviderID, "ID");
+            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0);
         }
 
         private void textBoxVAT_Validating(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderVAT);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderVAT);
         }
 
         private void textBoxEA_Validating(object sender, CancelEventArgs e)
         {
-            ValidateEmail((TextBox)sender, e, errorProviderEA);
+            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14);
         }
 
         private void textBoxHN_Validating(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderHN);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderHN);
         }
 
         private void textBoxSN_Validating(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderSN);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderSN);
         }
 
         private void textBoxS_Validating(object sender, CancelEventArgs e)
         {
-            ValidateComponent((TextBox)sender, e, errorProviderS);
+            validation.ValidateComponent((TextBox)sender, e, errorProviderS);
         }
 
         private void textBoxPC_Validating(object sender, CancelEventArgs e)
         {
-            ValidateNumber((TextBox)sender, e, errorProviderPC, "Postal");
+            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1);
         }
 
         private void textBoxCN2_Validating(object sender, CancelEventArgs e)
         {
-            ValidateNumber((TextBox)sender, e, errorProviderCN2, "Cell");
+            validation.ValidateComponent((TextBox)sender, e, errorProviderCN2);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
