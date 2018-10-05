@@ -117,13 +117,18 @@ namespace ITRW225_Information_System
 
                     doc.Add(new Chunk("\n"));
 
-                    float[] widths = new float[] { 3f, 3f, 3f };
+                    float[] widths = new float[] { 3f, 3f, 3f, 3f };
                     PdfPTable table = new PdfPTable(widths);
 
                     PdfPCell cell;
                     double price;
                     double count = 0;
                     double priceTotal = 0;
+
+                    cell = new PdfPCell(new Phrase("Date"));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
 
                     cell = new PdfPCell(new Phrase("Order Number"));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -142,19 +147,37 @@ namespace ITRW225_Information_System
 
                     for (int i = 0; i < listSales.Count; i++)
                     {
+                        price = Convert.ToDouble(listSales[i][3]);
+                        priceTotal += price;
+                        count++;
 
+                        cell = new PdfPCell(new Phrase(listSales[i][1]));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+
+                        cell = new PdfPCell(new Phrase(listSales[i][1]));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+                   
+                        cell = new PdfPCell(new Phrase((price * 0.15) + ""));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+
+                        cell = new PdfPCell(new Phrase(listSales[i][3]));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
                     }
+
+                    cell = new PdfPCell(new Phrase("TOTALS"));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
+                    table.AddCell(cell);
 
                     cell = new PdfPCell(new Phrase(Convert.ToString(count)));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
                     table.AddCell(cell);
-
-                    cell = new PdfPCell(new Phrase("TOTALS"));
-                    cell.HorizontalAlignment = Element.ALIGN_RIGHT;
-                    cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);
-                    table.AddCell(cell);
-
+                    
                     cell = new PdfPCell(new Phrase("R " + Convert.ToString(priceTotal * 0.15)));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.BackgroundColor = new BaseColor(System.Drawing.Color.YellowGreen);

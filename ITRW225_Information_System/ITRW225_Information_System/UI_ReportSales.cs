@@ -9,6 +9,7 @@ namespace ITRW225_Information_System
     {
         List<string[]> payments;
         Form mainForm;
+        List<string[]> daySales = new List<string[]>();
 
         public UI_ReportSales(Form mainForm)
         {
@@ -62,7 +63,7 @@ namespace ITRW225_Information_System
             string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Day - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
             chart2.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
             BE_PDF_SalesDay saled = new BE_PDF_SalesDay();
-            saled.createPDF(path, new List<string[]>());
+            saled.createPDF(path,daySales);
         }
 
         private void UI_ReportSales_FormClosing(object sender, FormClosingEventArgs e)
@@ -79,6 +80,7 @@ namespace ITRW225_Information_System
         {
             try
             {
+                daySales.Clear();
                 chart2.ChartAreas[0].AxisX.Interval = 1;
                 chart2.Titles["Title1"].Text = "Order Comparision For " + dateTimePicker1.Value.Day + " " + dateTimePicker1.Value.ToString("MMMM") + " " + dateTimePicker1.Value.Year;
                 chart2.Series["Sales"].Points.Clear();
@@ -105,6 +107,7 @@ namespace ITRW225_Information_System
                         {
                             if (day.Contains(compareDay))
                             {
+                                daySales.Add(payments[j]);
                                 chart2.Series["Sales"].Points.AddXY(count, Convert.ToDouble(payments[j][3]));
                                 count++;
                             }
