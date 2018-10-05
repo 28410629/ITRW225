@@ -443,5 +443,15 @@ namespace ITRW225_Information_System
             employee.MdiParent = this;
             employee.Show();
         }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.StartupPath + "\\Resources\\USER MANUAL.pdf");
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This application was created by Group 10\nfor ITRW225 semester project.\n\nMembers include:\n- ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

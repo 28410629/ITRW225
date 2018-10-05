@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="BE_EmployeeMaintenance.cs" />
     <Compile Include="BE_DatabaseCommands.cs" />
+    <Compile Include="BE_Enum.cs" />
     <Compile Include="BE_GeneratePassword.cs" />
     <Compile Include="BE_LoginProcedures.cs" />
     <Compile Include="BE_LogSystem.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="BE_PDF_SalesDay.cs" />
     <Compile Include="BE_PDF_SalesMonthly.cs" />
     <Compile Include="BE_SendEmail.cs" />
+    <Compile Include="BE_TextboxValidation.cs" />
     <Compile Include="BE_UserMaintenance.cs" />
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -305,6 +307,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\USER MANUAL.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\logo_465x320 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
