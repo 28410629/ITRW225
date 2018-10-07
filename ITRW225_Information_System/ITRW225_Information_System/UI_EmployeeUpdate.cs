@@ -12,6 +12,7 @@ namespace ITRW225_Information_System
         private List<string[]> idDetails;
         private List<string[]> employeeType;
         private string oldEmployeeID = "";
+        private string oldEmployeeEmail = "";
         private BE_EmployeeMaintenance employee = new BE_EmployeeMaintenance();
         BE_TextboxValidation validation = new BE_TextboxValidation();
         Form mainForm;
@@ -40,17 +41,17 @@ namespace ITRW225_Information_System
 
         private void textBoxCN_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1, null);
         }
 
         private void textBoxCN2_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderVAT, BE_Enum.NumberType.CELL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderVAT, BE_Enum.NumberType.CELL, null, -1, null);
         }
 
         private void textBoxID_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0, oldEmployeeID);    
         }
 
         private void textBoxHN_Validating_1(object sender, CancelEventArgs e)
@@ -70,7 +71,7 @@ namespace ITRW225_Information_System
 
         private void textBoxPC_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1, "Not ID");
         }
 
         private void buttonSave_Click_1(object sender, EventArgs e)
@@ -145,6 +146,7 @@ namespace ITRW225_Information_System
                 {
                     BE_LogSystem log = new BE_LogSystem(ex);
                     log.saveError();
+                    MessageBox.Show("Failed updating database!");
                 }
             }
         }
@@ -190,6 +192,7 @@ namespace ITRW225_Information_System
                     textBoxCN2.Text = employeeDetails[i][11];
                     textBoxS.Text = employeeDetails[i][12];
                     textBoxEA.Text = employeeDetails[i][14];
+                    oldEmployeeEmail = employeeDetails[i][14];
                     for (int k = 0; k < comboBoxCN.Items.Count; k++)
                     {
                         if (comboBoxCN.Items[k].ToString().Contains(employeeDetails[i][13]))
@@ -214,7 +217,8 @@ namespace ITRW225_Information_System
 
         private void textBoxEA_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateComponent((TextBox)sender, e, errorProviderEA);
+            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14, oldEmployeeEmail);
+            //validation.ValidateComponent((TextBox)sender, e, errorProviderEA);
         }
     }
 }

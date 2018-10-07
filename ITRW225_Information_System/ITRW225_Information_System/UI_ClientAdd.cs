@@ -43,12 +43,12 @@ namespace ITRW225_Information_System
 
         private void textBoxCN_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1, null);
         }
 
         private void textBoxID_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0, "Add");
         }
 
         private void textBoxVAT_Validating(object sender, CancelEventArgs e)
@@ -58,7 +58,7 @@ namespace ITRW225_Information_System
 
         private void textBoxEA_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14);
+            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14, "Add");
         }
 
         private void textBoxHN_Validating(object sender, CancelEventArgs e)
@@ -78,13 +78,13 @@ namespace ITRW225_Information_System
 
         private void textBoxPC_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1, "Not ID");
         }
 
         private void textBoxCN2_Validating(object sender, CancelEventArgs e)
         {
             //validation.ValidateComponent((TextBox)sender, e, errorProviderCN2);
-            validation.ValidateNumber((TextBox)sender, e, errorProviderCN2, BE_Enum.NumberType.CELL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderCN2, BE_Enum.NumberType.CELL, null, -1, "Not ID");
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
