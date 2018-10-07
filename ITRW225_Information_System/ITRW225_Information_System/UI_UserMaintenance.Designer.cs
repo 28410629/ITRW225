@@ -39,7 +39,6 @@
             this.comboBoxEmployee = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.labelPassword = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -155,23 +154,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(161, 368);
+            this.buttonSave.Location = new System.Drawing.Point(12, 368);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(127, 23);
+            this.buttonSave.Size = new System.Drawing.Size(276, 23);
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Location = new System.Drawing.Point(12, 368);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 11;
-            this.buttonClose.Text = "Cancel";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.button2_Click);
             // 
             // labelPassword
             // 
@@ -253,7 +242,6 @@
             this.Controls.Add(this.buttonAllow);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -288,7 +276,6 @@
         private System.Windows.Forms.ComboBox comboBoxEmployee;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;

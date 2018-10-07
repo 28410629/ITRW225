@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ITRW225_Information_System
@@ -157,7 +158,6 @@ namespace ITRW225_Information_System
                 textBoxEmployee.Enabled = false;
                 textBoxClientToday.Enabled = false;
                 textBoxPayment.Enabled = false;
-
             }
             catch (Exception ex)
             {

@@ -41,7 +41,7 @@ namespace ITRW225_Information_System
             return regex.IsMatch(email);
         }
 
-        public void ValidateEmail(TextBox textBox, CancelEventArgs e, ErrorProvider error, List<string[]> recordedEmails, int emailPosition)
+        public void ValidateEmail(TextBox textBox, CancelEventArgs e, ErrorProvider error, List<string[]> recordedEmails, int emailPosition, string oldEmail)
         {
             if (String.IsNullOrWhiteSpace(textBox.Text))
             {
@@ -50,7 +50,7 @@ namespace ITRW225_Information_System
             }
             else
             {
-                if (checkEmail(textBox.Text, recordedEmails, emailPosition))
+                if (checkEmail(textBox.Text, recordedEmails, emailPosition, oldEmail))
                 {
                     e.Cancel = true;
                     error.SetError(textBox, "Email exists!");
@@ -72,20 +72,23 @@ namespace ITRW225_Information_System
         }
 
         // check for existing emails
-        private bool checkEmail(string email, List<string[]> idDetails, int emailLocation)
+        private bool checkEmail(string email, List<string[]> idDetails, int emailLocation, string updatedPersonEmail)
         {
             bool exists = false;
             for (int i = 0; i < idDetails.Count; i++)
             {
                 if (idDetails[i][emailLocation] == email)
                 {
-                    exists = true;
+                    if (email != updatedPersonEmail)
+                    {
+                        exists = true;
+                    }
                 }
             }
             return exists;
         }
 
-        public void ValidateNumber(TextBox textBox, CancelEventArgs e, ErrorProvider error, BE_Enum.NumberType type, List<string[]> userDetails, int arrPosition)
+        public void ValidateNumber(TextBox textBox, CancelEventArgs e, ErrorProvider error, BE_Enum.NumberType type, List<string[]> userDetails, int arrPosition, string oldID)
         {
             int length = 0;
             string msg = "";
@@ -125,7 +128,7 @@ namespace ITRW225_Information_System
                     {
                         if (type == BE_Enum.NumberType.ID)
                         {
-                            if (checkID(textBox.Text, userDetails, arrPosition))
+                            if (checkID(textBox.Text, userDetails, arrPosition, oldID))
                             {
                                 e.Cancel = true;
                                 error.SetError(textBox, "ID exists!");
@@ -151,14 +154,17 @@ namespace ITRW225_Information_System
             }
         }
 
-        private bool checkID(string id, List<string[]> idDetails, int position)
+        private bool checkID(string id, List<string[]> idDetails, int position, string updatePersonID) // when adding make -1
         {
             bool exists = false;
             for (int i = 0; i < idDetails.Count; i++)
             {
                 if (idDetails[i][position] == id)
                 {
-                    exists = true;
+                    if(id != updatePersonID)
+                    {
+                        exists = true;
+                    }
                 }
             }
             return exists;

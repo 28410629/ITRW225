@@ -19,7 +19,7 @@ namespace ITRW225_Information_System
 
         private void UI_MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
+            /*switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
             {
                 case DialogResult.No:
                     e.Cancel = true;
@@ -34,7 +34,13 @@ namespace ITRW225_Information_System
                     break;
                 default:
                     break;
+            }*/
+            foreach (var item in MdiChildren)
+            {
+                item.Close();
             }
+            loginWindow.ShowInTaskbar = true;
+            loginWindow.Show();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -335,7 +341,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSViewPastOrder employee = new UI_POSViewPastOrder(this);
+            UI_POSViewPastOrder employee = new UI_POSViewPastOrder(this, userArr);
             employee.MdiParent = this;
             employee.Show();
         }
@@ -451,7 +457,7 @@ namespace ITRW225_Information_System
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This application was created by Group 10\nfor ITRW225 semester project.\n\nMembers include:\n- ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("This application was created by Group 10\nfor ITRW225 semester project.\n\nMembers include:\n- Coenraad Human 28410629\n- Heino Nel 26056984\n- Pieter Brand 28633512\n- Savannah Fritze 29158710", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

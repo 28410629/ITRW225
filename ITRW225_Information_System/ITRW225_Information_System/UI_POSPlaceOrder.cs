@@ -234,5 +234,15 @@ namespace ITRW225_Information_System
                 }
             }
         }
+
+        private void listView1_Leave(object sender, EventArgs e)
+        {
+            calculateCost();
+        }
+
+        private void listView1_MouseLeave(object sender, EventArgs e)
+        {
+            calculateCost();
+        }
     }
 }

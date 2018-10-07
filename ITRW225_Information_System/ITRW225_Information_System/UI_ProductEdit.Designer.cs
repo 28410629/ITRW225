@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxPD = new System.Windows.Forms.GroupBox();
             this.textBoxP = new System.Windows.Forms.TextBox();
             this.textBoxPN = new System.Windows.Forms.TextBox();
@@ -49,23 +48,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(202, 174);
+            this.buttonSave.Location = new System.Drawing.Point(12, 174);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(127, 23);
+            this.buttonSave.Size = new System.Drawing.Size(317, 23);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Update";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Location = new System.Drawing.Point(12, 174);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 0;
-            this.buttonClose.Text = "Cancel";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // groupBoxPD
             // 
@@ -132,6 +121,7 @@
             this.comboBoxSE.Name = "comboBoxSE";
             this.comboBoxSE.Size = new System.Drawing.Size(305, 21);
             this.comboBoxSE.TabIndex = 0;
+            this.comboBoxSE.SelectedIndexChanged += new System.EventHandler(this.comboBoxSE_SelectedIndexChanged);
             // 
             // buttonDelete
             // 
@@ -161,7 +151,6 @@
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBoxPD);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(360, 251);
@@ -183,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBoxPD;
         private System.Windows.Forms.TextBox textBoxP;
         private System.Windows.Forms.TextBox textBoxPN;

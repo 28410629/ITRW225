@@ -642,11 +642,12 @@
             // 
             this.button2.Location = new System.Drawing.Point(12, 620);
             this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(304, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Cancel";
+            this.button2.Text = "Process Payment";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // UI_POSViewOrder
             // 
@@ -737,11 +738,11 @@
         private System.Windows.Forms.TextBox textBoxEmpCreatedName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.TextBox textBoxProcessedDate;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBoxOrderCreatedDate;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button2;
     }
 }

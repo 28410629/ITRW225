@@ -39,24 +39,24 @@ namespace ITRW225_Information_System
 
         private void textBoxCN_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderCN, BE_Enum.NumberType.CELL, null, -1, "Not ID");
             //ValidateComponent((TextBox)sender, e, errorProviderCN);
         }
 
         private void textBoxCN2_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderVAT, BE_Enum.NumberType.CELL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderVAT, BE_Enum.NumberType.CELL, null, -1, "Not ID");
         }
 
         private void textBoxID_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderID, BE_Enum.NumberType.ID, idDetails, 0, "Add");
             //ValidateComponent((TextBox)sender, e, errorProviderID);
         }
 
         private void textBoxEA_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14);
+            validation.ValidateEmail((TextBox)sender, e, errorProviderEA, idDetails, 14, "Add");
             //ValidateEmail((TextBox)sender, e, errorProviderEA);
         }
 
@@ -80,7 +80,7 @@ namespace ITRW225_Information_System
 
         private void textBoxPC_Validating_1(object sender, CancelEventArgs e)
         {
-            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderPC, BE_Enum.NumberType.POSTAL, null, -1, "Not ID");
             //ValidateComponent((TextBox)sender, e, errorProviderPC);
         }
 
@@ -186,7 +186,6 @@ namespace ITRW225_Information_System
 
         private void UI_EmployeeAdd_Load(object sender, EventArgs e)
         {
-            buttonClose.Focus();
             BE_DatabaseCommands commands = new BE_DatabaseCommands();
             idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
             employeeType = commands.retrieveDB("PERSON_TYPE");

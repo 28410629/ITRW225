@@ -40,28 +40,35 @@ namespace ITRW225_Information_System
             {
                 try
                 {
-                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                    switch (MessageBox.Show(this, "Are you sure you want to update details?", "Update Details", MessageBoxButtons.YesNo))
                     {
-                        string query = String.Format("UPDATE PRODUCT SET Product_Name = '{0}', Product_Price = @1 WHERE Product_Number = {1}", textBoxPN.Text, products[comboBoxSE.SelectedIndex][0]);
-                        db.Open();
-                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PRODUCT", db);
-                        OleDbCommand command = new OleDbCommand(query, db);
-                        command.Parameters.Add("@1", OleDbType.Double).Value = amount;
-                        adapter.InsertCommand = command;
-                        adapter.InsertCommand.ExecuteNonQuery();
-                        db.Close();
+                        case DialogResult.No:
+                            break;
+                        case DialogResult.Yes:
+                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                            {
+                                string query = String.Format("UPDATE PRODUCT SET Product_Name = '{0}', Product_Price = @1 WHERE Product_Number = {1}", textBoxPN.Text, products[comboBoxSE.SelectedIndex][0]);
+                                db.Open();
+                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PRODUCT", db);
+                                OleDbCommand command = new OleDbCommand(query, db);
+                                command.Parameters.Add("@1", OleDbType.Double).Value = amount;
+                                adapter.InsertCommand = command;
+                                adapter.InsertCommand.ExecuteNonQuery();
+                                db.Close();
+                            }
+                            MessageBox.Show("Successfully updated database!");
+                            ClearTextBoxes();
+                            comboBoxSE.Items.Clear();
+                            UI_ProductEdit_Load(sender, e);
+                            break;
+                        default:
+                            break;
                     }
-                    MessageBox.Show("Successfully updated database!");
-                    ClearTextBoxes();
-                    comboBoxSE.Items.Clear();
-                    UI_ProductEdit_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
                     BE_LogSystem log = new BE_LogSystem(ex);
                     log.saveError();
-                    MessageBox.Show("Failed updating database!");
-                    buttonSave.Enabled = true;
                 }
             }
         }
@@ -189,6 +196,12 @@ namespace ITRW225_Information_System
                 MessageBox.Show("Failed updating database!");
                 buttonSave.Enabled = true;
             }
+        }
+
+        private void comboBoxSE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxPN.Text = products[comboBoxSE.SelectedIndex][1];
+            textBoxP.Text = products[comboBoxSE.SelectedIndex][2];
         }
     }
 }

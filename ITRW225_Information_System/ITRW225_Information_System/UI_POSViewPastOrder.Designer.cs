@@ -106,7 +106,7 @@
             this.groupBox2.Size = new System.Drawing.Size(466, 426);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "All Recorded Orders Daily Count";
+            this.groupBox2.Text = "Daily Count - All Orders";
             // 
             // chart1
             // 
