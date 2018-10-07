@@ -189,7 +189,7 @@ namespace ITRW225_Information_System
                         {
                             MessageBox.Show("Successfully processed payment!");
                         }
-                        UI_POSViewOrder user = new UI_POSViewOrder(mainForm, arr[0], true);
+                        UI_POSViewOrder user = new UI_POSViewOrder(mainForm, arr[0], true, userArr);
                         user.MdiParent = mainForm;
                         user.Show();
                         Close();
@@ -238,6 +238,16 @@ namespace ITRW225_Information_System
             {
                 listView1.Items.Remove(listView1.SelectedItems[0]);
             }
+            calculateMoneyGiven();
+        }
+
+        private void listView1_MouseLeave(object sender, EventArgs e)
+        {
+            calculateMoneyGiven();
+        }
+
+        private void listView1_Leave(object sender, EventArgs e)
+        {
             calculateMoneyGiven();
         }
     }

@@ -75,6 +75,8 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.listView1_AfterLabelEdit);
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.Leave += new System.EventHandler(this.listView1_Leave);
+            this.listView1.MouseLeave += new System.EventHandler(this.listView1_MouseLeave);
             // 
             // columnQ
             // 

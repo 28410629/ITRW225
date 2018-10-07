@@ -7,11 +7,14 @@ namespace ITRW225_Information_System
     public partial class UI_POSViewPastOrder : Form
     {
         private List<string[]> order;
-        Form mainForm;
-        public UI_POSViewPastOrder(Form mainForm)
+        private Form mainForm;
+        private string[] userArr;
+
+        public UI_POSViewPastOrder(Form mainForm, string[] userArr)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            this.userArr = userArr;
         }
 
         private void UI_POSViewPastOrder_FormClosing(object sender, FormClosingEventArgs e)
@@ -34,7 +37,7 @@ namespace ITRW225_Information_System
                     selected = i;
                 }
             }
-            UI_POSViewOrder user = new UI_POSViewOrder(mainForm, order[selected][0], false);
+            UI_POSViewOrder user = new UI_POSViewOrder(mainForm, order[selected][0], false, userArr);
             user.MdiParent = mainForm;
             user.Show();
             Close();

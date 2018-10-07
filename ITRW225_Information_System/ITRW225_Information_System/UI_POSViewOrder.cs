@@ -15,14 +15,17 @@ namespace ITRW225_Information_System
         private List<string[]> persons;
         private List<string[]> contactDetails;
         private List<string[]> products;
+        private List<string[]> order;
+        private string[] userArr;
         private bool sendInvoice;
 
-        public UI_POSViewOrder(Form mainForm, string Client_Order_Code, bool sendInvoice)
+        public UI_POSViewOrder(Form mainForm, string Client_Order_Code, bool sendInvoice, string[] userArr)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.Client_Order_Code = Client_Order_Code;
             this.sendInvoice = sendInvoice;
+            this.userArr = userArr;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -168,6 +171,20 @@ namespace ITRW225_Information_System
                 {
                     button1_Click(sender, e);
                 }
+
+                if (string.IsNullOrWhiteSpace(textBoxEmpProcessName.Text) || string.IsNullOrWhiteSpace(textBoxEmpProcessID.Text) || string.IsNullOrWhiteSpace(textBoxProcessedDate.Text))
+                {
+                    button1.Enabled = false;
+                }
+                else if (textBoxEmpProcessName.Text == "Canceled")
+                {
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                }
+                else
+                {
+                    button2.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -183,6 +200,50 @@ namespace ITRW225_Information_System
                 UI_Dashboard dashboard = new UI_Dashboard();
                 dashboard.MdiParent = mainForm;
                 dashboard.Show();
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                bool process = true;
+                foreach (var item in mainForm.MdiChildren)
+                {
+                    if (item is UI_POSProcessPayment)
+                    {
+                        item.Focus();
+                        MessageBox.Show("Please finish payment process before doing another, thank you!");
+                        process = false;
+                        return;
+                    }
+                    if (item is UI_Dashboard)
+                    {
+                        item.Close();
+                    }
+                }
+                if (process)
+                {
+                    order = commands.retrieveCustomDB("SELECT * FROM CLIENT_ORDER, CONTACT_DETAILS, PERSON WHERE CLIENT_ORDER.Client_ID = CONTACT_DETAILS.Person_ID AND CLIENT_ORDER.Client_ID = PERSON.Person_ID AND CLIENT_ORDER.Payment_Processed = False AND CLIENT_ORDER.Order_Cancelled = False ORDER BY CLIENT_ORDER.Date_Created ASC");
+                    int selected = 0;
+                    for (int i = 0; i < order.Count; i++)
+                    {
+                        if (order[i][0] == clientOrder[0][0])
+                        {
+                            selected = i;
+                        }
+                    }
+                    UI_POSProcessPayment user = new UI_POSProcessPayment(mainForm, order[selected], userArr);
+                    user.MdiParent = mainForm;
+                    user.Show();
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
         }
     }

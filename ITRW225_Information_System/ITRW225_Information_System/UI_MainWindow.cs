@@ -329,7 +329,7 @@ namespace ITRW225_Information_System
                     item.Close();
                 }
             }
-            UI_POSViewPastOrder employee = new UI_POSViewPastOrder(this);
+            UI_POSViewPastOrder employee = new UI_POSViewPastOrder(this, userArr);
             employee.MdiParent = this;
             employee.Show();
         }
