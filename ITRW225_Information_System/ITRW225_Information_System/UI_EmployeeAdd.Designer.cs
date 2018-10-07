@@ -40,7 +40,6 @@
             this.errorProviderS = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPC = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxAD = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxS = new System.Windows.Forms.TextBox();
@@ -136,23 +135,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(202, 434);
+            this.buttonSave.Location = new System.Drawing.Point(12, 434);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(127, 23);
+            this.buttonSave.Size = new System.Drawing.Size(317, 23);
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Add";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Location = new System.Drawing.Point(12, 434);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 0;
-            this.buttonClose.Text = "Cancel";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // groupBoxAD
             // 
@@ -504,7 +493,6 @@
             this.ClientSize = new System.Drawing.Size(342, 463);
             this.Controls.Add(this.groupBoxPosition);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBoxPD);
             this.Controls.Add(this.groupBoxAD);
             this.Controls.Add(this.groupBoxCI);
@@ -551,7 +539,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderS;
         private System.Windows.Forms.ErrorProvider errorProviderPC;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBoxAD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxS;

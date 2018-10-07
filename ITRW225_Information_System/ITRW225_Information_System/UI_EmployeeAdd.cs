@@ -186,7 +186,6 @@ namespace ITRW225_Information_System
 
         private void UI_EmployeeAdd_Load(object sender, EventArgs e)
         {
-            buttonClose.Focus();
             BE_DatabaseCommands commands = new BE_DatabaseCommands();
             idDetails = commands.retrieveCustomDB("SELECT * FROM PERSON, CONTACT_DETAILS WHERE PERSON.Person_ID = CONTACT_DETAILS.Person_ID");
             employeeType = commands.retrieveDB("PERSON_TYPE");

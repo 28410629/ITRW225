@@ -37,12 +37,6 @@ namespace ITRW225_Information_System
             }
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-            e.Cancel = false;
-        }
-
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

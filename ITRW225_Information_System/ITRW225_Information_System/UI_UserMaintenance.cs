@@ -186,7 +186,6 @@ namespace ITRW225_Information_System
         {
             buttonAllow.Enabled = selection;
             buttonDeny.Enabled = selection;
-            buttonClose.Enabled = selection;
             buttonSave.Enabled = selection;
         }
 

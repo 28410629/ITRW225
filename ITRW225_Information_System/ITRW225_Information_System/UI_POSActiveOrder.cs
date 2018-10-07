@@ -35,32 +35,41 @@ namespace ITRW225_Information_System
         {
             try
             {
-                if (listView1.SelectedItems.Count == 1)
+                switch (MessageBox.Show(this, "Are you sure you want to cancel the order?", "Cancel Order", MessageBoxButtons.YesNo))
                 {
-                    string query = "UPDATE CLIENT_ORDER SET Order_Cancelled = True, Date_Created = @1 WHERE Client_Order_Code = ";
-                    while (listView1.SelectedItems.Count > 0)
-                    {
-                        query += listView1.SelectedItems[0].SubItems[0].Text.ToString();
-                        listView1.Items.Remove(listView1.SelectedItems[0]);
-                    }
-                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                    {
-                        db.Open();
-                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM CLIENT_ORDER", db);
-                        OleDbCommand command = new OleDbCommand(query, db);
-                        command.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
-                        adapter.InsertCommand = command;
-                        adapter.InsertCommand.ExecuteNonQuery();
-                        db.Close();
-                    }
-                }
-                else if (listView1.SelectedItems.Count == 0)
-                {
-                    MessageBox.Show("Please select an order to cancel.");
-                }
-                else
-                {
-                    MessageBox.Show("Multiple cancelations are not allowed!");
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Yes:
+                        if (listView1.SelectedItems.Count == 1)
+                        {
+                            string query = "UPDATE CLIENT_ORDER SET Order_Cancelled = True, Date_Created = @1 WHERE Client_Order_Code = ";
+                            while (listView1.SelectedItems.Count > 0)
+                            {
+                                query += listView1.SelectedItems[0].SubItems[0].Text.ToString();
+                                listView1.Items.Remove(listView1.SelectedItems[0]);
+                            }
+                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                            {
+                                db.Open();
+                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM CLIENT_ORDER", db);
+                                OleDbCommand command = new OleDbCommand(query, db);
+                                command.Parameters.Add("@1", OleDbType.Date).Value = DateTime.Today;
+                                adapter.InsertCommand = command;
+                                adapter.InsertCommand.ExecuteNonQuery();
+                                db.Close();
+                            }
+                        }
+                        else if (listView1.SelectedItems.Count == 0)
+                        {
+                            MessageBox.Show("Please select an order to cancel.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Multiple cancelations are not allowed!");
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
             catch (Exception ex)

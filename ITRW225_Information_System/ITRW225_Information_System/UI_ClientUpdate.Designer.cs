@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxSE = new System.Windows.Forms.ComboBox();
             this.groupBoxAD = new System.Windows.Forms.GroupBox();
@@ -88,23 +87,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(202, 430);
+            this.buttonSave.Location = new System.Drawing.Point(12, 430);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(127, 23);
+            this.buttonSave.Size = new System.Drawing.Size(317, 23);
             this.buttonSave.TabIndex = 5;
             this.buttonSave.Text = "Update";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Location = new System.Drawing.Point(12, 430);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(127, 23);
-            this.buttonClose.TabIndex = 0;
-            this.buttonClose.Text = "Cancel";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // groupBox1
             // 
@@ -510,7 +499,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 464);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxAD);
             this.Controls.Add(this.groupBoxPD);
@@ -548,7 +536,6 @@
 
         #endregion
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxSE;
         private System.Windows.Forms.GroupBox groupBoxAD;

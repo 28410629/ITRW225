@@ -190,5 +190,11 @@ namespace ITRW225_Information_System
                 buttonSave.Enabled = true;
             }
         }
+
+        private void comboBoxSE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxPN.Text = products[comboBoxSE.SelectedIndex][1];
+            textBoxP.Text = products[comboBoxSE.SelectedIndex][2];
+        }
     }
 }
