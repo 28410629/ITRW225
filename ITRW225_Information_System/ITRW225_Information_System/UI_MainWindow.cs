@@ -457,7 +457,7 @@ namespace ITRW225_Information_System
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This application was created by Group 10\nfor ITRW225 semester project.\n\nMembers include:\n- ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("This application was created by Group 10\nfor ITRW225 semester project.\n\nMembers include:\n- Coenraad Human 28410629\n- Heino Nel 26056984\n- Pieter Brand 28633512\n- Savannah Fritze 29158710", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

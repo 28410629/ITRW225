@@ -83,7 +83,8 @@ namespace ITRW225_Information_System
 
         private void textBoxCN2_Validating(object sender, CancelEventArgs e)
         {
-            validation.ValidateComponent((TextBox)sender, e, errorProviderCN2);
+            //validation.ValidateComponent((TextBox)sender, e, errorProviderCN2);
+            validation.ValidateNumber((TextBox)sender, e, errorProviderCN2, BE_Enum.NumberType.CELL, null, -1);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

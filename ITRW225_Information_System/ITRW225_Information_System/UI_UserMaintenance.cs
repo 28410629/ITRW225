@@ -70,6 +70,7 @@ namespace ITRW225_Information_System
                     case DialogResult.No:
                         break;
                     case DialogResult.Yes:
+                        enableButtons(false);
                         string query = null;
                         if (!String.IsNullOrWhiteSpace(textBoxP1.Text))
                         {
@@ -104,6 +105,9 @@ namespace ITRW225_Information_System
                                 db.Close();
                             }
                             MessageBox.Show("Updated Permission!");
+                            comboBoxEmployee.Items.Clear();
+                            UI_UserMaintenance_Load(sender, e);
+                            enableButtons(true);
                         }
                         break;
                     default:
@@ -127,46 +131,29 @@ namespace ITRW225_Information_System
         private void buttonAllow_Click(object sender, EventArgs e)
         {
             enableButtons(false);
-            setAccess("True");
+            setAccess(true);
             enableButtons(true);
         }
 
         private void buttonDeny_Click(object sender, EventArgs e)
         {
             enableButtons(false);
-            setAccess("False");
+            setAccess(false);
             enableButtons(true);
         }
 
-        private void setAccess(string selection)
+        private void setAccess(bool permission)
         {
             for (int i = 0; i < listE.Count; i++)
             {
                 if (listE[i][1] + " " + listE[i][2] == comboBoxEmployee.SelectedItem.ToString())
                 {
-                    string message = accessSystemDB(selection, listE[i][0]);
-                    if (message == "Updated access permission to system!")
-                    {
-                        MessageBox.Show("Access updated!");
-                        labelStatus.Text = "User can access system.";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Access not updated!");
-                        if (Convert.ToBoolean(listE[i][14]))
-                        {
-                            labelStatus.Text = "User can access system.";
-                        }
-                        else
-                        {
-                            labelStatus.Text = "User is denied access to system.";
-                        }
-                    }
+                    labelStatus.Text = accessSystemDB(permission, Convert.ToBoolean(listE[i][15]), listE[i][0]);
                 }
             }
         }
 
-        public string accessSystemDB(string access, string employeeID)
+        public string accessSystemDB(bool newPermission, bool oldPermission, string employeeID)
         {
             try
             {
@@ -176,18 +163,33 @@ namespace ITRW225_Information_System
                     database.Open();
                     OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM LOGIN", database);
                     OleDbCommand command = new OleDbCommand(String.Format("UPDATE LOGIN SET [A_TO_SYSTEM] = @0 WHERE [Person_ID] = '{0}'", employeeID), database);
-                    command.Parameters.Add("@0", OleDbType.Boolean).Value = access;
+                    command.Parameters.Add("@0", OleDbType.Boolean).Value = newPermission;
                     adapter.InsertCommand = command;
                     adapter.InsertCommand.ExecuteNonQuery();
                     database.Close();
                 }
-                return "Updated access permission to system!";
+                if (newPermission)
+                {
+                    return "Updated, user is allowed to access system!";
+                }
+                else
+                {
+                    return "Updated, user is deniend access to system!";
+                }
             }
             catch (Exception ex)
             {
                 BE_LogSystem log = new BE_LogSystem(ex);
                 log.saveError();
-                return "Failed updating access permission to system!";
+                if (oldPermission)
+                {
+                    return "Failed updating, access still granted";
+                }
+                else
+                {
+                    return "Failed updating, access still denied";
+                }
+                
             }
         }
 
