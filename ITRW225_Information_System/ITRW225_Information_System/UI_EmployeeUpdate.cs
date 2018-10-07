@@ -79,56 +79,65 @@ namespace ITRW225_Information_System
             {
                 try
                 {
-                    switch (comboBoxCN.SelectedItem.ToString())
+                    switch (MessageBox.Show(this, "Are you sure you want to update details?", "Update Details", MessageBoxButtons.YesNo))
                     {
-                        case "Eastern Cape":
-                            MessageBox.Show("Inappropriate location selection.");
+                        case DialogResult.No:
                             break;
-                        case "Free State":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "Gauteng":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "KwaZulu-Natal":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "Limpopo":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "Mpumalanga":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "North West":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "Northern Cape":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "Western Cape":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "":
-                            MessageBox.Show("Inappropriate location selection.");
-                            break;
-                        case "Please select location.":
-                            MessageBox.Show("Please select appropriate location.");
+                        case DialogResult.Yes:
+                            switch (comboBoxCN.SelectedItem.ToString())
+                            {
+                                case "Eastern Cape":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Free State":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Gauteng":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "KwaZulu-Natal":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Limpopo":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Mpumalanga":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "North West":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Northern Cape":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Western Cape":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "":
+                                    MessageBox.Show("Inappropriate location selection.");
+                                    break;
+                                case "Please select location.":
+                                    MessageBox.Show("Please select appropriate location.");
+                                    break;
+                                default:
+                                    buttonSave.Enabled = false;
+                                    // this adds person
+                                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                                    {
+                                        string query = String.Format("UPDATE PERSON INNER JOIN CONTACT_DETAILS ON PERSON.Person_ID = CONTACT_DETAILS.Person_ID SET PERSON.Person_ID = '" + textBoxID.Text + "', CONTACT_DETAILS.Person_ID = '" + textBoxID.Text + "', PERSON.Person_Name = '" + textBoxFN.Text + "', PERSON.Person_Surname = '" + textBoxLN.Text + "', CONTACT_DETAILS.House_Number = '" + textBoxHN.Text + "', CONTACT_DETAILS.Street_Name = '" + textBoxSN.Text + "', CONTACT_DETAILS.Postal_Code = '" + textBoxPC.Text + "', CONTACT_DETAILS.Cell_Number_1 = '" + textBoxCN.Text + "', CONTACT_DETAILS.Cell_Number_2 = '" + textBoxCN2.Text + "', CONTACT_DETAILS.Suburb = '" + textBoxS.Text + "', CONTACT_DETAILS.City = '" + comboBoxCN.SelectedItem.ToString() + "', CONTACT_DETAILS.Email_Address = '" + textBoxEA.Text + "',PERSON.Person_Type = " + (comboBoxP.SelectedIndex + 1) + "   WHERE PERSON.Person_ID = '" + oldEmployeeID + "'");
+                                        db.Open();
+                                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
+                                        OleDbCommand command = new OleDbCommand(query, db);
+                                        adapter.InsertCommand = command;
+                                        adapter.InsertCommand.ExecuteNonQuery();
+                                        db.Close();
+                                    }
+                                    MessageBox.Show("Successfully updated database!");
+                                    buttonSave.Enabled = true;
+                                    break;
+                            }
                             break;
                         default:
-                            buttonSave.Enabled = false;
-                            // this adds person
-                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                            {
-                                string query = String.Format("UPDATE PERSON INNER JOIN CONTACT_DETAILS ON PERSON.Person_ID = CONTACT_DETAILS.Person_ID SET PERSON.Person_ID = '" + textBoxID.Text + "', CONTACT_DETAILS.Person_ID = '" + textBoxID.Text + "', PERSON.Person_Name = '" + textBoxFN.Text + "', PERSON.Person_Surname = '" + textBoxLN.Text + "', CONTACT_DETAILS.House_Number = '" + textBoxHN.Text + "', CONTACT_DETAILS.Street_Name = '" + textBoxSN.Text + "', CONTACT_DETAILS.Postal_Code = '" + textBoxPC.Text + "', CONTACT_DETAILS.Cell_Number_1 = '" + textBoxCN.Text + "', CONTACT_DETAILS.Cell_Number_2 = '" + textBoxCN2.Text + "', CONTACT_DETAILS.Suburb = '" + textBoxS.Text + "', CONTACT_DETAILS.City = '" + comboBoxCN.SelectedItem.ToString() + "', CONTACT_DETAILS.Email_Address = '" + textBoxEA.Text + "',PERSON.Person_Type = " + (comboBoxP.SelectedIndex + 1) + "   WHERE PERSON.Person_ID = '" + oldEmployeeID + "'");
-                                db.Open();
-                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM PERSON", db);
-                                OleDbCommand command = new OleDbCommand(query, db);
-                                adapter.InsertCommand = command;
-                                adapter.InsertCommand.ExecuteNonQuery();
-                                db.Close();
-                            }
-                            MessageBox.Show("Successfully updated database!");
-                            buttonSave.Enabled = true;
                             break;
                     }
                 }
@@ -136,8 +145,6 @@ namespace ITRW225_Information_System
                 {
                     BE_LogSystem log = new BE_LogSystem(ex);
                     log.saveError();
-                    MessageBox.Show("Failed updating database!");
-                    buttonSave.Enabled = true;
                 }
             }
         }

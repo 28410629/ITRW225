@@ -19,7 +19,7 @@ namespace ITRW225_Information_System
 
         private void UI_MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
+            /*switch (MessageBox.Show(this, "Are you sure you want to logout?", "Logging Out", MessageBoxButtons.YesNo))
             {
                 case DialogResult.No:
                     e.Cancel = true;
@@ -34,7 +34,19 @@ namespace ITRW225_Information_System
                     break;
                 default:
                     break;
+            }*/
+            foreach (var item in MdiChildren)
+            {
+                item.Close();
             }
+            loginWindow.ShowInTaskbar = true;
+            loginWindow.Show();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            e.Cancel = false;
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)

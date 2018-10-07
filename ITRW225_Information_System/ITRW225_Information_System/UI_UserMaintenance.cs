@@ -65,40 +65,49 @@ namespace ITRW225_Information_System
             enableButtons(false);
             try
             {
-                string query = null;
-                if (!String.IsNullOrWhiteSpace(textBoxP1.Text))
+                switch (MessageBox.Show(this, "Are you sure you want to update details?", "Update Details", MessageBoxButtons.YesNo))
                 {
-                    if (textBoxP1.Text == textBoxP2.Text)
-                    {
-                        query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [Person_ID] = '{1}'", commands.hashPassword(textBoxP1.Text), employee);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please ensure passwords are the same, thank you.");
-                    }
-                }
-                else
-                {
-                    query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5 WHERE [Person_ID] = '{0}'", employee);
-                }
-                if (!String.IsNullOrWhiteSpace(query))
-                {
-                    using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
-                    {
-                        db.Open();
-                        OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM LOGIN", db);
-                        OleDbCommand command = new OleDbCommand(query, db);
-                        command.Parameters.Add("@0", OleDbType.Boolean).Value = checkBoxCM.Checked;
-                        command.Parameters.Add("@1", OleDbType.Boolean).Value = checkBoxEM.Checked;
-                        command.Parameters.Add("@2", OleDbType.Boolean).Value = checkBoxPOS.Checked;
-                        command.Parameters.Add("@3", OleDbType.Boolean).Value = checkBoxR.Checked;
-                        command.Parameters.Add("@4", OleDbType.Boolean).Value = checkBoxUM.Checked;
-                        command.Parameters.Add("@5", OleDbType.Boolean).Value = checkBoxS.Checked;
-                        adapter.InsertCommand = command;
-                        adapter.InsertCommand.ExecuteNonQuery();
-                        db.Close();
-                    }
-                    MessageBox.Show("Updated Permission!");
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Yes:
+                        string query = null;
+                        if (!String.IsNullOrWhiteSpace(textBoxP1.Text))
+                        {
+                            if (textBoxP1.Text == textBoxP2.Text)
+                            {
+                                query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5, [PASSWORD] = '{0}' WHERE [Person_ID] = '{1}'", commands.hashPassword(textBoxP1.Text), employee);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please ensure passwords are the same, thank you.");
+                            }
+                        }
+                        else
+                        {
+                            query = String.Format("UPDATE LOGIN SET [A_CLIENT_MAINTENANCE] = @0, [A_EMPLOYEE_MAINTENANCE] = @1, [A_POINTS_OF_SALE] = @2, [A_REPORTS] = @3, [A_USER_MAINTENANCE] = @4, [A_SETTINGS] = @5 WHERE [Person_ID] = '{0}'", employee);
+                        }
+                        if (!String.IsNullOrWhiteSpace(query))
+                        {
+                            using (OleDbConnection db = new OleDbConnection(Properties.Settings.Default.DatabaseConnectionString))
+                            {
+                                db.Open();
+                                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM LOGIN", db);
+                                OleDbCommand command = new OleDbCommand(query, db);
+                                command.Parameters.Add("@0", OleDbType.Boolean).Value = checkBoxCM.Checked;
+                                command.Parameters.Add("@1", OleDbType.Boolean).Value = checkBoxEM.Checked;
+                                command.Parameters.Add("@2", OleDbType.Boolean).Value = checkBoxPOS.Checked;
+                                command.Parameters.Add("@3", OleDbType.Boolean).Value = checkBoxR.Checked;
+                                command.Parameters.Add("@4", OleDbType.Boolean).Value = checkBoxUM.Checked;
+                                command.Parameters.Add("@5", OleDbType.Boolean).Value = checkBoxS.Checked;
+                                adapter.InsertCommand = command;
+                                adapter.InsertCommand.ExecuteNonQuery();
+                                db.Close();
+                            }
+                            MessageBox.Show("Updated Permission!");
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
             catch (Exception ex)
