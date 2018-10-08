@@ -140,6 +140,7 @@ namespace ITRW225_Information_System
         {
             try
             {
+                nonthSales.Clear();
                 chart1.ChartAreas[0].AxisX.Interval = 2;
                 chart1.Titles["Title1"].Text = "Daily Sales For " + dateTimePicker1.Value.ToString("MMMM") + " " + dateTimePicker1.Value.Year;
                 chart1.Series["Sales"].Points.Clear();
