@@ -47,36 +47,52 @@ namespace ITRW225_Information_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!Directory.Exists(Properties.Settings.Default.ReportsSavePath))
+            try
             {
-                Directory.CreateDirectory(Properties.Settings.Default.ReportsSavePath);
+                if (!Directory.Exists(Properties.Settings.Default.ReportsSavePath))
+                {
+                    Directory.CreateDirectory(Properties.Settings.Default.ReportsSavePath);
+                }
+                string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Month - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
+                chart1.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+                BE_PDF_SalesMonthly saled = new BE_PDF_SalesMonthly();
+                if (nonthSales.Count == 0)
+                {
+                    string[] date = new string[] { dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + "0000000", "", "" };
+                    nonthSales.Add(date);
+                }
+                saled.createPDF(path, nonthSales);
             }
-            string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Month - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
-            chart1.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
-            BE_PDF_SalesMonthly saled = new BE_PDF_SalesMonthly();
-            if (nonthSales.Count == 0)
+            catch (Exception ex)
             {
-                string[] date = new string[] { dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + "0000000", "", "" };
-                nonthSales.Add(date);
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
-            saled.createPDF(path, nonthSales);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!Directory.Exists(Properties.Settings.Default.ReportsSavePath))
+            try
             {
-                Directory.CreateDirectory(Properties.Settings.Default.ReportsSavePath);
+                if (!Directory.Exists(Properties.Settings.Default.ReportsSavePath))
+                {
+                    Directory.CreateDirectory(Properties.Settings.Default.ReportsSavePath);
+                }
+                string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Day - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
+                chart2.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+                BE_PDF_SalesDay saled = new BE_PDF_SalesDay();
+                if (daySales.Count == 0)
+                {
+                    string[] date = new string[] { "", "", "", "", "", dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + "0000000" };
+                    daySales.Add(date);
+                }
+                saled.createPDF(path, daySales);
             }
-            string path = Properties.Settings.Default.ReportsSavePath + "\\Sales Report Day - " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "_" + DateTime.Now.ToString("hmm") + ".png";
-            chart2.SaveImage(path, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
-            BE_PDF_SalesDay saled = new BE_PDF_SalesDay();
-            if(daySales.Count == 0)
+            catch (Exception ex)
             {
-                string[] date = new string[] { "", "", "", "", "", dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + "0000000"};
-                daySales.Add(date);
+                BE_LogSystem log = new BE_LogSystem(ex);
+                log.saveError();
             }
-            saled.createPDF(path, daySales);
         }
 
         private void UI_ReportSales_FormClosing(object sender, FormClosingEventArgs e)
