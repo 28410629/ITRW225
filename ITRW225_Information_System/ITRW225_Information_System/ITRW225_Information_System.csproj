@@ -26,9 +26,10 @@
     <ProductName>ITRW225 2018 - Group 10 - Mr Salad</ProductName>
     <PublisherName>ITRW225 2018 - Group 10 - Mr Salad</PublisherName>
     <SuiteName>ITRW225 2018 - Group 10 - Mr Salad</SuiteName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
