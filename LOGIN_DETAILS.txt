@@ -1,0 +1,10 @@
+The following is login details for the system:
+
+Users = 
+coen.human@gmail.com
+savannahtfritze@gmail.com
+pbrand61@gmail.com
+heino1369@gmail.com
+
+Password = 
+admin
